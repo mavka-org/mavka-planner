@@ -11,6 +11,7 @@ const TextBox = withStyles({
     border:'1px solid black',
     backgroundColor: 'white',
     padding: '0px 0px 12px 0px',
+    fontFamily: 'Gilroy-Regular',
   },
 })(TextField);
 const Input = props => {

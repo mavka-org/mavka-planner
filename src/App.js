@@ -1,14 +1,11 @@
-import Input  from "./UI/Input/Input";
-
+import Input from './UI/Input/Input'
+import './index.css'
 
 
 function App() {
   return (
     <div className="App">
-      <Input 
-        placeholder='Пароль'
-        
-      />
+      <Input />
     </div>
   );
 }
