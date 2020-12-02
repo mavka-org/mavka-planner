@@ -1,6 +1,7 @@
 import './index.css'
 import Login from './screens/Login/Login';
-import Planner from  './models/planner/planner'
+import Program from  './models/program/program'
+import Topic from  './models/program/topic'
 
 function App() {
   return (
@@ -9,5 +10,9 @@ function App() {
     </div>
   );
 }
+
+let program_json = require('./models/program/sample_json.json')
+let prog = new Program(program_json);
+console.log(prog)
 
 export default App;
