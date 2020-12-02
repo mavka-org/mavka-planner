@@ -10,8 +10,4 @@ function App() {
   );
 }
 
-const json = require('./models/planner/sample.json')
-let w = new Planner(json);
-console.log(w);
-
 export default App;
