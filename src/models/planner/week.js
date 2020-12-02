@@ -3,11 +3,11 @@ import { TopicEvent, UrlEvent, TextEvent } from "./event";
 
 class Week {
     constructor(id, json){
-        this.id = id;
-        this.start_date = new Date(json['start_date'] + 'T00:00:00');
-        this.end_date = new Date(json['end_date'] + 'T23:59:59');
+        this.id = id
+        this.start_date = new Date(json['start_date'] + 'T00:00:00')
+        this.end_date = new Date(json['end_date'] + 'T23:59:59')
         this.dates = format(this.start_date, 'dd.MM') + ' - ' + format(this.end_date, 'dd.MM')
-        this.events = [];
+        this.events = []
 
         let event_types_classes = {
             'topic': TopicEvent,
@@ -25,16 +25,14 @@ class Week {
 
     is_past_week() {
         // returns true if the week ended before today
-        return Date() > this.end_date
+        return new Date() > this.end_date
     }
 
     is_fully_completed() {
         // returns true if every event of the week is completed
-        this.events.forEach(function (event) {
-            if (event.completed == false) {
-                return false
-            }
-        });
+        for(var event of this.events) {
+            if (event.completed === false) return false
+        }
         return true
     }
 }

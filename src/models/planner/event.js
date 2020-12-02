@@ -5,6 +5,12 @@ class Event {
         this.completed = json['completed']
         this.type = json['type']
     }
+
+    change_completed() {
+        // changes this.completed to opposite value and returns it
+        this.completed = !this.completed
+        return this.completed
+    }
 }
 
 
