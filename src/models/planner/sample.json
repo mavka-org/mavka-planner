@@ -1,5 +1,20 @@
 {
    "weeks":[
+	   {
+          "start_date":"2020-11-24",
+          "end_date":"2020-11-29",
+          "events":[
+             {
+                "event_id":"math-topic-0",
+                "type":"topic",
+                "completed":false,
+                "data":{
+                   "topic_name":"Дійсні числа",
+                   "chapter_id":0,
+                   "topic_id":0,
+                   "order_n":0
+                }
+             },
       {
          "start_date":"2020-11-30",
          "end_date":"2020-12-06",
