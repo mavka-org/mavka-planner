@@ -1,0 +1,1255 @@
+{
+	"math-topic-0":{
+		"event_id":"math-topic-0",
+		"topic_id":"0",
+		"type":"topic",
+		"data":{
+			"name":"Дійсні числа",
+			"order_n":0,
+			"chapter_id":0,
+			"time_coef":0.02631578947,
+			"study_guide_link":"https://drive.google.com/file/d/1OKjNmg8G-38BCGxRYtW-qUkgESd0LQgL/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-dijsni_chysla/",
+			"skills_reqs":{
+				"standard":[
+					"Властивості дій з дійсними числами",
+					"Правила порівняння дійсних чисел",
+					"Розрізняти види чисел та числових проміжків",
+					"Порівнювати дійсні числа",
+					"Виконувати дії з дійсними числами",
+					"Використовувати ознаки подільності чисел на 2, 3, 5, 9, 10",
+					"Знаходити неповну та остачу від ділення одного натурального числа на інше",
+					"Перетворювати звичайний дріб у десятковий",
+					"Округлювати цілі числа й десяткові дроби",
+					"Використовувати властивості модуля до розв'язування задач"
+				],
+				"pro":[
+					"Знаходити найбільший спільний дільник та найменше спільне кратне двох (кількох) чисел",
+					"Перетворювати нескінченний періодичний дріб у звичайний"
+				]
+			},
+			"study_materials":{
+				"0":{
+					"link":"https://www.geeksforgeeks.org/python-dictionary/",
+					"title":"Відео до дійсних чисел",
+					"tags":[
+						"відео",
+						"фото"
+					],
+					"recommender":"Жорік"
+				}
+			}
+		}
+	},
+	"math-topic-1":{
+		"event_id":"math-topic-1",
+		"topic_id":"1",
+		"type":"topic",
+		"data":{
+			"name":"Відношення та пропорції. Відсотки. Текстові задачі",
+			"order_n":1,
+			"chapter_id":0,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/2.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-vidnoshennya_ta_proporciyi/",
+			"skills_reqs":{
+				"standard":[
+					"Знаходити відношення чисел у вигляді відсотка, відсоток від числа, число за значенням його відсотка",
+					"Розв'язувати основні задачі на відсотки, на пропорційні величини й пропорційний поділ",
+					"Розв'язувати текстові задачі арифметичним способом"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-2":{
+		"event_id":"math-topic-2",
+		"topic_id":"2",
+		"type":"topic",
+		"data":{
+			"name":"Цілі раціональні вирази",
+			"order_n":2,
+			"chapter_id":0,
+			"time_coef":0.01674641148,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/4.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+			"skills_reqs":{
+				"standard":[
+					"Означення тотожно рівних виразів, тотожного перетворення виразу, тотожності",
+					"Означення одночлена та многочлена",
+					"Правила додавання, віднімання й множення одночленів та многочленів",
+					"Формули скороченого множення",
+					"Розклад многочлена на множники",
+					"Виконувати тотожні перетворення раціональних виразів та знаходити їх числові значення"
+				],
+				"pro":[
+					"Означення області допустимих значень змінних, виразу зі змінними",
+					"Доводити тотожності"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-3":{
+		"event_id":"math-topic-3",
+		"topic_id":"3",
+		"type":"topic",
+		"data":{
+			"name":"Дробово-раціональні вирази",
+			"order_n":3,
+			"chapter_id":0,
+			"time_coef":0.01913875598,
+			"study_guide_link":"https://studfile.net/preview/5465835/page:9/",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+			"skills_reqs":{
+				"standard":[
+					"Означення тотожно рівних виразів, тотожного перетворення виразу, тотожності",
+					"Означення одночлена та многочлена",
+					"Виконувати тотожні перетворення раціональних виразів та знаходити їх числові значення"
+				],
+				"pro":[
+					"Означення області допустимих значень змінних, виразу зі змінними",
+					"Доводити тотожності"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-4":{
+		"event_id":"math-topic-4",
+		"topic_id":"4",
+		"type":"topic",
+		"data":{
+			"name":"Ірраціональні вирази",
+			"order_n":4,
+			"chapter_id":0,
+			"time_coef":0.01913875598,
+			"study_guide_link":"https://drive.google.com/file/d/10FOAd19T6mz5LaTaUBni0r0l-tj7ZZ-5/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+			"skills_reqs":{
+				"standard":[
+					"Означення кореня n-го степеня та арифметичного кореня n-го степеня",
+					"Властивості коренів",
+					"Означення степеня з натуральним, цілим та раціональним показниками, їх властивості",
+					"Означення тотожно рівних виразів, тотожного перетворення виразу, тотожності",
+					"Виконувати тотожні перетворення раціональних виразів та знаходити їх числові значення"
+				],
+				"pro":[
+					"Означення області допустимих значень змінних, виразу зі змінними"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-5":{
+		"event_id":"math-topic-5",
+		"topic_id":"5",
+		"type":"topic",
+		"data":{
+			"name":"Показникові та логарифмічні вирази",
+			"order_n":5,
+			"chapter_id":0,
+			"time_coef":0.01674641148,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/7.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_vyrazy/",
+			"skills_reqs":{
+				"standard":[
+					"Означення та властивості логарифма",
+					"Основна логарифмічна тотожність",
+					"Виконувати тотожні перетворення раціональних виразів та знаходити їх числові значення"
+				],
+				"pro":[
+					"Доводити тотожності"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-6":{
+		"event_id":"math-topic-6",
+		"topic_id":"6",
+		"type":"topic",
+		"data":{
+			"name":"Тригонометричні вирази",
+			"order_n":6,
+			"chapter_id":0,
+			"time_coef":0.02631578947,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/8.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_vyrazy/",
+			"skills_reqs":{
+				"standard":[
+					"Означення синуса, косинуса, тангенса числового аргументу",
+					"Основні співвідношення між тригонометричними функціями одного аргументу",
+					"Формули зведення",
+					"Формули додавання та наслідки з них"
+				],
+				"pro":[
+					"Означення котангенса числового аргументу",
+					"Доводити тотожності"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-7":{
+		"event_id":"math-topic-7",
+		"topic_id":"7",
+		"type":"topic",
+		"data":{
+			"name":"Цілі рівняння",
+			"order_n":0,
+			"chapter_id":1,
+			"time_coef":0.02153110048,
+			"study_guide_link":"https://drive.google.com/file/d/1rBzXkMn2_PMsFoHO9odCbmOtpbgXg6xn/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв'язувати рівняння першого та другого степенів, а також рівняння, що зводяться до них"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження рівнянь"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-8":{
+		"event_id":"math-topic-8",
+		"topic_id":"8",
+		"type":"topic",
+		"data":{
+			"name":"Цілі нерівності",
+			"order_n":1,
+			"chapter_id":1,
+			"time_coef":0.02392344498,
+			"study_guide_link":"https://drive.google.com/file/d/1vVOh9pOe_iBk3msOWP34s38BCJhdqIZF/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+			"skills_reqs":{
+				"standard":[
+					"Розв'язувати нерівності першого та другого степенів, а також нерівності, що зводяться до них"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження нерівностей"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-9":{
+		"event_id":"math-topic-9",
+		"topic_id":"9",
+		"type":"topic",
+		"data":{
+			"name":"Дробові раціональні рівняння",
+			"order_n":2,
+			"chapter_id":1,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/11.pdf#page=3",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші раціональні й дробові раціональні рівняння, а також рівняння, що зводяться до них"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження рівнянь"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-10":{
+		"event_id":"math-topic-10",
+		"topic_id":"10",
+		"type":"topic",
+		"data":{
+			"name":"Дробові раціональні нерівності",
+			"order_n":3,
+			"chapter_id":1,
+			"time_coef":0.02153110048,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/12.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші раціональні й дробові раціональні нерівності, а також рівняння, що зводяться до них",
+					"Розв'язувати раціональні й дробові раціональні нерівності, використовуючи означення та властивості модуля"
+				],
+				"pro":[
+					"Розв'язувати нерівності, що містять степеневі вирази",
+					"Користуватися графічним методом розв'язування й дослідження нерівностей",
+					"Розв'язувати нерівності з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-11":{
+		"event_id":"math-topic-11",
+		"topic_id":"11",
+		"type":"topic",
+		"data":{
+			"name":"Ірраціональні рівняння",
+			"order_n":4,
+			"chapter_id":1,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/15.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-irracionalni_tryghonometrychni_rivnjannja_ta_systemy_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші ірраціональні рівняння або рівняння, що зводяться до найпростіших"
+				],
+				"pro":[
+					"Розв'язувати ірраціональні рівняння, а також їх системи",
+					"Користуватися графічним методом розв'язування й дослідження рівнянь",
+					"Розв'язувати рівняння та їх системи з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-12":{
+		"event_id":"math-topic-12",
+		"topic_id":"12",
+		"type":"topic",
+		"data":{
+			"name":"Ірраціональні нерівності",
+			"order_n":5,
+			"chapter_id":1,
+			"time_coef":0.02153110048,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/15.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші нерівності, що містять ірраціональні вирази",
+					"Розв'язувати раціональні й дробові раціональні нерівності, використовуючи означення та властивості модуля",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування нерівностей (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Розв'язувати нерівності, що містять ірраціональні вирази",
+					"Користуватися графічним методом розв'язування й дослідження нерівностей",
+					"Розв'язувати нерівності та їх системи з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-13":{
+		"event_id":"math-topic-13",
+		"topic_id":"13",
+		"type":"topic",
+		"data":{
+			"name":"Показникові рівняння",
+			"order_n":6,
+			"chapter_id":1,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/16.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_rivnjannja_ta_systemy_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші рівняння, що містять показникові вирази, або рівняння, що зводяться до них",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування рівнянь (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Розв’язувати рівняння, що містять показникові вирази",
+					"Користуватися графічним методом розв'язування й дослідження рівнянь",
+					"Розв'язувати рівняння та їх системи з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-14":{
+		"event_id":"math-topic-14",
+		"topic_id":"14",
+		"type":"topic",
+		"data":{
+			"name":"Показникові нерівності",
+			"order_n":7,
+			"chapter_id":1,
+			"time_coef":0.02153110048,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/17.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші нерівності, що містять показникові вирази",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування нерівностей (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Розв'язувати нерівності, що містять показникові вирази",
+					"Користуватися графічним методом розв'язування й дослідження нерівностей",
+					"Розв'язувати нерівності та їх системи з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-15":{
+		"event_id":"math-topic-15",
+		"topic_id":"15",
+		"type":"topic",
+		"data":{
+			"name":"Логарифмічні рівняння",
+			"order_n":8,
+			"chapter_id":1,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/18.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_rivnjannja_ta_systemy_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші рівняння, що містять логарифмічні вирази, або рівняння, що зводяться до них",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування логарифмічних рівнянь (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження рівнянь",
+					"Розв'язувати рівняння з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-16":{
+		"event_id":"math-topic-16",
+		"topic_id":"16",
+		"type":"topic",
+		"data":{
+			"name":"Логорифмічні нерівності",
+			"order_n":9,
+			"chapter_id":1,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/19.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші нерівності, що містять логарифмічні вирази",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування нерівностей (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження нерівностей",
+					"Розв'язувати нерівності з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-17":{
+		"event_id":"math-topic-17",
+		"topic_id":"17",
+		"type":"topic",
+		"data":{
+			"name":"Тригонометричні рівняння",
+			"order_n":10,
+			"chapter_id":1,
+			"time_coef":0.03110047847,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/20.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-irracionalni_tryghonometrychni_rivnjannja_ta_systemy_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші рівняння, що містять тригонометричні вирази",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування тригонометричних рівнянь (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження рівнянь",
+					"Розв'язувати рівняння з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-18":{
+		"event_id":"math-topic-18",
+		"topic_id":"18",
+		"type":"topic",
+		"data":{
+			"name":"Тригонометричні нерівності",
+			"order_n":11,
+			"chapter_id":1,
+			"time_coef":0.02392344498,
+			"study_guide_link":"https://naurok.com.ua/uploads/files/646922/191442/206784_html/images/191442.002.jpg",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+			"skills_reqs":{
+				"standard":[
+					"Розв’язувати найпростіші нерівності, що містять тригонометричні вирази",
+					"Застосовувати загальні методи і прийоми у процесі розв'язування нерівностей (розкладання на множники, заміна змінної, графіки, властивості функції)"
+				],
+				"pro":[
+					"Користуватися графічним методом розв'язування й дослідження нерівностей",
+					"Розв'язувати нерівності з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-19":{
+		"event_id":"math-topic-19",
+		"topic_id":"19",
+		"type":"topic",
+		"data":{
+			"name":"Системи рівнянь та нерівностей",
+			"order_n":12,
+			"chapter_id":1,
+			"time_coef":0.02392344498,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/13.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-rozvjazuvannja_zadach_z_rivnjan_i_system_rivnjan/",
+			"skills_reqs":{
+				"standard":[
+					"Розв'язувати системи лінійних рівнянь і нерівностей, а також ті, що зводяться до них"
+				],
+				"pro":[
+					"Розв'язувати системи ірраціональних рівнянь і нерівностей",
+					"Використовувати графічні методи розв'язування систем рівнянь і нерівностей",
+					"Розв'язувати системи рівнянь з параметрами"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-20":{
+		"event_id":"math-topic-20",
+		"topic_id":"20",
+		"type":"topic",
+		"data":{
+			"name":"Числові послідовності. Арифметична та геометрична прогресії",
+			"order_n":0,
+			"chapter_id":2,
+			"time_coef":0.02153110048,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/10.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-chislovi_poslidovnosti/",
+			"skills_reqs":{
+				"standard":[
+					"Означення арифметичної та геометричної прогресій",
+					"Основні властивості арифметичної та геометричної прогресій",
+					"Формули n-го члена арифметичної та геометричної прогресій",
+					"Формули суми перших n членів арифметичної та геометричної прогресій",
+					"Розрізняти арифметичні та геометричні прогресії",
+					"Розв’язувати задачі на арифметичну та геометричну прогресії"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-21":{
+		"event_id":"math-topic-21",
+		"topic_id":"21",
+		"type":"topic",
+		"data":{
+			"name":"Функціональна залежність",
+			"order_n":1,
+			"chapter_id":2,
+			"time_coef":0.01913875598,
+			"study_guide_link":"https://drive.google.com/file/d/1D75eaDa9I8HK5m5frE0qAi_7gjsGxV2V/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-funkcionalna_zalezhnist_vlastivosti/",
+			"skills_reqs":{
+				"standard":[
+					"Означення функції та способи її задання",
+					"Знаходити область визначення, область значень функції",
+					"Досліджувати на парність (непарність) функцію",
+					"Встановлювати властивості числових функцій, заданих формулою або графіком"
+				],
+				"pro":[
+					"Досліджувати на періодичність функцію",
+					"Використовувати періодичність функцій для розв’язування задач",
+					"Використовувати означення функції, оберненої до даної, для розв’язування задач"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-22":{
+		"event_id":"math-topic-22",
+		"topic_id":"22",
+		"type":"topic",
+		"data":{
+			"name":"Лінійні та квадратні функції",
+			"order_n":2,
+			"chapter_id":2,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/24.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-linijni_ta_kvadratni_funkciyi/",
+			"skills_reqs":{
+				"standard":[
+					"Означення функції та способи її задання",
+					"Знаходити область визначення, область значень функції"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-23":{
+		"event_id":"math-topic-23",
+		"topic_id":"23",
+		"type":"topic",
+		"data":{
+			"name":"Степеневі, показникові, логарифмічні та тригонометричні функції",
+			"order_n":3,
+			"chapter_id":2,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/24.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-linijni_ta_kvadratni_funkciyi/",
+			"skills_reqs":{
+				"standard":[
+					"Означення функції та способи її задання",
+					"Знаходити область визначення, область значень функції"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-24":{
+		"event_id":"math-topic-24",
+		"topic_id":"24",
+		"type":"topic",
+		"data":{
+			"name":"Побудова та перетворення графіків функцій",
+			"order_n":4,
+			"chapter_id":2,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/24.pdf",
+			"practice_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/24.pdf#page=3",
+			"skills_reqs":{
+				"standard":[
+					"Будувати графіки лінійних, квадратичних, степеневих, показникових, логарифмічних та тригонометричних функцій,",
+					"Розв'язувати задачі, використовуючи графіки функцій",
+					"Використовувати перетворення графіків функцій"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-25":{
+		"event_id":"math-topic-25",
+		"topic_id":"25",
+		"type":"topic",
+		"data":{
+			"name":"Похідна функції",
+			"order_n":5,
+			"chapter_id":2,
+			"time_coef":0.02870813397,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/25.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pokhidna_funkciyi/",
+			"skills_reqs":{
+				"standard":[
+					"Поняття похідної в точці",
+					"Знаходити похідні функцій",
+					"Знаходити числове значення похідної функції в точці для заданого значення аргументу",
+					"Знаходити похідну суми, добутку і частки двох функцій",
+					"Знаходити кутовий коефіцієнт і кут нахилу дотичної до графіка функції в даній точці",
+					"Розв'язувати задачі з використанням геометричного та фізичного змісту похідної"
+				],
+				"pro":[
+					"Знаходити похідну складеної функції",
+					"Складати рівняння дотичної до графіка функції в точці",
+					"Поняття другої похідної"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-26":{
+		"event_id":"math-topic-26",
+		"topic_id":"26",
+		"type":"topic",
+		"data":{
+			"name":"Застосування похідної для дослідження функцій",
+			"order_n":6,
+			"chapter_id":2,
+			"time_coef":0.02153110048,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/26.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pokhidna_funkciyi/",
+			"skills_reqs":{
+				"standard":[
+					"Знаходити проміжки монотонності функції",
+					"Достатня умова зростання (спадання) функції на проміжку",
+					"Знаходити екстремуми функцій за допомогою похідної, найбільше та найменше значення функції",
+					"Досліджувати функції за допомогою похідної та будувати їх графіки",
+					"Досліджувати функції на опуклість, асимптоти функції",
+					"Розв'язувати прикладні задачі на знаходження найбільших і найменших значень функції"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-27":{
+		"event_id":"math-topic-27",
+		"topic_id":"27",
+		"type":"topic",
+		"data":{
+			"name":"Первісна. Інтеграл",
+			"order_n":7,
+			"chapter_id":2,
+			"time_coef":0.02631578947,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/27.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pervisna_ta_viznachenij_integral/",
+			"skills_reqs":{
+				"standard":[
+					"Означення первісної функції",
+					"Знаходити первісну, використовуючи її основні властивості",
+					"Поняття криволінійної трапеції",
+					"Поняття визначеного інтеграла",
+					"Обчислювати площу плоских фігур за допомогою інтеграла"
+				],
+				"pro":[
+					"Застосовувати формулу ньютона-лейбніца для обчислення визначеного інтеграла",
+					"Обчислювати об'єми фігур за допомогою інтеграла",
+					"Розв’язувати нескладні задачі, що зводяться до знаходження інтеграла"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-28":{
+		"event_id":"math-topic-28",
+		"topic_id":"28",
+		"type":"topic",
+		"data":{
+			"name":"Елементи комбінаторики",
+			"order_n":0,
+			"chapter_id":3,
+			"time_coef":0.02153110048,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/29.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-kombinatorni_pravila/",
+			"skills_reqs":{
+				"standard":[
+					"Поняття множини",
+					"Означення перестановки, комбінації, розміщення (без повторень)",
+					"Комбінаторні правила суми та добутку",
+					"Розв'язувати задачі, використовуючи перестановки, комбінації, розміщення (без повторень), комбінаторні правила суми та добутку"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-29":{
+		"event_id":"math-topic-29",
+		"topic_id":"29",
+		"type":"topic",
+		"data":{
+			"name":"Початки теорії ймовірностей та елементи статистики",
+			"order_n":1,
+			"chapter_id":3,
+			"time_coef":0.03110047847,
+			"study_guide_link":"https://drive.google.com/file/d/1R6SWqHzRN48L-KtTU_9oS_yxT2Hqb12q/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-jmovirnist_vypadkovoyi_podiyi/",
+			"skills_reqs":{
+				"standard":[
+					"Класичне означення ймовірності події",
+					"Обчислювати ймовірності випадкових подій, користуючись означенням і комбінаторними схемами",
+					"Поняття генеральної та вибіркової сукупностей",
+					"Означення вибіркових характеристик рядів даних (розмах вибірки, моду, медіану, середнє значення)",
+					"Графічна, таблична, текстова та інші форми подання статистичних даних",
+					"Обчислювати та аналізувати вибіркові характеристики рядів даних"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-30":{
+		"event_id":"math-topic-30",
+		"topic_id":"30",
+		"type":"topic",
+		"data":{
+			"name":"Найпростіші геометричні фігури на площині",
+			"order_n":0,
+			"chapter_id":4,
+			"time_coef":0.03110047847,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/32.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-elementarni_geometrichni_figuri/",
+			"skills_reqs":{
+				"standard":[
+					"Поняття точки та прямої, променя, відрізка, ламаної, кута",
+					"Аксіоми планіметрії",
+					"Суміжні та вертикальні кути, бісектриса кута",
+					"Властивості суміжних та вертикальних кутів",
+					"Паралельні та перпендикулярні прямі",
+					"Відстань між паралельними прямими",
+					"Перпендикуляр і похила, серединний перпендикуляр, відстань від точки до прямої",
+					"Ознаки паралельності прямих",
+					"Теорема фалеса, узагальнена теорема фалеса",
+					"Довжина відрізка, кола та його дуги",
+					"Величина кута, вимірювання кутів"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-31":{
+		"event_id":"math-topic-31",
+		"topic_id":"31",
+		"type":"topic",
+		"data":{
+			"name":"Трикутник",
+			"order_n":1,
+			"chapter_id":4,
+			"time_coef":0.02631578947,
+			"study_guide_link":"https://drive.google.com/file/d/1xDosaSgYXZz_GZG0EG7FiYHRzSsO8jnC/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-trikutniki/",
+			"skills_reqs":{
+				"standard":[
+					"Види трикутників та їх основні властивості",
+					"Ознаки рівності трикутників",
+					"Медіана, бісектриса, висота трикутника та їх властивості",
+					"Теорема про суму кутів трикутника",
+					"Нерівність трикутника",
+					"Середня лінія трикутника та її властивості:",
+					"Теорема синусів",
+					"Теорема косинусів",
+					"Подібні трикутники, ознаки подібності трикутників",
+					"Розв’язувати трикутники",
+					"Застосовувати означення, ознаки та властивості різних видів трикутників для розв'язування планіметричних задач та задач практичного змісту"
+				],
+				"pro":[
+					"Відношення площ подібних фігур"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-32":{
+		"event_id":"math-topic-32",
+		"topic_id":"32",
+		"type":"topic",
+		"data":{
+			"name":"Прямокутний трикутник. Рівнобедрений трикутник",
+			"order_n":2,
+			"chapter_id":4,
+			"time_coef":0.02392344498,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/33.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-prjamokutni_trykutnyky/",
+			"skills_reqs":{
+				"standard":[
+					"Теорема піфагора",
+					"Співвідношення між сторонами й кутами прямокутного трикутника",
+					"Визначати елементи кола, описаного навколо трикутника, і кола, вписаного в трикутник",
+					"Застосовувати означення, ознаки та властивості різних видів трикутників для розв'язування планіметричних задач та задач практичного змісту"
+				],
+				"pro":[
+					"Пропорційні відрізки прямокутного трикутника",
+					"Відношення площ подібних фігур"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-33":{
+		"event_id":"math-topic-33",
+		"topic_id":"33",
+		"type":"topic",
+		"data":{
+			"name":"Чотирикутники",
+			"order_n":3,
+			"chapter_id":4,
+			"time_coef":0.02631578947,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/35.pdf, http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/38.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-prjamokutnyk_kvadrat/",
+			"skills_reqs":{
+				"standard":[
+					"Чотирикутник та його елементи, сума кутів чотирикутника",
+					"Паралелограм, його властивості й ознаки",
+					"Прямокутник, ромб, квадрат та їх властивості",
+					"Трапеція, середня лінія трапеції та її властивості",
+					"Вписані в коло та описані навколо кола чотирикутники",
+					"Застосовувати означення, ознаки та властивості різних видів чотирикутників до розв'язування планіметричних задач і задач практичного змісту"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-34":{
+		"event_id":"math-topic-34",
+		"topic_id":"34",
+		"type":"topic",
+		"data":{
+			"name":"Многокутники",
+			"order_n":4,
+			"chapter_id":4,
+			"time_coef":0.02631578947,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/35.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-kolo_ta_krugh_mnoghokutnyky/",
+			"skills_reqs":{
+				"standard":[
+					"Многокутник та його елементи",
+					"Периметр многокутника",
+					"Правильний многокутник та його властивості",
+					"Вписані в коло та описані навколо кола многокутники",
+					"Застосовувати означення та властивості многокутників до розв'язування планіметричних задач і задач практичного змісту"
+				],
+				"pro":[
+					"Опуклий многокутник",
+					"Сума кутів опуклого многокутника"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-35":{
+		"event_id":"math-topic-35",
+		"topic_id":"35",
+		"type":"topic",
+		"data":{
+			"name":"Коло, круг та його елементи",
+			"order_n":5,
+			"chapter_id":4,
+			"time_coef":0.02153110048,
+			"study_guide_link":"https://drive.google.com/file/d/1IDa_xyrJoegm-Iiz9UVax3I7M96CbNsL/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-kolo_ta_krugh_mnoghokutnyky/",
+			"skills_reqs":{
+				"standard":[
+					"Обчислювати довжину кола та його дуг, площу круга та сектора",
+					"Центральні, вписані кути та їх властивості",
+					"Дотична до кола та її властивості",
+					"Застосовувати властивості кола, круга та його елементів до розв'язування планіметричних задач і задач практичного змісту"
+				],
+				"pro":[
+					"Властивості двох хорд, що перетинаються",
+					"Площа сегмента"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-36":{
+		"event_id":"math-topic-36",
+		"topic_id":"36",
+		"type":"topic",
+		"data":{
+			"name":"Прямі та площини в просторі",
+			"order_n":0,
+			"chapter_id":5,
+			"time_coef":0.01913875598,
+			"study_guide_link":"https://drive.google.com/file/d/1p7NPXZcl4ihuBm5KJCNjFZ8aid97Q93-/view?usp=sharing",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-pryami_ta_ploshini_u_prostori/",
+			"skills_reqs":{
+				"standard":[
+					"Аксіоми та теореми стереометрії",
+					"Взаємне розміщення в просторі: прямих, прямої та площини, площин",
+					"Паралельність прямих, прямої та площини, площин, паралельне проєктування",
+					"Перпендикулярність прямих, прямої та площини, двох площин",
+					"Теорема про три перпендикуляри",
+					"Відстань від точки до площини, від прямої до паралельної їй площини, між паралельними площинами",
+					"Кут між прямими, прямою та площиною, площинами",
+					"Двогранний кут, лінійний кут двогранного кута",
+					"Застосовувати означення, ознаки та властивості паралельних і перпендикулярних прямих та площин для розв'язування стереометричних задач і задач практичного змісту",
+					"Знаходити відстані та величини кутів у просторі"
+				],
+				"pro":[
+					"Ознака мимобіжних прямих",
+					"Відстань між мимобіжними прямими",
+					"Ортогональна проєкція"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-37":{
+		"event_id":"math-topic-37",
+		"topic_id":"37",
+		"type":"topic",
+		"data":{
+			"name":"Призма",
+			"order_n":1,
+			"chapter_id":5,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/42.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-mnogogranniki/",
+			"skills_reqs":{
+				"standard":[
+					"Розв'язувати задачі на обчислення об’єму і площі поверхонь призми",
+					"Розрізняти розгортки основних видів призм та її елементів"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-38":{
+		"event_id":"math-topic-38",
+		"topic_id":"38",
+		"type":"topic",
+		"data":{
+			"name":"Піраміда",
+			"order_n":2,
+			"chapter_id":5,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/43.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-507/",
+			"skills_reqs":{
+				"standard":[
+					"Розв'язувати задачі на обчислення об’єму і площі поверхонь піраміди",
+					"Розрізняти розгортки основних видів пірамід та їх елементів"
+				],
+				"pro":[
+					"Зрізана піраміда"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-39":{
+		"event_id":"math-topic-39",
+		"topic_id":"39",
+		"type":"topic",
+		"data":{
+			"name":"Циліндр",
+			"order_n":3,
+			"chapter_id":5,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/44.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-tila_obertannja/",
+			"skills_reqs":{
+				"standard":[
+					"Циліндр, його елементи, перерізи циліндра: осьові перерізи та перерізи площинами, паралельними основі",
+					"Розв'язувати задачі на обчислення об’єму і площі поверхонь циліндра"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-40":{
+		"event_id":"math-topic-40",
+		"topic_id":"40",
+		"type":"topic",
+		"data":{
+			"name":"Конус",
+			"order_n":4,
+			"chapter_id":5,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/45.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-tila_obertannja/",
+			"skills_reqs":{
+				"standard":[
+					"Конус, його елементи, перерізи конуса: осьові перерізи та перерізи площинами, паралельними основі",
+					"Розв'язувати задачі на обчислення об’єму і площі поверхонь конуса"
+				],
+				"pro":[
+					"Зрізаний конус"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-41":{
+		"event_id":"math-topic-41",
+		"topic_id":"41",
+		"type":"topic",
+		"data":{
+			"name":"Сфера і куля",
+			"order_n":5,
+			"chapter_id":5,
+			"time_coef":0.01913875598,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/46.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-tila_obertannja/",
+			"skills_reqs":{
+				"standard":[
+					"Розв'язувати задачі на обчислення об’єму кулі і площі сфери",
+					"Переріз кулі площиною"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-42":{
+		"event_id":"math-topic-42",
+		"topic_id":"42",
+		"type":"topic",
+		"data":{
+			"name":"Координати на площині та в просторі",
+			"order_n":6,
+			"chapter_id":5,
+			"time_coef":0.02392344498,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/47.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori/",
+			"skills_reqs":{
+				"standard":[
+					"Прямокутна система координат на площині та в просторі, координати точки",
+					"Обчислення відстані між двома точками та формула для обчислення координат середини відрізка",
+					"Рівняння прямої та кола на площині",
+					"Симетрія відносно початку координат та координатних площин"
+				],
+				"pro":[
+					"Рівняння сфери",
+					"Використання аналогії між векторами і координатами на площині та в просторі для розв'язування стереометричних задач і задач практичного змісту"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-43":{
+		"event_id":"math-topic-43",
+		"topic_id":"43",
+		"type":"topic",
+		"data":{
+			"name":"Вектори на площині та в просторі",
+			"order_n":7,
+			"chapter_id":5,
+			"time_coef":0.02631578947,
+			"study_guide_link":"http://ito.vspu.net/Naukova_robota/data/Konkursu/2009_2010/boychyk_2009_2010/matematuka/zno/nelin_roganin_2009/48.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori_u_prostori/",
+			"skills_reqs":{
+				"standard":[
+					"Поняття вектора, нульового вектора, модуля вектора",
+					"Колінеарні вектори, протилежні вектори, рівні вектори,",
+					"Координати вектора",
+					"Додавання і віднімання векторів, множення вектора на число",
+					"Кут між векторами",
+					"Скалярний добуток векторів"
+				],
+				"pro":[
+					"Розклад вектора за двома неколінеарними векторами",
+					"Властивості скалярного добутку векторів",
+					"Знаходження кута між векторами, що задані координатами",
+					"Умови колінеарності та перпендикулярності векторів",
+					"Використання аналогії між векторами і координатами на площині та в просторі для розв'язування стереометричних задач і задач практичного змісту"
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	},
+	"math-topic-44":{
+		"event_id":"math-topic-44",
+		"topic_id":"44",
+		"type":"topic",
+		"data":{
+			"name":"Геометричні переміщення і перетворення фігур",
+			"order_n":8,
+			"chapter_id":5,
+			"time_coef":0.02392344498,
+			"study_guide_link":"http://www.zhu.edu.ua/mk_school/pluginfile.php/11670/mod_resource/content/1/%D0%97%D0%B0%D0%BD%D1%8F%D1%82%D1%82%D1%8F%201.pdf",
+			"practice_link":"https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori/",
+			"skills_reqs":{
+				"standard":[
+					"Рух, симетрія відносно точки та відносно прямої, поворот, паралельне перенесення",
+					"Рівність фігур",
+					"Використання властивостей геометричних переміщень для розв’язування задач"
+				],
+				"pro":[
+
+				]
+			},
+			"study_materials":{
+
+			}
+		}
+	}
+}
