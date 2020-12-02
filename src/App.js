@@ -1,7 +1,6 @@
-import Input from './UI/Input/Input'
 import './index.css'
-import Register from './screens/Register/Register'
 import Login from './screens/Login/Login';
+import Planner from  './models/planner/planner'
 
 function App() {
   return (
@@ -10,5 +9,9 @@ function App() {
     </div>
   );
 }
+
+const json = require('./models/planner/sample.json')
+let w = new Planner(json);
+console.log(w);
 
 export default App;
