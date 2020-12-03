@@ -1,5 +1,5 @@
 import './index.css'
-import Test from './screens/test/test'
+import Landing from './pages/Landing/Landing'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
@@ -19,7 +19,7 @@ function App() {
   return (
       <ThemeProvider theme={theme}>
         <div className="App">
-          <Test />
+          <Landing />
         </div>
       </ThemeProvider>
   );

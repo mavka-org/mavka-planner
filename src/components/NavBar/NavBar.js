@@ -1,6 +1,6 @@
 import classes from './NavBar.module.css'
-import MavkaSmallLogo from './../../img/mavka-small-logo.png'
-import MavkaTextLogo from './../../img/mavka-text-logo.png'
+import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png'
+import MavkaTextLogo from './../../assets/img/mavka-text-logo.png'
 const NavBar = () => {
   return (
     <div className={classes.NavBar}>
