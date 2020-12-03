@@ -6,6 +6,7 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import classes from "../screens/Login/Login.module.css";
 import TextList from "./../components/TextList";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Accordion = withStyles({
     root: {
@@ -24,9 +25,13 @@ const Accordion = withStyles({
     expanded: {},
 })(MuiAccordion);
 
+
 const AccordionSummary = withStyles({
+    expandIcon: {
+        order: -1
+    },
     root: {
-        backgroundColor: 'rgba(0, 0, 0, .03)',
+        //backgroundColor: 'rgba(0, 0, 0, .03)',
         borderBottom: '1px solid rgba(0, 0, 0, .125)',
         marginBottom: -1,
         minHeight: 56,
@@ -81,7 +86,7 @@ export default function ProgramAccordion(props) {
                 items.push(
                     <Accordion square expanded={expanded === 'panel' + global_panel_index}
                                onChange={handleChange('panel' + global_panel_index)}>
-                        <AccordionSummary aria-controls={"panel" + global_panel_index + "d-content"}
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={"panel" + global_panel_index + "d-content"}
                                           id={"panel" + global_panel_index + "d-header"}>
                             <Typography>{increment_string_number(chapter.id)+ "." + increment_string_number(topic.id) + " " + topic.name}</Typography>
                         </AccordionSummary>
