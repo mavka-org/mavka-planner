@@ -1,5 +1,5 @@
 import './index.css'
-import Landing from './pages/Landing/Landing'
+import Login from './pages/Landing/Landing'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
@@ -14,7 +14,19 @@ const theme = createMuiTheme({
       main: "#fff"
     }
   },
-
+  typography: {
+    fontFamily: [
+      '"Gilroy-Regular"',
+      '-apple-system',
+      '"Segoe UI"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
 });
 
 function App() {
@@ -22,7 +34,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Container maxWidth="xs">
           <div className="App">
-            <Landing />
+            <Login />
           </div>
         </Container>
       </ThemeProvider>

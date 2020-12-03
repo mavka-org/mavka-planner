@@ -1,16 +1,20 @@
 import NavBar from '../../components/NavBar/NavBar';
 import classes from './Landing.module.css';
-import ZnoPoKolina from './../../assets/img/zno_po_kolina.png';
+import LandingHeader from './../../assets/img/LandingHeader.png';
 import Planner from './../../assets/img/planner.jpg';
-import { RoundButton } from './../../components/Button/Button';
+import { LargeButton } from './../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import MuiButton from '@material-ui/core/Button';
 
+
 const useStyles = makeStyles((theme) => ({
   Grid: {
     width: "100%",
-    justifyContent: "center"
+    justifyContent: "center",
+  },
+  Img: {
+    width: "250px",
   },
 }));
 
@@ -22,35 +26,33 @@ const Landing = () => {
       <Grid container spacing="2" className={classes.Grid}>
 
         <Grid item>
-          <img src={ZnoPoKolina} />
+          <img src={LandingHeader} className={classes.Img}/>
         </Grid>
 
         <Grid item>
-          <Typography>ЗНО не таке страшне, як здається. Ми допоможемо тобі!</Typography>
+          <Typography variant="h6" align="center">ЗНО не таке страшне, як здається. Ми допоможемо тобі!</Typography>
         </Grid>
 
         <Grid item container spacing="2">
 
-          <Grid style={{width: '100%'}} item>
-            <RoundButton
-              size="large"
+          <Grid item style={{width: "100%"}}>
+            <LargeButton
               fullWidth
               variant="contained"
               color="primary"
             >
             📅  розпланувати підготовку
-            </RoundButton>
+            </LargeButton>
           </Grid>
 
-          <Grid style={{width: '100%'}} item>
-            <RoundButton
-              size="large"
+          <Grid item style={{width: "100%"}}>
+            <LargeButton
               fullWidth
               variant="contained"
               color="secondary"
             >
             📚  вчити тести та матеріали
-            </RoundButton>
+            </LargeButton>
           </Grid>
 
         </Grid>
