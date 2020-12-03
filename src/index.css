@@ -52,3 +52,6 @@
   color: #bdbdbd;
   font-family: Gilroy-Light;
 }
+button {
+  width: max-content;
+}

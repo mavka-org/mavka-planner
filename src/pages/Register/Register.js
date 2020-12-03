@@ -4,7 +4,7 @@ import RegisterPng from './../../assets/img/register.png'
 import Button from './../../components/Button/Button'
 const Register = () => {
   return (
-    <div className={classes.Layout}>
+    <div>
       <NavBar />
       <div className={classes.grid_container}>
        <img src={RegisterPng} />

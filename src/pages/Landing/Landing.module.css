@@ -1,7 +1,3 @@
-.Layout{
-  padding: 5px; 
-}
-
 .grid_container{
   display: grid;
   grid-template-columns: auto;

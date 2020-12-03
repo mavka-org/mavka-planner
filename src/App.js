@@ -3,24 +3,28 @@ import Landing from './pages/Landing/Landing'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
+import Container from '@material-ui/core/Container';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#000",
     },
     secondary: {
-      main: green[500],
-    },
+      main: "#fff"
+    }
   },
+
 });
 
 function App() {
   return (
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <Landing />
-        </div>
+        <Container maxWidth="xs">
+          <div className="App">
+            <Landing />
+          </div>
+        </Container>
       </ThemeProvider>
   );
 }

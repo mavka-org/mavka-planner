@@ -4,7 +4,7 @@ import LoginPng from './../../assets/img/login.png'
 import Button from './../../components/Button/Button'
 const Login = () => {
   return (
-    <div className={classes.Layout}>
+    <div>
       <NavBar />
       <div className={classes.grid_container}>
        <img src={LoginPng} />
