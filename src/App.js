@@ -25,4 +25,8 @@ function App() {
   );
 }
 
+// let program_json = require('./models/program/sample_json.json')
+// let prog = new Program(program_json);
+// console.log(prog)
+
 export default App;
