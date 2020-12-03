@@ -1,27 +1,43 @@
 import './index.css'
 import Test from './pages/program'
+import Login from './pages/Landing/Landing'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
+import Container from '@material-ui/core/Container';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: "#000",
     },
     secondary: {
-      main: green[500],
-    },
+      main: "#fff"
+    }
+  },
+  typography: {
+    fontFamily: [
+      '"Gilroy-Regular"',
+      '-apple-system',
+      '"Segoe UI"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   },
 });
 
 function App() {
   return (
       <ThemeProvider theme={theme}>
-        <div className="App">
-          <Test />
-
-        </div>
+        <Container maxWidth="xs">
+          <div className="App">
+            <Login />
+          </div>
+        </Container>
       </ThemeProvider>
   );
 }
