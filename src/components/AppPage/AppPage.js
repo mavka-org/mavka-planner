@@ -5,6 +5,7 @@ const Page = (props) => {
   return (
         <Container maxWidth="xs">
           <NavBar selected="program"/>
+          
           {props.children}
         </Container>
   );
