@@ -2,7 +2,7 @@ import React from 'react'
 import AppPage from './../../components/AppPage/AppPage';
 import PlannerHeader from './../../assets/img/planner-header.png';
 import Planner from './../../models/planner/planner';
-import { LargeButton } from './../../components/Button/Button';
+import { RoundButton } from './../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import MuiButton from '@material-ui/core/Button';
@@ -18,12 +18,8 @@ const planner = new Planner(json)
 console.log(planner.weeks)
 
 const useStyles = makeStyles((theme) => ({
-  Grid: {
-    width: "100%",
-    justifyContent: "center",
-  },
-  Img: {
-    width: "250px",
+  EventTitle: {
+    paddingTop: "9px",
   },
 }));
 
@@ -43,48 +39,51 @@ const Landing = () => {
       {planner.weeks.map((week, index) => {
         return (
           <Grid container>
-            <Grid item xs={8}>
-              <Typography variant="h6">тиждень {index}</Typography>
+
+            <Grid container direction="row">
+
+              <Grid item xs={8}>
+                <Typography variant="h5">тиждень {index}</Typography>
+              </Grid>
+
+              <Grid item xs={4}>
+                <Typography>
+                  {week.dates}
+                </Typography>
+              </Grid>
+
+            </Grid>
+
               {week.events.map((elem, index, array) => {
                 return (
-                  <Grid container direction="row" justify="space-evenly" alignItems="center">
-                    <Grid item>
-                      <Grid container direction="row" justify="center" alignItems="center">
-                        <Grid item> {elem.completed === true ?
-                          <Checkbox
-                          defaultChecked
+                  <Grid container direction="row">
+
+                    <Grid item container direction="row" wrap="nowrap" xs={8}>
+
+                      <Grid item>
+                        <Checkbox
+                          checked={elem.completed}
+                          onChange={elem.change_completed}
                           color="primary"
                           inputProps={{ 'aria-label': 'secondary checkbox' }}
-                        /> :
-                          <Checkbox
-                          defaultChecked
-                          indeterminate
-                          inputProps={{
-                            'aria-label': 'indeterminate checkbox',
-                          }}
                         />
-
-                        }</Grid>
-                        <Grid item><Typography>{elem.title}</Typography></Grid>
                       </Grid>
+
+                      <Grid item>
+                        <Typography className={classes.EventTitle}>{elem.title}</Typography>
+                      </Grid>
+
                     </Grid>
+
+                    <Grid item xs={4}>
+                      <RoundButton size="small" variant="contained" color="primary">перейти</RoundButton>
+                    </Grid>
+
                   </Grid>
                 )
               })}
-            </Grid>
-            <Grid item xs={4}>
-              <Typography>
-                {week.dates}
-              </Typography>
-              {/* сюда пожалуйста пропиши возврат кнопки */}
-              {/* {week.events.map((element, index) => {
-                return (
-                  {element.type == 'topic' ?? <button>f</button>}
-                ),
-              })} */}
-            </Grid>
-          </Grid>
 
+          </Grid>
 
         )
       })}
