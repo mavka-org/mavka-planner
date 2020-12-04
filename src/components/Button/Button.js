@@ -3,14 +3,9 @@ import { withStyles } from '@material-ui/core/styles';
 
 export const Button = withStyles({
   root: {
-    textTransform: 'none'
-  },
-})(MuiButton);
-
-export const RoundButton = withStyles({
-  root: {
     textTransform: 'none',
-    borderRadius: '50px'
+    borderRadius: '50px',
+    height: "fit-content"
   },
 })(MuiButton);
 
@@ -25,4 +20,4 @@ export const LargeButton = withStyles({
   },
 })(MuiButton);
 
-export default MuiButton
+export default Button

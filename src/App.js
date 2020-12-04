@@ -30,8 +30,8 @@ const theme = createMuiTheme({
       '"Segoe UI Symbol"',
     ].join(','),
     body1: {
-      fontSize: '18px',
-      lineHeight: '21px',
+      fontSize: '16px',
+      lineHeight: '1.5',
       color: 'black',
       fontFamily: 'Gilroy-Regular',
     },
@@ -47,6 +47,9 @@ const theme = createMuiTheme({
       lineHeight: '43px',
       color: '#828282',
     },
+    h4: {
+      fontWeight: 'bold',
+    },
     subtitle1: {
       fontWeight: 300,
       fontSize: '21px',
@@ -61,7 +64,7 @@ const theme = createMuiTheme({
       fontFamily: 'Gilroy-Light',
     }
     // subtitle2 - ссылку
-    // 
+    //
   },
 });
 
