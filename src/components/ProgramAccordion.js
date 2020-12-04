@@ -15,13 +15,16 @@ const Accordion = withStyles({
         // '&:not(:last-child)': {
         //     borderBottom: 0,
         // },
-        // '&:before': {
-        //     display: 'none',
-        // },
+        '&:before': {
+            display: 'none',
+            backgroundColor: "white"
+        },
         // '&$expanded': {
         //     margin: 'auto',
         // },
+        
     },
+
     expanded: {},
 })(MuiAccordion);
 
@@ -84,7 +87,7 @@ export default function ProgramAccordion(props) {
             // display topics in accordion
             for (const [index, topic] of chapter.topics.entries()) {
                 items.push(
-                    <Accordion square expanded={expanded === 'panel' + global_panel_index}
+                    <Accordion classes={{root: classes.MuiAccordionroot}} square expanded={expanded === 'panel' + global_panel_index}
                                onChange={handleChange('panel' + global_panel_index)}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={"panel" + global_panel_index + "d-content"}
                                           id={"panel" + global_panel_index + "d-header"}>

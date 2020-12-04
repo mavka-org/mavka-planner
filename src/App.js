@@ -1,5 +1,5 @@
 import './index.css'
-import Test from './pages/program'
+import Program from './pages/Program/program'
 import Login from './pages/Landing/Landing'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
@@ -35,7 +35,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Container maxWidth="xs">
           <div className="App">
-            <Login />
+            <Program />
           </div>
         </Container>
       </ThemeProvider>
