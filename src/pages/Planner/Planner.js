@@ -54,7 +54,7 @@ const Landing = () => {
 
             </Grid>
 
-              {week.events.map((elem, index, array) => {
+              {week.events.map((event) => {
                 return (
                   <Grid container direction="row">
 
@@ -62,15 +62,15 @@ const Landing = () => {
 
                       <Grid item>
                         <Checkbox
-                          checked={elem.completed}
-                          onChange={elem.change_completed}
+                          checked={event.completed}
+                          onChange={event.change_completed}
                           color="primary"
                           inputProps={{ 'aria-label': 'secondary checkbox' }}
                         />
                       </Grid>
 
                       <Grid item>
-                        <Typography className={classes.EventTitle}>{elem.title}</Typography>
+                        <Typography className={classes.EventTitle}>{event.title}</Typography>
                       </Grid>
 
                     </Grid>
