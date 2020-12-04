@@ -1,9 +1,0 @@
-.Layout{
-  padding: 5px; 
-}
-
-.grid_container{
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 1/10;
-}

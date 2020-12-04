@@ -4,7 +4,6 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import classes from "../../screens/Login/Login.module.css";
 import TopicContents from "../TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -22,7 +21,7 @@ const Accordion = withStyles({
         // '&$expanded': {
         //     margin: 'auto',
         // },
-        
+
     },
 
     expanded: {},
@@ -87,7 +86,7 @@ export default function ProgramAccordion(props) {
             // display topics in accordion
             for (const [index, topic] of chapter.topics.entries()) {
                 items.push(
-                    <Accordion classes={{root: classes.MuiAccordionroot}} square expanded={expanded === 'panel' + global_panel_index}
+                    <Accordion  square expanded={expanded === 'panel' + global_panel_index}
                                onChange={handleChange('panel' + global_panel_index)}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={"panel" + global_panel_index + "d-content"}
                                           id={"panel" + global_panel_index + "d-header"}>
@@ -104,7 +103,7 @@ export default function ProgramAccordion(props) {
         }
     }
     return (
-        <div className={classes.Layout}>
+        <div >
             <div>{items}</div>
         </div>
     )

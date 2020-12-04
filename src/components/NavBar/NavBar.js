@@ -9,11 +9,8 @@ const useStyles = makeStyles((theme) => ({
   NavBar: {
     width: "100%"
   },
-  ImgWrapper: {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    justifyContent: "space-between"
+  Logo: {
+    height: "24px",
   }
 }));
 
@@ -24,7 +21,7 @@ const NavBar = (props) => {
     <Box display="flex" alignItems="center" py={1}>
 
         <Box flexGrow={1}>
-          <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} />
+          <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} className={classes.Logo} />
         </Box>
 
         <Box>
