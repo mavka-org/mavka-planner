@@ -18,7 +18,7 @@ export default function TopicPage() {
     return (
         <Page >
             <Typography variant="h3" color={"primary"}>{increment_string_number(topic.chapter_id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
-            <TopicContents topic_json = {topic}/>;
+            <TopicContents topic_json = {topic}/>
         </Page>
     )
 }

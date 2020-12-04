@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import Link from '@material-ui/core/Link';
 
 const json = require('./../../models/planner/sample.json')
 const planner = new Planner(json)
@@ -54,34 +54,39 @@ const Landing = () => {
 
             </Grid>
 
-              {week.events.map((elem, index, array) => {
-                return (
-                  <Grid container direction="row">
+            {week.events.map((elem, index, array) => {
 
-                    <Grid item container direction="row" wrap="nowrap" xs={8}>
+              return (
+                <Grid container direction="row">
 
-                      <Grid item>
-                        <Checkbox
-                          checked={elem.completed}
-                          onChange={elem.change_completed}
-                          color="primary"
-                          inputProps={{ 'aria-label': 'secondary checkbox' }}
-                        />
-                      </Grid>
+                  <Grid item container direction="row" wrap="nowrap" xs={8}>
 
-                      <Grid item>
-                        <Typography className={classes.EventTitle}>{elem.title}</Typography>
-                      </Grid>
-
+                    <Grid item>
+                      <Checkbox
+                        checked={elem.completed}
+                        onChange={handleChange}
+                        color="primary"
+                        inputProps={{ 'aria-label': 'secondary checkbox' }}
+                      />
                     </Grid>
 
-                    <Grid item xs={4}>
-                      <RoundButton size="small" variant="contained" color="primary">перейти</RoundButton>
+                    <Grid item>
+                      <Typography className={classes.EventTitle}>{elem.title}</Typography>
                     </Grid>
 
                   </Grid>
-                )
-              })}
+
+                  <Grid container xs={4} direction='column' justify="center" alignItems="flex-start">
+                    {elem.type === 'text' ? '' 
+                    : 
+                    (elem.type === 'url' ? 
+                    <Typography variant="subtitle2"><Link href={elem.url}>перейти </Link></Typography> : <RoundButton size="small" variant="contained" color="primary">перейти</RoundButton>)}
+
+                  </Grid>
+                  {/* <RoundButton size="small" variant="contained" color="primary">перейти</RoundButton> */}
+                </Grid>
+              )
+            })}
 
           </Grid>
 
