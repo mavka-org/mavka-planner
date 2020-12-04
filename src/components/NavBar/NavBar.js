@@ -1,4 +1,4 @@
-import { RoundButton } from './../../components/Button/Button';
+import { RoundButton, Button } from './../../components/Button/Button';
 import Grid from '@material-ui/core/Grid';
 import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
 import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const NavBar = () => {
+const NavBar = (props) => {
   const classes = useStyles();
 
   return (
@@ -33,7 +33,11 @@ const NavBar = () => {
         </Grid>
       </Grid>
 
-      <Grid item>
+      <Grid item container direction="row" alignItems="center" spacing="2">
+        <Button>планер</Button>
+        <Button>програма</Button>
+        <Button>тести</Button>
+        <Button>профіль</Button>
         <RoundButton variant="outlined">увійти</RoundButton>
       </Grid>
     </Grid>

@@ -1,11 +1,9 @@
 import MuiButton from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
-export const FullWidthButton = withStyles({
+export const Button = withStyles({
   root: {
-    textTransform: 'none',
-    width: '100%',
-    padding: '10px'
+    textTransform: 'none'
   },
 })(MuiButton);
 

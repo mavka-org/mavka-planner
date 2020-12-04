@@ -1,10 +1,10 @@
 import './index.css'
 import Program from './pages/Program/program'
 import Login from './pages/Landing/Landing'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
-import Container from '@material-ui/core/Container';
+import Landing from './pages/Landing/Landing';
+import Login from './pages/Login/Login';
 
 const theme = createMuiTheme({
   palette: {
@@ -33,17 +33,14 @@ const theme = createMuiTheme({
 function App() {
   return (
       <ThemeProvider theme={theme}>
-        <Container maxWidth="xs">
-          <div className="App">
-            <Program />
-          </div>
-        </Container>
+        <Router>
+          <Switch>
+              <Route exact path="/" component={Landing}/>
+              <Route path="/login" component={Login}/>
+          </Switch>
+        </Router>
       </ThemeProvider>
   );
 }
-
-// let program_json = require('./models/program/sample_json.json')
-// let prog = new Program(program_json);
-// console.log(prog)
 
 export default App;
