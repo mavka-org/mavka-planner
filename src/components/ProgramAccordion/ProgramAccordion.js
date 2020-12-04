@@ -58,7 +58,7 @@ const AccordionDetails = withStyles((theme) => ({
 
 // props: program
 export default function ProgramAccordion(props) {
-    const [expanded, setExpanded] = React.useState('panel0');
+    const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
