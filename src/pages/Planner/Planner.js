@@ -11,7 +11,6 @@ const json = require('./../../models/planner/sample.json')
 const planner = new Planner(json)
 console.log(planner)
 
-
 const useStyles = makeStyles((theme) => ({
   Grid: {
     width: "100%",
