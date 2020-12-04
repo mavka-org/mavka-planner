@@ -1,10 +1,10 @@
 import './index.css'
-import Program from './pages/Program/program'
-import Login from './pages/Landing/Landing'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Login/Login';
+import ProgramPage from './pages/Program/Program';
+import Topic from './pages/Topic/Topic';
 
 const theme = createMuiTheme({
   palette: {
@@ -37,6 +37,8 @@ function App() {
           <Switch>
               <Route exact path="/" component={Landing}/>
               <Route path="/login" component={Login}/>
+              <Route path="/program" component={ProgramPage}/>
+              <Route path="/topic" component={Topic}/>
           </Switch>
         </Router>
       </ThemeProvider>

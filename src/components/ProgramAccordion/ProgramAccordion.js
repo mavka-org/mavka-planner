@@ -4,8 +4,8 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import classes from "../screens/Login/Login.module.css";
-import TextList from "./../components/TextList";
+import classes from "../../screens/Login/Login.module.css";
+import TopicContents from "../TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Accordion = withStyles({
@@ -91,11 +91,10 @@ export default function ProgramAccordion(props) {
                                onChange={handleChange('panel' + global_panel_index)}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={"panel" + global_panel_index + "d-content"}
                                           id={"panel" + global_panel_index + "d-header"}>
-                            <Typography>{increment_string_number(chapter.id)+ "." + increment_string_number(topic.id) + " " + topic.name}</Typography>
+                            <Typography>{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <TextList dense={true} standart_texts_list = {topic.skills_reqs_standard} pro_texts_list = {topic.skills_reqs_pro}/>
-
+                            <TopicContents dense={true} topic_json = {topic}/>
                         </AccordionDetails>
                     </Accordion>
                 )

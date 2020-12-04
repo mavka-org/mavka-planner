@@ -36,8 +36,8 @@ const Accordion = withStyles({
     expanded: {},
 })(MuiAccordion);
 
-// props: texts_list
-export default function TextList(props) {
+// props: topic_json
+export default function TopicContents(props) {
     const classes = useStyles();
 
     return (
@@ -45,9 +45,11 @@ export default function TextList(props) {
             <List>
                 <div>
 
+                    <Typography color={"primary"}>що треба знати і вміти</Typography>
+
                     {/*display standart skill reqs*/}
                     <Typography fontWeight="fontWeightBold" color={"primary"}>стандарт</Typography>
-                    {props.standart_texts_list.map(function(standart_text, i){
+                    {props.topic_json.skills_reqs_standard.map(function(standart_text, i){
                         return <div>
                                 <ListItem className={classes.ListItem}>
                             <ListItemText
@@ -59,10 +61,10 @@ export default function TextList(props) {
                     })}
 
                     {/* display pro skill reqs*/}
-                    {!props.pro_texts_list === undefined || props.pro_texts_list.length !== 0 &&
+                    {!props.topic_json.skills_reqs_pro === undefined || props.topic_json.skills_reqs_pro.length !== 0 &&
                         <div>
-                        <Typography fontWeight="fontWeightBold" color={"primary"}>про</Typography>
-                        {props.pro_texts_list.map(function(pro_text, i){
+                        <Typography color={"primary"}>профільний</Typography>
+                        {props.topic_json.skills_reqs_pro.map(function(pro_text, i){
                             return <div>
                                 <ListItem className={classes.ListItem}>
                                     <ListItemText
@@ -74,6 +76,7 @@ export default function TextList(props) {
                         })}
                         </div>
                     }
+                    <Typography>{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
 
                 </div>
             </List>
