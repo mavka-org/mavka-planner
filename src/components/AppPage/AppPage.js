@@ -21,7 +21,7 @@ const AppPage = (props) => {
 
             <Grid item container direction="row" spacing="2" alignItems="center" className={classes.Grid}>
 
-              <Grid item >
+              <Grid item style={{flexGrow: 1}}>
                 <HeaderImage src={props.headerImageSrc}/>
               </Grid>
 
