@@ -6,7 +6,7 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import TopicContents from "../TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import {RoundButton} from "../Button/Button";
+import Button from "../Button/Button";
 import Box from '@material-ui/core/Box';
 import MavkaTextLogo from "../../assets/img/mavka-text-logo.png";
 import MavkaSmallLogo from "../../assets/img/mavka-small-logo.png";
@@ -103,7 +103,7 @@ export default function ProgramAccordion(props) {
                                         <Typography >{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
                                     </Box>
                                     <Box>
-                                        <RoundButton size="small" variant="contained" color="primary">вчити</RoundButton>
+                                        <Button size="small" variant="contained" color="primary">вчити</Button>
                                     </Box>
                                 </Box>
                             </div>
