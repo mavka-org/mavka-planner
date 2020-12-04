@@ -11,11 +11,12 @@ import Topic from './pages/Topic/Topic';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#000",
+      main: "#000"
     },
     secondary: {
-      main: "#fff"
+      main: "#1AB2A8"
     },
+
   },
   typography: {
     fontFamily: [
@@ -30,8 +31,8 @@ const theme = createMuiTheme({
       '"Segoe UI Symbol"',
     ].join(','),
     body1: {
-      fontSize: '18px',
-      lineHeight: '21px',
+      fontSize: '16px',
+      lineHeight: '1.5',
       color: 'black',
       fontFamily: 'Gilroy-Regular',
     },
@@ -47,12 +48,27 @@ const theme = createMuiTheme({
       lineHeight: '43px',
       color: '#828282',
     },
+    h4: {
+      fontWeight: "bold",
+    },
+    h5: {
+      fontWeight: "bold",
+    },
     subtitle1: {
       fontWeight: 300,
       fontSize: '21px',
       lineHeight: '25px',
       color: '#333333',
+    },
+    subtitle2:{
+      fontSize: '18px',
+      lineHeight: '21px',
+      textDecorationLine: 'underline',
+      color: '#4f4f4f',
+      fontFamily: 'Gilroy-Light',
     }
+    // subtitle2 - ссылку
+    //
   },
 });
 

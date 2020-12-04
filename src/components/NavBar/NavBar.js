@@ -1,4 +1,4 @@
-import { RoundButton, Button } from './../../components/Button/Button';
+import Button from './../../components/Button/Button';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
@@ -38,7 +38,8 @@ const NavBar = (props) => {
         }
         {
           props.user===undefined ?
-            (<RoundButton onClick={props.loginFunc} variant="outlined">увійти</RoundButton>) :
+
+            (<Button onClick={props.loginFunc} variant="outlined">увійти</Button>) :
             (<Button style={props.selected==="profile" ? {fontWeight: "700"} : {}}>профіль</Button>)
         }
         </Grid>
