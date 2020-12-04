@@ -1,4 +1,4 @@
-import NavBar from '../../components/NavBar/NavBar';
+import Page from './../../components/Page/Page';
 import classes from './Landing.module.css';
 import LandingHeader from './../../assets/img/LandingHeader.png';
 import Planner from './../../assets/img/planner.jpg';
@@ -21,8 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const Landing = () => {
   const classes = useStyles();
   return (
-    <div>
-      <NavBar />
+    <Page>
       <Grid container spacing="2" className={classes.Grid}>
 
         <Grid item>
@@ -62,7 +61,7 @@ const Landing = () => {
         </Grid>
 
       </Grid>
-    </div>
+    </Page>
   )
 }
 
