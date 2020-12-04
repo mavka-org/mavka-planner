@@ -45,10 +45,10 @@ export default function TopicContents(props) {
             <List>
                 <div>
 
-                    <Typography gutterBottom fontWeight="fontWeightBold" variant="h5" color="text.secondary">що треба знати і вміти</Typography>
+                    <Typography paragraph fontWeight="fontWeightBold" variant="h5" >що треба знати і вміти</Typography>
 
                     {/*display standart skill reqs*/}
-                    <Typography gutterBottom  color={"textSecondary"}>стандарт</Typography>
+                    <Typography paragraph color="secondary">стандарт</Typography>
                     {props.topic_json.skills_reqs_standard.map(function(standart_text, i){
                         return <div>
                                 <ListItem className={classes.ListItem}>
@@ -63,8 +63,8 @@ export default function TopicContents(props) {
                     {/* display pro skill reqs*/}
                     {!props.topic_json.skills_reqs_pro === undefined || props.topic_json.skills_reqs_pro.length !== 0 &&
                         <div>
-                            <Typography gutterBottom />
-                        <Typography gutterBottom color={"textSecondary"}>профільний</Typography>
+                            <Typography paragraph />
+                        <Typography paragraph color="secondary">профільний</Typography>
                         {props.topic_json.skills_reqs_pro.map(function(pro_text, i){
                             return <div>
                                 <ListItem className={classes.ListItem}>
@@ -77,8 +77,8 @@ export default function TopicContents(props) {
                         })}
                         </div>
                     }
-                    <Typography gutterBottom />
-                    <Typography color={"textSecondary"} variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
+                    <Typography paragraph />
+                    <Typography color="secondary" variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
 
                 </div>
             </List>
