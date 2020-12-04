@@ -1,6 +1,4 @@
-import NavBar from '../../components/NavBar/NavBar';
 import HeaderImage from '../../components/HeaderImage/HeaderImage';
-import Container from '@material-ui/core/Container';
 import Page from '../../components/Page/Page';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import Grid from '@material-ui/core/Grid';
@@ -21,24 +19,24 @@ const AppPage = (props) => {
 
           <Grid container spacing="2" className={classes.Grid}>
 
-            <Grid item container direction="row" spacing="2" className={classes.Grid}>
+            <Grid item container direction="row" spacing="2" alignItems="center" className={classes.Grid}>
 
               <Grid item>
                 <HeaderImage src={props.headerImageSrc}/>
               </Grid>
 
               <Grid item>
-              <Button
-                startIcon={<ExpandMoreRoundedIcon />}
-              >
-                математика
-              </Button>
+                {props.headerIcon}
               </Grid>
 
             </Grid>
 
             <Grid item>
-              {props.headerIcon}
+            <Button
+              startIcon={<ExpandMoreRoundedIcon />}
+            >
+              математика
+            </Button>
             </Grid>
 
           </Grid>
