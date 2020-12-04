@@ -45,10 +45,10 @@ export default function TopicContents(props) {
             <List>
                 <div>
 
-                    <Typography color={"primary"}>що треба знати і вміти</Typography>
+                    <Typography gutterBottom fontWeight="fontWeightBold" variant="h5" color="text.secondary">що треба знати і вміти</Typography>
 
                     {/*display standart skill reqs*/}
-                    <Typography fontWeight="fontWeightBold" color={"primary"}>стандарт</Typography>
+                    <Typography gutterBottom  color={"textSecondary"}>стандарт</Typography>
                     {props.topic_json.skills_reqs_standard.map(function(standart_text, i){
                         return <div>
                                 <ListItem className={classes.ListItem}>
@@ -57,13 +57,14 @@ export default function TopicContents(props) {
                                 primary={"— " + standart_text}
                             />
                         </ListItem>
-                        </div>;
+                        </div>
                     })}
 
                     {/* display pro skill reqs*/}
                     {!props.topic_json.skills_reqs_pro === undefined || props.topic_json.skills_reqs_pro.length !== 0 &&
                         <div>
-                        <Typography color={"primary"}>профільний</Typography>
+                            <Typography gutterBottom />
+                        <Typography gutterBottom color={"textSecondary"}>профільний</Typography>
                         {props.topic_json.skills_reqs_pro.map(function(pro_text, i){
                             return <div>
                                 <ListItem className={classes.ListItem}>
@@ -76,7 +77,8 @@ export default function TopicContents(props) {
                         })}
                         </div>
                     }
-                    <Typography>{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
+                    <Typography gutterBottom />
+                    <Typography color={"textSecondary"} variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
 
                 </div>
             </List>

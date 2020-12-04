@@ -70,7 +70,7 @@ export default function ProgramAccordion(props) {
 
         // display module name
         items.push(
-            <Typography variant="h3">
+            <Typography paragraph variant="h4">
                 {module.name}
             </Typography>
         )
@@ -78,7 +78,7 @@ export default function ProgramAccordion(props) {
         // display chapter name and index
         for (const [index, chapter] of module.chapters.entries()) {
             items.push(
-                <Typography variant="subtitle1">
+                <Typography paragraph variant="subtitle1">
                     {increment_string_number(chapter.id) + ". " + chapter.name}
                 </Typography>
             )
