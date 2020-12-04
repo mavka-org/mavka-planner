@@ -62,7 +62,16 @@ const theme = createMuiTheme({
       fontSize: '21px',
       lineHeight: '25px',
       color: '#333333',
+    },
+    subtitle2:{
+      fontSize: '18px',
+      lineHeight: '21px',
+      textDecorationLine: 'underline',
+      color: '#4f4f4f',
+      fontFamily: 'Gilroy-Light',
     }
+    // subtitle2 - ссылку
+    // 
   },
 });
 
