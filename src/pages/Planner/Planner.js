@@ -51,7 +51,7 @@ const Landing = () => {
                 <Grid item container direction="row" alignItems="flex-end" className={classes.WeekTitleItem}>
 
                   <Grid item xs={8}>
-                    <Typography variant="h4" textBold>тиждень {index}</Typography>
+                    <Typography variant="h4" textBold>тиждень {index + 1}</Typography>
                   </Grid>
 
                   <Grid item xs={4}>

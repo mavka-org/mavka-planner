@@ -6,6 +6,11 @@ import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import TopicContents from "../TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {RoundButton} from "../Button/Button";
+import Box from '@material-ui/core/Box';
+import MavkaTextLogo from "../../assets/img/mavka-text-logo.png";
+import MavkaSmallLogo from "../../assets/img/mavka-small-logo.png";
+import Grid from "@material-ui/core/Grid";
 
 const Accordion = withStyles({
     root: {
@@ -70,7 +75,7 @@ export default function ProgramAccordion(props) {
 
         // display module name
         items.push(
-            <Typography variant="h3">
+            <Typography paragraph variant="h4">
                 {module.name}
             </Typography>
         )
@@ -78,7 +83,7 @@ export default function ProgramAccordion(props) {
         // display chapter name and index
         for (const [index, chapter] of module.chapters.entries()) {
             items.push(
-                <Typography variant="subtitle1">
+                <Typography paragraph variant="h5">
                     {increment_string_number(chapter.id) + ". " + chapter.name}
                 </Typography>
             )
@@ -88,13 +93,26 @@ export default function ProgramAccordion(props) {
                 items.push(
                     <Accordion  square expanded={expanded === 'panel' + global_panel_index}
                                onChange={handleChange('panel' + global_panel_index)}>
+
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={"panel" + global_panel_index + "d-content"}
                                           id={"panel" + global_panel_index + "d-header"}>
-                            <Typography>{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
+                            <div style={{ width: '100%' }}>
+                                <Box display="flex" alignItems="center" background="primary" py={1}>
+                                    <Box flexGrow={1}>
+                                        {/*display topic name*/}
+                                        <Typography >{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
+                                    </Box>
+                                    <Box>
+                                        <RoundButton size="small" variant="contained" color="primary">вчити</RoundButton>
+                                    </Box>
+                                </Box>
+                            </div>
                         </AccordionSummary>
+
                         <AccordionDetails>
                             <TopicContents dense={true} topic_json = {topic}/>
                         </AccordionDetails>
+
                     </Accordion>
                 )
                 global_panel_index++

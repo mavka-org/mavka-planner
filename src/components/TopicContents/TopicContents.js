@@ -45,10 +45,10 @@ export default function TopicContents(props) {
             <List>
                 <div>
 
-                    <Typography color={"primary"}>що треба знати і вміти</Typography>
+                    <Typography paragraph fontWeight="fontWeightBold" variant="h5" >що треба знати і вміти</Typography>
 
                     {/*display standart skill reqs*/}
-                    <Typography fontWeight="fontWeightBold" color={"primary"}>стандарт</Typography>
+                    <Typography paragraph color="secondary">стандарт</Typography>
                     {props.topic_json.skills_reqs_standard.map(function(standart_text, i){
                         return <div>
                                 <ListItem className={classes.ListItem}>
@@ -57,13 +57,14 @@ export default function TopicContents(props) {
                                 primary={"— " + standart_text}
                             />
                         </ListItem>
-                        </div>;
+                        </div>
                     })}
 
                     {/* display pro skill reqs*/}
                     {!props.topic_json.skills_reqs_pro === undefined || props.topic_json.skills_reqs_pro.length !== 0 &&
                         <div>
-                        <Typography color={"primary"}>профільний</Typography>
+                            <Typography paragraph />
+                        <Typography paragraph color="secondary">профільний</Typography>
                         {props.topic_json.skills_reqs_pro.map(function(pro_text, i){
                             return <div>
                                 <ListItem className={classes.ListItem}>
@@ -76,7 +77,8 @@ export default function TopicContents(props) {
                         })}
                         </div>
                     }
-                    <Typography>{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
+                    <Typography paragraph />
+                    <Typography color="secondary" variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
 
                 </div>
             </List>

@@ -11,11 +11,12 @@ import Topic from './pages/Topic/Topic';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#000",
+      main: "#000"
     },
     secondary: {
-      main: "#fff"
+      main: "#1AB2A8"
     },
+
   },
   typography: {
     fontFamily: [
@@ -48,7 +49,10 @@ const theme = createMuiTheme({
       color: '#828282',
     },
     h4: {
-      fontWeight: 'bold',
+      fontWeight: "bold",
+    },
+    h5: {
+      fontWeight: "bold",
     },
     subtitle1: {
       fontWeight: 300,
