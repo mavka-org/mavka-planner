@@ -43,7 +43,7 @@ const Landing = () => {
             <Grid container direction="row">
 
               <Grid item xs={8}>
-                <Typography variant="h5">тиждень {index}</Typography>
+                <Typography variant="h5">тиждень {index+1}</Typography>
               </Grid>
 
               <Grid item xs={4}>
