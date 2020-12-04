@@ -5,7 +5,6 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Program from "../../models/program/program";
 import Page from "../../components/Page/Page";
-import classes from "../../screens/Login/Login.module.css";
 import ProgramAccordion from "../../components/ProgramAccordion/ProgramAccordion";
 import TopicContents from "../../components/TopicContents/TopicContents";
 import Topic from '../../models/program/topic';

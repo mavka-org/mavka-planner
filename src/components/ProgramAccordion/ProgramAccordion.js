@@ -4,7 +4,6 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import classes from "../../screens/Login/Login.module.css";
 import TopicContents from "../TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -22,7 +21,7 @@ const Accordion = withStyles({
         // '&$expanded': {
         //     margin: 'auto',
         // },
-        
+
     },
 
     expanded: {},

@@ -22,6 +22,11 @@ const AppPage = (props) => {
           <Grid container spacing="2" className={classes.Grid}>
 
             <Grid item container direction="row" spacing="2" className={classes.Grid}>
+
+              <Grid item>
+                <HeaderImage src={props.headerImageSrc}/>
+              </Grid>
+
               <Grid item>
               <Button
                 startIcon={<ExpandMoreRoundedIcon />}
@@ -30,9 +35,6 @@ const AppPage = (props) => {
               </Button>
               </Grid>
 
-              <Grid item>
-                <HeaderImage src={props.headerImageSrc}/>
-              </Grid>
             </Grid>
 
             <Grid item>
