@@ -17,7 +17,7 @@ const AppPage = (props) => {
   return (
         <Page {...props}>
 
-          <Grid container spacing="2" className={classes.Grid}>
+          <Grid container spacing="1" className={classes.Grid}>
 
             <Grid item container direction="row" spacing="2" alignItems="center" className={classes.Grid}>
 

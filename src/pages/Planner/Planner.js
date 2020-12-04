@@ -44,7 +44,7 @@ const Landing = () => {
         return (
           <Grid container>
             <Grid item xs={8}>
-              <Typography variant="h2">тиждень {index}</Typography>
+              <Typography variant="h6">тиждень {index}</Typography>
               {week.events.map((elem, index, array) => {
                 return (
                   <Grid container direction="row" justify="space-evenly" alignItems="center">
@@ -65,7 +65,7 @@ const Landing = () => {
                         />
 
                         }</Grid>
-                        <Grid item><Typography variant="subtitle1">{elem.title}</Typography></Grid>
+                        <Grid item><Typography>{elem.title}</Typography></Grid>
                       </Grid>
                     </Grid>
                   </Grid>
