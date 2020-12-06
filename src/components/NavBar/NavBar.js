@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box';
 import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
 import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   NavBar: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     height: "24px",
   },
 }));
+
 
 const NavBar = (props) => {
   const classes = useStyles();
@@ -36,7 +38,8 @@ const NavBar = (props) => {
         }
         {
           props.user===undefined ?
-            (<Button variant="outlined">увійти</Button>) :
+
+            (<Button onClick={props.loginFunc} variant="outlined">увійти</Button>) :
             (<Button style={props.selected==="profile" ? {fontWeight: "700"} : {}}>профіль</Button>)
         }
         </Grid>
