@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mavka-c5c01": {
+      "hosting": {
+        "planner": [
+          "plannertest"
+        ]
+      }
+    }
+  }
+}

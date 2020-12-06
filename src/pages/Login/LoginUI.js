@@ -32,7 +32,7 @@ const LoginUI = () => {
         </Grid>
 
         <Grid style={{width: '100%'}} item>
-          <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="YourMavkaBot" buttonSize="large" />
+          <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="kukolya_bot" buttonSize="large" />
         </Grid>
 
         <Grid item style={{width: '100%'}}>
