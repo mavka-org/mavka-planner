@@ -1,6 +1,6 @@
 import NavBar from '../../components/NavBar/NavBar'
 import LoginPng from './../../assets/img/login.png'
-import {LargeButton, Button} from './../../components/Button/Button';
+import Button from './../../components/Button/Button';
 import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Program from "../../models/program/program";

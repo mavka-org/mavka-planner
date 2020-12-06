@@ -4,27 +4,29 @@ import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
-class Event {
-    constructor(idx, weekIdx, title, json){
-        this.idx = idx
-        this.weekIdx = weekIdx
-        this.title = title
-        this.completed = json['completed']
-        this.type = json['type']
+class Event extends React.Component {
+    constructor(props, title){
+      super(props)
+      this.idx = props.idx
+      this.title = title
+      this.type = props.json['type']
+      this.state = {
+        completed: props.json['completed']
+      }
     }
 
-    changeCompleted() {
+    toggleCompleted() {
         // changes this.completed to opposite value and returns it
-        this.completed = !this.completed
-        return this.completed
+        this.setState({
+            completed: !this.state.completed
+        })
     }
 
-    getComponent(handleCheckboxChange) {
-      const [checked, setChecked] = React.useState(true);
+    getButton() {
+      return ''
+    }
 
-      const handleChange = (event) => {
-        setChecked(event.target.checked);
-      };
+    render() {
 
       return (
         <Grid item container direction="row" spacing="1">
@@ -34,7 +36,7 @@ class Event {
             <Grid item>
               <Checkbox
                 checked={this.completed}
-                onChange={handleCheckboxChange}
+                onChange={this.toggleCompleted}
                 name={"checkbox-" + this.weekIdx + '-' + this.idx}
                 color="secondary"
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -57,19 +59,17 @@ class Event {
       )
     }
 
-    getButton() {
-      return ''
-    }
 }
 
 
 export class TopicEvent extends Event {
-    constructor(idx, weekIdx, json){
-      let chapter_n = json['data']['chapter_id'] + 1
-      let topic_n = json['data']['order_n'] + 1
-      let title = chapter_n + '.' + topic_n + ' ' + json['data']['topic_name']
-      super(idx, weekIdx, title, json)
-      this.topic_id = json['data']['topic_id']
+    constructor(props){
+      console.log(props.json)
+      let chapter_n = props.json.data.chapter_id + 1
+      let topic_n = props.json.data.order_n + 1
+      let title = chapter_n + '.' + topic_n + ' ' + props.json.data.topic_name
+      super(props, title)
+      this.topic_id = props.json.data.topic_id
     }
 
     getButton() {
@@ -79,9 +79,10 @@ export class TopicEvent extends Event {
 
 
 export class UrlEvent extends Event {
-    constructor(idx, weekIdx, json){
-        super(idx, weekIdx, json['data']['title'], json)
-        this.url = json['data']['url']
+    constructor(props){
+      let title = props.json.data.title
+      super(props, title)
+      this.url = props.json.data.url
     }
 
     getButton() {
@@ -91,7 +92,8 @@ export class UrlEvent extends Event {
 
 
 export class TextEvent extends Event {
-    constructor(idx, weekIdx, json){
-        super(idx, weekIdx, json['data']['title'], json)
+    constructor(props){
+      let title = props.json.data.title
+      super(props, title)
     }
 }

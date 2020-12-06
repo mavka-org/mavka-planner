@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   Logo: {
     height: "24px",
-  }
+  },
 }));
 
 const NavBar = (props) => {
@@ -24,8 +24,8 @@ const NavBar = (props) => {
           <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} className={classes.Logo} />
         </Box>
 
-        <Box>
-        <Grid item container justifySelf="flex-end" direction="row" alignItems="center" spacing="1">
+        <Box display="flex" flexWrap="nowrap">
+        <Grid item container justifySelf="flex-end" direction="row" alignItems="center" spacing="1" style={{flexWrap: "nowrap"}}>
         {
           props.selected!==undefined &&
           <div>
