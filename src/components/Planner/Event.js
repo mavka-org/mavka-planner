@@ -5,6 +5,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 
 class Event extends React.Component {
+  
     constructor(props, title){
       super(props)
       this.idx = props.idx
@@ -15,7 +16,7 @@ class Event extends React.Component {
       }
     }
 
-    toggleCompleted() {
+    toggleCompleted = () => {
         // changes this.completed to opposite value and returns it
         this.setState({
             completed: !this.state.completed
@@ -35,7 +36,7 @@ class Event extends React.Component {
 
             <Grid item>
               <Checkbox
-                checked={this.completed}
+                checked={this.state.completed}
                 onChange={this.toggleCompleted}
                 name={"checkbox-" + this.weekIdx + '-' + this.idx}
                 color="secondary"
