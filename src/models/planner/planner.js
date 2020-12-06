@@ -1,4 +1,4 @@
-import Week from "./week";
+import Week from "./../../components/Planner/week";
 
 class Planner {
 
@@ -6,9 +6,9 @@ class Planner {
     this.weeks = []
 
     // load weeks
-    for (var week_id = 0; week_id < json['weeks'].length; week_id++) {
-        let week_json = json['weeks'][week_id]
-        this.weeks.push(new Week(week_id, week_json))
+    for (var week_idx = 0; week_idx < json['weeks'].length; week_idx++) {
+        let week_json = json['weeks'][week_idx]
+        this.weeks.push(new Week(week_idx, week_json))
     }
 
   }

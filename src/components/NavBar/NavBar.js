@@ -1,9 +1,10 @@
-import { RoundButton, Button } from './../../components/Button/Button';
+import Button from './../../components/Button/Button';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
 import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   NavBar: {
@@ -11,8 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
   Logo: {
     height: "24px",
-  }
+  },
 }));
+
 
 const NavBar = (props) => {
   const classes = useStyles();
@@ -24,8 +26,8 @@ const NavBar = (props) => {
           <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} className={classes.Logo} />
         </Box>
 
-        <Box>
-        <Grid item container justifySelf="flex-end" direction="row" alignItems="center" spacing="1">
+        <Box display="flex" flexWrap="nowrap">
+        <Grid item container justifySelf="flex-end" direction="row" alignItems="center" spacing="1" style={{flexWrap: "nowrap"}}>
         {
           props.selected!==undefined &&
           <div>
@@ -36,7 +38,8 @@ const NavBar = (props) => {
         }
         {
           props.user===undefined ?
-            (<RoundButton variant="outlined">увійти</RoundButton>) :
+
+            (<Button onClick={props.loginFunc} variant="outlined">увійти</Button>) :
             (<Button style={props.selected==="profile" ? {fontWeight: "700"} : {}}>профіль</Button>)
         }
         </Grid>

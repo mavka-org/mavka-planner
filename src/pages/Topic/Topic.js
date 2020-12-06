@@ -1,6 +1,6 @@
 import NavBar from '../../components/NavBar/NavBar'
 import LoginPng from './../../assets/img/login.png'
-import {LargeButton, RoundButton} from './../../components/Button/Button';
+import Button from './../../components/Button/Button';
 import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Program from "../../models/program/program";
@@ -26,10 +26,10 @@ export default function TopicPage() {
             {/*display buttons*/}
                 <Grid container spacing={3}>
                     <Grid item xs={6}>
-                        <RoundButton  fullWidth size="medium"  variant="contained" color="primary">тести</RoundButton>
+                        <Button  fullWidth size="medium"  variant="contained" color="primary">тести</Button>
                     </Grid>
                     <Grid item xs={6}>
-                        <RoundButton  fullWidth size="medium" variant="contained" color="primary">конспекти</RoundButton>
+                        <Button  fullWidth size="medium" variant="contained" color="primary">конспекти</Button>
                     </Grid>
                 </Grid>
 

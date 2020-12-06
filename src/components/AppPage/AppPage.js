@@ -2,13 +2,12 @@ import HeaderImage from '../../components/HeaderImage/HeaderImage';
 import Page from '../../components/Page/Page';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import Grid from '@material-ui/core/Grid';
-import { Button } from './../../components/Button/Button';
+import Box from '@material-ui/core/Box';
+import { RoundButton } from './../../components/Button/Button';
+import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  Grid: {
-    width: "100%"
-  },
 }));
 
 const AppPage = (props) => {
@@ -17,26 +16,28 @@ const AppPage = (props) => {
   return (
         <Page {...props}>
 
-          <Grid container spacing="1" className={classes.Grid}>
+          <Grid container spacing="1">
 
-            <Grid item container direction="row" spacing="2" alignItems="center" className={classes.Grid}>
+            <Box display="flex" alignItems="center" style={{ width: '100%' }}>
 
-              <Grid item>
+              <Box flexGrow={1}>
                 <HeaderImage src={props.headerImageSrc}/>
-              </Grid>
+              </Box>
 
-              <Grid item>
-                {props.headerIcon}
-              </Grid>
+              <Box>
+                <IconButton size="small">
+                  {props.headerIcon}
+                </IconButton>
+              </Box>
 
-            </Grid>
+            </Box>
 
             <Grid item>
-            <Button
+            <RoundButton
               startIcon={<ExpandMoreRoundedIcon />}
             >
               математика
-            </Button>
+            </RoundButton>
             </Grid>
 
           </Grid>

@@ -1,28 +1,33 @@
 import MuiButton from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
-export const Button = withStyles({
-  root: {
-    textTransform: 'none'
-  },
-})(MuiButton);
-
 export const RoundButton = withStyles({
   root: {
     textTransform: 'none',
-    borderRadius: '50px'
+    borderRadius: '50px',
+    height: "fit-content",
   },
 })(MuiButton);
 
 export const LargeButton = withStyles({
   root: {
-    textTransform: 'none',
-    borderRadius: '50px',
     height: '58px',
     fontSize: '1.1rem',
     fontWeight: 600,
     boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.15)',
   },
-})(MuiButton);
+})(RoundButton);
 
-export default MuiButton
+export const Button = (props) => {
+  return (
+    <RoundButton size="small" color="primary" {...props}/>
+  )
+}
+
+export const LinkButton = withStyles({
+  root: {
+    width: '90px'
+  },
+})(Button);
+
+export default Button
