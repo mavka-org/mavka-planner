@@ -45,16 +45,16 @@ export default function TopicContents(props) {
             <List>
                 <div>
 
-                    <Typography paragraph fontWeight="fontWeightBold" variant="h5" >що треба знати і вміти</Typography>
+                    <Typography paragraph fontWeight="fontWeightBold" variant="h4" >що треба знати і вміти:</Typography>
 
                     {/*display standart skill reqs*/}
-                    <Typography paragraph color="secondary">стандарт</Typography>
+                    <Typography paragraph variant="h4" color="secondary">стандарт</Typography>
                     {props.topic_json.skills_reqs_standard.map(function(standart_text, i){
                         return <div>
                                 <ListItem className={classes.ListItem}>
                             <ListItemText
                                 className={classes.ListItemText}
-                                primary={"— " + standart_text}
+                                primary={<Typography variant="body2">{"— " + standart_text}</Typography>}
                             />
                         </ListItem>
                         </div>
@@ -64,16 +64,16 @@ export default function TopicContents(props) {
                     {!props.topic_json.skills_reqs_pro === undefined || props.topic_json.skills_reqs_pro.length !== 0 &&
                         <div>
                             <Typography paragraph />
-                        <Typography paragraph color="secondary">профільний</Typography>
+                        <Typography paragraph variant="h4" color="secondary">профільний</Typography>
                         {props.topic_json.skills_reqs_pro.map(function(pro_text, i){
-                            return <div>
+                            return (<div>
                                 <ListItem className={classes.ListItem}>
                                     <ListItemText
                                         className={classes.ListItemText}
-                                        primary={"— " + pro_text}
+                                        primary={<Typography variant="body2">{"— " + pro_text}</Typography>}
                                     />
                                 </ListItem>
-                            </div>
+                            </div>)
                         })}
                         </div>
                     }
