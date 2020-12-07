@@ -12,11 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const handleTelegramResponse = response => {
-  console.log(response);
-};
 
-const LoginUI = () => {
+
+const LoginUI = (props) => {
   const classes = useStyles();
   return (
     <div>
@@ -32,7 +30,7 @@ const LoginUI = () => {
         </Grid>
 
         <Grid style={{width: '100%'}} item>
-          <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="kukolya_bot" buttonSize="large" />
+          <TelegramLoginButton dataOnauth={props.handleTelegramResponse} botName="kukolya_bot" buttonSize="large" />
         </Grid>
 
         <Grid item style={{width: '100%'}}>
