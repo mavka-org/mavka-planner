@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Button from './../../components/Button/Button';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -23,7 +24,9 @@ const NavBar = (props) => {
     <Box display="flex" alignItems="center" py={1}>
 
         <Box flexGrow={1}>
-          <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} className={classes.Logo} />
+          <NavLink to="/">
+            <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} className={classes.Logo} />
+          </NavLink>
         </Box>
 
         <Box display="flex" flexWrap="nowrap">
@@ -31,9 +34,12 @@ const NavBar = (props) => {
         {
           props.selected!==undefined &&
           <div>
-            <Button style={props.selected==="planner" ? {fontWeight: "700"} : {}}>планер</Button>
-            <Button style={props.selected==="program" ? {fontWeight: "700"} : {}}>програма</Button>
-            <Button style={props.selected==="tests" ? {fontWeight: "700"} : {}}>тести</Button>
+
+            <Button href='/planner' style={props.selected==="planner" ? {fontWeight: "700"} : {}}>планер</Button>
+
+            <Button href='/program' style={props.selected==="program" ? {fontWeight: "700"} : {}}>програма</Button>
+
+            <Button href='https://zno.mavka.org' style={props.selected==="tests" ? {fontWeight: "700"} : {}}>тести</Button>
           </div>
         }
         {
