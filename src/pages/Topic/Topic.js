@@ -21,17 +21,19 @@ export default function TopicPage() {
     return (
         <Page >
 
-            <Typography paragraph variant="h3" color={"primary"}>{increment_string_number(topic.chapter_id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
+            <Box pt={3}> <Typography  variant="h1" color={"primary"}>{increment_string_number(topic.chapter_id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography> </Box>
 
             {/*display buttons*/}
-                <Grid container spacing={3}>
+            <Box pt={3} pb={3}>
+                <Grid container spacing={3} p={3}>
                     <Grid item xs={6}>
-                        <Button  fullWidth size="medium"  variant="contained" color="primary">тести</Button>
+                        <Button  fullWidth size="big"  variant="contained" color="primary" target="_blank" href={topic.practice_link}>тести</Button>
                     </Grid>
                     <Grid item xs={6}>
-                        <Button  fullWidth size="medium" variant="contained" color="primary">конспекти</Button>
+                        <Button  fullWidth size="medium" variant="contained" color="primary" target="_blank" href={topic.study_guide_link}>конспекти</Button>
                     </Grid>
                 </Grid>
+            </Box>
 
             <TopicContents topic_json = {topic}/>
         </Page>

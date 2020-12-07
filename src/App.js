@@ -58,8 +58,8 @@ const theme = createMuiTheme({
     },
     subtitle1: {
       fontWeight: "normal",
-      fontSize: '22px',
-      lineHeight: '26px',
+      fontSize: '21px',
+      lineHeight: '25px',
       color: '#333333',
     },
     body1: {

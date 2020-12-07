@@ -68,7 +68,7 @@ const Week = (props) => {
         <Grid item container direction="row" alignItems="flex-end" className={classes.WeekTitleItem}>
 
           <Grid item xs={8}>
-            <Typography variant="h4" textBold>тиждень {idx + 1}</Typography>
+            <Typography variant="h1" textBold>тиждень {idx + 1}</Typography>
           </Grid>
 
           <Grid item xs={4}>

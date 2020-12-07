@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import { ExpansionPanelSummary } from '@material-ui/core';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import IconButton from "@material-ui/core/IconButton";
+import Link from '@material-ui/core/Link';
 
 
 const Accordion = withStyles({
@@ -77,6 +78,11 @@ export default function ProgramAccordion(props) {
     const items = [];
     let global_panel_index = 0
 
+    items.push(
+        <Box pt={3}><Typography variant="h3" target="_blank" href="https://www.notion.so/mavkaorg/446a53ca1add46f093f49dfbf4c6fd73"><Link color="secondary" target="_blank" href="https://www.notion.so/mavkaorg/446a53ca1add46f093f49dfbf4c6fd73"
+        >0. Читати стратегію підготовки від топ-ЗНОшників</Link></Typography></Box>
+    )
+
     for (const [index, module] of props.program.modules.entries()) {
 
         // display module name
@@ -117,7 +123,7 @@ export default function ProgramAccordion(props) {
                                         <Typography variant="body1">{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
                                     </Box>
                                     <Box>
-                                        <Button size="small" variant="contained" color="primary">вчити</Button>
+                                        <Button size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
                                     </Box>
                                 </Box>
                             </div>

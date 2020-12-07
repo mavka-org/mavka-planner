@@ -45,7 +45,7 @@ class Event extends React.Component {
             </Grid>
 
             <Grid item>
-              <Typography style={{paddingTop: "9px"}}>{this.title}</Typography>
+              <Typography variant="subtitle1" style={{paddingTop: "9px"}}>{this.title}</Typography>
             </Grid>
 
           </Grid>
