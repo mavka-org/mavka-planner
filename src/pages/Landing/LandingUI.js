@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   Img: {
     width: "250px",
   },
+  oppositeColor: {
+    backgroundColor: theme.palette.opposite
+  }
 }));
 
 const LandingUI = (props) => {
@@ -38,6 +41,7 @@ const LandingUI = (props) => {
 
           <Grid item style={{width: "100%"}}>
             <LargeButton
+              href='planner'
               fullWidth
               variant="contained"
               color="primary"
@@ -48,9 +52,10 @@ const LandingUI = (props) => {
 
           <Grid item style={{width: "100%"}}>
             <LargeButton
+              href='program'
               fullWidth
               variant="contained"
-              color="secondary"
+              className={classes.oppositeColor}
             >
             📚  вчити тести та матеріали
             </LargeButton>

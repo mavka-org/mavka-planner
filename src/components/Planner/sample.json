@@ -1,54 +1,18 @@
 {
    "weeks":[
-	   {
-          "start_date":"2020-11-24",
-          "end_date":"2020-11-29",
-          "events":[
-             {
-                "event_id":"math-topic-0",
-                "type":"topic",
-                "completed":false,
-                "data":{
-                   "topic_name":"Дійсні числа",
-                   "chapter_id":0,
-                   "topic_id":0,
-                   "order_n":0
-                }
-             },
-             {
-                "event_id":"math-topic-1",
-                "type":"topic",
-                "completed":false,
-                "data":{
-                   "topic_name":"Відношення та пропорції. Відсотки. Текстові задачі",
-                   "chapter_id":0,
-                   "topic_id":1,
-                   "order_n":1
-                }
-             },
-             {
-                "event_id":"math-url-0",
-                "type":"url",
-                "completed":false,
-                "data":{
-                   "url":"https://www.instagram.com/",
-                   "title":"Діагностичний тест"
-                }
-             },
-             {
-                "event_id":"math-text-1",
-                "type":"text",
-                "completed":false,
-                "data":{
-                   "title":"Практикувати тести"
-                }
-             }
-          ]
-       },
       {
          "start_date":"2020-11-30",
          "end_date":"2020-12-06",
          "events":[
+            {
+               "event_id":"math-url-0",
+               "type":"url",
+               "completed":true,
+               "data":{
+                  "url":"https://practice.mavka.org/",
+                  "title":"🚀 Діагностичний тест"
+               }
+            },
             {
                "event_id":"math-topic-0",
                "type":"topic",
@@ -69,23 +33,6 @@
                   "chapter_id":0,
                   "topic_id":1,
                   "order_n":1
-               }
-            },
-            {
-               "event_id":"math-url-0",
-               "type":"url",
-               "completed":true,
-               "data":{
-                  "url":"https://www.instagram.com/",
-                  "title":"Діагностичний тест"
-               }
-            },
-            {
-               "event_id":"math-text-1",
-               "type":"text",
-               "completed":true,
-               "data":{
-                  "title":"Практикувати тести"
                }
             }
          ]
@@ -125,6 +72,15 @@
                   "chapter_id":0,
                   "topic_id":4,
                   "order_n":4
+               }
+            },
+            {
+               "event_id":"math-url-0",
+               "type":"url",
+               "completed":true,
+               "data":{
+                  "url":"https://www.instagram.com/",
+                  "title":"Вчити картки по темах"
                }
             }
          ]
