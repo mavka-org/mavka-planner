@@ -8,29 +8,28 @@ import TopicContents from "../TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from "../Button/Button";
 import Box from '@material-ui/core/Box';
-import MavkaTextLogo from "../../assets/img/mavka-text-logo.png";
-import MavkaSmallLogo from "../../assets/img/mavka-small-logo.png";
-import Grid from "@material-ui/core/Grid";
+import { ExpansionPanelSummary } from '@material-ui/core';
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import IconButton from "@material-ui/core/IconButton";
+
 
 const Accordion = withStyles({
     root: {
-        // border: '1px solid rgba(0, 0, 0, .125)',
-        // boxShadow: 'none',
-        // '&:not(:last-child)': {
-        //     borderBottom: 0,
-        // },
         '&:before': {
-            display: 'none',
-            backgroundColor: "white"
+            display: 'none'
         },
-        // '&$expanded': {
-        //     margin: 'auto',
-        // },
-
     },
 
     expanded: {},
 })(MuiAccordion);
+
+const noMarginIconButton = withStyles({
+    root: {
+        margin: "20px",
+        marginLeft: "0",
+        padding: "10px",
+    }
+})(IconButton);
 
 
 const AccordionSummary = withStyles({
@@ -39,19 +38,22 @@ const AccordionSummary = withStyles({
     },
     root: {
         //backgroundColor: 'rgba(0, 0, 0, .03)',
-        borderBottom: '1px solid rgba(0, 0, 0, .125)',
+        borderBottom: '1px solid rgba(255, 255, 255, 1)',
         marginBottom: -1,
         minHeight: 56,
         '&$expanded': {
             minHeight: 56,
         },
+        padding: "0px"
     },
     content: {
         '&$expanded': {
             margin: '12px 0',
         },
     },
+
     expanded: {},
+
 })(MuiAccordionSummary);
 
 const AccordionDetails = withStyles((theme) => ({
@@ -60,8 +62,12 @@ const AccordionDetails = withStyles((theme) => ({
     },
 }))(MuiAccordionDetails);
 
+
+
+
 // props: program
 export default function ProgramAccordion(props) {
+
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel) => (event, newExpanded) => {
@@ -75,32 +81,40 @@ export default function ProgramAccordion(props) {
 
         // display module name
         items.push(
-            <Typography paragraph variant="h4">
-                {module.name}
-            </Typography>
+            <Box pt={3}>
+                <Typography variant="h1">
+                    {module.name}
+                </Typography>
+            </Box>
         )
 
         // display chapter name and index
         for (const [index, chapter] of module.chapters.entries()) {
             items.push(
-                <Typography paragraph variant="h5">
-                    {increment_string_number(chapter.id) + ". " + chapter.name}
-                </Typography>
+                <Box pt={3} pb={1} >
+                    <Typography  variant="h3">
+                        {increment_string_number(chapter.id) + ". " + chapter.name}
+                    </Typography>
+                </Box>
             )
 
             // display topics in accordion
             for (const [index, topic] of chapter.topics.entries()) {
                 items.push(
-                    <Accordion  square expanded={expanded === 'panel' + global_panel_index}
+
+                    <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
                                onChange={handleChange('panel' + global_panel_index)}>
 
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={"panel" + global_panel_index + "d-content"}
-                                          id={"panel" + global_panel_index + "d-header"}>
+                        <Box borderBottom = {1}>
+                            <AccordionSummary aria-controls={"panel" + global_panel_index + "d-content"}>
                             <div style={{ width: '100%' }}>
                                 <Box display="flex" alignItems="center" background="primary" py={1}>
-                                    <Box flexGrow={1}>
+                                    <Box >
+                                        <noMarginIconButton > <ExpandMoreIcon /> </noMarginIconButton>
+                                    </Box>
+                                    <Box flexGrow={1} pr={2} pl={1}>
                                         {/*display topic name*/}
-                                        <Typography >{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
+                                        <Typography variant="body1">{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
                                     </Box>
                                     <Box>
                                         <Button size="small" variant="contained" color="primary">вчити</Button>
@@ -108,12 +122,14 @@ export default function ProgramAccordion(props) {
                                 </Box>
                             </div>
                         </AccordionSummary>
+                        </Box>
 
                         <AccordionDetails>
                             <TopicContents dense={true} topic_json = {topic}/>
                         </AccordionDetails>
 
                     </Accordion>
+
                 )
                 global_panel_index++
             }

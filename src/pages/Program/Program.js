@@ -10,8 +10,8 @@ import ProgramHeader from './../../assets/img/program-header.png';
 
 
 let sample_program_json = require('.//sample_program_json.json')
-let program_object = new Program(sample_program_json)
-console.log("program_object", program_object)
+let loaded_program = new Program(sample_program_json)
+console.log("loaded_program", loaded_program)
 
 export default function ProgramPage() {
     return (
@@ -20,7 +20,7 @@ export default function ProgramPage() {
         headerImageSrc={ProgramHeader}
         selected="program"
       >
-            <ProgramAccordion program={program_object}/>;
+            <ProgramAccordion program={loaded_program}/>;
       </AppPage>
     )
 }
