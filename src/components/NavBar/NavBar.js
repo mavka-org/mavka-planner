@@ -34,11 +34,8 @@ const NavBar = (props) => {
         {
           props.selected!==undefined &&
           <div>
-
             <Button href='/planner' style={props.selected==="planner" ? {fontWeight: "700"} : {}}>планер</Button>
-
             <Button href='/program' style={props.selected==="program" ? {fontWeight: "700"} : {}}>програма</Button>
-
             <Button href='https://zno.mavka.org' style={props.selected==="tests" ? {fontWeight: "700"} : {}}>тести</Button>
           </div>
         }
