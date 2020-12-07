@@ -1,13 +1,15 @@
 import React from 'react'
 import LoginUI from './LoginUI'
-import Firebase from '../../services/firebase'
+import {createUserWithEmailAndPassword} from '../../services/Firebase/Authenticate'
 
 class Login extends React.Component{
 
     handleTelegramResponse = (response) => {
         var email = response.id + '@mavka.org'
         var password = response.id
-        console.log(email, password)
+        password = password.toString()
+        console.log('LOGIC', email, password)
+        createUserWithEmailAndPassword(email, password)
     };
 
     render(){
