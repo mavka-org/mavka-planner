@@ -123,7 +123,7 @@ export default function ProgramAccordion(props) {
                                         <Typography variant="body1">{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
                                     </Box>
                                     <Box>
-                                        <Button size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
+                                        <Button size="small" variant="contained" color="primary" href={"/topic/"+topic.id}>вчити</Button>
                                     </Box>
                                 </Box>
                             </div>
