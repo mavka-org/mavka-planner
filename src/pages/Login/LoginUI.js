@@ -5,7 +5,6 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TelegramLoginButton from 'react-telegram-login';
 
-
 const useStyles = makeStyles((theme) => ({
   Grid: {
     width: "100%",
@@ -30,7 +29,7 @@ const LoginUI = (props) => {
         </Grid>
 
         <Grid style={{width: '100%'}} item>
-          <TelegramLoginButton dataOnauth={props.handleTelegramResponse} botName="kukolya_bot" buttonSize="large" />
+          <TelegramLoginButton dataOnauth={props.handleTelegramResponse} botName="kukolya_bot" buttonSize="large" usePic={false}/>
         </Grid>
 
         <Grid item style={{width: '100%'}}>
