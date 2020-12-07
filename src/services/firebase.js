@@ -1,6 +1,6 @@
 import app from 'firebase/app'
 import 'firebase/auth'
-import React, { createContext } from 'react' 
+import React, { createContext } from 'react'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCpJw3Fn2f1zwE74t0vmKAZG6MnR_3ZQfc",
@@ -20,13 +20,13 @@ class Firebase{
         this.auth = app.auth()
     }
 
-    createUserWithEmailAndPassword = (email, password) => 
+    createUserWithEmailAndPassword = (email, password) =>
         this.auth.createUserWithEmailAndPassword(email, password);
-    
 
-    signInWithEmailAndPassword = (email, password) => 
+
+    signInWithEmailAndPassword = (email, password) =>
         this.auth.signInWithEmailAndPassword(email, password);
-    
+
 
     signOut = () => this.auth.signOut();
 }
