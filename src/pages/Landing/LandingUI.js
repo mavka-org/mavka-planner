@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     width: "250px",
   },
   oppositeColor: {
-    backgroundColor: theme.palette.opposite
+    backgroundColor: '#fff'
   }
 }));
 
