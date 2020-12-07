@@ -6,6 +6,8 @@ import { LargeButton } from '../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import MuiButton from '@material-ui/core/Button';
+import Demo from '../../assets/img/giphy.gif'
+import Box from '@material-ui/core/Box';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,9 +58,9 @@ const LandingUI = (props) => {
 
         </Grid>
 
-        <Grid item>
-          <img src={Planner} />
-        </Grid>
+        <Box item pt={2}>
+          <img src={Demo} />
+        </Box>
 
       </Grid>
     </Page>
