@@ -16,6 +16,9 @@ const theme = createMuiTheme({
     secondary: {
       main: "#1AB2A8"
     },
+    opposite: {
+      main: '#fff',
+    }
 
   },
   typography: {
@@ -87,7 +90,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/planner" component={Planner} />
           <Route path="/choosetopics" component={ChooseTopics} />
-          <Route path="/topic" component={Topic} />
+          <Route path="/math/topic" component={Topic} />
           <Route path="/program" component={Program} />
         </Switch>
       </Router>

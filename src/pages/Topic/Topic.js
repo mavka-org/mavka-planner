@@ -11,6 +11,7 @@ import Topic from '../../models/program/topic';
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Paper from '@material-ui/core/Paper';
+import AppPage from './../../components/AppPage/AppPage';
 
 
 let sample_topic_json = require('.//sample_topic_json.json')
@@ -19,7 +20,7 @@ console.log("original topic json", topic)
 
 export default function TopicPage() {
     return (
-        <Page >
+        <Page selected="program">
 
             <Box pt={3}> <Typography  variant="h1" color={"primary"}>{increment_string_number(topic.chapter_id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography> </Box>
 
