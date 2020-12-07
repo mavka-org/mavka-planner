@@ -1,11 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
 class Event extends React.Component {
-  
+
     constructor(props, title){
       super(props)
       this.idx = props.idx
@@ -65,7 +66,6 @@ class Event extends React.Component {
 
 export class TopicEvent extends Event {
     constructor(props){
-      console.log(props.json)
       let chapter_n = props.json.data.chapter_id + 1
       let topic_n = props.json.data.order_n + 1
       let title = chapter_n + '.' + topic_n + ' ' + props.json.data.topic_name
@@ -74,7 +74,7 @@ export class TopicEvent extends Event {
     }
 
     getButton() {
-      return (<LinkButton size="small" variant="contained">вчити</LinkButton>)
+      return (<LinkButton size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
     }
 }
 
@@ -87,7 +87,9 @@ export class UrlEvent extends Event {
     }
 
     getButton() {
-      return (<LinkButton variant="outlined">перейти</LinkButton>)
+      return (
+        <LinkButton variant="outlined" href={this.url}>перейти</LinkButton>
+      )
     }
 }
 

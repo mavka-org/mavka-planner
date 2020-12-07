@@ -6,6 +6,7 @@ export const RoundButton = withStyles({
     textTransform: 'none',
     borderRadius: '50px',
     height: "fit-content",
+    textDecoration: "none",
   },
 })(MuiButton);
 
