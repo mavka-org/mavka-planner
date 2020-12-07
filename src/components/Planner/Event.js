@@ -68,7 +68,7 @@ export class TopicEvent extends Event {
     constructor(props){
       let chapter_n = props.json.data.chapter_id + 1
       let topic_n = props.json.data.order_n + 1
-      let title = chapter_n + '.' + topic_n + ' ' + props.json.data.topic_name
+      let title = '📖 ' + chapter_n + '.' + topic_n + ' ' + props.json.data.topic_name
       super(props, title)
       this.topic_id = props.json.data.topic_id
     }

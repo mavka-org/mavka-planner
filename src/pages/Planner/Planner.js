@@ -10,7 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 
 const Planner = () => {
 
-  const json = require('./../../models/planner/sample.json')
+  const json = require('./../../components/Planner/sample.json')
 
   return (
     <AppPage

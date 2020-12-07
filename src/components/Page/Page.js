@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 
 const Page = (props) => {
   return (
-        <Container maxWidth="xs" disableGutters>
+        <Container maxWidth="xs" >
           <NavBar loginFunc={props.loginFunc} selected={props.selected}/>
           {props.children}
         </Container>
