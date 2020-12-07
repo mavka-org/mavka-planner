@@ -1,3 +1,4 @@
+/*
 import app from 'firebase/app'
 import 'firebase/auth'
 import React, { createContext } from 'react'
@@ -32,3 +33,4 @@ class Firebase{
 }
 
 export default Firebase;
+*/
