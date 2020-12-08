@@ -1,6 +1,6 @@
-import React from 'react'
-import PlannerScreen from './PlannerScreen'
-import PlannerSetupScreen from './PlannerSetupScreen'
+import React from 'react';
+import PlannerScreen from './PlannerScreen';
+import PlannerSetupScreen from './PlannerSetupScreen';
 
 const PlannerPage = () => {
 

@@ -11,7 +11,6 @@ import ProgramHeader from './../../assets/img/program-header.png';
 
 let sample_program_json = require('.//sample_program_json.json')
 let loaded_program = new Program(sample_program_json)
-console.log("loaded_program", loaded_program)
 
 export default function ProgramPage() {
     return (
