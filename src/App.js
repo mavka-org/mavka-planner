@@ -4,6 +4,7 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Login/Login';
 import Planner from './pages/Planner/Planner';
+import PlannerSetUp from './pages/PlannerSetUp/PlannerSetUp';
 import Program from './pages/Program/Program';
 import ChooseTopics from './pages/Planner/ChooseTopics';
 import Topic from './pages/Topic/Topic';
@@ -92,6 +93,7 @@ function App() {
           <Route path="/choosetopics" component={ChooseTopics} />
           <Route path="/math/topic" component={Topic} />
           <Route path="/program" component={Program} />
+          <Route path = "/planner_set_up" component={PlannerSetUp} />
         </Switch>
       </Router>
     </ThemeProvider>
