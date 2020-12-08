@@ -1,6 +1,6 @@
 import React from 'react'
 import AppPage from './../../components/AppPage/AppPage';
-import Week from './../../components/Planner/Week';
+import Week from './Week';
 import Button from './../../components/Button/Button';
 import PlannerHeader from './../../assets/img/planner-header.png';
 import { Grid } from '@material-ui/core';
@@ -13,9 +13,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Link from '@material-ui/core/Link';
 import Alert from '@material-ui/lab/Alert';
 
-const Planner = () => {
+const PlannerScreen = () => {
 
-  const json = require('./../../components/Planner/sample.json')
+  const json = require('./sample.json')
 
   const [settingsOpen, setSettingsOpen] = React.useState(false);
 
@@ -75,4 +75,4 @@ const Planner = () => {
   )
 }
 
-export default Planner
+export default PlannerScreen

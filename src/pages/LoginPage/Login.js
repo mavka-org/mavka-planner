@@ -5,20 +5,13 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TelegramLoginButton from 'react-telegram-login';
 
-const useStyles = makeStyles((theme) => ({
-  Grid: {
-    width: "100%",
-  },
-}));
 
-
-
-const LoginUI = (props) => {
+const Login = (props) => {
   const classes = useStyles();
   return (
     <div>
       <NavBar />
-      <Grid container spacing="1" className={classes.Grid}>
+      <Grid container spacing="1">
 
         <Grid item>
           <img src={LoginPng} className="header_image"/>
@@ -60,4 +53,4 @@ const LoginUI = (props) => {
   )
 }
 
-export default LoginUI
+export default Login
