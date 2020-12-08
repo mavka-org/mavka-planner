@@ -11,9 +11,6 @@ import {useHistory} from 'react-router-dom';
 import { handleTelegramResponse } from './../../services/Firebase/Authenticate'
 
 const useStyles = makeStyles((theme) => ({
-  NavBar: {
-    width: "100%"
-  },
   Logo: {
     height: "24px",
   },
@@ -24,6 +21,12 @@ const NavBar = (props) => {
 
   const classes = useStyles();
 
+  const [loggedIn, setLoggedIn] = React.useState(false); //TODO CHANGE
+
+  const handleLoggedOut = () => {
+    setLoggedIn(false);
+  };
+
   const [loginOpen, setLoginOpen] = React.useState(false);
 
   const handleLoginOpen = () => {
@@ -32,6 +35,7 @@ const NavBar = (props) => {
 
   const handleLoginClose = () => {
     setLoginOpen(false);
+    setLoggedIn(true); //TODO DELETE
   };
 
   return (
@@ -48,16 +52,16 @@ const NavBar = (props) => {
         {
           props.selected!==undefined &&
           <div>
-            <Button href='/planner' style={props.selected==="planner" ? {fontWeight: "700"} : {}}>планер</Button>
-            <Button href='/program' style={props.selected==="program" ? {fontWeight: "700"} : {}}>програма</Button>
-            <Button href='https://zno.mavka.org' style={props.selected==="tests" ? {fontWeight: "700"} : {}}>тести</Button>
+            <Button href='/planner' active={props.selected==="planner"}>планер</Button>
+            <Button href='/program' active={props.selected==="program"}>програма</Button>
+            <Button href='https://zno.mavka.org' active={props.selected==="tests"}>тести</Button>
           </div>
         }
         {
-          props.user===undefined ?
-
-            (<Button onClick={handleLoginOpen} variant="outlined">увійти</Button>) :
-            (<Button style={props.selected==="profile" ? {fontWeight: "700"} : {}}>вийти</Button>)
+          loggedIn ?
+            <Button onClick={handleLoggedOut}>вийти</Button>
+            :
+            <Button onClick={handleLoginOpen} variant="outlined">увійти</Button>
         }
         </Grid>
         </Box>
