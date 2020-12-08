@@ -7,7 +7,6 @@ import TelegramLoginButton from 'react-telegram-login';
 
 
 const Login = (props) => {
-  const classes = useStyles();
   return (
     <div>
       <NavBar />
