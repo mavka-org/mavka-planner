@@ -1,11 +1,10 @@
 import LandingHeader from './../../assets/img/LandingHeader.png';
-import Planner from './../../assets/img/planner.jpg';
 import { LargeButton } from '../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
-import MuiButton from '@material-ui/core/Button';
 import Demo from '../../assets/img/giphy.gif'
 import Box from '@material-ui/core/Box';
+import InfoSection from '../../components/InfoSection/InfoSection';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +26,7 @@ const Landing = (props) => {
       <Grid container spacing="2" className={classes.Grid}>
 
         <Grid item>
-          <img src={LandingHeader} className={classes.Img}/>
+          <img src={LandingHeader} className={classes.Img} alt="mavka"/>
         </Grid>
 
         <Grid item>
@@ -61,9 +60,9 @@ const Landing = (props) => {
         </Grid>
 
         <Box item pt={2}>
-          <img src={Demo} />
+          <img src={Demo} alt="гарна гіфка" />
         </Box>
-
+        <InfoSection />
       </Grid>
   )
 }
