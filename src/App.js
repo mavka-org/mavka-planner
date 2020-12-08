@@ -2,7 +2,6 @@ import './index.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import LandingPage from './pages/LandingPage/LandingPage';
-import LoginPage from './pages/LoginPage/LoginPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import ChooseTopics from './pages/PlannerPage/PlannerSetupScreen';
@@ -90,7 +89,6 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
           <Route path="/planner" component={PlannerPage} />
           <Route path="/choosetopics" component={ChooseTopics} />
           <Route path="/math/topic" component={TopicPage} />

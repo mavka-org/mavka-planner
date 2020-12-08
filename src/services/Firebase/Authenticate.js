@@ -13,7 +13,7 @@ export const logIn = (email, password) => {
 }
 
 export const getCurrentUser = () => {
-    return rebase.auth().currentUser
+    return firebase.auth().currentUser
 };
 
 export const signOut = () => {
