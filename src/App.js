@@ -59,6 +59,9 @@ const theme = createMuiTheme({
       fontWeight: '600',
       color: '#333333',
     },
+    h6: {
+      fontWeight: '600',
+    },
     subtitle1: {
       fontWeight: "normal",
       fontSize: '21px',

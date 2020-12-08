@@ -44,11 +44,10 @@ const Week = (props) => {
   }
 
   const getEventsComponents = () => {
-    // return is no events to show:
-    console.log(props.json)
+    // return is no events to show
 
     if (props.json.events.length === 0) {
-      return (<Typography>Нічого показувати</Typography>)
+      return (<Typography>Тут поки що нічого! Відпочивай ✨</Typography>)
     }
 
     return props.json.events.map((event_json, event_idx) => {
