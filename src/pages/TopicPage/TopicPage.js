@@ -16,7 +16,6 @@ import AppPage from './../../components/AppPage/AppPage';
 
 let sample_topic_json = require('.//sample_topic_json.json')
 let topic = new Topic(sample_topic_json)
-console.log("original topic json", topic)
 
 export default function TopicPage() {
     return (

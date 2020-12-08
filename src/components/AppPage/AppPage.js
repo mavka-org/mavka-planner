@@ -29,7 +29,7 @@ const AppPage = (props) => {
               </Box>
 
               <Box>
-                <IconButton size="small">
+                <IconButton size="small" onClick={props.handleIconClick}>
                   {props.headerIcon}
                 </IconButton>
               </Box>

@@ -16,7 +16,6 @@ console.log("loaded_program", loaded_program)
 export default function ProgramPage() {
     return (
       <AppPage
-        headerIcon={<SettingsRoundedIcon />}
         headerImageSrc={ProgramHeader}
         selected="program"
       >

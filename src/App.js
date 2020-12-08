@@ -1,13 +1,12 @@
 import './index.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Landing from './pages/Landing/Landing';
-import Login from './pages/Login/Login';
-import Planner from './pages/Planner/Planner';
-import PlannerSetUp from './pages/PlannerSetUp/PlannerSetUp';
-import Program from './pages/Program/Program';
-import ChooseTopics from './pages/Planner/ChooseTopics';
-import Topic from './pages/Topic/Topic';
+import LandingPage from './pages/LandingPage/LandingPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import PlannerPage from './pages/PlannerPage/PlannerPage';
+import ProgramPage from './pages/ProgramPage/ProgramPage';
+import ChooseTopics from './pages/PlannerPage/PlannerSetupScreen';
+import TopicPage from './pages/TopicPage/TopicPage';
 
 const theme = createMuiTheme({
   palette: {
@@ -60,6 +59,9 @@ const theme = createMuiTheme({
       fontWeight: '600',
       color: '#333333',
     },
+    h6: {
+      fontWeight: '600',
+    },
     subtitle1: {
       fontWeight: "normal",
       fontSize: '21px',
@@ -87,9 +89,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/login" component={Login} />
-          <Route path="/planner" component={Planner} />
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/planner" component={PlannerPage} />
           <Route path="/choosetopics" component={ChooseTopics} />
           <Route path="/math/topic" component={Topic} />
           <Route path="/program" component={Program} />

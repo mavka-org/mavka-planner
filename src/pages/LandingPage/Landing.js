@@ -1,5 +1,3 @@
-import Page from '../../components/Page/Page';
-import classes from './Landing.module.css';
 import LandingHeader from './../../assets/img/LandingHeader.png';
 import Planner from './../../assets/img/planner.jpg';
 import { LargeButton } from '../../components/Button/Button';
@@ -26,10 +24,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const LandingUI = (props) => {
+const Landing = (props) => {
   const classes = useStyles();
   return (
-    <Page loginFunc={props.loginFunc}>
       <Grid container spacing="2" className={classes.Grid}>
 
         <Grid item>
@@ -89,8 +86,7 @@ const LandingUI = (props) => {
 
 
       </Grid>
-    </Page>
   )
 }
 
-export default LandingUI
+export default Landing
