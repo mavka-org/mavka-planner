@@ -12,12 +12,13 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Paper from '@material-ui/core/Paper';
 import AppPage from './../../components/AppPage/AppPage';
+import { getTopic } from './../../services/API/httpRequests';
 
-
-let sample_topic_json = require('.//sample_topic_json.json')
-let topic = new Topic(sample_topic_json)
 
 export default function TopicPage() {
+
+  const topic = new Topic(getTopic())
+
     return (
         <Page selected="program">
 

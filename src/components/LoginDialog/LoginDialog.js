@@ -14,6 +14,7 @@ const LoginDialog = (props) => {
   return (
     <Dialog
       open={props.open}
+      onClose={props.onClose}
       aria-labelledby="login-dialog-title"
     >
       <DialogTitle id="login-dialog-title">Увійти</DialogTitle>

@@ -23,10 +23,14 @@ const NavBar = (props) => {
   const [user, setUser] = React.useState(getCurrentUser());
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
+  const handleCloseLogin = () => {
+    setOpenedLogin(false)
+  }
+
   const loginProvider = () => {
     console.log('called loginProvider')
     setUser(getCurrentUser())
-    setOpenedLogin(false)
+    handleCloseLogin()
   }
 
   const handleLoggedOut = () => {
@@ -63,7 +67,7 @@ const NavBar = (props) => {
         </Grid>
         </Box>
 
-        <LoginDialog open={openedLogin} handleTelegramResponse={handleTelegramResponse} loginProvider={loginProvider}/>
+        <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} loginProvider={loginProvider}/>
 
       </Box>
   )

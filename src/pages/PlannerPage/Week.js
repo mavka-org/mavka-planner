@@ -1,3 +1,4 @@
+import React from 'react'
 import { Grid, Typography } from '@material-ui/core';
 import { format } from "date-fns"
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,10 +25,33 @@ const Week = (props) => {
   const end_date = new Date(props.json.end_date + 'T23:59:59')
   const dates = format(start_date, 'dd.MM') + ' - ' + format(end_date, 'dd.MM')
 
+  const [eventsCompleted, setEventsCompleted] = React.useState( function() {
+    //retrieve completed values of the events and set them as a state
+    let eventsCompleted = []
+
+    for(var event of props.json.events) {
+        eventsCompleted.push(event.completed)
+    }
+    return eventsCompleted
+  } ());
+
+  const handleEventCompleted = (eventIdx, state) => {
+    // Update eventsCompleted state with a new value
+    let newEventsCompleted = [...eventsCompleted]
+    newEventsCompleted[eventIdx] = state
+    setEventsCompleted(newEventsCompleted)
+  }
+
   const event_types_classes = {
       'topic': TopicEvent,
       'url': UrlEvent,
       'text': TextEvent
+  }
+
+  const isCurrentWeek = () => {
+    // returns true if today is in between the start date and end date of the week
+    let now = new Date()
+    return start_date < now && now < end_date
   }
 
   const isPastWeek = () => {
@@ -37,10 +61,24 @@ const Week = (props) => {
 
   const isFullyCompleted = () => {
       // returns true if every event of the week is completed
-      for(var event of props.json.events) {
-          if (event.completed === false) return false
+      for(var event of eventsCompleted) {
+          if (event === false) return false
       }
       return true
+  }
+
+  const getWeekSubtitle = () => {
+    if (isFullyCompleted()) {
+      return (<Typography variant="body2" component="span">· виконано</Typography>)
+    }
+    if (isCurrentWeek()) {
+      return (<Typography variant="body2" color="secondary" component="span">· ти тут</Typography>)
+    }
+    if (isPastWeek()) {
+      if (!isFullyCompleted()) {
+        return (<Typography variant="body2" color="error" component="span">· не все виконано</Typography>)
+      }
+    }
   }
 
   const getEventsComponents = () => {
@@ -54,7 +92,7 @@ const Week = (props) => {
 
         let Event = event_types_classes[event_json.type]
         return (
-          <Event idx={event_idx} json={event_json} />
+          <Event idx={event_idx} json={event_json} handleEventCompleted={handleEventCompleted}/>
         )
       })
   }
@@ -67,7 +105,8 @@ const Week = (props) => {
         <Grid item container direction="row" alignItems="flex-end" className={classes.WeekTitleItem}>
 
           <Grid item xs={8}>
-            <Typography variant="h1" textBold>тиждень {idx + 1}</Typography>
+            <Typography variant="h1">тиждень {idx + 1}</Typography>
+            { getWeekSubtitle() }
           </Grid>
 
           <Grid item xs={4}>

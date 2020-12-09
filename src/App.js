@@ -1,10 +1,11 @@
+import React from 'react';
 import './index.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import LandingPage from './pages/LandingPage/LandingPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
-import ChooseTopics from './pages/PlannerPage/PlannerSetupScreen';
+import PlannerSetupPage from './pages/PlannerPage/PlannerSetupScreen';
 import TopicPage from './pages/TopicPage/TopicPage';
 
 const theme = createMuiTheme({
@@ -83,16 +84,50 @@ const theme = createMuiTheme({
   },
 });
 
-function App() {
+const defaultSubject = {
+    name: 'математика',
+    icon: '♾️',
+    id: 'math',
+    available: true
+  }
+
+const App = () => {
+
+  const [subject, setSelectedSubject] = React.useState(defaultSubject);
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
+
           <Route exact path="/" component={LandingPage} />
-          <Route path="/planner" component={PlannerPage} />
-          <Route path="/choosetopics" component={ChooseTopics} />
+
+          <Route path="/planner"
+            render={(props) => <PlannerPage
+              {...props}
+              subject={defaultSubject}
+              setSelectedSubject={setSelectedSubject}
+              />}
+          />
+
+          <Route path="/program"
+            render={(props) => <ProgramPage
+              {...props}
+              subject={defaultSubject}
+              setSelectedSubject={setSelectedSubject}
+              />}
+          />
+
+          <Route path="/planner_set_up"
+            render={(props) => <PlannerSetupPage
+              {...props}
+              subject={defaultSubject}
+              setSelectedSubject={setSelectedSubject}
+              />}
+          />
+
           <Route path="/math/topic" component={TopicPage} />
-          <Route path="/program" component={ProgramPage} />
+
         </Switch>
       </Router>
     </ThemeProvider>

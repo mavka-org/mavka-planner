@@ -1,4 +1,6 @@
+import React from 'react';
 import HeaderImage from '../../components/HeaderImage/HeaderImage';
+import SubjectsDialog from '../../components/SubjectsDialog/SubjectsDialog';
 import Page from '../../components/Page/Page';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
@@ -11,11 +13,85 @@ import { RoundButton } from './../../components/Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 
+const subjects = [
+  {
+    name: 'математика',
+    icon: '♾️',
+    id: 'math',
+    available: true
+  },
+  {
+    name: 'українська мова',
+    icon: '💖',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'українська література',
+    icon: '📚',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'історія України',
+    icon: '📜',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'фізика',
+    icon: '🎡',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'біологія',
+    icon: '🧬',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'географія',
+    icon: '🌋',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'англійська мова',
+    icon: '🗽',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'німецька мова',
+    icon: '🎻',
+    id: 'math',
+    available: false
+  },
+  {
+    name: 'французька мова',
+    icon: '🥐',
+    id: 'math',
+    available: false
+  }
+];
+
 const useStyles = makeStyles((theme) => ({
 }));
 
 const AppPage = (props) => {
   const classes = useStyles();
+
+  const [openSubjectsDialog, setOpenSubjectsDialog] = React.useState(false);
+
+  const handleClickSubjectsDialog = () => {
+    setOpenSubjectsDialog(true);
+  };
+
+  const handleSubjectsDialogClosed = (subject) => {
+    setOpenSubjectsDialog(false);
+    props.setSelectedSubject(subject);
+  };
 
   return (
         <Page {...props}>
@@ -39,17 +115,20 @@ const AppPage = (props) => {
             <Grid item>
             <RoundButton
               startIcon={<ExpandMoreRoundedIcon />}
+              onClick={handleClickSubjectsDialog}
             >
-              математика
+              { props.subject.name }
             </RoundButton>
+
+            <SubjectsDialog selectedSubject={props.subject} subjects={subjects} open={openSubjectsDialog} onClose={handleSubjectsDialogClosed} />
             </Grid>
 
           </Grid>
 
           <Box py={2}>
             <Alert severity="success" icon={<FlashOnRoundedIcon fontSize="inherit" />} onClose={() => {}}>
-              <AlertTitle><strong>Заряджайся впевненістю в своїх силах 💪</strong></AlertTitle>
-              Не забудь прочитати нашу <strong><Link href='google.com'>Cтратегію Підготовки</Link></strong>, яку ми підготували спеціально для тебе разом з іншими чудовими ЗНОшниками!
+              <AlertTitle><strong>Стратегія підготовки для тебе 💪</strong></AlertTitle>
+              Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link href='google.com'>→ Читай тут!</Link></strong>
             </Alert>
           </Box>
 

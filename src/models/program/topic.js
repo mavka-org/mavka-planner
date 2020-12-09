@@ -29,6 +29,14 @@ class Topic {
 
   }
 
+  incrementStringNumber(str_number){
+      return (parseInt(str_number)+1).toString()
+  }
+
+  getTitle() {
+    return (this.incrementStringNumber(this.chapter_id) + '.' + this.incrementStringNumber(this.order_n) + ' ' + this.name)
+  }
+
 
 }
 
