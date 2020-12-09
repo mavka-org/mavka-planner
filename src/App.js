@@ -5,7 +5,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
-import PlannerSetUpPage from './pages/PlannerPage/PlannerSetupScreen';
+import PlannerSetUpPage from './pages/PlannerPage/PlannerSetupScreenNew';
 import TopicPage from './pages/TopicPage/TopicPage';
 
 const theme = createMuiTheme({

@@ -9,12 +9,15 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
+import Program from "../../models/program/program.js"
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
-        maxWidth: 300
+        maxWidth: 400,
+        width: "90%"
+
     },
     chips: {
         display: "flex",
@@ -50,24 +53,28 @@ function getStyles(name, personName, theme) {
 
 
 
-// let topicIds = [];
-// let sample_program_json = require('../ProgramPage/sample_program_json.json')
-// let loaded_program = new Program(sample_program_json)
-//
-// for (const [index, topic] of loaded_program.topics.entries()) {
-//     topicIds.push(topic.id)
-// }
-//
-// function getTopicName(id) {
-//     return loaded_program.topics[id].name
-// }
-// console.log(getTopicName(0))
+let topicIds = [];
+let sample_program_json = require('../ProgramPage/sample_program_json.json')
+let loaded_program = new Program(sample_program_json)
+console.log("loaded_program ", loaded_program)
+
+for (const [index, topic] of loaded_program.topics.entries()) {
+    topicIds.push(topic.id)
+}
 
 
-let topicIds = ["0", "1", "2"];
 
 function getTopicName(id) {
-    return "real topic " + id;
+    return loaded_program.topics[id].name
+}
+
+function getTopicNames(ids_list) {
+    let names_list = [];
+    for (const id of ids_list.entries()) {
+        names_list.push(getTopicName(id[1]))
+    }
+    return names_list
+
 }
 
 export default function TopicMultipleSelect(props) {
@@ -79,16 +86,14 @@ export default function TopicMultipleSelect(props) {
         console.log("event.target.value ", event.target.value)
         setSelectedIds(event.target.value);
         props.handleChange(selectedTopicIds);
-        setTimeout(() => { {console.log("selectedTopicIds in daughter", selectedTopicIds)}; }, 6000);
-        // console.log(event);
-        // console.log(event.target.value);
+        console.log("selectedTopicIds in daughter", selectedTopicIds)
     };
 
 
     return (
         <div>
             <FormControl className={classes.formControl}>
-                <InputLabel id="demo-mutiple-checkbox-label">Tag</InputLabel>
+                <InputLabel id="demo-mutiple-checkbox-label"></InputLabel>
                 <Select
                     labelId="demo-mutiple-checkbox-label"
                     id="demo-mutiple-checkbox"
@@ -96,13 +101,13 @@ export default function TopicMultipleSelect(props) {
                     value={selectedTopicIds}
                     onChange={handleChange}
                     input={<Input />}
-                    renderValue={(selected) => selected.join(", ")}
+                    renderValue={(selected) => getTopicNames(selected).join(", ")}
                     MenuProps={MenuProps}
                 >
                     {topicIds.map((id) => (
-                        <MenuItem key={id} value={getTopicName(id)}>
+                        <MenuItem key={id} value={(id)} style={{whiteSpace: 'normal'}}>
                             <Checkbox
-                                checked={selectedTopicIds.indexOf(getTopicName(id)) > -1}
+                                checked={selectedTopicIds.indexOf(id) > -1}
                                 indeterminate
                                 inputProps={{ "aria-label": "indeterminate checkbox" }}
                             />
@@ -114,5 +119,4 @@ export default function TopicMultipleSelect(props) {
         </div>
     );
 }
-
 

@@ -14,20 +14,21 @@ import Hidden from '@material-ui/core/Hidden';
 import Fab from '@material-ui/core/Fab';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
+import AppPage from './../../components/AppPage/AppPage';
 
 
 
 
 const useStyles = makeStyles((theme) => ({
   Grid: {
-    width: "100%",
+    // width: "100%",
     justifyContent: "center",
   },
   Img: {
     width: "250px",
   },
   dropDown: {
-    width: '100%'
+    // width: '100%'
   },
   noPadding: {
     padding: 0,
@@ -57,7 +58,7 @@ const LoginUI = (props) => {
 
   return (
       <div>
-        <Page>
+        <AppPage>
 
           <Grid container direction="column" alignItems="left"  className={classes.Grid} pb={10}>
             <Grid item>
@@ -76,6 +77,7 @@ const LoginUI = (props) => {
                 </Typography>
               </Box>
               <Box width="40%" >
+                <img width="100%" src={Demo} />
                 <img width="100%" src={Demo} />
               </Box>
             </Grid>
@@ -125,9 +127,9 @@ const LoginUI = (props) => {
           </LargeButton>
 
 
-            <Box pb={2} position ="fixed" width="100%" bgcolor="white" className = {classes.bottom} >
+            <Box pb={2} position ="fixed" bgcolor="white" className = {classes.bottom} >
               <Box width={1/2}>
-                <BottomNavigation>
+                <Fab>
                   <LargeButton
                       fullWidth
                       variant="contained"
@@ -135,7 +137,7 @@ const LoginUI = (props) => {
                   >
                     Далі
                   </LargeButton>
-                </BottomNavigation>
+                </Fab>
               </Box>
             </Box>
 
@@ -168,7 +170,7 @@ const LoginUI = (props) => {
 
 
 
-        </Page>
+        </AppPage>
       </div>
   )
 }

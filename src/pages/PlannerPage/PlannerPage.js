@@ -1,6 +1,7 @@
 import React from 'react'
 import PlannerScreen from './PlannerScreen'
-import PlannerSetupScreen from './PlannerSetupScreen'
+import PlannerSetupScreenNew from "./PlannerSetupScreenNew.js"
+
 
 const PlannerPage = () => {
 
@@ -11,7 +12,7 @@ const PlannerPage = () => {
   if (user.loggedIn) {
     return (<PlannerScreen/>)
   } else {
-    return (<PlannerSetupScreen/>)
+    return (<PlannerSetupScreenNew/>)
   }
 }
 
