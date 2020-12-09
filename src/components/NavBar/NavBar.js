@@ -20,12 +20,12 @@ const NavBar = (props) => {
 
   const classes = useStyles();
 
-  const [loggedIn, setLoggedIn] = React.useState(getCurrentUser());
+  const [user, setUser] = React.useState(getCurrentUser());
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
   const loginProvider = () => {
     console.log('called loginProvider')
-    setLoggedIn(getCurrentUser())
+    setUser(getCurrentUser())
     setOpenedLogin(false)
   }
 
@@ -55,7 +55,7 @@ const NavBar = (props) => {
           </div>
         }
         {
-          loggedIn ?
+          user ?
             <Button onClick={handleLoggedOut}>вийти</Button>
             :
             <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
