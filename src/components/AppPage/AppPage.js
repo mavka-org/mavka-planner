@@ -83,7 +83,6 @@ const AppPage = (props) => {
   const classes = useStyles();
 
   const [openSubjectsDialog, setOpenSubjectsDialog] = React.useState(false);
-  const [selectedSubject, setSelectedSubject] = React.useState(subjects[0]);
 
   const handleClickSubjectsDialog = () => {
     setOpenSubjectsDialog(true);
@@ -91,7 +90,7 @@ const AppPage = (props) => {
 
   const handleSubjectsDialogClosed = (subject) => {
     setOpenSubjectsDialog(false);
-    setSelectedSubject(subject);
+    props.setSelectedSubject(subject);
   };
 
   return (
@@ -118,10 +117,10 @@ const AppPage = (props) => {
               startIcon={<ExpandMoreRoundedIcon />}
               onClick={handleClickSubjectsDialog}
             >
-              { selectedSubject.name }
+              { props.subject.name }
             </RoundButton>
 
-            <SubjectsDialog selectedSubject={selectedSubject} open={openSubjectsDialog} onClose={handleSubjectsDialogClosed} subjects={subjects} />
+            <SubjectsDialog selectedSubject={props.subject} subjects={subjects} open={openSubjectsDialog} onClose={handleSubjectsDialogClosed} />
             </Grid>
 
           </Grid>

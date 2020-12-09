@@ -15,30 +15,31 @@ import Fab from '@material-ui/core/Fab';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
 import AppPage from './../../components/AppPage/AppPage';
+import {ScalableLargeButton} from './../../components/Button/Button.js'
 
 
 
 
 const useStyles = makeStyles((theme) => ({
-  Grid: {
-    // width: "100%",
-    justifyContent: "center",
-  },
-  Img: {
-    width: "250px",
-  },
-  dropDown: {
-    // width: '100%'
-  },
-  noPadding: {
-    padding: 0,
-  },
-  hidden: {
-    opacity: 0,
-  },
-  bottom: {
-      bottom: "0px"
-  }
+    Grid: {
+        // width: "100%",
+        justifyContent: "center",
+    },
+    Img: {
+        width: "250px",
+    },
+    dropDown: {
+        // width: '100%'
+    },
+    noPadding: {
+        padding: 0,
+    },
+    hidden: {
+        opacity: 0,
+    },
+    bottom: {
+        bottom: "0px"
+    }
 
 }));
 
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const LoginUI = (props) => {
-  const classes = useStyles();
+    const classes = useStyles();
 
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
@@ -56,123 +57,98 @@ const LoginUI = (props) => {
     }
 
 
-  return (
-      <div>
-        <AppPage>
+    return (
 
-          <Grid container direction="column" alignItems="left"  className={classes.Grid} pb={10}>
-            <Grid item>
-              <HeaderImage src={ChooseTopic} alt={'Вибрати тему'}/>
-            </Grid>
+            <Page>
+               <Box width="100%">
 
-            <Grid item>
-              <Box pb={3} pt={3}>
-                <Typography>
-                  Ми створимо тобі персональний планер
-                </Typography>
-              </Box>
-              <Box pb={3}>
-                <Typography>
-                  Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО
-                </Typography>
-              </Box>
-              <Box width="40%" >
-                <img width="100%" src={Demo} />
-                <img width="100%" src={Demo} />
-              </Box>
-            </Grid>
+                   <Grid container direction="column" alignItems="left"  className={classes.Grid} pb={10}>
+                       <Grid item>
+                           <HeaderImage src={ChooseTopic} alt={'Вибрати тему'}/>
+                       </Grid>
 
-            <Grid item>
-              <Box pb={3} pt={3}>
-                <Typography>
-                  Коли тема вивчена, викреслюй її з списку
-                </Typography>
-              </Box>
-              <Box width="40%" >
-                <img width="100%" src={Demo} />
-              </Box>
-            </Grid>
+                       <Grid item>
+                           <Box pb={3} pt={3}>
+                               <Typography>
+                                   Ми створимо тобі персональний планер
+                               </Typography>
+                           </Box>
+                           <Box pb={3}>
+                               <Typography>
+                                   Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО
+                               </Typography>
+                           </Box>
+                           <Box width="40%" >
+                               <img width="100%" src={Demo} />
+                           </Box>
+                       </Grid>
 
-            <Grid item>
-              <Box pb={3} pt={3}>
-                <Typography >
-                  До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”
-                </Typography>
-              </Box>
-              <Box width="40%" >
-                <img width="100%" src={Demo} />
-              </Box>
-            </Grid>
+                       <Grid item>
+                           <Box pb={3} pt={3}>
+                               <Typography>
+                                   Коли тема вивчена, викреслюй її з списку
+                               </Typography>
+                           </Box>
+                           <Box width="40%" >
+                               <img width="100%" src={Demo} />
+                           </Box>
+                       </Grid>
 
-
-            <Grid item>
-              <Box pb={3} pt={3}>
-                <Typography >
-                  І останнє, обери теми, які вже знаєш, щоб ми не додавали їх в твій планер
-                </Typography>
-              </Box>
-              <Box pb={10}>
-                <TopicsMultipleSelect handleChange={handleChange}/>
-              </Box>
-            </Grid>
+                       <Grid item>
+                           <Box pb={3} pt={3}>
+                               <Typography >
+                                   До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”
+                               </Typography>
+                           </Box>
+                           <Box width="40%" >
+                               <img width="100%" src={Demo} />
+                           </Box>
+                       </Grid>
 
 
-          <LargeButton className={classes.hidden}
-              fullWidth
-              variant="contained"
-              color="primary"
-              display="hidden"
-          >
-            сікрєтний сікрєт невидима кнопка
-          </LargeButton>
-
-
-            <Box pb={2} position ="fixed" bgcolor="white" className = {classes.bottom} >
-              <Box width={1/2}>
-                <Fab>
-                  <LargeButton
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                  >
-                    Далі
-                  </LargeButton>
-                </Fab>
-              </Box>
-            </Box>
+                       <Grid item>
+                           <Box pb={3} pt={3}>
+                               <Typography >
+                                   І останнє, обери теми, які вже знаєш, щоб ми не додавали їх в твій планер
+                               </Typography>
+                           </Box>
+                           <Box pb={10}>
+                               <TopicsMultipleSelect handleChange={handleChange}/>
+                           </Box>
+                       </Grid>
 
 
 
+                       <LargeButton className={classes.hidden}
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    display="hidden"
+                       >
+                           сікрєтний сікрєт невидима кнопка
+                       </LargeButton>
 
-          </Grid>
 
-          {/*<Box display="flex" justifyContent="center" position="fixed" bottom={10} width="auto" bgcolor="white">*/}
-          {/*  <LargeButton*/}
-          {/*      fullWidth*/}
-          {/*      variant="contained"*/}
-          {/*      color="primary"*/}
-          {/*  >*/}
-          {/*    Далі*/}
-          {/*  </LargeButton>*/}
-          {/*</Box>*/}
+                       <Box pb={2} width="100%" position ="fixed" bgcolor="white" className = {classes.bottom} >
 
-          {/*<Box bgcolor="red">*/}
-          {/*  <Fab>*/}
-          {/*      <LargeButton*/}
-          {/*          fullWidth*/}
-          {/*          variant="contained"*/}
-          {/*          color="primary"*/}
-          {/*      >*/}
-          {/*        Далі*/}
-          {/*      </LargeButton>*/}
-          {/*  </Fab>*/}
-          {/*</Box>*/}
+                           <ScalableLargeButton
+                               fullWidth
+                               variant="contained"
+                               color="primary"
+                           >
+                               Далі
+                           </ScalableLargeButton>
+
+                       </Box>
 
 
 
-        </AppPage>
-      </div>
-  )
+
+                   </Grid>
+               </Box>
+            </Page>
+
+    )
 }
 
 export default LoginUI

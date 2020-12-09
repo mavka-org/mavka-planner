@@ -1,18 +1,19 @@
 import React from 'react'
 import PlannerScreen from './PlannerScreen'
-import PlannerSetupScreenNew from "./PlannerSetupScreenNew.js"
+import PlannerSetupScreen from "./PlannerSetupScreen"
 
+const getUserPlanner = (subject) => {
+  return require('./sample.json')
+}
 
-const PlannerPage = () => {
+const PlannerPage = (props) => {
 
-  const user = {
-    loggedIn: true
-  }
+  const planner = getUserPlanner(props.subject.name)
 
-  if (user.loggedIn) {
-    return (<PlannerScreen/>)
+  if (planner) {
+    return (<PlannerScreen planner={planner} {...props}/>)
   } else {
-    return (<PlannerSetupScreenNew/>)
+    return (<PlannerSetupScreen {...props}/>)
   }
 }
 

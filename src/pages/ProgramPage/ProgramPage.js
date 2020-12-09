@@ -7,18 +7,20 @@ import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import { Typography } from '@material-ui/core';
 import Page from "../../components/Page/Page";
 import ProgramHeader from './../../assets/img/program-header.png';
+import { getProgram } from './../../services/API/httpRequests';
 
 
-let sample_program_json = require('.//sample_program_json.json')
-let loaded_program = new Program(sample_program_json)
+export default function ProgramPage(props) {
 
-export default function ProgramPage() {
-    return (
-      <AppPage
-        headerImageSrc={ProgramHeader}
-        selected="program"
-      >
-            <ProgramAccordion program={loaded_program}/>;
-      </AppPage>
-    )
+  const program = new Program(getProgram())
+
+  return (
+    <AppPage
+      headerImageSrc={ProgramHeader}
+      selected="program"
+      {...props}
+    >
+          <ProgramAccordion program={program}/>;
+    </AppPage>
+  )
 }

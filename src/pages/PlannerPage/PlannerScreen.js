@@ -8,9 +8,7 @@ import { Grid, Box } from '@material-ui/core';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import PlannerSettingsDialog from './PlannerSettingsDialog'
 
-const PlannerScreen = () => {
-
-  const json = require('./sample.json')
+const PlannerScreen = (props) => {
 
   // // confetti references
   // var confettiCanvasRef = React.createRef()
@@ -37,7 +35,7 @@ const PlannerScreen = () => {
 
   // weeks
   const getWeeks = () => {
-    return json.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} json={weekJson} /> )} )
+    return props.planner.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} json={weekJson} /> )} )
   }
 
   return (
@@ -46,6 +44,7 @@ const PlannerScreen = () => {
       handleIconClick={handleClickSettingsOpen}
       headerImageSrc={PlannerHeader}
       selected="planner"
+      {...props}
     >
 
     {
