@@ -11,17 +11,17 @@ class Event extends React.Component {
       super(props)
       this.idx = props.idx
       this.title = title
-      this.type = props.json['type']
+      this.type = props.json.type
       this.state = {
-        completed: props.json['completed']
+        completed: props.json.completed
       }
     }
 
-    toggleCompleted = () => {
-        // changes this.completed to opposite value and returns it
-        this.setState({
-            completed: !this.state.completed
-        })
+    handleEventCompleted = (e) => {
+      // changes this.completed to opposite value and returns it
+      this.setState({ completed: !this.state.completed }, () => {
+        this.props.handleEventCompleted(this.idx, this.state.completed);
+      })
     }
 
     getButton() {
@@ -38,7 +38,7 @@ class Event extends React.Component {
             <Grid item>
               <Checkbox
                 checked={this.state.completed}
-                onChange={this.toggleCompleted}
+                onChange={this.handleEventCompleted}
                 name={"checkbox-" + this.weekIdx + '-' + this.idx}
                 color="secondary"
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
