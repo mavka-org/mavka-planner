@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from './../../components/Button/Button';
 import Grid from '@material-ui/core/Grid';
@@ -5,12 +6,10 @@ import Box from '@material-ui/core/Box';
 import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
 import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
-import {useHistory} from 'react-router-dom';
+import LoginDialog from './../../components/LoginDialog/LoginDialog';
+import { getCurrentUser, handleTelegramResponse, signOut } from './../../services/Firebase/Authenticate'
 
 const useStyles = makeStyles((theme) => ({
-  NavBar: {
-    width: "100%"
-  },
   Logo: {
     height: "24px",
   },
@@ -18,7 +17,23 @@ const useStyles = makeStyles((theme) => ({
 
 
 const NavBar = (props) => {
+
   const classes = useStyles();
+
+  const [loggedIn, setLoggedIn] = React.useState(getCurrentUser());
+  const [openedLogin, setOpenedLogin] = React.useState(false)
+
+  const loginProvider = () => {
+    console.log('called loginProvider')
+    setLoggedIn(getCurrentUser())
+    setOpenedLogin(false)
+  }
+
+  const handleLoggedOut = () => {
+    signOut().then(() => {
+      loginProvider()
+    })
+  }
 
   return (
     <Box display="flex" alignItems="center" py={1}>
@@ -34,19 +49,21 @@ const NavBar = (props) => {
         {
           props.selected!==undefined &&
           <div>
-            <Button href='/planner' style={props.selected==="planner" ? {fontWeight: "700"} : {}}>планер</Button>
-            <Button href='/program' style={props.selected==="program" ? {fontWeight: "700"} : {}}>програма</Button>
-            <Button href='https://zno.mavka.org' style={props.selected==="tests" ? {fontWeight: "700"} : {}}>тести</Button>
+            <Button href='/planner' active={props.selected==="planner"}>планер</Button>
+            <Button href='/program' active={props.selected==="program"}>програма</Button>
+            <Button href='https://zno.mavka.org' active={props.selected==="tests"}>тести</Button>
           </div>
         }
         {
-          props.user===undefined ?
-
-            (<Button onClick={props.loginFunc} variant="outlined">увійти</Button>) :
-            (<Button style={props.selected==="profile" ? {fontWeight: "700"} : {}}>профіль</Button>)
+          loggedIn ?
+            <Button onClick={handleLoggedOut}>вийти</Button>
+            :
+            <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
         }
         </Grid>
         </Box>
+
+        <LoginDialog open={openedLogin} handleTelegramResponse={handleTelegramResponse} loginProvider={loginProvider}/>
 
       </Box>
   )

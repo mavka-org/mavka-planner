@@ -30,7 +30,7 @@ export const ScalableLargeButton = withStyles({
 
 export const Button = (props) => {
   return (
-    <RoundButton size="small" color="primary" {...props}/>
+    <RoundButton size="small" color="primary" style={props.active ? {fontWeight: "700"} : {}} {...props}/>
   )
 }
 
