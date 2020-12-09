@@ -63,11 +63,7 @@ const NavBar = (props) => {
         </Grid>
         </Box>
 
-<<<<<<< HEAD
-        <LoginDialog open={loginOpen} handleClose={handleLoginClose} handleTelegramResponse={handleTelegramResponse}/>
-=======
         <LoginDialog open={openedLogin} handleTelegramResponse={handleTelegramResponse} loginProvider={loginProvider}/>
->>>>>>> e4066e45c08b48c6697972800aa77bc0cd9bf221
 
       </Box>
   )
