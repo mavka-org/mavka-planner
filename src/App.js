@@ -5,7 +5,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
-import ChooseTopics from './pages/PlannerPage/PlannerSetupScreen';
+import PlannerSetUpPage from './pages/PlannerPage/PlannerSetupScreen';
 import TopicPage from './pages/TopicPage/TopicPage';
 
 const theme = createMuiTheme({
@@ -92,10 +92,9 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/planner" component={PlannerPage} />
-          <Route path="/choosetopics" component={ChooseTopics} />
-          <Route path="/math/topic" component={Topic} />
-          <Route path="/program" component={Program} />
-          <Route path = "/planner_set_up" component={PlannerSetUp} />
+          <Route path="/math/topic" component={TopicPage} />
+          <Route path="/program" component={ProgramPage} />
+          <Route path = "/planner_set_up" component={PlannerSetUpPage} />
         </Switch>
       </Router>
     </ThemeProvider>
