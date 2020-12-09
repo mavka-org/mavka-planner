@@ -7,8 +7,7 @@ import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
 import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginDialog from './../../components/LoginDialog/LoginDialog';
-import {useHistory} from 'react-router-dom';
-import { handleTelegramResponse } from './../../services/Firebase/Authenticate'
+import { getCurrentUser, handleTelegramResponse, signOut } from './../../services/Firebase/Authenticate'
 
 const useStyles = makeStyles((theme) => ({
   Logo: {
@@ -21,22 +20,20 @@ const NavBar = (props) => {
 
   const classes = useStyles();
 
-  const [loggedIn, setLoggedIn] = React.useState(false); //TODO CHANGE
+  const [loggedIn, setLoggedIn] = React.useState(getCurrentUser());
+  const [openedLogin, setOpenedLogin] = React.useState(false)
+
+  const loginProvider = () => {
+    console.log('called loginProvider')
+    setLoggedIn(getCurrentUser())
+    setOpenedLogin(false)
+  }
 
   const handleLoggedOut = () => {
-    setLoggedIn(false);
-  };
-
-  const [loginOpen, setLoginOpen] = React.useState(false);
-
-  const handleLoginOpen = () => {
-    setLoginOpen(true);
-  };
-
-  const handleLoginClose = () => {
-    setLoginOpen(false);
-    setLoggedIn(true); //TODO DELETE
-  };
+    signOut().then(() => {
+      loginProvider()
+    })
+  }
 
   return (
     <Box display="flex" alignItems="center" py={1}>
@@ -61,12 +58,12 @@ const NavBar = (props) => {
           loggedIn ?
             <Button onClick={handleLoggedOut}>вийти</Button>
             :
-            <Button onClick={handleLoginOpen} variant="outlined">увійти</Button>
+            <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
         }
         </Grid>
         </Box>
 
-        <LoginDialog open={loginOpen} handleClose={handleLoginClose} handleTelegramResponse={handleTelegramResponse} />
+        <LoginDialog open={openedLogin} handleTelegramResponse={handleTelegramResponse} loginProvider={loginProvider}/>
 
       </Box>
   )

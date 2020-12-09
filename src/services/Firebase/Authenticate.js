@@ -1,6 +1,6 @@
 import firebase from './firebase'
 
-export const logIn = (email, password) => {
+export const logIn = async(email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() =>{
         console.log('user created!')
     }).catch((error) => {
@@ -16,13 +16,13 @@ export const getCurrentUser = () => {
     return firebase.auth().currentUser
 };
 
-export const signOut = () => {
-    firebase.auth().signOut();
+export const signOut = async() => {
+    await firebase.auth().signOut();
 }
 
-export const handleTelegramResponse = (response) => {
+export const handleTelegramResponse = async(response) => {
     var email = response.id + '@mavka.org'
     var password = response.id
     password = password.toString()
-    logIn(email, password)
+    await logIn(email, password)
 };

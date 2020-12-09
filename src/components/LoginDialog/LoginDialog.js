@@ -6,14 +6,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const LoginDialog = (props) => {
 
   const handleTelegramLogin = (response) => {
-    props.handleClose();
-    props.handleTelegramResponse(response);
+    props.handleTelegramResponse(response).then(() => {
+      props.loginProvider()
+    })
   }
 
   return (
     <Dialog
       open={props.open}
-      onClose={props.handleClose}
       aria-labelledby="login-dialog-title"
     >
       <DialogTitle id="login-dialog-title">Увійти</DialogTitle>
