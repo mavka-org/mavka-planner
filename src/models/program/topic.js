@@ -34,7 +34,7 @@ class Topic {
   }
 
   getTitle() {
-    return (this.incrementStringNumber(this.chapter_id) + '.' + this.incrementStringNumber(this.id) + ' ' + this.name)
+    return (this.incrementStringNumber(this.chapter_id) + '.' + this.incrementStringNumber(this.order_n) + ' ' + this.name)
   }
 
 
