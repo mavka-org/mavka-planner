@@ -12,11 +12,12 @@ import ProgramHeader from './../../assets/img/program-header.png';
 let sample_program_json = require('.//sample_program_json.json')
 let loaded_program = new Program(sample_program_json)
 
-export default function ProgramPage() {
+export default function ProgramPage(props) {
     return (
       <AppPage
         headerImageSrc={ProgramHeader}
         selected="program"
+        {...props}
       >
             <ProgramAccordion program={loaded_program}/>;
       </AppPage>
