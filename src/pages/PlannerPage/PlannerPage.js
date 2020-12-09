@@ -8,7 +8,7 @@ const getUserPlanner = (subject) => {
 
 const PlannerPage = (props) => {
 
-  const planner = getUserPlanner(props.subject.name)
+  const planner = getUserPlanner(props.subject)
 
   if (planner) {
     return (<PlannerScreen planner={planner} {...props}/>)
