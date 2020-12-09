@@ -66,13 +66,13 @@ const Landing = (props) => {
 
 
 
-        // <div style={{ width: '100%' }}>
-        //   <Box styles={{ "borderWidth": "10px"}} display="flex" justifyContent="center" p={4}>
-        //     <Box className={classes.boxBorders}  width={7/10} >
-        //       <img width="100%" src={Demo} />
-        //     </Box>
-        //   </Box>
-        // </div>
+        <div style={{ width: '100%' }}>
+           <Box styles={{ "borderWidth": "10px"}} display="flex" justifyContent="center" p={4}>
+             <Box className={classes.boxBorders}  width={7/10} >
+               <img width="100%" src={Demo} />
+             </Box>
+           </Box>
+         </div>
 
         <Box item pt={2}>
           <img src={Demo} alt="гарна гіфка" />
