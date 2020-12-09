@@ -11,11 +11,13 @@ export const setUserInfo = async (userToken, userInfo) => {
     return response
 }
 
+
 export const getProgram = async () => {
     const response = await axios.get('https://mvp-api-5dvjwdatfq-ew.a.run.app/program')
 
     return response
 }
+
 
 export const getTopic = async (topic_id) => {
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/${topic_id}`)
@@ -23,13 +25,18 @@ export const getTopic = async (topic_id) => {
     return response
 }
 
+
 export const getUserPlanner = async (subject) => {
 
   let userToken = firebase.auth().currentUser.getIdToken()
-  const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+  if (userToken) {
+    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+    return response
+  }
 
-  return response
+  return null
 }
+
 
 export const setUserPlanner = async (subject, config) => {
 
@@ -43,14 +50,20 @@ export const setUserPlanner = async (subject, config) => {
   return response
 }
 
-export const addAnalyticsEvent = async (eventName, userToken) => {
-    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
 
-    return response
+export const addAnalyticsEvent = async (eventName) => {
+
+  let userToken = firebase.auth().currentUser.getIdToken()
+  const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
+
+  return response
 }
 
-export const addRedirectAnalyticsEvent = async (eventName, userToken, url) => {
-    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event_redirect/${eventName}/${userToken}/${url}`)
 
-    return response
+export const addRedirectAnalyticsEvent = async (eventName, url) => {
+
+  let userToken = firebase.auth().currentUser.getIdToken()
+  const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event_redirect/${eventName}/${userToken}/${url}`)
+
+  return response
 }

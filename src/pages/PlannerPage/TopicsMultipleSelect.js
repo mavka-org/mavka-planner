@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { ListSubheader } from '@material-ui/core';
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -9,7 +10,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
-import Program from "../../models/program/program.js"
+import Program from "../../models/program/program"
+import IndeterminateCheckBoxRoundedIcon from '@material-ui/icons/IndeterminateCheckBoxRounded';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -55,18 +57,12 @@ function getStyles(name, personName, theme) {
 
 let topicIds = [];
 let sample_program_json = require('../ProgramPage/sample_program_json.json')
-let loaded_program = new Program(sample_program_json)
-console.log("loaded_program ", loaded_program)
+let program = new Program(sample_program_json)
 
-for (const [index, topic] of loaded_program.topics.entries()) {
+for (const [index, topic] of program.topics.entries()) {
     topicIds.push(topic.id)
 }
 
-
-
-function getTopicName(id) {
-    return loaded_program.topics[id].name
-}
 
 function getTopicNames(ids_list) {
     let names_list = [];
@@ -83,10 +79,8 @@ export default function TopicMultipleSelect(props) {
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
     const handleChange = (event) => {
-        console.log("event.target.value ", event.target.value)
         setSelectedIds(event.target.value);
         props.handleChange(selectedTopicIds);
-        console.log("selectedTopicIds in daughter", selectedTopicIds)
     };
 
 
@@ -108,10 +102,11 @@ export default function TopicMultipleSelect(props) {
                         <MenuItem key={id} value={(id)} style={{whiteSpace: 'normal'}}>
                             <Checkbox
                                 checked={selectedTopicIds.indexOf(id) > -1}
-                                indeterminate
+                                icon={<IndeterminateCheckBoxRoundedIcon />}
+                                checkedIcon={<IndeterminateCheckBoxRoundedIcon color="error" />}
                                 inputProps={{ "aria-label": "indeterminate checkbox" }}
                             />
-                            <ListItemText primary={getTopicName(id)} />
+                          <ListItemText primary={program.topics[id].getTitle()} />
                         </MenuItem>
                     ))}
                 </Select>
@@ -119,4 +114,3 @@ export default function TopicMultipleSelect(props) {
         </div>
     );
 }
-
