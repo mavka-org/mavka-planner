@@ -1,63 +1,178 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import ChooseTopic from './../../assets/img/choose-topics.png';
-import { Grid, Typography } from '@material-ui/core';
-import Page from '../../components/Page/Page';
-import DropDown from '../../components/DropDown/DropDown';
+import NavBar from '../../components/NavBar/NavBar'
+import LoginPng from './../../assets/img/login.png'
 import { LargeButton } from '../../components/Button/Button';
-import HeaderImage from '../../components/HeaderImage/HeaderImage';
+import { Box, Grid, Typography, Link } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import TelegramLoginButton from 'react-telegram-login';
+import Demo from "../../assets/img/giphy.gif";
+import React from "react";
+import HeaderImage from "../../components/HeaderImage/HeaderImage";
+import ChooseTopic from "../../assets/img/choose-topics.png";
+import Page from './../../components/Page/Page';
+import DropDown from "../../components/DropDown/DropDown";
+import Hidden from '@material-ui/core/Hidden';
+import Fab from '@material-ui/core/Fab';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
+import AppPage from './../../components/AppPage/AppPage';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
   Grid: {
-    width: "100%",
+    // width: "100%",
     justifyContent: "center",
   },
   Img: {
     width: "250px",
   },
   dropDown: {
-    width: '100%'
+    // width: '100%'
   },
   noPadding: {
     padding: 0,
+  },
+  hidden: {
+    opacity: 0,
+  },
+  bottom: {
+      bottom: "0px"
   }
+
 }));
 
-const ChooseTopics = () => {
-  const classes = useStyles()
+
+
+
+const LoginUI = (props) => {
+  const classes = useStyles();
+
+    const [selectedTopicIds, setSelectedIds] = React.useState([]);
+
+    const handleChange = (newSelectedTopicIds) => {
+        setSelectedIds(newSelectedTopicIds);
+        console.log("selectedTopicIds in parent ", selectedTopicIds)
+    }
+
+
   return (
+      <div>
+        <AppPage>
 
-    <Page>
-      <Grid container direction="column" alignItems="left"  className={classes.Grid}>
-      <div style={{height:24}}></div>
-        <Grid item>
-          <HeaderImage src={ChooseTopic} alt={'Вибрати тему'}/>
-        </Grid>
-        <div style={{height:36}}></div>
-        <Grid item >
-          <Typography variant="body1" align="left">вибери теми, які ти вже знаєш, щоб ми не додавали їх до твого плану навчання</Typography>
-        </Grid>
-        <div style={{height:24}}></div>
-        <Grid item >
-          <DropDown />
-        </Grid>
-        <div style={{height:24}}></div>
-        <Grid item >
-          <LargeButton
-            fullWidth
-            variant="contained"
-            color="primary"
+          <Grid container direction="column" alignItems="left"  className={classes.Grid} pb={10}>
+            <Grid item>
+              <HeaderImage src={ChooseTopic} alt={'Вибрати тему'}/>
+            </Grid>
+
+            <Grid item>
+              <Box pb={3} pt={3}>
+                <Typography>
+                  Ми створимо тобі персональний планер
+                </Typography>
+              </Box>
+              <Box pb={3}>
+                <Typography>
+                  Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО
+                </Typography>
+              </Box>
+              <Box width="40%" >
+                <img width="100%" src={Demo} />
+                <img width="100%" src={Demo} />
+              </Box>
+            </Grid>
+
+            <Grid item>
+              <Box pb={3} pt={3}>
+                <Typography>
+                  Коли тема вивчена, викреслюй її з списку
+                </Typography>
+              </Box>
+              <Box width="40%" >
+                <img width="100%" src={Demo} />
+              </Box>
+            </Grid>
+
+            <Grid item>
+              <Box pb={3} pt={3}>
+                <Typography >
+                  До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”
+                </Typography>
+              </Box>
+              <Box width="40%" >
+                <img width="100%" src={Demo} />
+              </Box>
+            </Grid>
+
+
+            <Grid item>
+              <Box pb={3} pt={3}>
+                <Typography >
+                  І останнє, обери теми, які вже знаєш, щоб ми не додавали їх в твій планер
+                </Typography>
+              </Box>
+              <Box pb={10}>
+                <TopicsMultipleSelect handleChange={handleChange}/>
+              </Box>
+            </Grid>
+
+
+          <LargeButton className={classes.hidden}
+              fullWidth
+              variant="contained"
+              color="primary"
+              display="hidden"
           >
-            📅  розпланувати підготовку
-            </LargeButton>
-        </Grid>
-      </Grid>
-    </Page>
+            сікрєтний сікрєт невидима кнопка
+          </LargeButton>
 
 
+            <Box pb={2} position ="fixed" bgcolor="white" className = {classes.bottom} >
+              <Box width={1/2}>
+                <Fab>
+                  <LargeButton
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                  >
+                    Далі
+                  </LargeButton>
+                </Fab>
+              </Box>
+            </Box>
+
+
+
+
+          </Grid>
+
+          {/*<Box display="flex" justifyContent="center" position="fixed" bottom={10} width="auto" bgcolor="white">*/}
+          {/*  <LargeButton*/}
+          {/*      fullWidth*/}
+          {/*      variant="contained"*/}
+          {/*      color="primary"*/}
+          {/*  >*/}
+          {/*    Далі*/}
+          {/*  </LargeButton>*/}
+          {/*</Box>*/}
+
+          {/*<Box bgcolor="red">*/}
+          {/*  <Fab>*/}
+          {/*      <LargeButton*/}
+          {/*          fullWidth*/}
+          {/*          variant="contained"*/}
+          {/*          color="primary"*/}
+          {/*      >*/}
+          {/*        Далі*/}
+          {/*      </LargeButton>*/}
+          {/*  </Fab>*/}
+          {/*</Box>*/}
+
+
+
+        </AppPage>
+      </div>
   )
 }
 
-
-export default ChooseTopics
+export default LoginUI

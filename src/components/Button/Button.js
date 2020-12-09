@@ -1,6 +1,7 @@
 import MuiButton from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
+
 export const RoundButton = withStyles({
   root: {
     textTransform: 'none',
@@ -18,6 +19,14 @@ export const LargeButton = withStyles({
     boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.15)',
   },
 })(RoundButton);
+
+export const ScalableLargeButton = withStyles({
+  root: {
+    width: "70%",
+    minWidth:'250px',
+    maxWidth: "500px"
+  }
+})(LargeButton);
 
 export const Button = (props) => {
   return (

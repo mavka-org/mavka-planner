@@ -2,10 +2,9 @@ import './index.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import LandingPage from './pages/LandingPage/LandingPage';
-import LoginPage from './pages/LoginPage/LoginPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
-import ChooseTopics from './pages/PlannerPage/PlannerSetupScreen';
+import PlannerSetUpPage from './pages/PlannerPage/PlannerSetupScreenNew';
 import TopicPage from './pages/TopicPage/TopicPage';
 
 const theme = createMuiTheme({
@@ -90,11 +89,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
           <Route path="/planner" component={PlannerPage} />
-          <Route path="/choosetopics" component={ChooseTopics} />
           <Route path="/math/topic" component={TopicPage} />
           <Route path="/program" component={ProgramPage} />
+          <Route path = "/planner_set_up" component={PlannerSetUpPage} />
         </Switch>
       </Router>
     </ThemeProvider>
