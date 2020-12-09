@@ -6,6 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import MuiAccordion from "@material-ui/core/Accordion/Accordion";
 import { Typography } from '@material-ui/core';
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
     ListItemText: {
@@ -79,6 +80,8 @@ export default function TopicContents(props) {
                     }
                     <Typography paragraph />
                     <Typography color="secondary" variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
+
+                    <Box p={500}/>
 
                 </div>
             </List>

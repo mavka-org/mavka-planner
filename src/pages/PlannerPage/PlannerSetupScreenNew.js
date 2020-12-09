@@ -16,6 +16,10 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
 import AppPage from './../../components/AppPage/AppPage';
 import {ScalableLargeButton} from './../../components/Button/Button.js'
+import WeeksDemo from '../../assets/img/weeks.gif'
+import CheckboxDemo from '../../assets/img/checkbox.gif'
+import StudyMatsDemo from '../../assets/img/study-mats.gif'
+import PlannerSetUpHeader from '../../assets/img/plannerSetUpHeader.png'
 
 
 
@@ -64,13 +68,13 @@ const LoginUI = (props) => {
 
                    <Grid container direction="column" alignItems="left"  className={classes.Grid} pb={10}>
                        <Grid item>
-                           <HeaderImage src={ChooseTopic} alt={'Вибрати тему'}/>
+                           <HeaderImage src={PlannerSetUpHeader} alt={'Створюємо планер'}/>
                        </Grid>
 
                        <Grid item>
                            <Box pb={3} pt={3}>
                                <Typography>
-                                   Ми створимо тобі персональний планер
+                                   Персональний планер. Він твій. Повністю твій
                                </Typography>
                            </Box>
                            <Box pb={3}>
@@ -79,7 +83,7 @@ const LoginUI = (props) => {
                                </Typography>
                            </Box>
                            <Box width="40%" >
-                               <img width="100%" src={Demo} />
+                               <img width="100%" src={WeeksDemo} />
                            </Box>
                        </Grid>
 
@@ -90,7 +94,7 @@ const LoginUI = (props) => {
                                </Typography>
                            </Box>
                            <Box width="40%" >
-                               <img width="100%" src={Demo} />
+                               <img width="100%" src={CheckboxDemo} />
                            </Box>
                        </Grid>
 
@@ -101,7 +105,7 @@ const LoginUI = (props) => {
                                </Typography>
                            </Box>
                            <Box width="40%" >
-                               <img width="100%" src={Demo} />
+                               <img width="100%" src={StudyMatsDemo} />
                            </Box>
                        </Grid>
 
