@@ -7,6 +7,7 @@ import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import PlannerSetupPage from './pages/PlannerPage/PlannerSetupScreen';
 import TopicPage from './pages/TopicPage/TopicPage';
+import TestPage from './pages/TestPage/TestPage';
 
 const theme = createMuiTheme({
   palette: {
@@ -118,15 +119,15 @@ const Application = () => {
               />}
           />
 
-          <Route path="/planner_set_up"
-            render={(props) => <PlannerSetupPage
-              {...props}
-              subject={defaultSubject}
-              setSelectedSubject={setSelectedSubject}
-              />}
-          />
-
           <Route path="/math/topic/:id" component={TopicPage} />
+
+            <Route path="/test"
+              render={(props) => <TestPage
+                {...props}
+                subject={defaultSubject}
+                setSelectedSubject={setSelectedSubject}
+                />}
+            />
 
         </Switch>
       </Router>

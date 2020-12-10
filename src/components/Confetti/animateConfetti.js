@@ -115,6 +115,16 @@ const initBurst = (element, canvas) => {
   const confetti = []
   const sequins = []
 
+  console.log('elementLeft', element.offsetLeft)
+  console.log('elementTop', element.offsetTop)
+  console.log('elementHeight', element.offsetHeight)
+  console.log('elementWidth', element.offsetWidth)
+
+  console.log('canvasLeft', canvas.offsetLeft)
+  console.log('canvasTop', canvas.offsetTop)
+  console.log('canvasHeight', canvas.offsetHeight)
+  console.log('canvasWidth', canvas.offsetWidth)
+
   const ctx = canvas.getContext('2d')
 
   // add elements to arrays to be drawn
@@ -173,7 +183,7 @@ const initBurst = (element, canvas) => {
 
     // render next screen if any sequins or confetti left to show
     if (sequins.length !== 0 || confetti.length !== 0) {
-      //window.requestAnimationFrame(render)
+      window.requestAnimationFrame(render)
     }
 
     // remove confetti and sequins whose lifetime is up
