@@ -18,6 +18,7 @@ import { getTopic } from './../../services/API/httpRequests';
 export default function TopicPage() {
 
   const topic = new Topic(getTopic())
+    console.log("topic jsn in pages/TopicPage ", topic)
 
     return (
         <Page selected="program">

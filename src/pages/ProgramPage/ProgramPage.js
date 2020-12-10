@@ -14,11 +14,16 @@ export default function ProgramPage(props) {
 
   const [program, setProgram] = React.useState(null)
 
-  program ?
-  getProgram().then((programResponse) => {
-    console.log("programResponse ", programResponse)
-    setProgram(new Program(programResponse))
-  }) : null
+
+  if (program) {
+    console.log("program already exists")
+  } else {
+    getProgram().then((programResponse) => {
+      console.log("programResponse ", programResponse)
+      setProgram(new Program(programResponse["data"]))
+    })
+  }
+
 
 
 
@@ -29,7 +34,7 @@ export default function ProgramPage(props) {
       selected="program"
       {...props}
     >
-          <ProgramAccordion program={program}/>;
+          <ProgramAccordion program={program}/>
     </AppPage> : <Typography>Loading</Typography>
   )
 }
