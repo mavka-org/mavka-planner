@@ -3,7 +3,6 @@ import Module from "./module";
 class Program {
 
       constructor(program_json) {
-        console.log("program json from models/program constructor ", program_json)
         this.subject = "math";
         this.modules = []
         this.chapters = []

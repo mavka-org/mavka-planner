@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderImage from '../../components/HeaderImage/HeaderImage';
 import SubjectsDialog from '../../components/SubjectsDialog/SubjectsDialog';
+import { strategy_url } from './../../config';
 import Page from '../../components/Page/Page';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
@@ -76,11 +77,7 @@ const subjects = [
   }
 ];
 
-const useStyles = makeStyles((theme) => ({
-}));
-
 const AppPage = (props) => {
-  const classes = useStyles();
 
   const [openSubjectsDialog, setOpenSubjectsDialog] = React.useState(false);
 
@@ -126,9 +123,9 @@ const AppPage = (props) => {
           </Grid>
 
           <Box py={2}>
-            <Alert severity="success" icon={<FlashOnRoundedIcon fontSize="inherit" />} onClose={() => {}}>
+            <Alert severity="success" icon={<FlashOnRoundedIcon fontSize="inherit" />} >
               <AlertTitle><strong>Стратегія підготовки для тебе 💪</strong></AlertTitle>
-              Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link href='google.com'>→ Читай тут!</Link></strong>
+              Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link href={strategy_url}>→ Читай тут!</Link></strong>
             </Alert>
           </Box>
 
