@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import MuiButton from '@material-ui/core/Button';
 // import Demo from '../../assets/img/demo.gif'
-import Demo from '../../assets/img/giphy.gif'
+import Demo from '../../assets/img/demo.gif'
 import Box from '@material-ui/core/Box';
 import InfoSection from '../../components/InfoSection/InfoSection';
 
@@ -74,10 +74,10 @@ const Landing = (props) => {
            </Box>
          </div>
 
-        <Box item pt={2}>
-          <img src={Demo} alt="гарна гіфка" />
-        </Box>
-        <InfoSection />
+        {/*<Box item pt={2}>*/}
+        {/*  <img src={Demo} alt="гарна гіфка" />*/}
+        {/*</Box>*/}
+        {/*<InfoSection />*/}
 
 
       </Grid>

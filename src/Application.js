@@ -126,7 +126,7 @@ const Application = () => {
               />}
           />
 
-          <Route path="/math/topic" component={TopicPage} />
+          <Route path="/math/topic/:id" component={TopicPage} />
 
         </Switch>
       </Router>
