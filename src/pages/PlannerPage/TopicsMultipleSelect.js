@@ -77,7 +77,6 @@ export default function TopicMultipleSelect(props) {
         }
     } else {
         getProgram().then((programResponse) => {
-            console.log("programResponse ", programResponse)
             setProgram(new Program(programResponse["data"]))
         })
     }

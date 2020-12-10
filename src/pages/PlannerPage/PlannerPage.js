@@ -12,9 +12,15 @@ const PlannerPage = (props) => {
   const [planner, setPlanner] = React.useState(null);
   const [ownsPlanner, setOwnsPlanner] = React.useState(null);
 
-  if (ownsPlanner === null) {
-    if (user) {
+  console.log('user', user)
+  console.log('planner', planner)
+  console.log('ownsPlanner', ownsPlanner)
+
+  // receiving user
+  if (user) {
+    if (ownsPlanner === null) {
       getUserPlanner(user, props.subject.id).then((ownsPlannerResponse) => {
+        console.log('getUserPlanner:', ownsPlannerResponse.data)
         if (ownsPlannerResponse.data.ownsPlanner) {
           setOwnsPlanner(true)
           setPlanner(ownsPlannerResponse.data)
@@ -23,10 +29,24 @@ const PlannerPage = (props) => {
         }
       })
     }
-    else {
-      setOwnsPlanner(false)
-    }
   }
+
+  // if (ownsPlanner === null) {
+  //   if (user) {
+  //     getUserPlanner(user, props.subject.id).then((ownsPlannerResponse) => {
+  //       console.log('getUserPlanner:', ownsPlannerResponse.data)
+  //       if (ownsPlannerResponse.data.ownsPlanner) {
+  //         setOwnsPlanner(true)
+  //         setPlanner(ownsPlannerResponse.data)
+  //       } else {
+  //         setOwnsPlanner(false)
+  //       }
+  //     })
+  //   }
+  //   else {
+  //     setOwnsPlanner(false)
+  //   }
+  // }
 
   const createNewPlanner = (selectedTopicIds) => {
     let config = {
@@ -47,11 +67,11 @@ const PlannerPage = (props) => {
     }
   }
 
-  if (ownsPlanner === false) {
+  if (ownsPlanner !== true) {
     return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
   }
   else {
-    if (planner === true) {
+    if (planner) {
       return (<PlannerScreen planner={planner} {...props}/>)
     } else {
       return (<Typography>Loading</Typography>)

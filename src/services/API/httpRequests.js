@@ -52,6 +52,8 @@ export const setUserPlanner = async (user, subject, config) => {
 
   if (user) {
     const userToken = await user.getIdToken()
+    console.log('userToken', userToken)
+    console.log('typeof', typeof userToken)
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
             config: config,
