@@ -55,35 +55,7 @@ function getStyles(name, personName, theme) {
 }
 
 
-// const [program, setProgram] = React.useState(null)
-//
-// if (program) {
-//     console.log("program already exists")
-// } else {
-//     getProgram().then((programResponse) => {
-//         console.log("programResponse ", programResponse)
-//         setProgram(new Program(programResponse["data"]))
-//     })
-// }
 
-//
-let topicIds = [];
-// let sample_program_json = require('../ProgramPage/sample_program_json.json')
-// let program = new Program(sample_program_json)
-
-for (const [index, topic] of program.topics.entries()) {
-    topicIds.push(topic.id)
-}
-
-
-function getTopicNames(ids_list) {
-    let names_list = [];
-    for (const id of ids_list.entries()) {
-        names_list.push(program.topics[id[1]].getTitle())
-    }
-    return names_list
-
-}
 
 export default function TopicMultipleSelect(props) {
     const classes = useStyles();
@@ -94,7 +66,30 @@ export default function TopicMultipleSelect(props) {
         setSelectedIds(event.target.value);
         props.handleChange(selectedTopicIds);
     };
-    
+
+
+    const [program, setProgram] = React.useState(null)
+
+    if (program) {
+        var topicIds = [];
+        for (const [index, topic] of program.topics.entries()) {
+            topicIds.push(topic.id)
+        }
+    } else {
+        getProgram().then((programResponse) => {
+            console.log("programResponse ", programResponse)
+            setProgram(new Program(programResponse["data"]))
+        })
+    }
+
+
+    const getTopicNames = (ids_list) => {
+        var names_list = [];
+        for (const id of ids_list.entries()) {
+            names_list.push(program.topics[id[1]].getTitle())
+        }
+        return names_list
+    }
 
 
     return (

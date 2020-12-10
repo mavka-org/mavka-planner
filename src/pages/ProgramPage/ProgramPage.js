@@ -14,7 +14,6 @@ export default function ProgramPage(props) {
 
   const [program, setProgram] = React.useState(null)
 
-
   if (program) {
     console.log("program already exists")
   } else {
@@ -23,8 +22,6 @@ export default function ProgramPage(props) {
       setProgram(new Program(programResponse["data"]))
     })
   }
-
-
 
 
   return (
