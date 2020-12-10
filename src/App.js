@@ -118,14 +118,6 @@ const App = () => {
               />}
           />
 
-          <Route path="/planner_set_up"
-            render={(props) => <PlannerSetupPage
-              {...props}
-              subject={defaultSubject}
-              setSelectedSubject={setSelectedSubject}
-              />}
-          />
-
           <Route path="/math/topic" component={TopicPage} />
 
         </Switch>
