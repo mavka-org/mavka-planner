@@ -20,10 +20,6 @@ const PlannerPage = (props) => {
       }, 500);
    }, []);
 
-  console.log('user', user)
-  console.log('planner', planner)
-  console.log('ownsPlanner', ownsPlanner)
-
   // receiving user
   if (user) {
     if (ownsPlanner === undefined) {

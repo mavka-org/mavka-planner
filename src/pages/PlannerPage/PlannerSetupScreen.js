@@ -20,7 +20,7 @@ import WeeksDemo from '../../assets/img/weeks.gif'
 import CheckboxDemo from '../../assets/img/checkbox.gif'
 import StudyMatsDemo from '../../assets/img/study-mats.gif'
 import PlannerSetUpHeader from '../../assets/img/plannerSetUpHeader.png'
-
+import MobileStepper from '@material-ui/core/MobileStepper';
 
 
 
@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     Grid: {
         // width: "100%",
         justifyContent: "center",
+
     },
     Img: {
         width: "250px",
@@ -42,11 +43,21 @@ const useStyles = makeStyles((theme) => ({
         opacity: 0,
     },
     bottom: {
-        bottom: "0px"
+        bottom: "0px",
+        width: "100%",
+        left:"0",
+        position:"fixed",
+        bgcolor:"white"
     },
     GifContainer: {
-      width: "70%"
-    }
+        width: "70%"
+    },
+    Stepper: {
+        maxWidth: 400,
+        flexGrow: 1,
+        justifyContent: "center",
+        backgroundColor: "white",
+    },
 
 }));
 
@@ -56,6 +67,141 @@ const useStyles = makeStyles((theme) => ({
 const PlannerSetupScreen = (props) => {
     const classes = useStyles();
 
+    const [currentCard, setCurrentCard] = React.useState(0);
+
+    const cards = [
+        {
+            "Card": InfoCard,
+            "props": {
+                "text": "Хееей! Ми створимо тобі особистий планер. Він твій, тільки твій ",
+                "img": WeeksDemo,
+                "order": 0
+            }
+        },
+        {
+            "Card": InfoCard,
+            "props": {
+                "text": "Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО",
+                "img": WeeksDemo,
+                "order": 1
+            }
+        },
+        {
+            "Card": InfoCard,
+            "props": {
+                "text": "Коли тема вивчена, викреслюй її з списку",
+                "img": CheckboxDemo,
+                "order": 2
+            }
+        },
+        {
+            "Card": InfoCard,
+            "props": {
+                "text": "До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”",
+                "img": CheckboxDemo,
+                "order": 3
+            }
+        },
+        {
+            "Card": InputCard,
+            "props": {
+                "name" : "exclude topics demo",
+                "order": 4
+            }
+        }
+    ]
+
+    const handleProceed = (selectedTopicIds) => {
+        // if selectedTopics were returned, it's the last card, so call parent function
+        if (selectedTopicIds) {
+            props.createNewPlanner(selectedTopicIds);
+        } else {
+            setCurrentCard(currentCard+1)
+        }
+    }
+
+    const Card = cards[currentCard]["Card"]
+    const CardProps = cards[currentCard]["props"]
+
+    return (
+        <Card {...CardProps} handleProceed={handleProceed}/>
+    )
+
+}
+
+// --------------------------------------------------------------------------------------------------------------------------
+
+const InfoCard = (props) => {
+    const classes = useStyles();
+
+    const handleProceed = () => {
+        props.handleProceed()
+    }
+
+    return(
+        <Page>
+            <Box>
+            <Grid container
+                  spacing={0}
+                  align="center"
+                  justify="center"
+                  direction="column">
+            <Grid item>
+
+                <Box display="flex" justifyContent="center" pb={10} pt={15}>
+                    <Typography variant="subtitle1">
+                        {props.text}
+                    </Typography>
+                </Box>
+
+                <Box className={classes.GifContainer} >
+                    <img width="70%" src={props.img} />
+                </Box>
+
+            </Grid>
+
+            <LargeButton className={classes.hidden}
+                         fullWidth
+                         variant="contained"
+                         color="primary"
+                         display="hidden"
+            >
+                невидима кнопка
+            </LargeButton>
+
+            <Box pb={2} pl={2} className={classes.bottom} >
+                <ScalableLargeButton
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    onClick={handleProceed}
+                >
+                    Далі
+                </ScalableLargeButton>
+            </Box>
+
+
+            <Grid item>
+                <MobileStepper
+                    variant="dots"
+                    steps={5}
+                    position="static"
+                    activeStep={props.order}
+                    className={classes.Stepper}/>
+            </Grid>
+
+            </Grid>
+            </Box>
+        </Page>
+    )
+
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+
+const InputCard = (props) => {
+    const classes = useStyles();
+
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
     const handleChange = (newSelectedTopicIds) => {
@@ -63,97 +209,52 @@ const PlannerSetupScreen = (props) => {
     }
 
     const handleProceed = () => {
-      props.createNewPlanner(selectedTopicIds);
+        props.handleProceed(selectedTopicIds)
     }
 
-    return (
-            <Page>
-               <Box width="100%">
+    return(
+        <Page>
+            <Grid container
+                  spacing={0}
+                  align="center"
+                  justify="center"
+                  direction="column">
+            <Grid item>
+                <Box pb={3} pt={15}>
+                    <Typography variant="subtitle1" >
+                        І останнє, обери теми, які вже знаєш, щоб ми не додавали їх в твій планер
+                    </Typography>
+                </Box>
+                <Box pb={10}>
+                    <TopicsMultipleSelect handleChange={handleChange}/>
+                </Box>
+            </Grid>
 
-                   <Grid container direction="column" alignItems="left"  className={classes.Grid} pb={10}>
-                       <Grid item>
-                           <HeaderImage src={PlannerSetUpHeader} alt={'Створюємо планер'}/>
-                       </Grid>
+            <Box pb={2} pl={2} className={classes.bottom} > 
+                <ScalableLargeButton
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    onClick={handleProceed}
+                >
+                    Далі
+                </ScalableLargeButton>
+            </Box>
 
-                       <Grid item>
-                           <Box pb={3} pt={3}>
-                               <Typography>
-                                   Персональний планер. Він твій. Повністю твій
-                               </Typography>
-                           </Box>
-                           <Box pb={3}>
-                               <Typography>
-                                   Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО
-                               </Typography>
-                           </Box>
-                           <Box className={classes.GifContainer} >
-                               <img width="100%" src={WeeksDemo} />
-                           </Box>
-                       </Grid>
+            <Grid item>
+                <MobileStepper
+                    variant="dots"
+                    steps={5}
+                    position="static"
+                    activeStep={props.order}
+                    className={classes.Stepper}/>
+            </Grid>
 
-                       <Grid item>
-                           <Box pb={3} pt={3}>
-                               <Typography>
-                                   Коли тема вивчена, викреслюй її з списку
-                               </Typography>
-                           </Box>
-                           <Box className={classes.GifContainer} >
-                               <img width="100%" src={CheckboxDemo} />
-                           </Box>
-                       </Grid>
-
-                       <Grid item>
-                           <Box pb={3} pt={3}>
-                               <Typography >
-                                   До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”
-                               </Typography>
-                           </Box>
-                           <Box className={classes.GifContainer}>
-                               <img width="100%" src={StudyMatsDemo} />
-                           </Box>
-                       </Grid>
-
-
-                       <Grid item>
-                           <Box pb={3} pt={3}>
-                               <Typography >
-                                   І останнє, обери теми, які вже знаєш, щоб ми не додавали їх в твій планер
-                               </Typography>
-                           </Box>
-                           <Box pb={10}>
-                               <TopicsMultipleSelect handleChange={handleChange}/>
-                           </Box>
-                       </Grid>
-
-
-
-                       <LargeButton className={classes.hidden}
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    display="hidden"
-                       >
-                           сікрєтний сікрєт невидима кнопка
-                       </LargeButton>
-
-
-                       <Box pb={2} width="100%" position="fixed" bgcolor="white" className={classes.bottom} >
-
-                           <ScalableLargeButton
-                               fullWidth
-                               variant="contained"
-                               color="primary"
-                               onClick={handleProceed}
-                           >
-                               Далі
-                           </ScalableLargeButton>
-
-                       </Box>
-
-                   </Grid>
-               </Box>
-            </Page>
+            </Grid>
+        </Page>
     )
+
 }
+
 
 export default PlannerSetupScreen
