@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { auth } from './../Firebase/firebase'
 
 export const setUserInfo = async (userToken, userInfo) => {
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/user/${userToken}`, {
-            user: userInfo,
-    }, { headers: { 'Content-Type': 'text/plain' } }
+            user: JSON.stringify(userInfo),
+    }, { headers: { 'Content-Type': 'application/json' } }
     )
 
     return response
@@ -30,6 +29,7 @@ export const getUserPlanner = async (user, subject) => {
 
   if (user) {
       const userToken = await user.getIdToken()
+      console.log(userToken)
       const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
       return response
     }
@@ -40,9 +40,9 @@ export const getUserPlanner = async (user, subject) => {
 export const getDefaultPlanner = async (subject, config) => {
 
   const response = await axios.post(
-      `https://mvp-api-5dvjwdatfq-ew.a.run.app/getDefaultPlanner/${subject}`, {
-          config: config,
-      }, { headers: { 'Content-Type': 'text/plain' } }
+      `https://mvp-api-5dvjwdatfq-ew.a.run.app/defaultPlanner/${subject}`, {
+          config: JSON.stringify(config),
+    }, { headers: { 'Content-Type': 'application/json' } }
   )
 
   return response
@@ -52,12 +52,28 @@ export const setUserPlanner = async (user, subject, config) => {
 
   if (user) {
     const userToken = await user.getIdToken()
-    console.log('userToken', userToken)
-    console.log('typeof', typeof userToken)
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
-            config: config,
-        }, { headers: { 'Content-Type': 'text/plain' } }
+            config: JSON.stringify(config),
+      }, { headers: { 'Content-Type': 'application/json' } }
+    )
+
+    return response
+  }
+
+  return null
+}
+
+export const updateUserPlanner = async (user, subject, changes) => {
+
+  console.log('changes, ', changes)
+
+  if (user) {
+    const userToken = await user.getIdToken()
+    const response = await axios.put(
+        `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
+            changes: JSON.stringify(changes),
+      }, { headers: { 'Content-Type': 'application/json' } }
     )
 
     return response

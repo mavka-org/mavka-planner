@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './index.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -7,6 +7,8 @@ import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import PlannerSetupPage from './pages/PlannerPage/PlannerSetupScreen';
 import TopicPage from './pages/TopicPage/TopicPage';
+import { UserContext } from './providers/UserProvider';
+import TestPage from './pages/TestPage/TestPage';
 
 const theme = createMuiTheme({
   palette: {
@@ -94,6 +96,8 @@ const defaultSubject = {
 const Application = () => {
 
   const [subject, setSelectedSubject] = React.useState(defaultSubject);
+  const user = useContext(UserContext)
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -118,15 +122,15 @@ const Application = () => {
               />}
           />
 
-          <Route path="/planner_set_up"
-            render={(props) => <PlannerSetupPage
-              {...props}
-              subject={defaultSubject}
-              setSelectedSubject={setSelectedSubject}
-              />}
-          />
-
           <Route path="/math/topic/:id" component={TopicPage} />
+
+            <Route path="/test"
+              render={(props) => <TestPage
+                {...props}
+                subject={defaultSubject}
+                setSelectedSubject={setSelectedSubject}
+                />}
+            />
 
         </Switch>
       </Router>

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from './../../providers/UserProvider'
 import { Grid, Typography } from '@material-ui/core';
 import { format } from "date-fns"
 import { makeStyles } from '@material-ui/core/styles';
 import { TopicEvent, UrlEvent, TextEvent } from "./Event";
+import { updateUserPlanner } from './../../services/API/httpRequests';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
 const Week = (props) => {
 
   const classes = useStyles();
+
+  const user = useContext(UserContext)
 
   const idx = props.idx
   const start_date = new Date(props.json.start_date + 'T00:00:00')
@@ -40,6 +44,15 @@ const Week = (props) => {
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)
+
+    // update the state in the database
+    let changes = {
+      week_n: idx,
+      event_n: eventIdx,
+      completed: state
+    }
+
+    updateUserPlanner(user, props.subject.id, changes)
   }
 
   const event_types_classes = {
