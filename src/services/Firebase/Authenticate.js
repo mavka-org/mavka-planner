@@ -31,12 +31,18 @@ export const handleTelegramResponse = async(response) => {
     var email = response.id + '@mavka.org'
     var password = response.id
     password = password.toString()
-    var userInfo = {
-        id: response.id,
-        first_name: response.first_name,
-        last_name: response.last_name,
-        username: response.username,
-        photo_url: response.photo_url
+    var userInfo = 
+    {
+        'user': {
+            'telegram': {
+                id: response.id,
+                first_name: response.first_name,
+                last_name: response.last_name,
+                username: response.username,
+                photo_url: response.photo_url
+            },
+            'registered_with': 'telegram'
+        }
     }
     await logIn(email, password, userInfo)
 };
