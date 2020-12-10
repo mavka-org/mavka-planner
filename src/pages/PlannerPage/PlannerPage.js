@@ -9,8 +9,8 @@ const PlannerPage = (props) => {
 
   const user = useContext(UserContext)
 
-  const [planner, setPlanner] = React.useState(null);
-  const [ownsPlanner, setOwnsPlanner] = React.useState(null);
+  const [planner, setPlanner] = React.useState(undefined);
+  const [ownsPlanner, setOwnsPlanner] = React.useState(undefined);
 
   console.log('user', user)
   console.log('planner', planner)
@@ -18,12 +18,12 @@ const PlannerPage = (props) => {
 
   // receiving user
   if (user) {
-    if (ownsPlanner === null) {
-      getUserPlanner(user, props.subject.id).then((ownsPlannerResponse) => {
-        console.log('getUserPlanner:', ownsPlannerResponse.data)
-        if (ownsPlannerResponse.data.ownsPlanner) {
+    if (ownsPlanner === undefined) {
+      getUserPlanner(user, props.subject.id).then((plannerResponse) => {
+        console.log('getUserPlanner:', plannerResponse.data)
+        if (plannerResponse.data.ownsPlanner) {
           setOwnsPlanner(true)
-          setPlanner(ownsPlannerResponse.data)
+          setPlanner(plannerResponse.data)
         } else {
           setOwnsPlanner(false)
         }
