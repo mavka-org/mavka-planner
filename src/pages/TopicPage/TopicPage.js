@@ -5,7 +5,7 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Program from "../../models/program/program";
 import Page from "../../components/Page/Page";
-import ProgramAccordion from "../../components/ProgramAccordion/ProgramAccordion";
+import ProgramAccordion from "../ProgramPage/ProgramAccordion";
 import TopicContents from "../../components/TopicContents/TopicContents";
 import Topic from '../../models/program/topic';
 import React from "react";
