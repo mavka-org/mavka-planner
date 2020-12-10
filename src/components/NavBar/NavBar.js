@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {UserContext} from './../../providers/UserProvider'
 import { NavLink } from 'react-router-dom';
 import Button from './../../components/Button/Button';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import {Grid, Box, Typography} from '@material-ui/core';
 import MavkaSmallLogo from './../../assets/img/mavka-small-logo.png';
 import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,23 +20,15 @@ const NavBar = (props) => {
 
   const classes = useStyles();
 
-  const [user, setUser] = React.useState(getCurrentUser());
+  const user = useContext(UserContext)
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
   const handleCloseLogin = () => {
     setOpenedLogin(false)
   }
 
-  const loginProvider = () => {
-    console.log('called loginProvider')
-    setUser(getCurrentUser())
-    handleCloseLogin()
-  }
-
   const handleLoggedOut = () => {
-    signOut().then(() => {
-      loginProvider()
-    })
+    signOut()
   }
 
   return (
@@ -67,9 +59,9 @@ const NavBar = (props) => {
         </Grid>
         </Box>
 
-        <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} loginProvider={loginProvider}/>
+        <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse}/>
 
-      </Box>
+      </Box> 
   )
 }
 
