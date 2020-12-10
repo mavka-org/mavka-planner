@@ -28,8 +28,10 @@ export const getTopic = async (topic_id) => {
 
 export const getUserPlanner = async (subject) => {
 
-  let userToken = firebase.auth().currentUser.getIdToken()
-  if (userToken) {
+  let user = firebase.auth().currentUser
+
+  if (user) {
+    let userToken = user.getIdToken()
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
     return response
   }
@@ -37,33 +39,56 @@ export const getUserPlanner = async (subject) => {
   return null
 }
 
+export const getNewUserPlanner = async (subject, config) => {
+  // get a new planer of a user
+  let user = firebase.auth().currentUser
+
+  if (user) {
+    // if logged in, set a new planner
+    const response = setUserPlanner(subject, config)
+    return response
+  } else {
+    // else get a default planner //TODO create the request
+    const response = await axios.post(
+        `https://mvp-api-5dvjwdatfq-ew.a.run.app/defaultPlanner/${subject}`, {
+            config: config,
+        }, { headers: { 'Content-Type': 'text/plain' } }
+    )
+    return response
+  }
+
+  return null
+}
 
 export const setUserPlanner = async (subject, config) => {
 
-  let userToken = firebase.auth().currentUser.getIdToken()
-  const response = await axios.post(
-      `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
-          config: config,
-      }, { headers: { 'Content-Type': 'text/plain' } }
-  )
+  let user = firebase.auth().currentUser
 
-  return response
+  if (user) {
+    let userToken = user.getIdToken()
+
+    const response = await axios.post(
+        `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
+            config: config,
+        }, { headers: { 'Content-Type': 'text/plain' } }
+    )
+
+    return response
+  }
+
+  return null
 }
 
 
 export const addAnalyticsEvent = async (eventName) => {
 
-  let userToken = firebase.auth().currentUser.getIdToken()
-  const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
+  let user = firebase.auth().currentUser
 
-  return response
-}
+  if (user) {
+    let userToken = user.getIdToken()
+    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
+    return response
+  }
 
-
-export const addRedirectAnalyticsEvent = async (eventName, url) => {
-
-  let userToken = firebase.auth().currentUser.getIdToken()
-  const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event_redirect/${eventName}/${userToken}/${url}`)
-
-  return response
+  return null
 }

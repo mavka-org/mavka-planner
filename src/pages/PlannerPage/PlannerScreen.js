@@ -10,17 +10,22 @@ import PlannerSettingsDialog from './PlannerSettingsDialog'
 
 const PlannerScreen = (props) => {
 
-  // // confetti references
-  // var confettiCanvasRef = React.createRef()
-  // const setConfettiCanvasRef = (input) => {
-  //   confettiCanvasRef = input
-  // }
-  //
-  // var confettiElementRef = React.createRef()
-  //
-  // const handleAnimateConfetti = () => {
-  //   animateConfetti(confettiElementRef.current, confettiCanvasRef)
-  // }
+  const { planner } = props
+  console.log(planner)
+
+/* TODO
+  // confetti references
+  var confettiCanvasRef = React.createRef()
+  const setConfettiCanvasRef = (input) => {
+    confettiCanvasRef = input
+  }
+
+  var confettiElementRef = React.createRef()
+
+  const handleAnimateConfetti = () => {
+    animateConfetti(confettiElementRef.current, confettiCanvasRef)
+  }
+  */
 
   // settings button
   const [settingsOpen, setSettingsOpen] = React.useState(false);
@@ -35,7 +40,7 @@ const PlannerScreen = (props) => {
 
   // weeks
   const getWeeks = () => {
-    return props.planner.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} json={weekJson} /> )} )
+    return planner.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} json={weekJson} /> )} )
   }
 
   return (
