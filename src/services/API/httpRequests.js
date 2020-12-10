@@ -29,9 +29,10 @@ export const getTopic = async (topic_id) => {
 export const getUserPlanner = async (user, subject) => {
 
   if (user) {
-    let userToken = user.getIdToken()
-    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
-    return response
+    user.getIdToken().then((userToken) => {
+      const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+      return response
+    })
   }
 
   return null
@@ -51,15 +52,16 @@ export const getDefaultPlanner = async (subject, config) => {
 export const setUserPlanner = async (user, subject, config) => {
 
   if (user) {
-    let userToken = user.getIdToken()
+    user.getIdToken().then((userToken) => {
+      
+      const response = await axios.post(
+          `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
+              config: config,
+          }, { headers: { 'Content-Type': 'text/plain' } }
+      )
 
-    const response = await axios.post(
-        `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
-            config: config,
-        }, { headers: { 'Content-Type': 'text/plain' } }
-    )
-
-    return response
+      return response
+    }
   }
 
   return null

@@ -1,7 +1,6 @@
 class Topic {
 
     constructor(topic_json) {
-        console.log("topic in models/program/topic constructor ", topic_json)
       this.id = topic_json["id"]
       this.chapter_id = topic_json["chapter_id"]
       this.name = topic_json["name"]

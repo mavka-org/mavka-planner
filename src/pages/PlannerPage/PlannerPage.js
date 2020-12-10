@@ -14,7 +14,7 @@ const PlannerPage = (props) => {
 
   if (ownsPlanner === null) {
     if (user) {
-      getUserPlanner(user, props.subject.name).then((ownsPlannerResponse) => {
+      getUserPlanner(user, props.subject.id).then((ownsPlannerResponse) => {
         if (ownsPlannerResponse.data.ownsPlanner) {
           setOwnsPlanner(true)
           setPlanner(ownsPlannerResponse.data)
@@ -34,13 +34,13 @@ const PlannerPage = (props) => {
     }
     if (user) {
       // for logged in user
-      setUserPlanner(user, props.subject.name, config).then((plannerResponse) => {
+      setUserPlanner(user, props.subject.id, config).then((plannerResponse) => {
         setOwnsPlanner(true)
         setPlanner(plannerResponse.data)
       })
     } else {
       // for unlogged in user
-      getDefaultPlanner(props.subject.name, config).then((plannerResponse) => {
+      getDefaultPlanner(props.subject.id, config).then((plannerResponse) => {
         setOwnsPlanner(true)
         setPlanner(plannerResponse.data)
       })
