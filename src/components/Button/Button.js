@@ -24,7 +24,7 @@ export const ScalableLargeButton = withStyles({
   root: {
     width: "70%",
     minWidth:'250px',
-    maxWidth: "500px"
+    maxWidth: "300px"
   }
 })(LargeButton);
 

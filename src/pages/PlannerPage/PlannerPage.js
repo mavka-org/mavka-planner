@@ -31,22 +31,6 @@ const PlannerPage = (props) => {
     }
   }
 
-  // if (ownsPlanner === null) {
-  //   if (user) {
-  //     getUserPlanner(user, props.subject.id).then((ownsPlannerResponse) => {
-  //       console.log('getUserPlanner:', ownsPlannerResponse.data)
-  //       if (ownsPlannerResponse.data.ownsPlanner) {
-  //         setOwnsPlanner(true)
-  //         setPlanner(ownsPlannerResponse.data)
-  //       } else {
-  //         setOwnsPlanner(false)
-  //       }
-  //     })
-  //   }
-  //   else {
-  //     setOwnsPlanner(false)
-  //   }
-  // }
 
   const createNewPlanner = (selectedTopicIds) => {
     let config = {
