@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {UserContext} from './../../providers/UserProvider'
+import React, { useContext } from 'react';
+import { UserContext } from './../../providers/UserProvider'
 import { NavLink } from 'react-router-dom';
 import Button from './../../components/Button/Button';
 import {Grid, Box, Typography} from '@material-ui/core';
@@ -61,7 +61,7 @@ const NavBar = (props) => {
 
         <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse}/>
 
-      </Box> 
+      </Box>
   )
 }
 

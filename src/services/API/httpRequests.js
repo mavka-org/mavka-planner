@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {auth} from './../Firebase/firebase'
+import { auth } from './../Firebase/firebase'
 
 export const setUserInfo = async (userToken, userInfo) => {
     const response = await axios.post(
@@ -26,9 +26,7 @@ export const getTopic = async (topic_id) => {
 }
 
 
-export const getUserPlanner = async (subject) => {
-
-  let user = auth.currentUser
+export const getUserPlanner = async (user, subject) => {
 
   if (user) {
     let userToken = user.getIdToken()
@@ -39,13 +37,12 @@ export const getUserPlanner = async (subject) => {
   return null
 }
 
-export const getNewUserPlanner = async (subject, config) => {
+export const getNewUserPlanner = async (user, subject, config) => {
   // get a new planer of a user
-  let user = auth.currentUser
 
   if (user) {
     // if logged in, set a new planner
-    const response = setUserPlanner(subject, config)
+    const response = setUserPlanner(user, subject, config)
     return response
   } else {
     // else get a default planner //TODO create the request
@@ -60,9 +57,7 @@ export const getNewUserPlanner = async (subject, config) => {
   return null
 }
 
-export const setUserPlanner = async (subject, config) => {
-
-  let user = auth.currentUser
+export const setUserPlanner = async (user, subject, config) => {
 
   if (user) {
     let userToken = user.getIdToken()
@@ -80,10 +75,8 @@ export const setUserPlanner = async (subject, config) => {
 }
 
 
-export const addAnalyticsEvent = async (eventName) => {
-
-  let user = auth.currentUser
-
+export const addAnalyticsEvent = async (user, eventName) => {
+  
   if (user) {
     let userToken = user.getIdToken()
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
