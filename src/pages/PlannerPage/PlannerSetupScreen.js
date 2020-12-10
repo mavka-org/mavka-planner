@@ -178,17 +178,17 @@ const InfoCard = (props) => {
                 >
                     Далі
                 </ScalableLargeButton>
+
+                <Box pt={1}>
+                    <MobileStepper
+                        variant="dots"
+                        steps={5}
+                        position="static"
+                        activeStep={props.order}
+                        className={classes.Stepper}/>
+                </Box>
             </Box>
 
-
-            <Grid item>
-                <MobileStepper
-                    variant="dots"
-                    steps={5}
-                    position="static"
-                    activeStep={props.order}
-                    className={classes.Stepper}/>
-            </Grid>
 
             </Grid>
             </Box>
@@ -230,7 +230,7 @@ const InputCard = (props) => {
                 </Box>
             </Grid>
 
-            <Box pb={2} pl={2} className={classes.bottom} > 
+            <Box pb={2} pl={2} className={classes.bottom} >
                 <ScalableLargeButton
                     fullWidth
                     variant="contained"
@@ -239,16 +239,17 @@ const InputCard = (props) => {
                 >
                     Далі
                 </ScalableLargeButton>
+
+                <Box pt={1}>
+                    <MobileStepper
+                        variant="dots"
+                        steps={5}
+                        position="static"
+                        activeStep={props.order}
+                        className={classes.Stepper}/>
+                </Box>
             </Box>
 
-            <Grid item>
-                <MobileStepper
-                    variant="dots"
-                    steps={5}
-                    position="static"
-                    activeStep={props.order}
-                    className={classes.Stepper}/>
-            </Grid>
 
             </Grid>
         </Page>
