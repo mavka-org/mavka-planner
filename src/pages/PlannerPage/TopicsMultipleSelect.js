@@ -67,7 +67,7 @@ for (const [index, topic] of program.topics.entries()) {
 function getTopicNames(ids_list) {
     let names_list = [];
     for (const id of ids_list.entries()) {
-        names_list.push(getTopicName(id[1]))
+        names_list.push(program.topics[id[1]].getTitle())
     }
     return names_list
 
