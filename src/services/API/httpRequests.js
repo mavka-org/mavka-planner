@@ -29,11 +29,10 @@ export const getTopic = async (topic_id) => {
 export const getUserPlanner = async (user, subject) => {
 
   if (user) {
-    user.getIdToken().then((userToken) => {
+      const userToken = await user.getIdToken()
       const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
       return response
-    })
-  }
+    }
 
   return null
 }
@@ -52,16 +51,14 @@ export const getDefaultPlanner = async (subject, config) => {
 export const setUserPlanner = async (user, subject, config) => {
 
   if (user) {
-    user.getIdToken().then((userToken) => {
-      
-      const response = await axios.post(
-          `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
-              config: config,
-          }, { headers: { 'Content-Type': 'text/plain' } }
-      )
+    const userToken = await user.getIdToken()
+    const response = await axios.post(
+        `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
+            config: config,
+        }, { headers: { 'Content-Type': 'text/plain' } }
+    )
 
-      return response
-    }
+    return response
   }
 
   return null
@@ -71,7 +68,7 @@ export const setUserPlanner = async (user, subject, config) => {
 export const addAnalyticsEvent = async (user, eventName) => {
 
   if (user) {
-    let userToken = user.getIdToken()
+    let userToken = await user.getIdToken()
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
     return response
   }
