@@ -1,19 +1,25 @@
 import React from 'react'
 import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
-
-const getUserPlanner = (subject) => {
-  return require('./sample.json')
-}
+import { getUserPlanner, getNewUserPlanner } from './../../services/API/httpRequests';
 
 const PlannerPage = (props) => {
 
-  const planner = getUserPlanner(props.subject)
+  const [planner, setPlanner] = React.useState(getUserPlanner(props.subject.name));
 
-  if (planner) {
+  const createNewPlanner = (selectedTopicIds) => {
+    let config = {
+      'exclude_topics_ids': selectedTopicIds
+    }
+    getNewUserPlanner(props.subject.name, config).then((plannerResponse) => {
+      setPlanner(plannerResponse)
+    })
+  }
+
+  if (false) {
     return (<PlannerScreen planner={planner} {...props}/>)
   } else {
-    return (<PlannerSetupScreen {...props}/>)
+    return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
   }
 }
 

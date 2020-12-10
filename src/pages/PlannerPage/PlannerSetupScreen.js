@@ -60,12 +60,13 @@ const PlannerSetupScreen = (props) => {
 
     const handleChange = (newSelectedTopicIds) => {
         setSelectedIds(newSelectedTopicIds);
-        console.log("selectedTopicIds in parent ", selectedTopicIds)
     }
 
+    const handleProceed = () => {
+      props.createNewPlanner(selectedTopicIds);
+    }
 
     return (
-
             <Page>
                <Box width="100%">
 
@@ -136,25 +137,22 @@ const PlannerSetupScreen = (props) => {
                        </LargeButton>
 
 
-                       <Box pb={2} width="100%" position ="fixed" bgcolor="white" className = {classes.bottom} >
+                       <Box pb={2} width="100%" position="fixed" bgcolor="white" className={classes.bottom} >
 
                            <ScalableLargeButton
                                fullWidth
                                variant="contained"
                                color="primary"
+                               onClick={handleProceed}
                            >
                                Далі
                            </ScalableLargeButton>
 
                        </Box>
 
-
-
-
                    </Grid>
                </Box>
             </Page>
-
     )
 }
 
