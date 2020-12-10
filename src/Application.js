@@ -109,6 +109,7 @@ const Application = () => {
           <Route path="/planner"
             render={(props) => <PlannerPage
               {...props}
+              user={user}
               subject={defaultSubject}
               setSelectedSubject={setSelectedSubject}
               />}
