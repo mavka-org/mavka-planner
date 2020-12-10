@@ -19,9 +19,7 @@ export default function TopicPage(props) {
 
     const [topic, setTopic] = React.useState(null)
 
-    if (topic) {
-        console.log("topic already exists")
-    } else {
+    if (!topic) {
         getTopic(props.match.params.id).then((topicResponse) => {
             setTopic(new Topic(topicResponse["data"]))
         })

@@ -14,12 +14,9 @@ export default function ProgramPage(props) {
 
   const [program, setProgram] = React.useState(null)
 
-  if (program) {
-    console.log("program already exists")
-  } else {
-    getProgram().then((programResponse) => {
-      console.log("programResponse ", programResponse)
-      setProgram(new Program(programResponse["data"]))
+  if (!program) {
+      getProgram().then((programResponse) => {
+      setProgram(new Program(programResponse.data))
     })
   }
 

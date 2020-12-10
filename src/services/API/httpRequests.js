@@ -22,7 +22,6 @@ export const getProgram = async () => {
 export const getTopic = async (topic_id) => {
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/${topic_id}`)
 
-
     return response
 }
 
@@ -38,24 +37,15 @@ export const getUserPlanner = async (user, subject) => {
   return null
 }
 
-export const getNewUserPlanner = async (user, subject, config) => {
-  // get a new planer of a user
+export const getDefaultPlanner = async (subject, config) => {
 
-  if (user) {
-    // if logged in, set a new planner
-    const response = setUserPlanner(user, subject, config)
-    return response
-  } else {
-    // else get a default planner //TODO create the request
-    const response = await axios.post(
-        `https://mvp-api-5dvjwdatfq-ew.a.run.app/defaultPlanner/${subject}`, {
-            config: config,
-        }, { headers: { 'Content-Type': 'text/plain' } }
-    )
-    return response
-  }
+  const response = await axios.post(
+      `https://mvp-api-5dvjwdatfq-ew.a.run.app/getDefaultPlanner/${subject}`, {
+          config: config,
+      }, { headers: { 'Content-Type': 'text/plain' } }
+  )
 
-  return null
+  return response
 }
 
 export const setUserPlanner = async (user, subject, config) => {
@@ -77,7 +67,7 @@ export const setUserPlanner = async (user, subject, config) => {
 
 
 export const addAnalyticsEvent = async (user, eventName) => {
-  
+
   if (user) {
     let userToken = user.getIdToken()
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
