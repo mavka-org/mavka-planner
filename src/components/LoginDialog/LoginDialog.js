@@ -6,9 +6,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const LoginDialog = (props) => {
 
   const handleTelegramLogin = (response) => {
-    props.handleTelegramResponse(response).then(() => {
-      props.loginProvider()
-    })
+    props.handleTelegramResponse(response)
+    props.onClose()
   }
 
   return (

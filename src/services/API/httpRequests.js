@@ -1,5 +1,5 @@
 import axios from 'axios'
-import firebase from './../Firebase/firebase'
+import {auth} from './../Firebase/firebase'
 
 export const setUserInfo = async (userToken, userInfo) => {
     const response = await axios.post(
@@ -29,7 +29,7 @@ export const getTopic = async (topic_id) => {
 
 export const getUserPlanner = async (subject) => {
 
-  let user = firebase.auth().currentUser
+  let user = auth.currentUser
 
   if (user) {
     let userToken = user.getIdToken()
@@ -42,7 +42,7 @@ export const getUserPlanner = async (subject) => {
 
 export const getNewUserPlanner = async (subject, config) => {
   // get a new planer of a user
-  let user = firebase.auth().currentUser
+  let user = auth.currentUser
 
   if (user) {
     // if logged in, set a new planner
@@ -63,7 +63,7 @@ export const getNewUserPlanner = async (subject, config) => {
 
 export const setUserPlanner = async (subject, config) => {
 
-  let user = firebase.auth().currentUser
+  let user = auth.currentUser
 
   if (user) {
     let userToken = user.getIdToken()
@@ -83,7 +83,7 @@ export const setUserPlanner = async (subject, config) => {
 
 export const addAnalyticsEvent = async (eventName) => {
 
-  let user = firebase.auth().currentUser
+  let user = auth.currentUser
 
   if (user) {
     let userToken = user.getIdToken()
