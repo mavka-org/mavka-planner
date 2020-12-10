@@ -5,24 +5,33 @@ import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Program from "../../models/program/program";
 import Page from "../../components/Page/Page";
-import ProgramAccordion from "../../components/ProgramAccordion/ProgramAccordion";
+import ProgramAccordion from "../ProgramPage/ProgramAccordion";
 import TopicContents from "../../components/TopicContents/TopicContents";
 import Topic from '../../models/program/topic';
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Paper from '@material-ui/core/Paper';
 import AppPage from './../../components/AppPage/AppPage';
-import { getTopic } from './../../services/API/httpRequests';
+import {getProgram, getTopic} from './../../services/API/httpRequests';
 
 
-export default function TopicPage() {
+export default function TopicPage(props) {
 
-  const topic = new Topic(getTopic())
+    const [topic, setTopic] = React.useState(null)
+
+    if (topic) {
+        console.log("topic already exists")
+    } else {
+        getTopic(props.match.params.id).then((topicResponse) => {
+            setTopic(new Topic(topicResponse["data"]))
+        })
+    }
 
     return (
+        topic ?
         <Page selected="program">
 
-            <Box pt={3}> <Typography  variant="h1" color={"primary"}>{increment_string_number(topic.chapter_id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography> </Box>
+            <Box pt={3}> <Typography  variant="h1" color={"primary"}>{topic.getTitle()}</Typography> </Box>
 
             {/*display buttons*/}
             <Box pt={3} pb={3}>
@@ -37,7 +46,7 @@ export default function TopicPage() {
             </Box>
 
             <TopicContents topic_json = {topic}/>
-        </Page>
+        </Page> : <Typography>Loading</Typography>
     )
 }
 

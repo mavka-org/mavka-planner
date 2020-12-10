@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { ListSubheader } from '@material-ui/core';
+import {ListSubheader, Typography} from '@material-ui/core';
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -12,6 +12,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
 import Program from "../../models/program/program"
 import IndeterminateCheckBoxRoundedIcon from '@material-ui/icons/IndeterminateCheckBoxRounded';
+import {getProgram} from "../../services/API/httpRequests";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -55,23 +56,6 @@ function getStyles(name, personName, theme) {
 
 
 
-let topicIds = [];
-let sample_program_json = require('../ProgramPage/sample_program_json.json')
-let program = new Program(sample_program_json)
-
-for (const [index, topic] of program.topics.entries()) {
-    topicIds.push(topic.id)
-}
-
-
-function getTopicNames(ids_list) {
-    let names_list = [];
-    for (const id of ids_list.entries()) {
-        names_list.push(program.topics[id[1]].getTitle())
-    }
-    return names_list
-
-}
 
 export default function TopicMultipleSelect(props) {
     const classes = useStyles();
@@ -84,7 +68,32 @@ export default function TopicMultipleSelect(props) {
     };
 
 
+    const [program, setProgram] = React.useState(null)
+
+    if (program) {
+        var topicIds = [];
+        for (const [index, topic] of program.topics.entries()) {
+            topicIds.push(topic.id)
+        }
+    } else {
+        getProgram().then((programResponse) => {
+            console.log("programResponse ", programResponse)
+            setProgram(new Program(programResponse["data"]))
+        })
+    }
+
+
+    const getTopicNames = (ids_list) => {
+        var names_list = [];
+        for (const id of ids_list.entries()) {
+            names_list.push(program.topics[id[1]].getTitle())
+        }
+        return names_list
+    }
+
+
     return (
+        program ?
         <div>
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-mutiple-checkbox-label"></InputLabel>
@@ -111,6 +120,6 @@ export default function TopicMultipleSelect(props) {
                     ))}
                 </Select>
             </FormControl>
-        </div>
+        </div> : <Typography>Loading</Typography>
     );
 }

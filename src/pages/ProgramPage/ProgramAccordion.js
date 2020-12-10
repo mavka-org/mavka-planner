@@ -4,9 +4,9 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import TopicContents from "../TopicContents/TopicContents";
+import TopicContents from "../../components/TopicContents/TopicContents";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 import Box from '@material-ui/core/Box';
 import { ExpansionPanelSummary } from '@material-ui/core';
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -120,7 +120,7 @@ export default function ProgramAccordion(props) {
                                     </Box>
                                     <Box flexGrow={1} pr={2} pl={1}>
                                         {/*display topic name*/}
-                                        <Typography variant="body1">{increment_string_number(chapter.id)+ "." + increment_string_number(topic.order_n) + " " + topic.name}</Typography>
+                                        <Typography variant="body1">{topic.getTitle()}</Typography>
                                     </Box>
                                     <Box>
                                         <Button size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>

@@ -22,6 +22,7 @@ export const getProgram = async () => {
 export const getTopic = async (topic_id) => {
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/${topic_id}`)
 
+
     return response
 }
 

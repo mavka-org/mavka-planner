@@ -81,7 +81,6 @@ export default function TopicContents(props) {
                     <Typography paragraph />
                     <Typography color="secondary" variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
 
-                    <Box p={500}/>
 
                 </div>
             </List>
