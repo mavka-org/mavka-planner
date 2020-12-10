@@ -51,10 +51,13 @@ const NavBar = (props) => {
           </div>
         }
         {
-          user ?
-            <Button onClick={handleLoggedOut}>вийти</Button>
-            :
-            <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
+          user === undefined ?
+              <Button onClick={handleLoggedOut} style={{opacity: 0}}>вийти</Button>
+          :
+            user ?
+              <Button onClick={handleLoggedOut}>вийти</Button>
+              :
+              <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
         }
         </Grid>
         </Box>
