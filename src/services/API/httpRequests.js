@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { auth } from './../Firebase/firebase'
 
 export const setUserInfo = async (userToken, userInfo) => {
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/user/${userToken}`, {
-            user: userInfo,
-    }, { headers: { 'Content-Type': 'text/plain' } }
+            user: JSON.stringify(userInfo),
+    }, { headers: { 'Content-Type': 'application/json' } }
     )
 
     return response
@@ -41,8 +40,8 @@ export const getDefaultPlanner = async (subject, config) => {
 
   const response = await axios.post(
       `https://mvp-api-5dvjwdatfq-ew.a.run.app/getDefaultPlanner/${subject}`, {
-          config: config,
-      }, { headers: { 'Content-Type': 'text/plain' } }
+          config: JSON.stringify(config),
+    }, { headers: { 'Content-Type': 'application/json' } }
   )
 
   return response
@@ -56,8 +55,8 @@ export const setUserPlanner = async (user, subject, config) => {
     console.log('typeof', typeof userToken)
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
-            config: config,
-        }, { headers: { 'Content-Type': 'text/plain' } }
+            config: JSON.stringify(config),
+      }, { headers: { 'Content-Type': 'application/json' } }
     )
 
     return response
