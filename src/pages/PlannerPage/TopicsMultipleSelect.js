@@ -12,6 +12,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
 import Program from "../../models/program/program"
 import IndeterminateCheckBoxRoundedIcon from '@material-ui/icons/IndeterminateCheckBoxRounded';
+import CheckBoxRoundedIcon from '@material-ui/icons/CheckBoxRounded';
 import {getProgram} from "../../services/API/httpRequests";
 
 const useStyles = makeStyles((theme) => ({
@@ -67,8 +68,10 @@ export default function TopicMultipleSelect(props) {
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
     const handleChange = (event) => {
+        console.log(selectedTopicIds)
+        console.log(event)
         setSelectedIds(event.target.value);
-        props.handleChange(selectedTopicIds);
+        props.handleChange(event.target.value);
     };
 
 
@@ -115,7 +118,7 @@ export default function TopicMultipleSelect(props) {
                         <MenuItem key={id} value={(id)} style={{whiteSpace: 'normal'}}>
                             <Checkbox
                                 checked={selectedTopicIds.indexOf(id) > -1}
-                                icon={<IndeterminateCheckBoxRoundedIcon />}
+                                icon={<CheckBoxRoundedIcon/>}
                                 checkedIcon={<IndeterminateCheckBoxRoundedIcon color="error" />}
                                 inputProps={{ "aria-label": "indeterminate checkbox" }}
                             />
