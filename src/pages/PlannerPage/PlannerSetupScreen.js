@@ -10,8 +10,6 @@ import CheckboxDemo from '../../assets/img/checkbox.gif'
 import StudyMatsDemo from '../../assets/img/study-mats.gif'
 import CuteGif from '../../assets/img/giphy.gif'
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Alert from '@material-ui/lab/Alert';
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -98,7 +96,7 @@ const PlannerSetupScreen = (props) => {
         {
             "Card": InputCard,
             "props": {
-                "text": "І останнє, можеш обрати теми, які вже знаєш, щоб ми не додавали їх в твій планер",
+                "text": "І останнє, можеш виключити теми, які вже знаєш, щоб ми не додавали їх в твій планер. Якщо хочеш вчити все, просто пропусти",
                 "order": 4
             }
         }
@@ -152,14 +150,14 @@ const InfoCard = (props) => {
                 </Box>
             </Grid>
 
-                {props.order == 0 ?
-                    <Grid item>
-                        <Box pt={5}>
-                        <Typography variant="subtitle2" >❗ Твій планер не збережеться, якщо ти не увійшов(-ла) </Typography>
-                        </Box>
-                    </Grid>
-                    : null
-                }
+            {props.order == 0 ?
+                <Grid item>
+                    <Box pt={5}>
+                    <Typography variant="subtitle2" >❗ Твій планер не збережеться, якщо ти не увійшов(-ла) </Typography>
+                    </Box>
+                </Grid>
+                : null
+            }
 
             <LargeButton className={classes.hidden}
                          fullWidth
@@ -170,7 +168,7 @@ const InfoCard = (props) => {
                 невидима кнопка
             </LargeButton>
 
-            <Box pb={2} pl={2} className={classes.bottom} >
+            <Box py={2} className={classes.bottom} >
                 <ScalableLargeButton
                     fullWidth
                     variant="contained"
