@@ -7,6 +7,7 @@ import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import { Typography } from '@material-ui/core';
 import Page from "../../components/Page/Page";
 import ProgramHeader from './../../assets/img/program-header.png';
+import Loading from './../../components/Loading/Loading';
 import { getProgram } from './../../services/API/httpRequests';
 
 
@@ -29,6 +30,6 @@ export default function ProgramPage(props) {
       {...props}
     >
           <ProgramAccordion program={program}/>
-    </AppPage> : <Typography>Loading</Typography>
+    </AppPage> : <Loading/>
   )
 }

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { UserContext } from './../../providers/UserProvider'
 import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
+import Loading from './../../components/Loading/Loading';
 import { Typography } from '@material-ui/core';
 import { getUserPlanner, setUserPlanner, getDefaultPlanner } from './../../services/API/httpRequests';
 
@@ -17,7 +18,7 @@ const PlannerPage = (props) => {
   useEffect( () => {
     setTimeout(function() {
           setFakeLoading(false)
-      }, 500);
+      }, 700);
    }, []);
 
   // receiving user
@@ -64,7 +65,7 @@ const PlannerPage = (props) => {
     }
   }
 
-  return (<Typography>Loading</Typography>)
+  return (<Loading />)
 }
 
 export default PlannerPage
