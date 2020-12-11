@@ -12,6 +12,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Paper from '@material-ui/core/Paper';
 import AppPage from './../../components/AppPage/AppPage';
+import Loading from './../../components/Loading/Loading';
 import {getProgram, getTopic} from './../../services/API/httpRequests';
 
 
@@ -44,7 +45,7 @@ export default function TopicPage(props) {
             </Box>
 
             <TopicContents topic_json = {topic}/>
-        </Page> : <Typography>Loading</Typography>
+        </Page> : <Loading/>
     )
 }
 

@@ -47,12 +47,14 @@ const Week = (props) => {
 
     // update the state in the database
     let changes = {
-      week_n: idx,
-      event_n: eventIdx,
-      completed: state
+      'week_n': idx,
+      'event_n': eventIdx,
+      'completed': state
     }
 
-    updateUserPlanner(user, props.subject.id, changes)
+    console.log('changes', changes)
+    let response = updateUserPlanner(user, props.subject.id, changes)
+    console.log('response', response)
   }
 
   const event_types_classes = {
