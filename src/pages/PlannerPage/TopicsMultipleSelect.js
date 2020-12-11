@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         minWidth: 120,
         maxWidth: 300,
-        width: "90%"
-
+        width: "90%",
     },
     chips: {
         display: "flex",
@@ -31,8 +30,13 @@ const useStyles = makeStyles((theme) => ({
     },
     noLabel: {
         marginTop: theme.spacing(3)
+    },
+    halfHeight: {
+        height: "50%"
+    },
+
     }
-}));
+));
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -94,7 +98,7 @@ export default function TopicMultipleSelect(props) {
     return (
         program ?
         <div>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} id='formcontroltonya'>
                 <InputLabel id="demo-mutiple-checkbox-label"></InputLabel>
                 <Select
                     labelId="demo-mutiple-checkbox-label"
@@ -105,6 +109,7 @@ export default function TopicMultipleSelect(props) {
                     input={<Input />}
                     renderValue={(selected) => getTopicNames(selected).join(", ")}
                     MenuProps={MenuProps}
+                    className={classes.halfHeight}
                 >
                     {topicIds.map((id) => (
                         <MenuItem key={id} value={(id)} style={{whiteSpace: 'normal'}}>

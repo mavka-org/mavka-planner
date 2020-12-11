@@ -1,26 +1,16 @@
-import NavBar from '../../components/NavBar/NavBar'
-import LoginPng from './../../assets/img/login.png'
 import { LargeButton } from '../../components/Button/Button';
 import { Box, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TelegramLoginButton from 'react-telegram-login';
-import Demo from "../../assets/img/giphy.gif";
 import React from "react";
-import HeaderImage from "../../components/HeaderImage/HeaderImage";
-import ChooseTopic from "../../assets/img/choose-topics.png";
 import Page from './../../components/Page/Page';
-import DropDown from "../../components/DropDown/DropDown";
-import Hidden from '@material-ui/core/Hidden';
-import Fab from '@material-ui/core/Fab';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
-import AppPage from './../../components/AppPage/AppPage';
 import {ScalableLargeButton} from './../../components/Button/Button.js'
 import WeeksDemo from '../../assets/img/weeks.gif'
 import CheckboxDemo from '../../assets/img/checkbox.gif'
 import StudyMatsDemo from '../../assets/img/study-mats.gif'
-import PlannerSetUpHeader from '../../assets/img/plannerSetUpHeader.png'
+import CuteGif from '../../assets/img/giphy.gif'
 import MobileStepper from '@material-ui/core/MobileStepper';
+import Alert from '@material-ui/lab/Alert';
 
 
 
@@ -31,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     Img: {
-        width: "250px",
+        width: "70%"
     },
     dropDown: {
         // width: '100%'
@@ -58,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "center",
         backgroundColor: "white",
     },
+    multiSelect: {
+        height: "50%",
+    },
 
 }));
 
@@ -73,8 +66,8 @@ const PlannerSetupScreen = (props) => {
         {
             "Card": InfoCard,
             "props": {
-                "text": "Хееей! Ми створимо тобі особистий планер. Він твій, тільки твій ",
-                "img": WeeksDemo,
+                "text": "Хееей! Го створимо тобі твій особистий планер ",
+                "img": CuteGif,
                 "order": 0
             }
         },
@@ -89,7 +82,7 @@ const PlannerSetupScreen = (props) => {
         {
             "Card": InfoCard,
             "props": {
-                "text": "Коли тема вивчена, викреслюй її з списку",
+                "text": "Коли тема вивчена, викреслюй її зі списку",
                 "img": CheckboxDemo,
                 "order": 2
             }
@@ -98,14 +91,14 @@ const PlannerSetupScreen = (props) => {
             "Card": InfoCard,
             "props": {
                 "text": "До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”",
-                "img": CheckboxDemo,
+                "img": StudyMatsDemo,
                 "order": 3
             }
         },
         {
             "Card": InputCard,
             "props": {
-                "name" : "exclude topics demo",
+                "text": "І останнє, можеш обрати теми, які вже знаєш, щоб ми не додавали їх в твій планер",
                 "order": 4
             }
         }
@@ -146,8 +139,8 @@ const InfoCard = (props) => {
                   align="center"
                   justify="center"
                   direction="column">
-            <Grid item>
 
+            <Grid item>
                 <Box display="flex" justifyContent="center" pb={10} pt={15}>
                     <Typography variant="subtitle1">
                         {props.text}
@@ -157,8 +150,16 @@ const InfoCard = (props) => {
                 <Box className={classes.GifContainer} >
                     <img width="70%" src={props.img} />
                 </Box>
-
             </Grid>
+
+                {props.order == 0 ?
+                    <Grid item>
+                        <Box pt={5}>
+                        <Typography variant="subtitle2" >❗ Твій планер не збережеться, якщо ти не увійшов(-ла) </Typography>
+                        </Box>
+                    </Grid>
+                    : null
+                }
 
             <LargeButton className={classes.hidden}
                          fullWidth
@@ -178,17 +179,17 @@ const InfoCard = (props) => {
                 >
                     Далі
                 </ScalableLargeButton>
+
+                <Box pt={1}>
+                    <MobileStepper
+                        variant="dots"
+                        steps={5}
+                        position="static"
+                        activeStep={props.order}
+                        className={classes.Stepper}/>
+                </Box>
             </Box>
 
-
-            <Grid item>
-                <MobileStepper
-                    variant="dots"
-                    steps={5}
-                    position="static"
-                    activeStep={props.order}
-                    className={classes.Stepper}/>
-            </Grid>
 
             </Grid>
             </Box>
@@ -222,15 +223,15 @@ const InputCard = (props) => {
             <Grid item>
                 <Box pb={3} pt={15}>
                     <Typography variant="subtitle1" >
-                        І останнє, обери теми, які вже знаєш, щоб ми не додавали їх в твій планер
+                        {props.text}
                     </Typography>
                 </Box>
                 <Box pb={10}>
-                    <TopicsMultipleSelect handleChange={handleChange}/>
+                    <TopicsMultipleSelect className={classes.multiSelect} handleChange={handleChange}/>
                 </Box>
             </Grid>
 
-            <Box pb={2} pl={2} className={classes.bottom} > 
+            <Box pb={2} pl={2} className={classes.bottom} >
                 <ScalableLargeButton
                     fullWidth
                     variant="contained"
@@ -239,16 +240,17 @@ const InputCard = (props) => {
                 >
                     Далі
                 </ScalableLargeButton>
+
+                <Box pt={1}>
+                    <MobileStepper
+                        variant="dots"
+                        steps={5}
+                        position="static"
+                        activeStep={props.order}
+                        className={classes.Stepper}/>
+                </Box>
             </Box>
 
-            <Grid item>
-                <MobileStepper
-                    variant="dots"
-                    steps={5}
-                    position="static"
-                    activeStep={props.order}
-                    className={classes.Stepper}/>
-            </Grid>
 
             </Grid>
         </Page>
