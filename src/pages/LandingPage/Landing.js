@@ -9,10 +9,6 @@ import InfoSection from '../../components/InfoSection/InfoSection';
 
 
 const useStyles = makeStyles((theme) => ({
-  Grid: {
-    width: "100%",
-    justifyContent: "center",
-  },
   Img: {
     width: "250px",
   },
@@ -27,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 const Landing = (props) => {
   const classes = useStyles();
   return (
-      <Grid container spacing="2" className={classes.Grid}>
+      <Grid container spacing={2} direction="column" alignItems="center">
 
         <Grid item>
           <img src={LandingHeader} className={classes.Img} alt="mavka"/>
@@ -73,8 +69,7 @@ const Landing = (props) => {
            </Box>
          </div>
 
-        <Grid item container spacing={5}>
-          <Grid item />
+        <Grid item container spacing={3}>
           <InfoSection />
           <Grid item />
         </Grid>

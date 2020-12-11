@@ -8,13 +8,14 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { LargeButton } from '../Button/Button';
 const useStyles = makeStyles({
   root: {
-    width: 275,
+    width: 290,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'black',
-    borderRadius: '20px'
+    borderRadius: '20px',
+    padding: '15px'
   },
   mb: {
     marginBottom: 12,
@@ -30,6 +31,7 @@ const WhiteButton = withStyles({
     backgroundColor: "white",
     color: 'black',
     borderRadius: '10px',
+    width: 250,
     '&:hover': {
       backgroundColor: 'black',
       color: 'white'
@@ -39,36 +41,44 @@ const WhiteButton = withStyles({
 const InfoSection = props => {
   const classes = useStyles();
   return (
-    <ThemeProvider>
       <Grid
         container
         direction="column"
-        justify="space-between"
         alignItems="center"
-        spacing={2}
+        justifyContent="center"
+        spacing={3}
       >
-        <Grid item xs={12} container alignItems="center" direction="column">
+        <Grid item xs={12} container alignItems="center" direction="column" spacing={2}>
           <Grid item>
             <Card className={classes.root}>
               <CardContent>
                 <Grid container alignItems="center" direction="column">
-                  <Grid item><WhiteText className={classes.mb}>Вибачте, але ми досі у бетці. Якщо є ідеї або проблеми &mdash; пишіть</WhiteText></Grid>
-                  <Grid item><WhiteButton href="#">Зв'язатися з нами</WhiteButton></Grid>
+                  <Grid item><WhiteText className={classes.mb} align="center">Наша платформа лише у бета-версії. Якщо щось поламалось або у тебе є ідеї як її покращити — напиши нам, будь ласка.</WhiteText></Grid>
+                  <Grid item><WhiteButton href="mailto:hello@mavka.org">Написати нам</WhiteButton></Grid>
                 </Grid>
-
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-        <Grid item xs={12}><Typography variant="body1"><Link href="https://mavka.org/">Про мавку</Link></Typography></Grid>
-        <Grid item xs={12}><Typography variant="body1"><Link href="https://t.me/mavkazno">Телеграм</Link></Typography></Grid>
-        <Grid item xs={12}><Typography variant="body1"><Link href="https://www.instagram.com/mavka.zno/">Інстаграм</Link></Typography></Grid>
-        <Grid item xs={12}><Typography variant="h1">мавка</Typography></Grid>
-        <Grid item><Typography variant="body1" align="center">Інноваційна неприбуткова освітня онлайн платформа з контентом, що дійсно підходить учням 21го сторіччя. Створюється з любов'ю
+        <Grid item></Grid>
+        <Grid 
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          spacing={2}
+          >
+          <Grid item><Typography variant="body1"><Link href="https://mavka.org/">Про мавку</Link></Typography></Grid>
+          <Grid item><Typography variant="body1"><Link href="https://t.me/mavkazno">Телеграм</Link></Typography></Grid>
+          <Grid item><Typography variant="body1"><Link href="https://www.instagram.com/mavka.zno/">Інстаграм</Link></Typography></Grid>
+          <Grid item><Typography variant="body1"><Link href="https://send.monobank.ua/jar/6LyzveDwkG">Підтримати</Link></Typography></Grid>
+          <Grid item><Typography variant="body1">hello@mavka.org</Typography></Grid>
+        </Grid>
+        <Grid item></Grid>
+        <Grid item><Typography variant="body1" align="center"><b>Мавка</b> — це інноваційна неприбуткова освітня онлайн платформа з контентом, що дійсно підходить учням 21го сторіччя. Створюється з любов'ю ❤️
            </Typography>
         </Grid>
       </Grid>
-    </ThemeProvider>
   )
 }
 
