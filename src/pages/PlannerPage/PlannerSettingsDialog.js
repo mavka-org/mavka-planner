@@ -6,6 +6,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Link from '@material-ui/core/Link';
 import Alert from '@material-ui/lab/Alert';
+import Box from '@material-ui/core/Box'
 
 const PlannerSettingsDialog = (props) => {
   const {open, onClose} = props;
@@ -32,16 +33,16 @@ const PlannerSettingsDialog = (props) => {
         </DialogContentText>
       </DialogContent>
 
-      <DialogActions>
+      <DialogActions style={{justifyContent:"center"}}>
 
-        <Button size="medium" onClick={onClose} color="primary" variant="contained" autoFocus>
-          назад
-        </Button>
+          <Button size="medium" onClick={onClose} color="primary" variant="contained" autoFocus>
+            назад
+          </Button>
 
-        <Button size="medium" onClick={onClose} href="" variant="outlined" color="primary">
-          видалити планер та створити новий
-        </Button>
-
+          <Button size="medium" onClick={onClose} href="" variant="outlined" color="primary">
+            перестворити планер
+          </Button>
+        
       </DialogActions>
 
     </Dialog>
