@@ -1,11 +1,10 @@
 import LandingHeader from './../../assets/img/LandingHeader.png';
 import { LargeButton } from '../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Box } from '@material-ui/core';
 // import Demo from '../../assets/img/demo.gif'
 import Demo from '../../assets/img/demo.gif'
-import Box from '@material-ui/core/Box';
-import InfoSection from '../../components/InfoSection/InfoSection';
+import Footer from '../../components/Footer/Footer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,12 +68,7 @@ const Landing = (props) => {
            </Box>
          </div>
 
-        <Grid item container spacing={3}>
-          <InfoSection />
-          <Grid item />
-        </Grid>
-
-
+          <Footer />
       </Grid>
   )
 }
