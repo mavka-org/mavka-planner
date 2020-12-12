@@ -38,11 +38,6 @@ const PlannerScreen = (props) => {
     setSettingsOpen(false);
   };
 
-  const handleClickDeletePlanner = () => {
-    setSettingsOpen(false);
-    deletePlanner();
-  }
-
   // weeks
   const getWeeks = () => {
     return planner.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} subject={props.subject} json={weekJson} /> )} )
@@ -74,7 +69,7 @@ const PlannerScreen = (props) => {
       <PlannerSettingsDialog
         open={settingsOpen}
         onClose={handleSettingsClose}
-        handleClickDeletePlanner={handleClickDeletePlanner}
+        deletePlanner={deletePlanner}
       />
 
     </AppPage>
