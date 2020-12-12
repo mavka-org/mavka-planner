@@ -27,6 +27,10 @@ export const signOut = async() => {
     await auth.signOut();
 }
 
+export const signInAnonymously = async() => {
+    await auth.signInAnonymously()
+}
+
 export const handleTelegramResponse = async(response) => {
     var email = 'tg_' + response.id + '@mavka.org'
     var password = response.id

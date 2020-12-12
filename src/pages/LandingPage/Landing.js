@@ -1,11 +1,10 @@
 import LandingHeader from './../../assets/img/LandingHeader.png';
 import { LargeButton } from '../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Box } from '@material-ui/core';
 // import Demo from '../../assets/img/demo.gif'
 import Demo from '../../assets/img/demo.gif'
-import Box from '@material-ui/core/Box';
-import InfoSection from '../../components/InfoSection/InfoSection';
+import Footer from '../../components/Footer/Footer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,9 +32,9 @@ const Landing = (props) => {
           <Typography variant="h6" align="center">ЗНО не таке страшне, як здається. Ми допоможемо тобі!</Typography>
         </Grid>
 
-        <Grid item container spacing="2">
+        <Grid item container spacing={1}>
 
-          <Grid item style={{width: "100%"}}>
+          <Grid container item>
             <LargeButton
               href='planner'
               fullWidth
@@ -46,7 +45,7 @@ const Landing = (props) => {
             </LargeButton>
           </Grid>
 
-          <Grid item style={{width: "100%"}}>
+          <Grid container item>
             <LargeButton
               href='program'
               fullWidth
@@ -61,20 +60,14 @@ const Landing = (props) => {
 
 
 
-        <div style={{ width: '100%' }}>
            <Box styles={{ "borderWidth": "10px"}} display="flex" justifyContent="center" p={4}>
-             <Box className={classes.boxBorders}  width={7/10} >
+             <Box className={classes.boxBorders}>
                <img width="100%" src={Demo} alt="mavka"/>
              </Box>
            </Box>
-         </div>
-
-        <Grid item container spacing={3}>
-          <InfoSection />
-          <Grid item />
-        </Grid>
 
 
+          <Footer />
       </Grid>
   )
 }
