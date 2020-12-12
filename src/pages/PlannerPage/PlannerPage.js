@@ -25,15 +25,17 @@ const PlannerPage = (props) => {
 
   // receiving user
   if (user) {
-    if (ownsPlanner === undefined) {
-      getUserPlanner(user, subject.id).then((plannerResponse) => {
-        if (plannerResponse.data.ownsPlanner) {
-          setOwnsPlanner(true)
-          setPlanner(plannerResponse.data)
-        } else {
-          setOwnsPlanner(false)
-        }
-      })
+    if (!user.isAnonymous) {
+      if (ownsPlanner === undefined) {
+        getUserPlanner(user, subject.id).then((plannerResponse) => {
+          if (plannerResponse.data.ownsPlanner) {
+            setOwnsPlanner(true)
+            setPlanner(plannerResponse.data)
+          } else {
+            setOwnsPlanner(false)
+          }
+        })
+      }
     }
   }
 
@@ -41,7 +43,7 @@ const PlannerPage = (props) => {
     let config = {
       'exclude_topics_ids': selectedTopicIds
     }
-    if (user) {
+    if (!user.isAnonymous) {
       // for logged in user
       setUserPlanner(user, subject.id, config).then((plannerResponse) => {
         setOwnsPlanner(true)
@@ -58,7 +60,7 @@ const PlannerPage = (props) => {
 
   if (!fakeLoading) {
     if (ownsPlanner !== true) {
-      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} setOwnsPlanner={setOwnsPlanner} {...props}/>)
     }
     else {
       if (planner) {

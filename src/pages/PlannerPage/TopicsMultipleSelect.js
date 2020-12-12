@@ -10,10 +10,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Chip from "@material-ui/core/Chip";
-import Program from "../../models/program/program"
 import IndeterminateCheckBoxRoundedIcon from '@material-ui/icons/IndeterminateCheckBoxRounded';
 import CheckBoxRoundedIcon from '@material-ui/icons/CheckBoxRounded';
-import {getProgram} from "../../services/API/httpRequests";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
@@ -66,27 +64,21 @@ function getStyles(name, personName, theme) {
 export default function TopicMultipleSelect(props) {
     const classes = useStyles();
     const theme = useTheme();
+    const { program } = props
+
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
     const handleChange = (event) => {
-        console.log(selectedTopicIds)
-        console.log(event)
         setSelectedIds(event.target.value);
         props.handleChange(event.target.value);
     };
 
-
-    const [program, setProgram] = React.useState(null)
 
     if (program) {
         var topicIds = [];
         for (const [index, topic] of program.topics.entries()) {
             topicIds.push(topic.id)
         }
-    } else {
-        getProgram().then((programResponse) => {
-            setProgram(new Program(programResponse["data"]))
-        })
     }
 
 

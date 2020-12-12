@@ -1,15 +1,16 @@
-import { LargeButton } from '../../components/Button/Button';
 import { Box, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React from "react";
 import Page from './../../components/Page/Page';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
-import {ScalableLargeButton} from './../../components/Button/Button.js'
+import {ScalableLargeButton, LargeButton} from './../../components/Button/Button.js'
 import WeeksDemo from '../../assets/img/weeks.gif'
 import CheckboxDemo from '../../assets/img/checkbox.gif'
 import StudyMatsDemo from '../../assets/img/study-mats.gif'
 import CuteGif from '../../assets/img/giphy.gif'
 import MobileStepper from '@material-ui/core/MobileStepper';
+import Program from "../../models/program/program"
+import { getProgram } from "../../services/API/httpRequests";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +60,13 @@ const PlannerSetupScreen = (props) => {
     const classes = useStyles();
 
     const [currentCard, setCurrentCard] = React.useState(0);
+    const [program, setProgram] = React.useState(null)
+
+    if (!program) {
+        getProgram().then((programResponse) => {
+            setProgram(new Program(programResponse["data"]))
+        })
+    }
 
     const cards = [
         {
@@ -97,7 +105,8 @@ const PlannerSetupScreen = (props) => {
             "Card": InputCard,
             "props": {
                 "text": "І останнє, можеш виключити теми, які вже знаєш, щоб ми не додавали їх в твій планер. Якщо хочеш вчити все, просто пропусти",
-                "order": 4
+                "order": 4,
+                "program": program
             }
         }
     ]
@@ -216,7 +225,11 @@ const InputCard = (props) => {
                     </Typography>
                 </Box>
                 <Box mt={2}>
-                    <TopicsMultipleSelect className={classes.multiSelect} handleChange={handleChange}/>
+                    <TopicsMultipleSelect
+                      className={classes.multiSelect}
+                      handleChange={handleChange}
+                      program={props.program}
+                    />
                 </Box>
             </Grid>
 
