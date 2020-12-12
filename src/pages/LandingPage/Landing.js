@@ -5,6 +5,9 @@ import { Grid, Typography, Box } from '@material-ui/core';
 // import Demo from '../../assets/img/demo.gif'
 import Demo from '../../assets/img/demo.gif'
 import Footer from '../../components/Footer/Footer';
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
+import {useContext} from "react";
+import {UserContext} from "../../providers/UserProvider";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Landing = (props) => {
+
+    const user = useContext(UserContext);
+
   const classes = useStyles();
   return (
       <Grid container spacing={2} direction="column" alignItems="center">

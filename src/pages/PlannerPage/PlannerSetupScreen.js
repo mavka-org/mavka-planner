@@ -140,7 +140,7 @@ const InfoCard = (props) => {
             >
 
             <Grid item>
-                <Box display="flex" justifyContent="center" pb={10} pt={7}>
+                <Box display="flex" justifyContent="center" pb={10} pt={10}>
                     <Typography variant="subtitle1">
                         {props.text}
                     </Typography>
@@ -210,7 +210,7 @@ const InputCard = (props) => {
                   justify="center"
                   direction="column">
             <Grid item>
-                <Box pb={10} pt={7}>
+                <Box pb={10} pt={10}>
                     <Typography variant="subtitle1" >
                         {props.text}
                     </Typography>
