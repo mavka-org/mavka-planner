@@ -92,13 +92,20 @@ export const updateUserPlanner = async (user, subject, changes) => {
 }
 
 
-export const addAnalyticsEvent = async (user, eventName) => {
+export const addAnalyticsEvent = async (user, eventName, params) => {
 
-  if (user) {
     let userToken = await user.getIdToken()
-    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}`)
-    return response
-  }
+    let isAnonymous = "true"
 
-  return null
+    if (user) {
+        isAnonymous = "false"
+    }
+
+    const response = await axios.post(
+        `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${isAnonymous}`,
+        JSON.stringify({params: params}),
+        { headers: { 'Content-Type': 'application/json' } }
+    )
+    return response
+
 }
