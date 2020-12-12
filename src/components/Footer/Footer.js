@@ -6,7 +6,7 @@ import { LargeButton } from '../Button/Button';
 
 const useStyles = makeStyles({
   root: {
-    width: 290,
+    width: '228px',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -31,7 +31,7 @@ const WhiteButton = withStyles({
     backgroundColor: "white",
     color: 'black',
     borderRadius: '10px',
-    width: 250,
+    width: '220px',
     '&:hover': {
       backgroundColor: 'black',
       color: 'white'

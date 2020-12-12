@@ -14,6 +14,7 @@ import Program from "../../models/program/program"
 import IndeterminateCheckBoxRoundedIcon from '@material-ui/icons/IndeterminateCheckBoxRounded';
 import CheckBoxRoundedIcon from '@material-ui/icons/CheckBoxRounded';
 import {getProgram} from "../../services/API/httpRequests";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -127,6 +128,6 @@ export default function TopicMultipleSelect(props) {
                     ))}
                 </Select>
             </FormControl>
-        </div> : <Typography>Loading</Typography>
+        </div> : <CircularProgress />
     );
 }
