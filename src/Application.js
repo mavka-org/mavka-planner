@@ -10,6 +10,7 @@ import TopicPage from './pages/TopicPage/TopicPage';
 import { UserContext } from './providers/UserProvider';
 import TestPage from './pages/TestPage/TestPage';
 import { Typography } from '@material-ui/core';
+import { signInAnonymously } from './services/Firebase/Authenticate';
 
 const theme = createMuiTheme({
   palette: {
@@ -98,6 +99,9 @@ const Application = () => {
   const [subject, setSelectedSubject] = React.useState(defaultSubject);
   const user = useContext(UserContext)
 
+  if(user == null){
+    signInAnonymously()
+  }
 
   return (
     <ThemeProvider theme={theme}>
