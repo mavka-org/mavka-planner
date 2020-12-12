@@ -93,11 +93,11 @@ const AppPage = (props) => {
   return (
         <Page {...props}>
 
-          <Grid container spacing="1">
+          <Grid container>
 
-            <Box display="flex" alignItems="center" style={{ width: '100%' }}>
+            <Box display="flex" alignItems="center">
 
-              <Box flexGrow={1}>
+              <Box>
                 <HeaderImage src={props.headerImageSrc}/>
               </Box>
 

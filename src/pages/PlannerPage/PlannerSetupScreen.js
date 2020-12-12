@@ -134,14 +134,15 @@ const InfoCard = (props) => {
     return(
         <Page>
             <Box>
-            <Grid container
-                  spacing={0}
-                  align="center"
-                  justify="center"
-                  direction="column">
+            <Grid 
+                container
+                align="center"
+                justify="center"
+                direction="column"
+            >
 
             <Grid item>
-                <Box display="flex" justifyContent="center" pb={10} pt={15}>
+                <Box display="flex" justifyContent="center" pb={10} pt={7}>
                     <Typography variant="subtitle1">
                         {props.text}
                     </Typography>
@@ -152,25 +153,16 @@ const InfoCard = (props) => {
                 </Box>
             </Grid>
 
-                {props.order == 0 ?
-                    <Grid item>
-                        <Box pt={5}>
+                {props.order === 0 ?
+                    <Grid mt={2} item>
+                        <Box>
                         <Typography variant="subtitle2" >❗ Твій планер не збережеться, якщо ти не увійшов(-ла) </Typography>
                         </Box>
                     </Grid>
                     : null
                 }
 
-            <LargeButton className={classes.hidden}
-                         fullWidth
-                         variant="contained"
-                         color="primary"
-                         display="hidden"
-            >
-                невидима кнопка
-            </LargeButton>
-
-            <Box pb={2} pl={2} className={classes.bottom} >
+            <Box className={classes.bottom} >
                 <ScalableLargeButton
                     fullWidth
                     variant="contained"
@@ -180,7 +172,7 @@ const InfoCard = (props) => {
                     Далі
                 </ScalableLargeButton>
 
-                <Box pt={1}>
+                <Box my={1} >
                     <MobileStepper
                         variant="dots"
                         steps={5}
@@ -216,22 +208,21 @@ const InputCard = (props) => {
     return(
         <Page>
             <Grid container
-                  spacing={0}
                   align="center"
                   justify="center"
                   direction="column">
             <Grid item>
-                <Box pb={3} pt={15}>
+                <Box pb={10} pt={7}>
                     <Typography variant="subtitle1" >
                         {props.text}
                     </Typography>
                 </Box>
-                <Box pb={10}>
+                <Box mt={2}>
                     <TopicsMultipleSelect className={classes.multiSelect} handleChange={handleChange}/>
                 </Box>
             </Grid>
 
-            <Box pb={2} pl={2} className={classes.bottom} >
+            <Box className={classes.bottom} >
                 <ScalableLargeButton
                     fullWidth
                     variant="contained"
@@ -241,7 +232,7 @@ const InputCard = (props) => {
                     Далі
                 </ScalableLargeButton>
 
-                <Box pt={1}>
+                <Box my={1}>
                     <MobileStepper
                         variant="dots"
                         steps={5}
@@ -254,7 +245,7 @@ const InputCard = (props) => {
 
             </Grid>
         </Page>
-    )
+    )   
 
 }
 
