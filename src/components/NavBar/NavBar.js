@@ -54,10 +54,10 @@ const NavBar = (props) => {
           user === undefined ?
               <Button onClick={handleLoggedOut} style={{opacity: 0}}>вийти</Button>
           :
-            user ?
-              <Button onClick={handleLoggedOut}>вийти</Button>
-              :
+            (!user || user.isAnonymous) ?
               <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
+              :
+              <Button onClick={handleLoggedOut}>вийти</Button>
         }
         </Grid>
         </Box>

@@ -4,11 +4,13 @@ import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
 import Loading from './../../components/Loading/Loading';
 import { Typography } from '@material-ui/core';
-import { getUserPlanner, setUserPlanner, getDefaultPlanner } from './../../services/API/httpRequests';
+import { getUserPlanner, setUserPlanner, getDefaultPlanner, deleteUserPlanner } from './../../services/API/httpRequests';
 
 const PlannerPage = (props) => {
 
   const { user, subject } = props
+
+  console.log(user)
 
   const [fakeLoading, setFakeLoading] = React.useState(true)
   const [planner, setPlanner] = React.useState(undefined);
@@ -23,15 +25,17 @@ const PlannerPage = (props) => {
 
   // receiving user
   if (user) {
-    if (ownsPlanner === undefined) {
-      getUserPlanner(user, subject.id).then((plannerResponse) => {
-        if (plannerResponse.data.ownsPlanner) {
-          setOwnsPlanner(true)
-          setPlanner(plannerResponse.data)
-        } else {
-          setOwnsPlanner(false)
-        }
-      })
+    if (!user.isAnonymous) {
+      if (ownsPlanner === undefined) {
+        getUserPlanner(user, subject.id).then((plannerResponse) => {
+          if (plannerResponse.data.ownsPlanner) {
+            setOwnsPlanner(true)
+            setPlanner(plannerResponse.data)
+          } else {
+            setOwnsPlanner(false)
+          }
+        })
+      }
     }
   }
 
@@ -39,7 +43,7 @@ const PlannerPage = (props) => {
     let config = {
       'exclude_topics_ids': selectedTopicIds
     }
-    if (user) {
+    if (!user.isAnonymous) {
       // for logged in user
       setUserPlanner(user, subject.id, config).then((plannerResponse) => {
         setOwnsPlanner(true)
@@ -54,9 +58,15 @@ const PlannerPage = (props) => {
     }
   }
 
+  const deletePlanner = () => {
+    deleteUserPlanner().then((response) => {
+      setOwnsPlanner(false);
+    })
+  };
+
   if (!fakeLoading) {
     if (ownsPlanner !== true) {
-      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} deletePlanner={deletePlanner} {...props}/>)
     }
     else {
       if (planner) {

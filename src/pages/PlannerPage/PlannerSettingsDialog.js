@@ -9,7 +9,7 @@ import Alert from '@material-ui/lab/Alert';
 import Box from '@material-ui/core/Box'
 
 const PlannerSettingsDialog = (props) => {
-  const {open, onClose} = props;
+  const {open, onClose, handleClickDeletePlanner} = props;
 
   return (
     <Dialog
@@ -33,16 +33,16 @@ const PlannerSettingsDialog = (props) => {
         </DialogContentText>
       </DialogContent>
 
-      <DialogActions style={{justifyContent:"center"}}>
+      <DialogActions>
 
           <Button size="medium" onClick={onClose} color="primary" variant="contained" autoFocus>
             назад
           </Button>
 
-          <Button size="medium" onClick={onClose} href="" variant="outlined" color="primary">
+          <Button size="medium" onClick={handleClickDeletePlanner} href="" variant="outlined" color="primary">
             перестворити планер
           </Button>
-        
+
       </DialogActions>
 
     </Dialog>

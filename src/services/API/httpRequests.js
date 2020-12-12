@@ -37,6 +37,17 @@ export const getUserPlanner = async (user, subject) => {
   return null
 }
 
+export const deleteUserPlanner = async (user, subject) => {
+
+  if (user) {
+    const userToken = await user.getIdToken()
+    const response = await axios.delete(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+    return response
+  }
+
+  return null
+}
+
 export const getDefaultPlanner = async (subject, config) => {
 
   const response = await axios.post(
@@ -66,8 +77,6 @@ export const setUserPlanner = async (user, subject, config) => {
 
 export const updateUserPlanner = async (user, subject, changes) => {
 
-  console.log('changes, ', changes)
-
   if (user) {
     const userToken = await user.getIdToken()
 
@@ -77,13 +86,6 @@ export const updateUserPlanner = async (user, subject, changes) => {
         { headers: { 'Content-Type': 'application/json' } }
     )
 
-    /*
-    const response = await axios({
-        url: `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`,
-        headers: { 'Content-Type': 'application/json' },
-        method: 'put'
-    });
-    */
 
     return response
   }
@@ -94,18 +96,15 @@ export const updateUserPlanner = async (user, subject, changes) => {
 
 export const addAnalyticsEvent = async (user, eventName, params) => {
 
-    let userToken = await user.getIdToken()
-    let isAnonymous = "true"
-
     if (user) {
-        isAnonymous = "false"
-    }
+        let userToken = await user.getIdToken()
 
-    const response = await axios.post(
-        `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${isAnonymous}`,
-        JSON.stringify({params: params}),
-        { headers: { 'Content-Type': 'application/json' } }
-    )
-    return response
-
+        const response = await axios.post(
+            `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${user.isAnonymous}`,
+            JSON.stringify({params: params}),
+            { headers: { 'Content-Type': 'application/json' } }
+        )
+        return response
+      }
+    return null
 }
