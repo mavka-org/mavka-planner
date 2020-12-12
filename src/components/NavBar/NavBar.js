@@ -41,7 +41,7 @@ const NavBar = (props) => {
         </Box>
 
         <Box display="flex" flexWrap="nowrap">
-        <Grid item container justifySelf="flex-end" direction="row" alignItems="center" spacing="1" style={{flexWrap: "nowrap"}}>
+        <Grid item container justifySelf="flex-end" direction="row" alignItems="center" style={{flexWrap: "nowrap"}}>
         {
           props.selected!==undefined &&
           <div>

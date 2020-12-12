@@ -33,9 +33,9 @@ const Landing = (props) => {
           <Typography variant="h6" align="center">ЗНО не таке страшне, як здається. Ми допоможемо тобі!</Typography>
         </Grid>
 
-        <Grid item container spacing="2">
+        <Grid item container spacing={1}>
 
-          <Grid item style={{width: "100%"}}>
+          <Grid container item>
             <LargeButton
               href='planner'
               fullWidth
@@ -46,7 +46,7 @@ const Landing = (props) => {
             </LargeButton>
           </Grid>
 
-          <Grid item style={{width: "100%"}}>
+          <Grid container item>
             <LargeButton
               href='program'
               fullWidth
@@ -61,15 +61,14 @@ const Landing = (props) => {
 
 
 
-        <div style={{ width: '100%' }}>
            <Box styles={{ "borderWidth": "10px"}} display="flex" justifyContent="center" p={4}>
-             <Box className={classes.boxBorders}  width={7/10} >
+             <Box className={classes.boxBorders}>
                <img width="100%" src={Demo} alt="mavka"/>
              </Box>
            </Box>
-         </div>
+         
 
-        <Grid item container spacing={3}>
+        <Grid item container>
           <InfoSection />
           <Grid item />
         </Grid>

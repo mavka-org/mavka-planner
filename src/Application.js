@@ -9,6 +9,7 @@ import PlannerSetupPage from './pages/PlannerPage/PlannerSetupScreen';
 import TopicPage from './pages/TopicPage/TopicPage';
 import { UserContext } from './providers/UserProvider';
 import TestPage from './pages/TestPage/TestPage';
+import { Typography } from '@material-ui/core';
 
 const theme = createMuiTheme({
   palette: {
@@ -85,7 +86,6 @@ const theme = createMuiTheme({
 
   },
 });
-
 const defaultSubject = {
     name: 'математика',
     icon: '♾️',
@@ -103,7 +103,6 @@ const Application = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-
           <Route exact path="/" component={LandingPage} />
 
           <Route path="/planner"
