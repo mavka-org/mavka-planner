@@ -95,9 +95,9 @@ const AppPage = (props) => {
 
           <Grid container>
 
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" width="100%">
 
-              <Box>
+              <Box flexGrow={1}>
                 <HeaderImage src={props.headerImageSrc}/>
               </Box>
 

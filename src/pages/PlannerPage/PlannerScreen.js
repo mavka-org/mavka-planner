@@ -7,11 +7,11 @@ import PlannerHeader from './../../assets/img/planner-header.png';
 import { Grid, Box } from '@material-ui/core';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import PlannerSettingsDialog from './PlannerSettingsDialog'
+import { deleteUserPlanner } from './../../services/API/httpRequests';
 
 const PlannerScreen = (props) => {
 
-  const { planner } = props
-  console.log(planner)
+  const { planner, deletePlanner } = props
 
 /* TODO
   // confetti references
@@ -37,6 +37,11 @@ const PlannerScreen = (props) => {
   const handleSettingsClose = () => {
     setSettingsOpen(false);
   };
+
+  const handleClickDeletePlanner = () => {
+    setSettingsOpen(false);
+    deletePlanner();
+  }
 
   // weeks
   const getWeeks = () => {
@@ -66,7 +71,11 @@ const PlannerScreen = (props) => {
           {getWeeks()}
       </Grid>
 
-      <PlannerSettingsDialog open={settingsOpen} onClose={handleSettingsClose} />
+      <PlannerSettingsDialog
+        open={settingsOpen}
+        onClose={handleSettingsClose}
+        handleClickDeletePlanner={handleClickDeletePlanner}
+      />
 
     </AppPage>
   )

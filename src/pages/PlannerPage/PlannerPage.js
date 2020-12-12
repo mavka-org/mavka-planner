@@ -4,7 +4,7 @@ import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
 import Loading from './../../components/Loading/Loading';
 import { Typography } from '@material-ui/core';
-import { getUserPlanner, setUserPlanner, getDefaultPlanner } from './../../services/API/httpRequests';
+import { getUserPlanner, setUserPlanner, getDefaultPlanner, deleteUserPlanner } from './../../services/API/httpRequests';
 
 const PlannerPage = (props) => {
 
@@ -58,9 +58,15 @@ const PlannerPage = (props) => {
     }
   }
 
+  const deletePlanner = () => {
+    deleteUserPlanner().then((response) => {
+      setOwnsPlanner(false);
+    })
+  };
+
   if (!fakeLoading) {
     if (ownsPlanner !== true) {
-      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} setOwnsPlanner={setOwnsPlanner} {...props}/>)
+      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} deletePlanner={deletePlanner} {...props}/>)
     }
     else {
       if (planner) {
