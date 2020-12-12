@@ -10,6 +10,8 @@ const PlannerPage = (props) => {
 
   const { user, subject } = props
 
+  console.log(user)
+
   const [fakeLoading, setFakeLoading] = React.useState(true)
   const [planner, setPlanner] = React.useState(undefined);
   const [ownsPlanner, setOwnsPlanner] = React.useState(undefined);

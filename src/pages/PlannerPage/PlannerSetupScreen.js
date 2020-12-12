@@ -132,7 +132,7 @@ const InfoCard = (props) => {
     return(
         <Page>
             <Box>
-            <Grid 
+            <Grid
                 container
                 align="center"
                 justify="center"
@@ -152,8 +152,8 @@ const InfoCard = (props) => {
             </Grid>
 
                 {props.order === 0 ?
-                    <Grid mt={2} item>
-                        <Box>
+                    <Grid item>
+                        <Box mt={3}>
                         <Typography variant="subtitle2" >❗ Твій планер не збережеться, якщо ти не увійшов(-ла) </Typography>
                         </Box>
                     </Grid>
@@ -243,7 +243,7 @@ const InputCard = (props) => {
 
             </Grid>
         </Page>
-    )   
+    )
 
 }
 

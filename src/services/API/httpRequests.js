@@ -66,8 +66,6 @@ export const setUserPlanner = async (user, subject, config) => {
 
 export const updateUserPlanner = async (user, subject, changes) => {
 
-  console.log('changes, ', changes)
-
   if (user) {
     const userToken = await user.getIdToken()
 
