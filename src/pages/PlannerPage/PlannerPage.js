@@ -10,8 +10,6 @@ const PlannerPage = (props) => {
 
   const { user, subject } = props
 
-  console.log(user)
-
   const [fakeLoading, setFakeLoading] = React.useState(true)
   const [planner, setPlanner] = React.useState(undefined);
   const [ownsPlanner, setOwnsPlanner] = React.useState(undefined);
@@ -59,6 +57,7 @@ const PlannerPage = (props) => {
   }
 
   const deletePlanner = () => {
+    // TODO need to notify user of the request loading
     deleteUserPlanner().then((response) => {
       setOwnsPlanner(false);
     })
