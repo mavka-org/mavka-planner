@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 const Landing = (props) => {
 
     const user = useContext(UserContext);
+    addAnalyticsEvent(user, "LandingPageOpened", {})
 
   const classes = useStyles();
   return (
@@ -46,6 +47,7 @@ const Landing = (props) => {
               fullWidth
               variant="contained"
               color="primary"
+              onClick={addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
             >
             📅  розпланувати підготовку
             </LargeButton>
@@ -57,6 +59,7 @@ const Landing = (props) => {
               fullWidth
               variant="contained"
               className={classes.oppositeColor}
+              onClick={addAnalyticsEvent(user, "LandingProgramButtonClicked", {})}
             >
             📚  вчити тести та матеріали
             </LargeButton>
