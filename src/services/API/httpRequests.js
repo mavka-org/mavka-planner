@@ -37,6 +37,18 @@ export const getUserPlanner = async (user, subject) => {
   return null
 }
 
+export const deleteUserPlanner = async (user, subject) => {
+
+  if (user) {
+    const userToken = await user.getIdToken()
+    console.log(userToken)
+    const response = await axios.delete(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+    return response
+  }
+
+  return null
+}
+
 export const getDefaultPlanner = async (subject, config) => {
 
   const response = await axios.post(
