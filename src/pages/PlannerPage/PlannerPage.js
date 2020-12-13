@@ -1,14 +1,16 @@
 import React, { useContext, useEffect } from 'react'
-import { UserContext } from './../../providers/UserProvider'
 import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
 import Loading from './../../components/Loading/Loading';
 import { getUserPlanner, setUserPlanner, getDefaultPlanner, deleteUserPlanner } from './../../services/API/httpRequests';
 import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
+import { UserContext } from './../../providers/UserProvider';
+import { SubjectContext } from './../../providers/SubjectProvider';
 
 const PlannerPage = (props) => {
 
-  const { user, subject } = props
+  const user = useContext(UserContext)
+  const subject = useContext(SubjectContext)[0]
 
   const [fakeLoading, setFakeLoading] = React.useState(true)
   const [planner, setPlanner] = React.useState(undefined);
@@ -59,18 +61,18 @@ const PlannerPage = (props) => {
 
   const deletePlanner = () => {
     // TODO need to notify user of the request loading
-    deleteUserPlanner().then((response) => {
+    deleteUserPlanner(user, subject.id).then((response) => {
       setOwnsPlanner(false);
     })
   };
 
   if (!fakeLoading) {
     if (ownsPlanner !== true) {
-      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} deletePlanner={deletePlanner} {...props}/>)
+      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
     }
     else {
       if (planner) {
-        return (<PlannerScreen planner={planner} {...props}/>)
+        return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
       }
     }
   }

@@ -54,7 +54,7 @@ const PlannerScreen = (props) => {
 
   // weeks
   const getWeeks = () => {
-    return planner.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} subject={props.subject} json={weekJson} /> )} )
+    return planner.weeks.map((weekJson, weekIdx) => { return ( <Week idx={weekIdx} json={weekJson} /> )} )
   }
 
   return (

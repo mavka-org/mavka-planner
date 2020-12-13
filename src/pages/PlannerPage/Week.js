@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
-import { UserContext } from './../../providers/UserProvider'
+import React, { useContext } from 'react';
+import { UserContext } from './../../providers/UserProvider';
+import { SubjectContext } from './../../providers/SubjectProvider';
 import { Grid, Typography } from '@material-ui/core';
 import { format } from "date-fns"
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,6 +25,7 @@ const Week = (props) => {
   const classes = useStyles();
 
   const user = useContext(UserContext)
+  const subject = useContext(SubjectContext)[0]
 
   const idx = props.idx
   const start_date = new Date(props.json.start_date + 'T00:00:00')
@@ -55,9 +57,7 @@ const Week = (props) => {
       'completed': state
     }
 
-    console.log('changes', changes)
-    let response = updateUserPlanner(user, props.subject.id, changes)
-    console.log('response', response)
+    let response = updateUserPlanner(user, subject.id, changes)
   }
 
   const event_types_classes = {

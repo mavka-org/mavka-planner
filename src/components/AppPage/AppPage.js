@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SubjectContext } from './../../providers/SubjectProvider';
 import HeaderImage from '../../components/HeaderImage/HeaderImage';
 import SubjectsDialog from '../../components/SubjectsDialog/SubjectsDialog';
 import { strategy_url } from './../../config';
@@ -14,70 +15,10 @@ import { RoundButton } from './../../components/Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 
-const subjects = [
-  {
-    name: 'математика',
-    icon: '♾️',
-    id: 'math',
-    available: true
-  },
-  {
-    name: 'українська мова',
-    icon: '💖',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'українська література',
-    icon: '📚',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'історія України',
-    icon: '📜',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'фізика',
-    icon: '🎡',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'біологія',
-    icon: '🧬',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'географія',
-    icon: '🌋',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'англійська мова',
-    icon: '🗽',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'німецька мова',
-    icon: '🎻',
-    id: 'math',
-    available: false
-  },
-  {
-    name: 'французька мова',
-    icon: '🥐',
-    id: 'math',
-    available: false
-  }
-];
 
 const AppPage = (props) => {
+
+  const subject = useContext(SubjectContext)[0]
 
   const [openSubjectsDialog, setOpenSubjectsDialog] = React.useState(false);
 
@@ -85,9 +26,8 @@ const AppPage = (props) => {
     setOpenSubjectsDialog(true);
   };
 
-  const handleSubjectsDialogClosed = (subject) => {
+  const handleSubjectsDialogClosed = () => {
     setOpenSubjectsDialog(false);
-    props.setSelectedSubject(subject);
   };
 
   return (
@@ -114,10 +54,10 @@ const AppPage = (props) => {
               startIcon={<ExpandMoreRoundedIcon />}
               onClick={handleClickSubjectsDialog}
             >
-              { props.subject.name }
+              { subject.name }
             </RoundButton>
 
-            <SubjectsDialog selectedSubject={props.subject} subjects={subjects} open={openSubjectsDialog} onClose={handleSubjectsDialogClosed} />
+            <SubjectsDialog open={openSubjectsDialog} onClose={handleSubjectsDialogClosed} />
             </Grid>
 
           </Grid>

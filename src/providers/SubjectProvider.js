@@ -1,6 +1,4 @@
-/*
-import React, { Component, createContext } from "react";
-import {auth} from "./../services/Firebase/firebase";
+import React, { createContext } from "react";
 
 export const allSubjects = [
   {
@@ -65,18 +63,18 @@ export const allSubjects = [
   }
 ];
 
-export const SubjectContext = createContext({ subject: allSubjects[0] });
+export const SubjectContext = React.createContext([undefined, () => {}]);
 
-const SubjectProvider = () => {
 
-    const [planner, setPlanner] = React.useState(undefined);
+const SubjectProvider = (props) => {
+
+    const subject = React.useState(allSubjects[0])
 
     return (
-        <UserContext.Provider value={this.state.subject}>
-            {this.props.children}
-        </UserContext.Provider>
+        <SubjectContext.Provider value={subject}>
+            {props.children}
+        </SubjectContext.Provider>
     );
 }
 
-export default UserProvider;
-*/
+export default SubjectProvider;
