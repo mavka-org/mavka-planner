@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext} from 'react';
+import { SubjectContext, allSubjects } from './../../providers/SubjectProvider';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -22,15 +23,19 @@ const useStyles = makeStyles({
 });
 
 const SubjectsDialog = (props) => {
+
   const classes = useStyles();
-  const { onClose, selectedSubject, open, subjects } = props;
+
+  const [subject, setSubject] = useContext(SubjectContext)
+  const { onClose, open } = props;
 
   const handleClose = () => {
-    onClose(selectedSubject);
+    onClose();
   };
 
-  const handleListItemClick = (subject) => {
-    onClose(subject);
+  const handleListItemClick = (selectedSubject) => {
+    setSubject(selectedSubject)
+    onClose();
   };
 
   return (
@@ -38,17 +43,22 @@ const SubjectsDialog = (props) => {
       <DialogTitle id="subjects-dialog-title">Обери предмет:</DialogTitle>
 
       <List>
-        {subjects.map((subject, idx) => (
+        {allSubjects.map((subjectOption, idx) => (
 
-          <ListItem button onClick={() => handleListItemClick(subject.id)} key={subject.id} disabled={!subject.available}>
+          <ListItem
+            button
+            onClick={() => handleListItemClick(subjectOption)}
+            key={subjectOption.id}
+            disabled={!subjectOption.available}
+            >
 
             <ListItemAvatar>
               <Avatar className={classes.avatar}>
-                {subject.icon}
+                {subjectOption.icon}
               </Avatar>
             </ListItemAvatar>
 
-            <ListItemText primary={subject.name} />
+            <ListItemText primary={subjectOption.name} />
 
           </ListItem>
 
