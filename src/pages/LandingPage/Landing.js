@@ -8,6 +8,7 @@ import Footer from '../../components/Footer/Footer';
 import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {useContext} from "react";
 import {UserContext} from "../../providers/UserProvider";
+import React, { useEffect } from 'react'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,12 +23,25 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Landing = (props) => {
 
+
+const Landing = (props) => {
     const user = useContext(UserContext);
 
-    const addEvent = (e) => {
-        console.log("event ", e)
+    useEffect(
+        () => {
+            if(user) {
+                addAnalyticsEvent(user, "LandingPageOpened", {})
+                console.log("sakses", user)
+            }
+        },
+        [user]
+    )
+
+
+    const addEvent = (name, par) => {
+        addAnalyticsEvent(user, name, par)
+        console.log("event ", name)
     }
 
 
@@ -48,13 +62,13 @@ const Landing = (props) => {
 
           <Grid container item>
             <LargeButton
-              // href='planner'
+              href='planner'
               fullWidth
               variant="contained"
               color="primary"
               name="LandingPlannerButton"
               eventName="LandingPlannerButtonClicked"
-              onClick={addEvent}
+              onClick={(e) => addEvent("LandingPlannerButtonClicked", {})}
             >
             📅  розпланувати підготовку
             </LargeButton>
@@ -66,6 +80,7 @@ const Landing = (props) => {
               fullWidth
               variant="contained"
               className={classes.oppositeColor}
+              onClick={(e) => addEvent("LandingProgramButtonClicked", {})}
             >
             📚  вчити тести та матеріали
             </LargeButton>

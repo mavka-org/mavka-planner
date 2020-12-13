@@ -8,6 +8,7 @@ import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginDialog from './../../components/LoginDialog/LoginDialog';
 import { getCurrentUser, handleTelegramResponse, signOut } from './../../services/Firebase/Authenticate'
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 
 const useStyles = makeStyles((theme) => ({
   Logo: {
@@ -23,11 +24,16 @@ const NavBar = (props) => {
   const user = useContext(UserContext)
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
+    const addEvent = (name, par) => {
+        addAnalyticsEvent(user, name, par)
+    }
+
   const handleCloseLogin = () => {
     setOpenedLogin(false)
   }
 
   const handleLoggedOut = () => {
+      addEvent("LogOutClicked", {})
     signOut()
   }
 
@@ -35,7 +41,7 @@ const NavBar = (props) => {
     <Box display="flex" alignItems="center" py={1}>
 
         <Box flexGrow={1}>
-          <NavLink to="/">
+          <NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>
             <img src={props.selected===undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} className={classes.Logo} />
           </NavLink>
         </Box>
@@ -45,9 +51,9 @@ const NavBar = (props) => {
         {
           props.selected!==undefined &&
           <div>
-            <Button href='/planner' active={props.selected==="planner"}>планер</Button>
-            <Button href='/program' active={props.selected==="program"}>програма</Button>
-            <Button href='https://zno.mavka.org' active={props.selected==="tests"}>тести</Button>
+            <Button href='/planner' active={props.selected==="planner"} onClick={(e) => addEvent("PlannerFromMenuClicked", {})}>планер</Button>
+            <Button href='/program' active={props.selected==="program"} onClick={(e) => addEvent("ProgramFromMenuClicked", {})}>програма</Button>
+            <Button href='https://zno.mavka.org' active={props.selected==="tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
           </div>
         }
         {

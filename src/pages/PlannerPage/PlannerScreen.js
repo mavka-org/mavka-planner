@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import AppPage from './../../components/AppPage/AppPage';
 import Week from './Week';
 import ConfettiCanvas from './../../components/Confetti/ConfettiCanvas';
@@ -7,11 +7,24 @@ import PlannerHeader from './../../assets/img/planner-header.png';
 import { Grid, Box } from '@material-ui/core';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import PlannerSettingsDialog from './PlannerSettingsDialog'
-import { deleteUserPlanner } from './../../services/API/httpRequests';
+import {addAnalyticsEvent, deleteUserPlanner} from './../../services/API/httpRequests';
+import {UserContext} from "../../providers/UserProvider";
+import {useContext} from "react";
 
 const PlannerScreen = (props) => {
 
   const { planner, deletePlanner } = props
+  const user = useContext(UserContext);
+
+
+  useEffect(
+      () => {
+        if(user) {
+          addAnalyticsEvent(user, "PlannerPageOpened", {"subject":props.subject.name})
+        }
+      },
+      [user]
+  )
 
 /* TODO
   // confetti references
@@ -31,6 +44,7 @@ const PlannerScreen = (props) => {
   const [settingsOpen, setSettingsOpen] = React.useState(false);
 
   const handleClickSettingsOpen = () => {
+    addAnalyticsEvent(user, "PlannerSettingsClicked", {"subject":props.subject.name})
     setSettingsOpen(true);
   };
 

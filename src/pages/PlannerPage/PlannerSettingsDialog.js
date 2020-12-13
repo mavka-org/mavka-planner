@@ -7,9 +7,18 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Link from '@material-ui/core/Link';
 import Alert from '@material-ui/lab/Alert';
 import Box from '@material-ui/core/Box'
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
+import {UserContext} from "../../providers/UserProvider";
+import {useContext} from "react";
+import { useEffect } from 'react'
 
 const PlannerSettingsDialog = (props) => {
   const {open, onClose, deletePlanner} = props;
+  const user = useContext(UserContext);
+
+  const addEvent = (name, par) => {
+    addAnalyticsEvent(user, name, par)
+  }
 
   return (
     <Dialog
@@ -39,7 +48,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary">
+          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary" onClick={(e) => addEvent("PlannerResetClicked", {})}>
             перестворити планер
           </Button>
 

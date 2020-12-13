@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 
 
 class Event extends React.Component {
 
     constructor(props, title){
       super(props)
+      this.id = props.json.event_id
       this.idx = props.idx
       this.title = title
       this.type = props.json.type
@@ -18,9 +20,10 @@ class Event extends React.Component {
     }
 
     handleEventCompleted = (e) => {
+
       // changes this.completed to opposite value and returns it
       this.setState({ completed: !this.state.completed }, () => {
-        this.props.handleEventCompleted(this.idx, this.state.completed);
+        this.props.handleEventCompleted(this.idx, this.id, this.state.completed);
       })
     }
 

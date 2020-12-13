@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import React from "react";
+import React, {useContext} from "react";
 import Page from './../../components/Page/Page';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
 import {ScalableLargeButton, LargeButton} from './../../components/Button/Button.js'
@@ -11,6 +11,8 @@ import CuteGif from '../../assets/img/giphy.gif'
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Program from "../../models/program/program"
 import { getProgram } from "../../services/API/httpRequests";
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
+import {UserContext} from "../../providers/UserProvider";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -201,6 +203,8 @@ const InfoCard = (props) => {
 
 const InputCard = (props) => {
     const classes = useStyles();
+    const user = useContext(UserContext);
+
 
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
@@ -210,6 +214,9 @@ const InputCard = (props) => {
 
     const handleProceed = () => {
         props.handleProceed(selectedTopicIds)
+        if(props.program) {
+            addAnalyticsEvent(user, "FinishPlannerSetupClicked", {"subject": props.program.subject, "topics_to_excule": selectedTopicIds})
+        }
     }
 
     return(
@@ -239,6 +246,7 @@ const InputCard = (props) => {
                     variant="contained"
                     color="primary"
                     onClick={handleProceed}
+
                 >
                     Далі
                 </ScalableLargeButton>

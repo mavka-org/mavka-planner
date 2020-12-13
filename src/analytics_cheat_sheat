@@ -1,0 +1,27 @@
+import { useEffect } from 'react'
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
+
+import {UserContext} from "../../providers/UserProvider";
+import {useContext} from "react";
+
+
+
+
+    const user = useContext(UserContext);
+
+    useEffect(
+        () => {
+            if(user) {
+                addAnalyticsEvent(user, "LandingPageOpened", {})
+            }
+        },
+        [user]
+    )
+
+
+    const addEvent = (name, par) => {
+        addAnalyticsEvent(user, name, par)
+    }
+
+
+onClick={(e) => addEvent("LandingPlannerButtonClicked", {})}

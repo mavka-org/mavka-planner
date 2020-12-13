@@ -5,6 +5,7 @@ import { format } from "date-fns"
 import { makeStyles } from '@material-ui/core/styles';
 import { TopicEvent, UrlEvent, TextEvent } from "./Event";
 import { updateUserPlanner } from './../../services/API/httpRequests';
+import {addAnalyticsEvent} from "../../services/API/httpRequests";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,8 +40,10 @@ const Week = (props) => {
     return eventsCompleted
   } ());
 
-  const handleEventCompleted = (eventIdx, state) => {
+  const handleEventCompleted = (eventIdx, eventId, state) => {
     // Update eventsCompleted state with a new value
+    // TODO add subject to event!!
+    addAnalyticsEvent(user, "PlannerEventCheckboxClicked", {"event_id": eventId, "checkbox_new_state": state, "week_tense": getWeekTense()})
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)
@@ -63,6 +66,10 @@ const Week = (props) => {
       'text': TextEvent
   }
 
+  const handleButtonClick = (eventId) => {
+    addAnalyticsEvent(user, "PlannerEventButtonClicked", {"event_id": eventId})
+  }
+
   const isCurrentWeek = () => {
     // returns true if today is in between the start date and end date of the week
     let now = new Date()
@@ -73,6 +80,13 @@ const Week = (props) => {
       // returns true if the week ended before today
       return new Date() > end_date
   }
+
+  const getWeekTense = () => {
+    if (isCurrentWeek()) { return "current"}
+    if (isPastWeek()) { return "past"}
+    return "future"
+  }
+
 
   const isFullyCompleted = () => {
       // returns true if every event of the week is completed
@@ -107,7 +121,7 @@ const Week = (props) => {
 
         let Event = event_types_classes[event_json.type]
         return (
-          <Event idx={event_idx} json={event_json} handleEventCompleted={handleEventCompleted}/>
+          <Event idx={event_idx} json={event_json} handleButtonClick={handleButtonClick} handleEventCompleted={handleEventCompleted}/>
         )
       })
   }
