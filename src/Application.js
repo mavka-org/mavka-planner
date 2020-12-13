@@ -99,7 +99,9 @@ const Application = () => {
   const [subject, setSelectedSubject] = React.useState(defaultSubject);
   const user = useContext(UserContext)
 
-  if(user == null){
+  console.log(user)
+  if(user !== undefined && !user){
+    console.log('USER-BEFORE-ANON-SIGN-IN', user)
     signInAnonymously()
   }
 
