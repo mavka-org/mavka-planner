@@ -15,7 +15,7 @@ class UserProvider extends Component {
     };
     render() {
 
-        if(this.state.user == null){
+        if(this.state.user !== undefined && !this.state.user){
           signInAnonymously()
         }
 
