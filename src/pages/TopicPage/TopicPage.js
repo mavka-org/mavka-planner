@@ -1,21 +1,14 @@
-import NavBar from '../../components/NavBar/NavBar'
-import LoginPng from './../../assets/img/login.png'
 import Button from './../../components/Button/Button';
-import { Grid, Typography, Link } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import Program from "../../models/program/program";
-import Page from "../../components/Page/Page";
-import ProgramAccordion from "../ProgramPage/ProgramAccordion";
+import { Grid, Typography } from '@material-ui/core';
 import TopicContents from "../../components/TopicContents/TopicContents";
 import Topic from '../../models/program/topic';
 import React, {useContext, useEffect} from "react";
 import Box from "@material-ui/core/Box";
-import Paper from '@material-ui/core/Paper';
-import AppPage from './../../components/AppPage/AppPage';
 import Loading from './../../components/Loading/Loading';
-import {getProgram, getTopic} from './../../services/API/httpRequests';
+import {getTopic} from './../../services/API/httpRequests';
 import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
+import Page from '../../components/Page/Page';
 
 
 export default function TopicPage(props) {
@@ -64,6 +57,3 @@ export default function TopicPage(props) {
     )
 }
 
-function increment_string_number(str_number){
-    return (parseInt(str_number)+1).toString()
-}

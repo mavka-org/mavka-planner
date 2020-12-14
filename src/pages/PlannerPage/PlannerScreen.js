@@ -1,13 +1,11 @@
 import React, {useEffect} from 'react'
 import AppPage from './../../components/AppPage/AppPage';
 import Week from './Week';
-import ConfettiCanvas from './../../components/Confetti/ConfettiCanvas';
-import animateConfetti from './../../components/Confetti/animateConfetti';
 import PlannerHeader from './../../assets/img/planner-header.png';
-import { Grid, Box } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import PlannerSettingsDialog from './PlannerSettingsDialog'
-import {addAnalyticsEvent, deleteUserPlanner} from './../../services/API/httpRequests';
+import {addAnalyticsEvent} from './../../services/API/httpRequests';
 import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
 import {SubjectContext} from "../../providers/SubjectProvider";
@@ -78,7 +76,7 @@ const PlannerScreen = (props) => {
       */
     }
 
-      <Grid container spacing="2">
+      <Grid container spacing={2}>
           {getWeeks()}
       </Grid>
 

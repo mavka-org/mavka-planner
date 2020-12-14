@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -39,7 +38,7 @@ class Event extends React.Component {
     render() {
 
       return (
-        <Grid item container direction="row" spacing="1">
+        <Grid item container direction="row" spacing={1}>
 
           <Grid item container direction="row" wrap="nowrap" xs={9}>
 
