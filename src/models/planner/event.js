@@ -20,14 +20,9 @@ class Event {
     }
 
     getComponent(handleCheckboxChange) {
-      const [checked, setChecked] = React.useState(true);
-
-      const handleChange = (event) => {
-        setChecked(event.target.checked);
-      };
 
       return (
-        <Grid item container direction="row" spacing="1">
+        <Grid item container direction="row" spacing={1}>
 
           <Grid item container direction="row" wrap="nowrap" xs={9}>
 

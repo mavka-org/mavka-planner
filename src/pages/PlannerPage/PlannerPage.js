@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
 import Loading from './../../components/Loading/Loading';
+import { Typography } from '@material-ui/core';
 import { getUserPlanner, setUserPlanner, getDefaultPlanner, deleteUserPlanner } from './../../services/API/httpRequests';
-import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import { UserContext } from './../../providers/UserProvider';
 import { SubjectContext } from './../../providers/SubjectProvider';
 
@@ -12,17 +12,20 @@ const PlannerPage = (props) => {
   const user = useContext(UserContext)
   const subject = useContext(SubjectContext)[0]
 
-  const [fakeLoading, setFakeLoading] = React.useState(true)
+  // const [fakeLoading, setFakeLoading] = React.useState(true)
   const [planner, setPlanner] = React.useState(undefined);
   const [ownsPlanner, setOwnsPlanner] = React.useState(undefined);
 
-  // delay showing the next page to get user to auto login
-  useEffect( () => {
-    setTimeout(function() {
-          setFakeLoading(false)
-      }, 700);
-   }, []);
+  console.log('user', user)
+  console.log('planner', planner)
+  console.log('ownsplanner', ownsPlanner)
 
+  // // delay showing the next page to get user to auto login
+  // useEffect( () => {
+  //   setTimeout(function() {
+  //         setFakeLoading(false)
+  //     }, 700);
+  //  }, []);
 
   // receiving user
   if (user) {
@@ -66,18 +69,36 @@ const PlannerPage = (props) => {
     })
   };
 
-  if (!fakeLoading) {
-    if (ownsPlanner !== true) {
-      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
-    }
-    else {
-      if (planner) {
-        return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+  if(user) {
+      if(ownsPlanner !== undefined) {
+          if(ownsPlanner) {
+              if(planner) {
+                  return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+              }
+          } else {
+              return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+          }
+          return (<Loading />)
       }
-    }
+      if(user.isAnonymous) {
+          return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+      }
   }
 
   return (<Loading />)
+
+  // if (!fakeLoading) {
+  //   if (ownsPlanner !== true) {
+  //     return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+  //   }
+  //   else {
+  //     if (planner) {
+  //       return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+  //     }
+  //   }
+  // }
+
+  // return (<Loading />)
 }
 
 export default PlannerPage
