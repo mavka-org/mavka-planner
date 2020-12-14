@@ -30,7 +30,7 @@ const Accordion = withStyles({
 const AccordionSummary = withStyles({
     expandIcon: {
         padding:"12px",
-        paddingLeft: "0px",
+        //paddingLeft: "0px",
         order: -1
     },
     root: {
@@ -70,6 +70,7 @@ export default function ProgramAccordion(props) {
 
     const handleChange = (panel, topic_id) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
+
         if(newExpanded) {
             addAnalyticsEvent(user, "ProgramTopicAccordionOpened", {"subject_id":subject.id, "topic_id":topic_id})
         }
@@ -120,10 +121,11 @@ export default function ProgramAccordion(props) {
 
     function createAccordion(topic) {
         return (
-            <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}>
+            <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
+                            onChange={handleChange('panel' + global_panel_index, topic.id)}>
 
             <Box borderBottom = {1}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon onChange={handleChange('panel' + global_panel_index, topic.id)}/> } aria-controls={"panel" + global_panel_index + "d-content"}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon /> } aria-controls={"panel" + global_panel_index + "d-content"}>
                     <div style={{ width: '100%' }}>
                         <Box display="flex" alignItems="center" background="primary" py={1}>
                             <Box flexGrow={1} pr={2} pl={1}>
@@ -131,8 +133,9 @@ export default function ProgramAccordion(props) {
                                 <Typography variant="body1">{topic.getTitle()}</Typography>
                             </Box>
                             <Box>
-                                <Button onClick={(e)=>addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})} size="small" variant="contained" color="primary" >вчити</Button>
-                            </Box>TopicPageOpened
+                                {/*href={"/math/topic/"+topic.id}*/}
+                                <Button onClick={(e)=>addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
+                            </Box>
                         </Box>
                     </div>
                 </AccordionSummary>
