@@ -17,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const AppPage = (props) => {
+  console.log("app page props ", props)
 
   const subject = useContext(SubjectContext)[0]
 

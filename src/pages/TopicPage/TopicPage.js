@@ -16,12 +16,14 @@ import Loading from './../../components/Loading/Loading';
 import {getProgram, getTopic} from './../../services/API/httpRequests';
 import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 
 export default function TopicPage(props) {
 
     const [topic, setTopic] = React.useState(null)
     const user = useContext(UserContext);
+    const subject = useContext(SubjectContext)[0]
 
     if (!topic) {
         getTopic(props.match.params.id).then((topicResponse) => {
@@ -33,7 +35,7 @@ export default function TopicPage(props) {
         () => {
             if(user) {
                 // TODO add subject
-                addAnalyticsEvent(user, "TopicPageOpened", {"topic_id": props.match.params.id})
+                addAnalyticsEvent(user, "TopicPageOpened", {"subject_id":subject.id, "topic_id": props.match.params.id})
             }
         },
         [user]
@@ -49,12 +51,10 @@ export default function TopicPage(props) {
             <Box pt={3} pb={3}>
                 <Grid container spacing={3} p={3}>
                     <Grid item xs={6}>
-                        {/*TODO add subject*/}
-                        <Button onClick={(e)=>addAnalyticsEvent(user, "TopicTestsButtonClicked", {"event_id":topic.id})} fullWidth size="big"  variant="contained" color="primary" target="_blank" href={topic.practice_link}>тести</Button>
+                        <Button onClick={(e)=>addAnalyticsEvent(user, "TopicTestsButtonClicked", {"subject_id":subject.id, "event_id":topic.id})} fullWidth size="big"  variant="contained" color="primary" target="_blank" href={topic.practice_link}>тести</Button>
                     </Grid>
                     <Grid item xs={6}>
-                        {/*TODO add subject*/}
-                        <Button onClick={(e)=>addAnalyticsEvent(user, "TopicStudyGuidesButtonClicked", {"event_id":topic.id})} fullWidth size="medium" variant="contained" color="primary" target="_blank" href={topic.study_guide_link}>конспекти</Button>
+                        <Button onClick={(e)=>addAnalyticsEvent(user, "TopicStudyGuidesButtonClicked", {"subject_id":subject.id,"event_id":topic.id})} fullWidth size="medium" variant="contained" color="primary" target="_blank" href={topic.study_guide_link}>конспекти</Button>
                     </Grid>
                 </Grid>
             </Box>
