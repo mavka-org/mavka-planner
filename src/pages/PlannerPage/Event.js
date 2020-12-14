@@ -5,7 +5,6 @@ import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {UserContext} from "../../providers/UserProvider";
-import {SubjectContext} from "../../providers/SubjectProvider";
 
 
 class Event extends React.Component {
@@ -71,21 +70,18 @@ class Event extends React.Component {
 
 export class TopicEvent extends Event {
     static user = UserContext
-    static subject = SubjectContext[0]
-
 
     constructor(props){
-        // console.log("static user ", user)
-        // console.log("staic subject", subject)
       let chapter_n = props.json.data.chapter_id + 1
       let topic_n = props.json.data.order_n + 1
+      let subject = props.subject
       let title = '📖 ' + chapter_n + '.' + topic_n + ' ' + props.json.data.topic_name
       super(props, title)
       this.topic_id = props.json.data.topic_id
     }
 
     getButton() {
-      return (<LinkButton onClick={(e)=>addAnalyticsEvent(user, "PlannerEventButtonClicked", {})} size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
+      return (<LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject":this.subject})} size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
     }
 }
 
@@ -99,7 +95,7 @@ export class UrlEvent extends Event {
 
     getButton() {
       return (
-        <LinkButton onClick={addAnalyticsEvent(user, "LandingPageOpened", {})} variant="outlined" href={this.url}>перейти</LinkButton>
+        <LinkButton onClick={addAnalyticsEvent(this.context, "LandingPageOpened", {"subject":this.subject})} variant="outlined" href={this.url}>перейти</LinkButton>
       )
     }
 }

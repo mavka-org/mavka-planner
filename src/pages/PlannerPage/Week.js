@@ -121,7 +121,7 @@ const Week = (props) => {
 
         let Event = event_types_classes[event_json.type]
         return (
-          <Event idx={event_idx} json={event_json} handleButtonClick={handleButtonClick} handleEventCompleted={handleEventCompleted}/>
+          <Event subject={subject} idx={event_idx} json={event_json} handleButtonClick={handleButtonClick} handleEventCompleted={handleEventCompleted}/>
         )
       })
   }
