@@ -8,23 +8,36 @@ import Page from "../../components/Page/Page";
 import ProgramAccordion from "../ProgramPage/ProgramAccordion";
 import TopicContents from "../../components/TopicContents/TopicContents";
 import Topic from '../../models/program/topic';
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import Box from "@material-ui/core/Box";
 import Paper from '@material-ui/core/Paper';
 import AppPage from './../../components/AppPage/AppPage';
 import Loading from './../../components/Loading/Loading';
 import {getProgram, getTopic} from './../../services/API/httpRequests';
+import {addAnalyticsEvent} from "../../services/API/httpRequests";
+import {UserContext} from "../../providers/UserProvider";
 
 
 export default function TopicPage(props) {
 
     const [topic, setTopic] = React.useState(null)
+    const user = useContext(UserContext);
 
     if (!topic) {
         getTopic(props.match.params.id).then((topicResponse) => {
             setTopic(new Topic(topicResponse["data"]))
         })
     }
+
+    useEffect(
+        () => {
+            if(user) {
+                // TODO add subject
+                addAnalyticsEvent(user, "TopicPageOpened", {"topic_id": props.match.params.id})
+            }
+        },
+        [user]
+    )
 
     return (
         topic ?
@@ -36,10 +49,12 @@ export default function TopicPage(props) {
             <Box pt={3} pb={3}>
                 <Grid container spacing={3} p={3}>
                     <Grid item xs={6}>
-                        <Button  fullWidth size="big"  variant="contained" color="primary" target="_blank" href={topic.practice_link}>тести</Button>
+                        {/*TODO add subject*/}
+                        <Button onClick={(e)=>addAnalyticsEvent(user, "TopicTestsButtonClicked", {"event_id":topic.id})} fullWidth size="big"  variant="contained" color="primary" target="_blank" href={topic.practice_link}>тести</Button>
                     </Grid>
                     <Grid item xs={6}>
-                        <Button  fullWidth size="medium" variant="contained" color="primary" target="_blank" href={topic.study_guide_link}>конспекти</Button>
+                        {/*TODO add subject*/}
+                        <Button onClick={(e)=>addAnalyticsEvent(user, "TopicStudyGuidesButtonClicked", {"event_id":topic.id})} fullWidth size="medium" variant="contained" color="primary" target="_blank" href={topic.study_guide_link}>конспекти</Button>
                     </Grid>
                 </Grid>
             </Box>

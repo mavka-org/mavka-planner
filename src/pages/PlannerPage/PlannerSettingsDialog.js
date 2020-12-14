@@ -11,10 +11,13 @@ import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
 import { useEffect } from 'react'
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 const PlannerSettingsDialog = (props) => {
   const {open, onClose, deletePlanner} = props;
   const user = useContext(UserContext);
+  const subject = useContext(SubjectContext)[0]
+
 
   const addEvent = (name, par) => {
     addAnalyticsEvent(user, name, par)
@@ -48,7 +51,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary" onClick={(e) => addEvent("PlannerResetClicked", {})}>
+          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary" onClick={(e) => addEvent("PlannerResetClicked", {"subject":subject})}>
             перестворити планер
           </Button>
 

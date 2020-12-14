@@ -1,4 +1,3 @@
-
 import { Box, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import React, {useContext} from "react";
@@ -14,6 +13,7 @@ import Program from "../../models/program/program"
 import { getProgram } from "../../services/API/httpRequests";
 import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {UserContext} from "../../providers/UserProvider";
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
     },
 
 }));
-
 
 
 
@@ -204,8 +203,8 @@ const InfoCard = (props) => {
 
 const InputCard = (props) => {
     const classes = useStyles();
+    const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
-
 
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
@@ -216,7 +215,7 @@ const InputCard = (props) => {
     const handleProceed = () => {
         props.handleProceed(selectedTopicIds)
         if(props.program) {
-            addAnalyticsEvent(user, "FinishPlannerSetupClicked", {"subject": props.program.subject, "topics_to_excule": selectedTopicIds})
+            addAnalyticsEvent(user, "FinishPlannerSetupClicked", {"subject_id": subject.id, "topics_to_excule": selectedTopicIds})
         }
     }
 

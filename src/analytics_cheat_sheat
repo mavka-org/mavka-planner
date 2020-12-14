@@ -4,10 +4,8 @@ import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
 
-
-
-
-    const user = useContext(UserContext);
+const subject = useContext(SubjectContext)[0]
+const user = useContext(UserContext);
 
     useEffect(
         () => {

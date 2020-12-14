@@ -10,17 +10,19 @@ import PlannerSettingsDialog from './PlannerSettingsDialog'
 import {addAnalyticsEvent, deleteUserPlanner} from './../../services/API/httpRequests';
 import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 const PlannerScreen = (props) => {
 
   const { planner, deletePlanner } = props
   const user = useContext(UserContext);
+  const subject = useContext(SubjectContext)[0]
 
 
   useEffect(
       () => {
         if(user) {
-          addAnalyticsEvent(user, "PlannerPageOpened", {"subject":props.subject.name})
+          addAnalyticsEvent(user, "PlannerPageOpened", {"subject_id":subject.id})
         }
       },
       [user]
@@ -44,7 +46,7 @@ const PlannerScreen = (props) => {
   const [settingsOpen, setSettingsOpen] = React.useState(false);
 
   const handleClickSettingsOpen = () => {
-    addAnalyticsEvent(user, "PlannerSettingsClicked", {"subject":props.subject.name})
+    addAnalyticsEvent(user, "PlannerSettingsClicked", {"subject_id":subject.id})
     setSettingsOpen(true);
   };
 

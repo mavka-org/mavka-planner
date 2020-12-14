@@ -45,7 +45,7 @@ const Week = (props) => {
   const handleEventCompleted = (eventIdx, eventId, state) => {
     // Update eventsCompleted state with a new value
     // TODO add subject to event!!
-    addAnalyticsEvent(user, "PlannerEventCheckboxClicked", {"event_id": eventId, "checkbox_new_state": state, "week_tense": getWeekTense()})
+    addAnalyticsEvent(user, "PlannerEventCheckboxClicked", {"subject_id":subject.id, "event_id": eventId, "checkbox_new_state": state, "week_tense": getWeekTense()})
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)

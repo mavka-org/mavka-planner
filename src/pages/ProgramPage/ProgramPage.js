@@ -6,12 +6,14 @@ import ProgramHeader from './../../assets/img/program-header.png';
 import Loading from './../../components/Loading/Loading';
 import {addAnalyticsEvent, getProgram} from './../../services/API/httpRequests';
 import {UserContext} from "../../providers/UserProvider";
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 
 export default function ProgramPage(props) {
 
   const [program, setProgram] = React.useState(null)
   const user = useContext(UserContext);
+  const subject = useContext(SubjectContext)[0]
 
   if (!program) {
       getProgram().then((programResponse) => {
@@ -22,7 +24,7 @@ export default function ProgramPage(props) {
     useEffect(
         () => {
             if(user) {
-                addAnalyticsEvent(user, "PlannerPageOpened", {"subject":props.subject.name})
+                addAnalyticsEvent(user, "ProgramPageOpened", {"subject_id":subject.id})
             }
         },
         [user]
