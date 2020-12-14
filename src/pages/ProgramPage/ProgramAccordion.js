@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -12,6 +12,9 @@ import { ExpansionPanelSummary } from '@material-ui/core';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import IconButton from "@material-ui/core/IconButton";
 import Link from '@material-ui/core/Link';
+import {addAnalyticsEvent} from "../../services/API/httpRequests";
+import {UserContext} from "../../providers/UserProvider";
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 
 const Accordion = withStyles({
@@ -69,10 +72,17 @@ const AccordionDetails = withStyles((theme) => ({
 // props: program
 export default function ProgramAccordion(props) {
 
+    const subject = useContext(SubjectContext)[0]
+    const user = useContext(UserContext);
+
     const [expanded, setExpanded] = React.useState(false);
 
-    const handleChange = (panel) => (event, newExpanded) => {
+    const handleChange = (panel, topic_id) => (event, newExpanded) => {
+        console.log("handleChange in accordion")
         setExpanded(newExpanded ? panel : false);
+        if(newExpanded) {
+            addAnalyticsEvent(user, "ProgramTopicAccordionOpened", {"subject_id":subject.id, "topic_id":topic_id})
+        }
     };
 
     const items = [];
@@ -109,7 +119,7 @@ export default function ProgramAccordion(props) {
                 items.push(
 
                     <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
-                               onChange={handleChange('panel' + global_panel_index)}>
+                               onChange={handleChange('panel' + global_panel_index, topic.id)}>
 
                         <Box borderBottom = {1}>
                             <AccordionSummary aria-controls={"panel" + global_panel_index + "d-content"}>
@@ -123,7 +133,7 @@ export default function ProgramAccordion(props) {
                                         <Typography variant="body1">{topic.getTitle()}</Typography>
                                     </Box>
                                     <Box>
-                                        <Button size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
+                                        <Button onClick={addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
                                     </Box>
                                 </Box>
                             </div>
