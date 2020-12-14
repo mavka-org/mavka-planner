@@ -65,8 +65,9 @@ const Landing = (props) => {
             <LargeButton
               href='planner'
               fullWidth
-              variant="contained"
               color="primary"
+              style={{background: '#000'}}
+              variant="contained"
               name="LandingPlannerButton"
               eventName="LandingPlannerButtonClicked"
               onClick={(e) => addEvent("LandingPlannerButtonClicked", {})}

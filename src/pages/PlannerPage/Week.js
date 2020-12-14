@@ -12,8 +12,7 @@ import {addAnalyticsEvent} from "../../services/API/httpRequests";
 const useStyles = makeStyles((theme) => ({
   DatesTitle: {
     textAlign: "right",
-    fontWeight: "bold",
-    fontSize:'16px'
+    fontWeight: "bold"
   },
   WeekTitleItem: {
     paddingBottom: theme.spacing(2)
@@ -140,7 +139,7 @@ const Week = (props) => {
           </Grid>
 
           <Grid item xs={4}>
-            <Typography className={classes.DatesTitle}>
+            <Typography variant="body2" className={classes.DatesTitle}>
               {dates}
             </Typography>
           </Grid>

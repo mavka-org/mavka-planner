@@ -11,6 +11,7 @@ import Alert from '@material-ui/lab/Alert';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 import { RoundButton } from './../../components/Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
@@ -64,8 +65,10 @@ const AppPage = (props) => {
 
           <Box py={2}>
             <Alert severity="success" icon={<FlashOnRoundedIcon fontSize="inherit" />} >
-              <AlertTitle><strong>Стратегія підготовки для тебе 💪</strong></AlertTitle>
-              Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link href={strategy_url}>→ Читай тут!</Link></strong>
+              <AlertTitle><Typography variant="h3"><strong>Стратегія підготовки для тебе 💪</strong></Typography></AlertTitle>
+              <Typography>
+                Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link href={strategy_url}>→ Читай тут!</Link></strong>
+              </Typography>
             </Alert>
           </Box>
 
