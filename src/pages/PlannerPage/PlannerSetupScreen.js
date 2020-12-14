@@ -53,7 +53,11 @@ const useStyles = makeStyles((theme) => ({
     multiSelect: {
         height: "50%",
     },
-
+    boxBorders: {
+        boarderWidth: "10px",
+        boxShadow: '0px 7px 12px -5px rgba(0,0,0,0.75)',
+        filter: 'drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.15))',
+      }
 }));
 
 
@@ -135,7 +139,10 @@ const PlannerSetupScreen = (props) => {
 
 const InfoCard = (props) => {
     const classes = useStyles();
-
+    const classList = [
+        classes.GifContainer,
+        classes.boxBorders
+    ]
     const handleProceed = () => {
         props.handleProceed()
     }
@@ -157,8 +164,8 @@ const InfoCard = (props) => {
                     </Typography>
                 </Box>
 
-                <Box className={classes.GifContainer} >
-                    <img width="70%" src={props.img} />
+                <Box className={classList.join(' ')} >
+                    <img width="70%" src={props.img} alt="mavka" />
                 </Box>
             </Grid>
 

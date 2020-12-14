@@ -12,7 +12,8 @@ import {addAnalyticsEvent} from "../../services/API/httpRequests";
 const useStyles = makeStyles((theme) => ({
   DatesTitle: {
     textAlign: "right",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize:'16px'
   },
   WeekTitleItem: {
     paddingBottom: theme.spacing(2)
