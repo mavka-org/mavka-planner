@@ -70,7 +70,7 @@ const Landing = (props) => {
               eventName="LandingPlannerButtonClicked"
               onClick={(e) => addEvent("LandingPlannerButtonClicked", {})}
             >
-            📅  розпланувати підготовку
+            📅  планер підготовки
             </LargeButton>
           </Grid>
 
@@ -82,7 +82,7 @@ const Landing = (props) => {
               className={classes.oppositeColor}
               onClick={(e) => addEvent("LandingProgramButtonClicked", {})}
             >
-            📚  вчити тести та матеріали
+            📚  тести та матеріали
             </LargeButton>
           </Grid>
 
