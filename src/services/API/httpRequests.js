@@ -12,14 +12,16 @@ export const setUserInfo = async (userToken, userInfo) => {
 
 
 export const getProgram = async () => {
-    const response = await axios.get('https://mvp-api-5dvjwdatfq-ew.a.run.app/program')
+  console.log('getting program')
+    const response = await axios.get('https://mvp-api-5dvjwdatfq-ew.a.run.app/program/math')
 
     return response
 }
 
 
 export const getTopic = async (topic_id) => {
-    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/${topic_id}`)
+  console.log('getting topic')
+    const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/math/${topic_id}`)
 
     return response
 }
