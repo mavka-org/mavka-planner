@@ -71,8 +71,10 @@ const PlannerPage = (props) => {
 
   if(user) {
       if(ownsPlanner !== undefined) {
-          if(ownsPlanner && planner) {
-              return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+          if(ownsPlanner) {
+              if(planner) {
+                  return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+              }
           } else {
               return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
           }
