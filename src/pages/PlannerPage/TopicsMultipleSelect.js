@@ -46,7 +46,8 @@ const MenuProps = {
             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
             width: 250
         }
-    }
+    },
+    getContentAnchorEl: null
 };
 
 function getStyles(name, personName, theme) {
@@ -100,19 +101,19 @@ export default function TopicMultipleSelect(props) {
                     labelId="demo-mutiple-checkbox-label"
                     id="demo-mutiple-checkbox"
                     multiple
+                    displayEmpty={true}
                     value={selectedTopicIds}
                     onChange={handleChange}
-                    input={<Input />}
-                    renderValue={(selected) => getTopicNames(selected).join(", ")}
+                    input={<Input/>}
+                    renderValue={(selected) => selected.length ? getTopicNames(selected).join(", ") : 'Вибери теми'}
                     MenuProps={MenuProps}
                     className={classes.halfHeight}
                 >
                     {topicIds.map((id) => (
                         <MenuItem key={id} value={(id)} style={{whiteSpace: 'normal'}}>
                             <Checkbox
-                                checked={selectedTopicIds.indexOf(id) > -1}
-                                icon={<CheckBoxRoundedIcon/>}
-                                checkedIcon={<IndeterminateCheckBoxRoundedIcon color="error" />}
+                                checked={selectedTopicIds.indexOf(id) == -1}
+                                checkedIcon={<CheckBoxRoundedIcon />}
                                 inputProps={{ "aria-label": "indeterminate checkbox" }}
                             />
                           <ListItemText primary={program.topics[id].getTitle()} />
