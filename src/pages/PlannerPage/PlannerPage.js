@@ -65,18 +65,36 @@ const PlannerPage = (props) => {
     })
   };
 
-  if (!fakeLoading) {
-    if (ownsPlanner !== true) {
-      return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
-    }
-    else {
-      if (planner) {
-        return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+  if(user) {
+      if(user.isAnonymous) {
+          return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+      } else {
+          if(ownsPlanner !== undefined) {
+
+              if(ownsPlanner) {
+                  return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+              } else {
+                  return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+              }
+
+          }
       }
-    }
   }
 
   return (<Loading />)
+
+  // if (!fakeLoading) {
+  //   if (ownsPlanner !== true) {
+  //     return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
+  //   }
+  //   else {
+  //     if (planner) {
+  //       return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+  //     }
+  //   }
+  // }
+
+  // return (<Loading />)
 }
 
 export default PlannerPage
