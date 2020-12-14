@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Typography, Box, Link, Card, CardContent } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { LargeButton } from '../Button/Button';
 
@@ -54,7 +53,7 @@ const Footer = props => {
         justifyContent="center"
         spacing={8}
       >
-        <Grid item alignItems="center" direction="column" spacing={3}>
+        <Grid item alignItems="center" direction="column">
             <Card className={classes.root}>
               <CardContent>
                 <Grid container alignItems="center" direction="column" spacing={2}>

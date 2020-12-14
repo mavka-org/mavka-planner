@@ -165,7 +165,7 @@ const InfoCard = (props) => {
                 </Box>
 
                 <Box className={classList.join(' ')} >
-                    <img width="70%" src={props.img} alt="mavka" />
+                    <img width="100%" src={props.img} alt="mavka" />
                 </Box>
             </Grid>
 
