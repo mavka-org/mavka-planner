@@ -31,8 +31,7 @@ const theme = createMuiTheme({
       fontWeight: 'bold',
       fontSize: '36px',
       lineHeight: '43px',
-      color: 'black',
-      fontFamily: 'Gilroy-Regular',
+      color: 'black'
     },
     h2: {
       fontSize: '24px',
@@ -71,6 +70,9 @@ const theme = createMuiTheme({
       lineHeight: '17px',
       fontWeight: '300',
       color: '#333333',
+    },
+    button: {
+      fontWeight: '400'
     }
   },
 });
