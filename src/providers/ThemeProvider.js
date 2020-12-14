@@ -16,7 +16,7 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: [
-      '"Gilroy-Regular"',
+      '"SF Display"',
       '-apple-system',
       '"Segoe UI"',
       '"Helvetica Neue"',
