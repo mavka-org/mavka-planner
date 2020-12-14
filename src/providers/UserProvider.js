@@ -3,6 +3,7 @@ import { auth } from "./../services/Firebase/firebase";
 import { signInAnonymously } from './../services/Firebase/Authenticate';
 
 export const UserContext = createContext({ user: undefined });
+
 class UserProvider extends Component {
     state = {
         user: undefined

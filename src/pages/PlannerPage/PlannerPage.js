@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import PlannerScreen from './PlannerScreen'
 import PlannerSetupScreen from "./PlannerSetupScreen"
 import Loading from './../../components/Loading/Loading';
-import { Typography } from '@material-ui/core';
 import { getUserPlanner, setUserPlanner, getDefaultPlanner, deleteUserPlanner } from './../../services/API/httpRequests';
+import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import { UserContext } from './../../providers/UserProvider';
 import { SubjectContext } from './../../providers/SubjectProvider';
 
@@ -22,6 +22,7 @@ const PlannerPage = (props) => {
           setFakeLoading(false)
       }, 700);
    }, []);
+
 
   // receiving user
   if (user) {

@@ -3,24 +3,32 @@ import { NavLink } from 'react-router-dom';
 import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
+import { UserContext } from "../../providers/UserProvider";
 
 
 class Event extends React.Component {
 
+    //static user = UserContext
+
     constructor(props, title){
       super(props)
+      this.id = props.json.event_id
+      this.subject = props.subject
       this.idx = props.idx
       this.title = title
       this.type = props.json.type
+      console.log("Event user ", this.context)
       this.state = {
         completed: props.json.completed
       }
     }
 
     handleEventCompleted = (e) => {
+
       // changes this.completed to opposite value and returns it
       this.setState({ completed: !this.state.completed }, () => {
-        this.props.handleEventCompleted(this.idx, this.state.completed);
+        this.props.handleEventCompleted(this.idx, this.id, this.state.completed);
       })
     }
 
@@ -62,9 +70,11 @@ class Event extends React.Component {
     }
 
 }
+Event.contextType = UserContext;
 
 
 export class TopicEvent extends Event {
+
     constructor(props){
       let chapter_n = props.json.data.chapter_id + 1
       let topic_n = props.json.data.order_n + 1
@@ -74,7 +84,8 @@ export class TopicEvent extends Event {
     }
 
     getButton() {
-      return (<LinkButton size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
+        // href={"/math/topic/" + this.topic_id}
+      return (<LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.id, "event_id":this.id})} size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
     }
 }
 
@@ -88,7 +99,7 @@ export class UrlEvent extends Event {
 
     getButton() {
       return (
-        <LinkButton variant="outlined" href={this.url}>перейти</LinkButton>
+        <LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.name, "event_id":this.id})} variant="outlined" href={this.url}>перейти</LinkButton>
       )
     }
 }
