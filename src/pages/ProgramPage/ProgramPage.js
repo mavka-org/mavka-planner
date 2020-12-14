@@ -10,6 +10,7 @@ import { getProgram } from './../../services/API/httpRequests';
 export default function ProgramPage(props) {
 
   const [program, setProgram] = React.useState(null)
+  console.log(props)
 
   if (!program) {
       getProgram().then((programResponse) => {

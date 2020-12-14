@@ -78,11 +78,6 @@ export default function ProgramAccordion(props) {
     const items = [];
     let global_panel_index = 0
 
-    items.push(
-        <Box pt={3}><Typography variant="h3" target="_blank" href="https://www.notion.so/mavkaorg/446a53ca1add46f093f49dfbf4c6fd73"><Link color="secondary" target="_blank" href="https://www.notion.so/mavkaorg/446a53ca1add46f093f49dfbf4c6fd73"
-        >0. Читати стратегію підготовки від топ-ЗНОшників</Link></Typography></Box>
-    )
-
     for (const [index, module] of props.program.modules.entries()) {
 
         // display module name
