@@ -78,7 +78,6 @@ export default function ProgramAccordion(props) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel, topic_id) => (event, newExpanded) => {
-        console.log("handleChange in accordion")
         setExpanded(newExpanded ? panel : false);
         if(newExpanded) {
             addAnalyticsEvent(user, "ProgramTopicAccordionOpened", {"subject_id":subject.id, "topic_id":topic_id})
@@ -118,12 +117,9 @@ export default function ProgramAccordion(props) {
                                onChange={handleChange('panel' + global_panel_index, topic.id)}>
 
                         <Box borderBottom = {1}>
-                            <AccordionSummary aria-controls={"panel" + global_panel_index + "d-content"}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon /> } aria-controls={"panel" + global_panel_index + "d-content"}>
                             <div style={{ width: '100%' }}>
                                 <Box display="flex" alignItems="center" background="primary" py={1}>
-                                    <Box >
-                                        <noMarginIconButton > <ExpandMoreIcon /> </noMarginIconButton>
-                                    </Box>
                                     <Box flexGrow={1} pr={2} pl={1}>
                                         {/*display topic name*/}
                                         <Typography variant="body1">{topic.getTitle()}</Typography>
