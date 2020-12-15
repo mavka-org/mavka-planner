@@ -65,7 +65,8 @@ const PlannerPage = (props) => {
   const deletePlanner = () => {
     // TODO need to notify user of the request loading
     deleteUserPlanner(user, subject.id).then((response) => {
-      setOwnsPlanner(false);
+      setOwnsPlanner(undefined);
+      setPlanner(undefined)
     })
   };
 
@@ -73,7 +74,7 @@ const PlannerPage = (props) => {
       if(ownsPlanner !== undefined) {
           if(ownsPlanner) {
               if(planner) {
-                  return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+                return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
               }
           } else {
               return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
