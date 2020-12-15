@@ -32,18 +32,10 @@ const Landing = (props) => {
     () => {
       if (user) {
         addAnalyticsEvent(user, "LandingPageOpened", {})
-        console.log("sakses", user)
       }
     },
     [user]
   )
-
-
-  const addEvent = (name, par) => {
-    addAnalyticsEvent(user, name, par)
-    console.log("event ", name)
-  }
-
 
 
   const classes = useStyles();
@@ -69,8 +61,7 @@ const Landing = (props) => {
               style={{background: '#000'}}
               variant="contained"
               name="LandingPlannerButton"
-              eventName="LandingPlannerButtonClicked"
-              onClick={(e) => addEvent("LandingPlannerButtonClicked", {})}
+              onClick={(e) => addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
             >
             📅  планер підготовки
             </LargeButton>
@@ -82,7 +73,7 @@ const Landing = (props) => {
               fullWidth
               variant="contained"
               className={classes.oppositeColor}
-              onClick={(e) => addEvent("LandingProgramButtonClicked", {})}
+              onClick={(e) => addAnalyticsEvent(user, "LandingProgramButtonClicked", {})}
             >
             📚  тести та матеріали
             </LargeButton>

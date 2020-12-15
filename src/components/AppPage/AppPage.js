@@ -15,16 +15,21 @@ import Typography from '@material-ui/core/Typography';
 import { RoundButton } from './../../components/Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
+import {addAnalyticsEvent} from "../../services/API/httpRequests";
+import {UserContext} from "../../providers/UserProvider";
 
 
 const AppPage = (props) => {
+  console.log("app page props ", props)
 
   const subject = useContext(SubjectContext)[0]
+  const user = useContext(UserContext);
 
   const [openSubjectsDialog, setOpenSubjectsDialog] = React.useState(false);
 
   const handleClickSubjectsDialog = () => {
     setOpenSubjectsDialog(true);
+    addAnalyticsEvent(user, "SubjectDropdownClicked", {"path":props.history.location.pathname})
   };
 
   const handleSubjectsDialogClosed = () => {
@@ -67,7 +72,7 @@ const AppPage = (props) => {
             <Alert severity="success" icon={<FlashOnRoundedIcon fontSize="inherit" />} >
               <AlertTitle><Typography variant="h3"><strong>Стратегія підготовки для тебе 💪</strong></Typography></AlertTitle>
               <Typography>
-                Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link href={strategy_url}>→ Читай тут!</Link></strong>
+                Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи. <strong><Link onClick={(e)=>addAnalyticsEvent(user, "StrategyFromAlertClicked", {"path":props.history.location.pathname})} href={strategy_url}>→ Читай тут!</Link></strong>
               </Typography>
             </Alert>
           </Box>

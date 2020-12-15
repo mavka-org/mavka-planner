@@ -17,7 +17,6 @@ class Event extends React.Component {
       this.idx = props.idx
       this.title = title
       this.type = props.json.type
-      console.log("Event user ", this.context)
       this.state = {
         completed: props.json.completed
       }

@@ -11,7 +11,6 @@ import Box from '@material-ui/core/Box';
 import { ExpansionPanelSummary } from '@material-ui/core';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import IconButton from "@material-ui/core/IconButton";
-import Link from '@material-ui/core/Link';
 import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
@@ -27,21 +26,14 @@ const Accordion = withStyles({
     expanded: {},
 })(MuiAccordion);
 
-const noMarginIconButton = withStyles({
-    root: {
-        margin: "20px",
-        marginLeft: "0",
-        padding: "10px",
-    }
-})(IconButton);
-
 
 const AccordionSummary = withStyles({
     expandIcon: {
+        padding:"12px",
+        //paddingLeft: "0px",
         order: -1
     },
     root: {
-        //backgroundColor: 'rgba(0, 0, 0, .03)',
         borderBottom: '1px solid rgba(255, 255, 255, 1)',
         marginBottom: -1,
         minHeight: 56,
@@ -60,13 +52,12 @@ const AccordionSummary = withStyles({
 
 })(MuiAccordionSummary);
 
+
 const AccordionDetails = withStyles((theme) => ({
     root: {
         padding: theme.spacing(2),
     },
 }))(MuiAccordionDetails);
-
-
 
 
 // props: program
@@ -78,8 +69,8 @@ export default function ProgramAccordion(props) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleChange = (panel, topic_id) => (event, newExpanded) => {
-        console.log("handleChange in accordion")
         setExpanded(newExpanded ? panel : false);
+
         if(newExpanded) {
             addAnalyticsEvent(user, "ProgramTopicAccordionOpened", {"subject_id":subject.id, "topic_id":topic_id})
         }
@@ -113,35 +104,7 @@ export default function ProgramAccordion(props) {
             // display topics in accordion
             for (const [index, topic] of chapter.topics.entries()) {
                 items.push(
-
-                    <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
-                               onChange={handleChange('panel' + global_panel_index, topic.id)}>
-
-                        <Box borderBottom = {1}>
-                            <AccordionSummary aria-controls={"panel" + global_panel_index + "d-content"}>
-                            <div style={{ width: '100%' }}>
-                                <Box display="flex" alignItems="center" background="primary" py={1}>
-                                    <Box >
-                                        <noMarginIconButton > <ExpandMoreIcon /> </noMarginIconButton>
-                                    </Box>
-                                    <Box flexGrow={1} pr={2} pl={1}>
-                                        {/*display topic name*/}
-                                        <Typography variant="body1">{topic.getTitle()}</Typography>
-                                    </Box>
-                                    <Box>
-                                        <Button onClick={addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
-                                    </Box>
-                                </Box>
-                            </div>
-                        </AccordionSummary>
-                        </Box>
-
-                        <AccordionDetails>
-                            <TopicContents dense={true} topic_json = {topic}/>
-                        </AccordionDetails>
-
-                    </Accordion>
-
+                    createAccordion(topic)
                 )
                 global_panel_index++
             }
@@ -153,6 +116,37 @@ export default function ProgramAccordion(props) {
             <div>{items}</div>
         </div>
     )
+
+
+
+    function createAccordion(topic) {
+        return (
+            <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
+                            onChange={handleChange('panel' + global_panel_index, topic.id)}>
+
+            <Box borderBottom = {1}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon /> } aria-controls={"panel" + global_panel_index + "d-content"}>
+                    <div style={{ width: '100%' }}>
+                        <Box display="flex" alignItems="center" background="primary" py={1}>
+                            <Box flexGrow={1} pr={2} pl={1}>
+                                {/*display topic name*/}
+                                <Typography variant="body1">{topic.getTitle()}</Typography>
+                            </Box>
+                            <Box>
+                                {/*href={"/math/topic/"+topic.id}*/}
+                                <Button onClick={(e)=>addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
+                            </Box>
+                        </Box>
+                    </div>
+                </AccordionSummary>
+            </Box>
+
+            <AccordionDetails>
+                <TopicContents dense={true} topic_json = {topic}/>
+            </AccordionDetails>
+
+        </Accordion>)
+    }
 }
 
 function increment_string_number(str_number){
