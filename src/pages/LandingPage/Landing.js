@@ -40,7 +40,7 @@ const Landing = (props) => {
 
   const classes = useStyles();
   return (
-    <Box>
+    <Box width="100%">
       <Grid container spacing={2} direction="column" alignItems="center">
 
         <Grid item>
@@ -51,7 +51,7 @@ const Landing = (props) => {
           <Typography variant="h6" align="center">ЗНО не таке страшне, як здається. Ми допоможемо тобі!</Typography>
         </Grid>
 
-        <Grid item container spacing={3} style={{ width: '270px'}}>
+        <Grid item container spacing={3} style={{ width: '300px'}}>
 
           <Grid container item>
             <LargeButton
