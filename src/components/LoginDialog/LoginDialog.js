@@ -3,12 +3,18 @@ import Box from '@material-ui/core/Box';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography, Grid} from '@material-ui/core';
+import { useHistory } from 'react-router-dom'
 
 const LoginDialog = (props) => {
+
+  const history = useHistory()
 
   const handleTelegramLogin = (response) => {
     props.handleTelegramResponse(response)
     props.onClose()
+    if (props.goToLanding){
+      history.push('/')
+    }
   }
 
   return (

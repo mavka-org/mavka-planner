@@ -70,15 +70,11 @@ const PlannerPage = (props) => {
     })
   };
 
-  const refreshPlanner = () => {
-    window.location.reload()
-  }
-
   if(user) {
       if(ownsPlanner !== undefined) {
           if(ownsPlanner) {
               if(planner) {
-                return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} {...props}/>)
+                return (<PlannerScreen planner={planner} deletePlanner={deletePlanner} goToLanding={true} {...props}/>)
               }
           } else {
               return (<PlannerSetupScreen createNewPlanner={createNewPlanner} {...props}/>)
