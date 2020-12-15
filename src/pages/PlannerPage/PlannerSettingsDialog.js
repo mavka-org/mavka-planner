@@ -14,12 +14,13 @@ import { useEffect } from 'react'
 import {SubjectContext} from "../../providers/SubjectProvider";
 
 const PlannerSettingsDialog = (props) => {
-  const {open, onClose, deletePlanner} = props;
+  const {open, onClose} = props;
   const user = useContext(UserContext);
   const subject = useContext(SubjectContext)[0]
 
 
-  const addEvent = (name, par) => {
+  const deleteUserPlanner = (name, par) => {
+    props.deletePlanner(user, subject)
     addAnalyticsEvent(user, name, par)
   }
 
@@ -51,7 +52,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary" onClick={(e) => addEvent("PlannerResetClicked", {"subject_id":subject.id})}>
+        <Button size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner("PlannerResetClicked", {"subject":subject})}>
             перестворити планер
           </Button>
 

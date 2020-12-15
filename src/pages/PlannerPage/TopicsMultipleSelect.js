@@ -95,11 +95,12 @@ export default function TopicMultipleSelect(props) {
     return (
         program ?
         <div>
-            <FormControl className={classes.formControl} id='formcontroltonya'>
-                <InputLabel id="demo-mutiple-checkbox-label"></InputLabel>
+            <FormControl className={classes.formControl}>
+                <InputLabel id="topics-mutiple-checkbox-label"></InputLabel>
                 <Select
-                    labelId="demo-mutiple-checkbox-label"
-                    id="demo-mutiple-checkbox"
+                    labelId="topics-mutiple-checkbox-label"
+                    id="topics-mutiple-checkbox"
+                    name="TopicsMultipleSelect"
                     multiple
                     displayEmpty={true}
                     value={selectedTopicIds}
@@ -112,6 +113,7 @@ export default function TopicMultipleSelect(props) {
                     {topicIds.map((id) => (
                         <MenuItem key={id} value={(id)} style={{whiteSpace: 'normal'}}>
                             <Checkbox
+                                name={id + 'TopicMenuItemCheckbox'}
                                 checked={selectedTopicIds.indexOf(id) == -1}
                                 checkedIcon={<CheckBoxRoundedIcon />}
                                 inputProps={{ "aria-label": "indeterminate checkbox" }}

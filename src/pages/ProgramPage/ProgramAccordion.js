@@ -129,8 +129,14 @@ export default function ProgramAccordion(props) {
         }
 
         return (
-            <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
-                            onChange={handleChange('panel' + global_panel_index, topic.id)}>
+            <Accordion
+                name={topic.id + 'TopicAccrodion'}
+                elevation={0}
+                border='none'
+                square
+                expanded={expanded === 'panel' + global_panel_index}
+                onChange={handleChange('panel' + global_panel_index, topic.id)}
+              >
 
             <Box borderBottom = {1}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon /> } aria-controls={"panel" + global_panel_index + "d-content"}>
@@ -142,7 +148,16 @@ export default function ProgramAccordion(props) {
                             </Box>
                             <Box>
                                 {/*href={"/math/topic/"+topic.id}*/}
-                                <Button onClick={handleButtonClick} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
+                                <Button
+                                  name={topic.id + 'TopicAccrodionButton'}
+                                  onClick={handleButtonClick}
+                                  size="small"
+                                  variant="contained"
+                                  color="primary"
+                                  href={"/math/topic/"+topic.id}
+                                >
+                                  вчити
+                                </Button>
                             </Box>
                         </Box>
                     </div>

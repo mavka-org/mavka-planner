@@ -66,15 +66,16 @@ const NavBar = (props) => {
             <div>
               <Button
                   //href='/planner'
+                  name="NavPlannerButton"
                   active={props.selected === "planner"}
                   //onClick={(e) => addAnalyticsEvent(user,"PlannerFromMenuClicked", {})}
                   onClick={(e) => recordAnalyticsAndRedirect("PlannerFromMenuClicked", {}, '/planner')}
               >
                   планер
               </Button>
-              <Button href='/program' active={props.selected === "program"} onClick={(e) => addAnalyticsEvent(user,"ProgramFromMenuClicked", {})}>програма</Button>
-              <Button active={props.selected === "tests"} onClick={(e) => addAnalyticsEvent(user,"TestFromMenuClicked", {})} >тести</Button>
-              {/*href='https://zno.mavka.org'*/}
+              <Button name="NavProgramButton" href='/program' active={props.selected === "program"} onClick={(e) => addEvent("ProgramFromMenuClicked", {})}>програма</Button>
+              <Button name="NavTestButton" href='https://zno.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
+{/*href='https://zno.mavka.org'*/}
             </div>
           }
           {
@@ -82,9 +83,9 @@ const NavBar = (props) => {
               <Button onClick={handleLoggedOut} style={{ opacity: 0 }}>вийти</Button>
               :
               (!user || user.isAnonymous) ?
-                <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
+                <Button name="NavLoginButton" onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
                 :
-                <Button onClick={handleLoggedOut}>вийти</Button>
+                <Button name="NavLogoutButton" onClick={handleLoggedOut}>вийти</Button>
               // href='/'
           }
         </Grid>

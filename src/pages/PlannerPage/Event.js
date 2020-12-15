@@ -48,6 +48,7 @@ class Event extends React.Component {
 
             <Grid item>
               <Checkbox
+                name={this.id}
                 checked={this.state.completed}
                 onChange={this.handleEventCompleted}
                 name={"checkbox-" + this.weekIdx + '-' + this.idx}
@@ -88,7 +89,7 @@ export class TopicEvent extends Event {
 
     getButton() {
         // href={"/math/topic/" + this.topic_id}
-      return (<LinkButton  onClick={(e)=>this.handleButtonClick()} size="small" variant="contained" >вчити</LinkButton>)
+      return (<LinkButton name={this.id + 'Button'} onClick={(e)=>this.handleButtonClick()} size="small" variant="contained" >вчити</LinkButton>)
     }
 }
 
@@ -102,7 +103,7 @@ export class UrlEvent extends Event {
 
     getButton() {
       return (
-        <LinkButton href={this.url} onClick={(e)=>this.handleButtonClick()}  variant="outlined" >перейти</LinkButton>
+        <LinkButton name={this.id + 'Button'} href={this.url} onClick={(e)=>this.handleButtonClick()}  variant="outlined" >перейти</LinkButton>
       )
     }
 }

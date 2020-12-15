@@ -48,7 +48,7 @@ const AppPage = (props) => {
               </Box>
 
               <Box>
-                <IconButton size="small" onClick={props.handleIconClick}>
+                <IconButton name="headerIcon" size="small" onClick={props.handleIconClick}>
                   {props.headerIcon}
                 </IconButton>
               </Box>
@@ -57,6 +57,7 @@ const AppPage = (props) => {
 
             <Grid item>
             <RoundButton
+              name="selectSubjectButton"
               startIcon={<ExpandMoreRoundedIcon />}
               onClick={handleClickSubjectsDialog}
             >

@@ -78,6 +78,7 @@ const Landing = (props) => {
               fullWidth
               variant="contained"
               className={classes.oppositeColor}
+              name="LandingProgramButton"
               onClick={(e) => addAnalyticsEvent(user, "LandingProgramButtonClicked", {})}
             >
             📚  тести та матеріали
