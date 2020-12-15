@@ -70,6 +70,10 @@ const PlannerPage = (props) => {
     })
   };
 
+  const refreshPlanner = () => {
+    window.location.reload()
+  }
+
   if(user) {
       if(ownsPlanner !== undefined) {
           if(ownsPlanner) {
