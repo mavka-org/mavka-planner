@@ -26,7 +26,7 @@ const SubjectsDialog = (props) => {
 
   const classes = useStyles();
 
-  const [subject, setSubject] = useContext(SubjectContext)
+  const [ subject, setSubject ] = useContext(SubjectContext)
   const { onClose, open } = props;
 
   const handleClose = () => {
@@ -46,6 +46,7 @@ const SubjectsDialog = (props) => {
         {allSubjects.map((subjectOption, idx) => (
 
           <ListItem
+            name={subject.id + 'SubjectListItem'}
             button
             onClick={() => handleListItemClick(subjectOption)}
             key={subjectOption.id}

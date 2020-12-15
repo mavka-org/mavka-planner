@@ -43,6 +43,7 @@ class Event extends React.Component {
 
             <Grid item>
               <Checkbox
+                name={this.id}
                 checked={this.state.completed}
                 onChange={this.handleEventCompleted}
                 name={"checkbox-" + this.weekIdx + '-' + this.idx}
@@ -83,7 +84,7 @@ export class TopicEvent extends Event {
 
     getButton() {
         // href={"/math/topic/" + this.topic_id}
-      return (<LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.id, "event_id":this.id})} size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
+      return (<LinkButton name={this.id + 'Button'} onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.id, "event_id":this.id})} size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
     }
 }
 
@@ -97,7 +98,7 @@ export class UrlEvent extends Event {
 
     getButton() {
       return (
-        <LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.name, "event_id":this.id})} variant="outlined" href={this.url}>перейти</LinkButton>
+        <LinkButton name={this.id + 'Button'} onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.name, "event_id":this.id})} variant="outlined" href={this.url}>перейти</LinkButton>
       )
     }
 }
