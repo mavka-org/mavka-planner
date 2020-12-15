@@ -43,7 +43,6 @@ class Event extends React.Component {
 
             <Grid item>
               <Checkbox
-                name={this.id}
                 checked={this.state.completed}
                 onChange={this.handleEventCompleted}
                 name={"checkbox-" + this.weekIdx + '-' + this.idx}
