@@ -52,7 +52,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-        <Button name="recreatePlannerButton" size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner("PlannerResetClicked", {"subject":subject})}>
+        <Button name="resetPlannerButton" size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner("PlannerResetClicked", {"subject":subject})}>
             перестворити планер
           </Button>
 
