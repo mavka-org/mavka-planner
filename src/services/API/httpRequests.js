@@ -4,7 +4,7 @@ export const setUserInfo = async (userToken, userInfo) => {
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/user/${userToken}`, {
             user: JSON.stringify(userInfo),
-    }, { headers: { 'Content-Type': 'application/json' } }
+    }, { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
 
     return response
@@ -12,17 +12,17 @@ export const setUserInfo = async (userToken, userInfo) => {
 
 
 export const getProgram = async () => {
-  console.log('getting program')
+    console.log('getting program')
     const response = await axios.get('https://mvp-api-5dvjwdatfq-ew.a.run.app/program/math')
-
+    console.log('got program')
     return response
 }
 
 
 export const getTopic = async (topic_id) => {
-  console.log('getting topic')
+    console.log('getting topic')
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/math/${topic_id}`)
-
+    console.log('got topic')
     return response
 }
 
@@ -31,8 +31,9 @@ export const getUserPlanner = async (user, subject) => {
 
   if (user) {
       const userToken = await user.getIdToken()
-      console.log(userToken)
+      console.log('getting user planner')
       const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+      console.log('got planner')
       return response
     }
 
@@ -56,7 +57,7 @@ export const getDefaultPlanner = async (subject, config) => {
   const response = await axios.post(
       `https://mvp-api-5dvjwdatfq-ew.a.run.app/defaultPlanner/${subject}`, {
           config: JSON.stringify(config),
-    }, { headers: { 'Content-Type': 'application/json' } }
+  }, { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
   )
 
   return response
@@ -69,7 +70,7 @@ export const setUserPlanner = async (user, subject, config) => {
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`, {
             config: JSON.stringify(config),
-      }, { headers: { 'Content-Type': 'application/json' } }
+    }, { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
 
     return response
@@ -86,7 +87,7 @@ export const updateUserPlanner = async (user, subject, changes) => {
     const response = await axios.put(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`,
         JSON.stringify({changes: changes }),
-        { headers: { 'Content-Type': 'application/json' } }
+      { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
 
 
@@ -105,7 +106,7 @@ export const addAnalyticsEvent = async (user, eventName, params) => {
         const response = await axios.post(
             `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${user.isAnonymous}`,
             JSON.stringify({params: params}),
-            { headers: { 'Content-Type': 'application/json' } }
+          { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
         )
         return response
       }

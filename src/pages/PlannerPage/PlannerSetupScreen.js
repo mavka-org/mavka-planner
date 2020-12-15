@@ -184,6 +184,7 @@ const InfoCard = (props) => {
                     variant="contained"
                     color="primary"
                     onClick={handleProceed}
+                    style={{background: '#000'}}
                 >
                     Далі
                 </ScalableLargeButton>
@@ -253,6 +254,7 @@ const InputCard = (props) => {
                     variant="contained"
                     color="primary"
                     onClick={handleProceed}
+                    style={{background: '#000'}}
 
                 >
                     Далі

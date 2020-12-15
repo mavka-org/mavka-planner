@@ -4,7 +4,7 @@ import { ThemeProvider as MuiThemeProvider, createMuiTheme } from '@material-ui/
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#4А4А4А"
+      main: "#333333"
     },
     secondary: {
       main: "#1AB2A8"
@@ -56,19 +56,23 @@ const theme = createMuiTheme({
     },
     subtitle1: {
       fontWeight: "normal",
-      fontSize: '21px',
-      lineHeight: '25px',
-      color: '#333333',
-    },
-    body1: {
       fontSize: '18px',
       lineHeight: '21px',
       color: '#333333',
     },
-    body2: {
+    subtitle1: {
+      fontWeight: "normal",
+      fontSize: '18px',
+      lineHeight: '21px',
+      color: '#333333',
+    },
+    body1: {
       fontSize: '14px',
       lineHeight: '17px',
-      fontWeight: '300',
+      color: '#333333',
+    },
+    body2: {
+      fontSize: '14px',
       color: '#333333',
     },
     button: {
