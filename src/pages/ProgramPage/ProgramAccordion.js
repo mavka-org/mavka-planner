@@ -122,7 +122,7 @@ export default function ProgramAccordion(props) {
     function createAccordion(topic) {
         return (
             <Accordion
-                name={topic.id + 'TopicAccrodion'}
+                name={topic.id + 'TopicAccordion'}
                 elevation={0}
                 border='none'
                 square
@@ -141,7 +141,7 @@ export default function ProgramAccordion(props) {
                             <Box>
                                 {/*href={"/math/topic/"+topic.id}*/}
                                 <Button
-                                  name={topic.id + 'TopicAccrodionButton'}
+                                  name={topic.id + 'TopicAccordionButton'}
                                   onClick={(e)=>addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})}
                                   size="small"
                                   variant="contained"
