@@ -34,7 +34,7 @@ const LoginDialog = (props) => {
 
         <Grid item>
           <Box p={1}>
-            <TelegramLoginButton dataOnauth={handleTelegramLogin} botName="kukolya_bot" buttonSize="large" usePic={false} />
+            <TelegramLoginButton dataOnauth={handleTelegramLogin} botName="YourMavkaBot" buttonSize="large" usePic={false} />
           </Box>
 
           <Box p={1}>
