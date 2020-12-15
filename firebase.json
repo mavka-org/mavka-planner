@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "planner",
-    "public": "build",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
