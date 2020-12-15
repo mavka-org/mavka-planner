@@ -42,7 +42,7 @@ const NavBar = (props) => {
 
       <Box flexGrow={1}>
         <NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>
-          <img src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
+          <img name="NavLandingButton" src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
         </NavLink>
       </Box>
 
@@ -53,7 +53,7 @@ const NavBar = (props) => {
             <div>
               <Button name="NavPlannerButton" href='/planner' active={props.selected === "planner"} onClick={(e) => addEvent("PlannerFromMenuClicked", {})}>планер</Button>
               <Button name="NavProgramButton" href='/program' active={props.selected === "program"} onClick={(e) => addEvent("ProgramFromMenuClicked", {})}>програма</Button>
-              <Button name="NavTestButton" href='https://zno.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
+              <Button name="NavTestButton" href='https://tests.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
             </div>
           }
           {
