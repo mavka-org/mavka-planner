@@ -51,7 +51,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary" onClick={(e) => addEvent("PlannerResetClicked", {"subject":subject})}>
+          <Button size="medium" onClick={deletePlanner} href="" variant="outlined" color="primary" onClick={(e) => addEvent("PlannerResetClicked", {"subject_id":subject.id})}>
             перестворити планер
           </Button>
 

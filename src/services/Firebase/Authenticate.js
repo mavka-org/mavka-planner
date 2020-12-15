@@ -10,7 +10,7 @@ export const logIn = async(email, password, userInfo) => {
     await auth.createUserWithEmailAndPassword(email, password).then((authUser) =>{
         console.log('user created!')
         console.log(authUser)
-        addAnalyticsEvent(authUser, "SignUpClicked", {})
+        addAnalyticsEvent(authUser.user, "SignUpClicked", {})
         authUser.user.getIdToken().then((userToken) => {
             console.log(userToken)
             setUserInfo(userToken, userInfo).then((res) => {
@@ -19,9 +19,9 @@ export const logIn = async(email, password, userInfo) => {
         })
     }).catch((error) => {
         if(error.code === 'auth/email-already-in-use'){
-            auth.signInWithEmailAndPassword(email, password).then((user) => {
+            auth.signInWithEmailAndPassword(email, password).then((loggedUser) => {
                 console.log('user logged in!')
-                addAnalyticsEvent(user, "LogInClicked", {})
+                addAnalyticsEvent(loggedUser.user, "LogInClicked", {})
             })
         }
     })

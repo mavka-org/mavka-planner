@@ -23,3 +23,12 @@ const user = useContext(UserContext);
 
 
 onClick={(e) => addEvent("LandingPlannerButtonClicked", {})}
+
+  const handleLoggedOut = () => {
+    addAnalyticsEvent(user,"LogOutClicked", {}).then(
+        (props) => {
+          history.push("/math/topic/11")
+          signOut()
+        }
+    )
+  }

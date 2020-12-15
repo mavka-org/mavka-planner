@@ -9,6 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import LoginDialog from './../../components/LoginDialog/LoginDialog';
 import { getCurrentUser, handleTelegramResponse, signOut } from './../../services/Firebase/Authenticate'
 import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
+import Link from "@material-ui/core/Link";
+import { useHistory } from "react-router-dom";
+import  { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   Logo: {
@@ -22,26 +25,36 @@ const NavBar = (props) => {
   const classes = useStyles();
 
   const user = useContext(UserContext)
+  const history = useHistory();
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
-  const addEvent = (name, par) => {
-    addAnalyticsEvent(user, name, par)
-  }
 
   const handleCloseLogin = () => {
     setOpenedLogin(false)
   }
 
   const handleLoggedOut = () => {
-    addEvent("LogOutClicked", {})
-    signOut()
+    addAnalyticsEvent(user,"LogOutClicked", {}).then(
+        () => {
+          history.push("/math/topic/11")
+          signOut()
+        }
+    )
+  }
+
+  const recordAnalyticsAndRedirect = (event_name, event_params, href) => {
+      addAnalyticsEvent(user,event_name, event_params).then(
+          () => {
+              history.push(href)
+          }
+      )
   }
 
   return (
     <Box display="flex" alignItems="center" py={1}>
 
       <Box flexGrow={1}>
-        <NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>
+        <NavLink to="/" onClick={(e) => addAnalyticsEvent(user,"LogoFromMenuClicked", {})}>
           <img src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
         </NavLink>
       </Box>
@@ -51,9 +64,17 @@ const NavBar = (props) => {
           {
             props.selected !== undefined &&
             <div>
-              <Button href='/planner' active={props.selected === "planner"} onClick={(e) => addEvent("PlannerFromMenuClicked", {})}>планер</Button>
-              <Button href='/program' active={props.selected === "program"} onClick={(e) => addEvent("ProgramFromMenuClicked", {})}>програма</Button>
-              <Button href='https://zno.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
+              <Button
+                  //href='/planner'
+                  active={props.selected === "planner"}
+                  //onClick={(e) => addAnalyticsEvent(user,"PlannerFromMenuClicked", {})}
+                  onClick={(e) => recordAnalyticsAndRedirect("PlannerFromMenuClicked", {}, '/planner')}
+              >
+                  планер
+              </Button>
+              <Button href='/program' active={props.selected === "program"} onClick={(e) => addAnalyticsEvent(user,"ProgramFromMenuClicked", {})}>програма</Button>
+              <Button active={props.selected === "tests"} onClick={(e) => addAnalyticsEvent(user,"TestFromMenuClicked", {})} >тести</Button>
+              {/*href='https://zno.mavka.org'*/}
             </div>
           }
           {
@@ -63,10 +84,12 @@ const NavBar = (props) => {
               (!user || user.isAnonymous) ?
                 <Button onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
                 :
-                <Button href='/' onClick={handleLoggedOut}>вийти</Button>
+                <Button onClick={handleLoggedOut}>вийти</Button>
+              // href='/'
           }
         </Grid>
       </Box>
+
 
       <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} />
 

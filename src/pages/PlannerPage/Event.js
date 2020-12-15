@@ -30,6 +30,11 @@ class Event extends React.Component {
       })
     }
 
+    handleButtonClick = (e) => {
+        addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.id, "event_id":this.id})
+        console.log("Event analytix")
+    }
+
     getButton() {
       return ''
     }
@@ -83,7 +88,7 @@ export class TopicEvent extends Event {
 
     getButton() {
         // href={"/math/topic/" + this.topic_id}
-      return (<LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.id, "event_id":this.id})} size="small" variant="contained" href={"/math/topic/" + this.topic_id}>вчити</LinkButton>)
+      return (<LinkButton  onClick={(e)=>this.handleButtonClick()} size="small" variant="contained" >вчити</LinkButton>)
     }
 }
 
@@ -97,7 +102,7 @@ export class UrlEvent extends Event {
 
     getButton() {
       return (
-        <LinkButton onClick={(e)=>addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.name, "event_id":this.id})} variant="outlined" href={this.url}>перейти</LinkButton>
+        <LinkButton href={this.url} onClick={(e)=>this.handleButtonClick()}  variant="outlined" >перейти</LinkButton>
       )
     }
 }

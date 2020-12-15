@@ -119,7 +119,15 @@ export default function ProgramAccordion(props) {
 
 
 
+
     function createAccordion(topic) {
+
+        const handleButtonClick = (event) => {
+            event.stopPropagation()
+            // addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
+            addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
+        }
+
         return (
             <Accordion elevation={0} border='none' square expanded={expanded === 'panel' + global_panel_index}
                             onChange={handleChange('panel' + global_panel_index, topic.id)}>
@@ -134,7 +142,7 @@ export default function ProgramAccordion(props) {
                             </Box>
                             <Box>
                                 {/*href={"/math/topic/"+topic.id}*/}
-                                <Button onClick={(e)=>addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
+                                <Button onClick={handleButtonClick} size="small" variant="contained" color="primary" href={"/math/topic/"+topic.id}>вчити</Button>
                             </Box>
                         </Box>
                     </div>

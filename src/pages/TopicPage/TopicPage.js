@@ -13,6 +13,7 @@ import Page from '../../components/Page/Page';
 
 
 export default function TopicPage(props) {
+    console.log("TopicPage props ", props)
 
     const [topic, setTopic] = React.useState(null)
     const user = useContext(UserContext);

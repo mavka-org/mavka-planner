@@ -10,6 +10,8 @@ import { useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
 import Paper from '@material-ui/core/Paper';
 import React, { useEffect } from 'react'
+import Redirect from "react-router-dom/es/Redirect";
+import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +41,8 @@ const Landing = (props) => {
 
 
   const classes = useStyles();
+  const history = useHistory();
+
   return (
     <Box>
       <Grid container spacing={2} direction="column" alignItems="center">
@@ -55,13 +59,14 @@ const Landing = (props) => {
 
           <Grid container item>
             <LargeButton
-              href='planner'
+              // href='planner'
               fullWidth
               color="primary"
               style={{background: '#000'}}
               variant="contained"
               name="LandingPlannerButton"
               onClick={(e) => addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
+              //onClick={(e) => window.location.href="https://www.youtube.com/watch?v=Lrle0x_DHBM"}
             >
             📅  планер підготовки
             </LargeButton>

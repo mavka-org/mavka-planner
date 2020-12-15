@@ -103,12 +103,12 @@ export const addAnalyticsEvent = async (user, eventName, params) => {
     if (user) {
         let userToken = await user.getIdToken()
 
-        const response = await axios.post(
+         axios.post(
             `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${user.isAnonymous}`,
             JSON.stringify({params: params}),
           { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
         )
-        return response
+
       }
-    return null
+
 }
