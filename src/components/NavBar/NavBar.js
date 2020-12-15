@@ -68,7 +68,7 @@ const NavBar = (props) => {
         </Grid>
       </Box>
 
-      <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} />
+      <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} goToLanding={props.goToLanding}/>
 
     </Box>
   )

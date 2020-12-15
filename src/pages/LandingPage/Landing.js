@@ -40,7 +40,7 @@ const Landing = (props) => {
 
   const classes = useStyles();
   return (
-    <Box>
+    <Box width="100%">
       <Grid container spacing={2} direction="column" alignItems="center">
 
         <Grid item>
@@ -51,14 +51,14 @@ const Landing = (props) => {
           <Typography variant="h6" align="center">ЗНО не таке страшне, як здається. Ми допоможемо тобі!</Typography>
         </Grid>
 
-        <Grid item container spacing={1}>
+        <Grid item container spacing={3} style={{ width: '300px'}}>
 
           <Grid container item>
             <LargeButton
               href='planner'
               fullWidth
               color="primary"
-              style={{background: '#000'}}
+              style={{background: '#000', fontSize: '17px'}}
               variant="contained"
               name="LandingPlannerButton"
               onClick={(e) => addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
@@ -71,6 +71,7 @@ const Landing = (props) => {
             <LargeButton
               href='program'
               fullWidth
+              style={{fontSize: '17px' }}
               variant="contained"
               className={classes.oppositeColor}
               name="LandingProgramButton"
