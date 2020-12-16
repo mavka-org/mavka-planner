@@ -57,8 +57,9 @@ const NavBar = (props) => {
     <Box display="flex" alignItems="center" py={1}>
 
       <Box flexGrow={1}>
-        <NavLink to="/" onClick={(e) => addAnalyticsEvent(user,"LogoFromMenuClicked", {})}>
-          <img src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
+      // <NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>
+        <NavLink to="/">
+          <img name="NavLandingButton" src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
         </NavLink>
       </Box>
 
@@ -77,8 +78,7 @@ const NavBar = (props) => {
                   планер
               </Button>
               <Button name="NavProgramButton" href='/program' active={props.selected === "program"} onClick={(e) => addEvent("ProgramFromMenuClicked", {})}>програма</Button>
-              <Button name="NavTestButton" href='https://zno.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
-{/*href='https://zno.mavka.org'*/}
+              <Button name="NavTestButton" href='https://tests.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
             </div>
           }
           {
@@ -94,8 +94,7 @@ const NavBar = (props) => {
         </Grid>
       </Box>
 
-
-      <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} />
+      <LoginDialog open={openedLogin} onClose={handleCloseLogin} handleTelegramResponse={handleTelegramResponse} goToLanding={props.goToLanding}/>
 
     </Box>
   )

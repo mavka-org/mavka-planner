@@ -57,8 +57,8 @@ const Footer = props => {
             <Card className={classes.root}>
               <CardContent>
                 <Grid container alignItems="center" direction="column" spacing={2}>
-                  <Grid item><WhiteText className={classes.mb} align="center">Наша платформа лише у бета-версії. Якщо щось поламалось або у тебе є ідеї як її покращити — напиши нам, будь ласка.</WhiteText></Grid>
-                  <Grid item><WhiteButton href="mailto:hello@mavka.org">Написати нам</WhiteButton></Grid>
+                  <Grid item><WhiteText className={classes.mb} align="center">Наша платформа лише у бета-версії. Якщо щось поламалось або у тебе є ідеї як її покращити — напиши нам, будь ласка</WhiteText></Grid>
+                <Grid item><WhiteButton href="https://t.me/tonia_zakorchemna">Написати нам</WhiteButton></Grid>
                 </Grid>
               </CardContent>
             </Card>
