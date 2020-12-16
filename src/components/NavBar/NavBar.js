@@ -38,7 +38,7 @@ const NavBar = (props) => {
 
 
   const handleLoggedOut = () => {
-      tracking.trigger("LoggedOut")
+      tracking.trigger("LoggedOut", {}, {"int_redirect": { "href": "/", "history": history }})
       signOut()
 
   }
