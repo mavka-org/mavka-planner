@@ -5,3 +5,5 @@ export const strategy_url = 'https://www.notion.so/mavkaorg/446a53ca1add46f093f4
 export const support_url = 'https://t.me/tonia_zakorchemna'
 
 export const bot_url = 'https://t.me/znoprep_bot'
+
+export const bot_id = 'kukolya_bot'

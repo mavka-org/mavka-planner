@@ -180,7 +180,7 @@ const InfoCard = (props) => {
 
             <Box className={classes.bottom} >
                 <ScalableLargeButton
-                    name="ProceedButton"
+                    name={"ProceedButton" + props.order}
                     fullWidth
                     variant="contained"
                     color="primary"
@@ -251,7 +251,7 @@ const InputCard = (props) => {
 
             <Box className={classes.bottom} >
                 <ScalableLargeButton
-                    name="ProceedButton"
+                    name={"ProceedButton" + props.order}
                     fullWidth
                     variant="contained"
                     color="primary"
