@@ -1,4 +1,5 @@
 import TelegramLoginButton from 'react-telegram-login';
+import { bot_id } from './../../config'
 import Box from '@material-ui/core/Box';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -34,15 +35,15 @@ const LoginDialog = (props) => {
 
         <Grid item>
           <Box p={1}>
-            <TelegramLoginButton dataOnauth={handleTelegramLogin} botName="YourMavkaBot" buttonSize="large" usePic={false} />
+            <TelegramLoginButton dataOnauth={handleTelegramLogin} botName={bot_id} buttonSize="large" usePic={false} />
           </Box>
 
           <Box p={1}>
             <Typography variant="subtitle2">* При реєстрації ти погоджуєшся з обробкою персональних даних</Typography>
           </Box>
-        </Grid>   
+        </Grid>
 
-      </Grid>    
+      </Grid>
 
     </Dialog>
   )
