@@ -15,6 +15,7 @@ class Event extends React.Component {
       this.id = props.json.event_id
       this.subject = props.subject
       this.idx = props.idx
+      this.weekIdx = props.weekIdx
       this.title = title
       this.type = props.json.type
       this.state = {
