@@ -28,14 +28,14 @@ const AnalyticsEventsProvider = (props) => {
                 if (options.int_redirect) {
                     if (options.int_redirect.href && options.int_redirect.history) {
                         options.int_redirect.history.push(options.int_redirect.href)
-                    } else {console.log("Event analytics error: tried to redirect internally but didnt provide href or history")}
+                    } else {console.log("Event analytics error: tried to redirect to an internal link but didnt provide href or history")}
                 }
 
                 if (options.ext_redirect) {
                     if (options.ext_redirect.href) {
                         console.log("options.ext_redirect.href ", options.ext_redirect.href)
                         window.location.href = options.ext_redirect.href
-                    } else {console.log("Event analytics error: tried to redirect externally but didnt provide href")}
+                    } else {console.log("Event analytics error: tried to redirect to an external link but didnt provide href")}
                 }
 
 
