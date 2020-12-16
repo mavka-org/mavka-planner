@@ -6,9 +6,7 @@ const LandingPage = (props) => {
 
     return (
       <Page>
-        <Container maxWidth="xs">
           <Landing />
-        </Container>
       </Page>
     )
 }
