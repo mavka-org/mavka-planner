@@ -31,7 +31,8 @@ const AppPage = (props) => {
 
   const handleClickSubjectsDialog = () => {
     setOpenSubjectsDialog(true);
-    tracking.trigger("SubjectDropdownClicked", {"path":props.history.location.pathname})
+    //tracking.trigger("SubjectDropdownClicked", {"path":props.history.location.pathname})
+    tracking.trigger("SubjectDropdownClicked", {})
   };
 
   const handleSubjectsDialogClosed = () => {
@@ -77,7 +78,8 @@ const AppPage = (props) => {
               <Typography>
                 Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи.
                 <strong><Link
-                    onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {"path":props.history.location.pathname}, {"ext_redirect": {"href":strategy_url}} )}
+                    //onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {"path":props.history.location.pathname}, {"ext_redirect": {"href":strategy_url}} )}
+                    onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {}, {"ext_redirect": {"href":strategy_url}} )}
                 >→ Читай тут!
                 </Link></strong>
               </Typography>

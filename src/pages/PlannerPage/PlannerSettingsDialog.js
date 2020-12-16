@@ -22,8 +22,9 @@ const PlannerSettingsDialog = (props) => {
 
 
   const deleteUserPlanner = () => {
-    props.deletePlanner(user, subject)
     tracking.trigger("PlannerResetClicked")
+    console.log("PlannerResetClicked")
+    props.deletePlanner(user, subject)
   }
 
   return (
@@ -54,7 +55,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-        <Button name="resetPlannerButton" size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner}>
+        <Button name="resetPlannerButton" size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner()}>
             перестворити планер
           </Button>
 

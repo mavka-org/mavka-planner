@@ -1,0 +1,627 @@
+[debug] [2020-12-16T15:38:47.826Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T15:38:47.831Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
+[debug] [2020-12-16T15:38:47.832Z] CLI Version:   8.18.1
+[debug] [2020-12-16T15:38:47.832Z] Platform:      win32
+[debug] [2020-12-16T15:38:47.832Z] Node Version:  v14.15.1
+[debug] [2020-12-16T15:38:47.835Z] Time:          Wed Dec 16 2020 17:38:47 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T15:38:47.836Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T15:38:47.836Z] 
+[error] 
+[error] Error: No currently active project.
+To run this command, you need to specify a project. You have two options:
+- Run this command with --project <alias_or_project_id>.
+- Set an active project by running firebase use --add, then rerun this command.
+To list all the Firebase projects to which you have access, run firebase projects:list.
+To learn about active projects for the CLI, visit https://firebase.google.com/docs/cli#project_aliases
+
+
+[debug] [2020-12-16T15:39:59.877Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T15:39:59.880Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T15:39:59.881Z] CLI Version:   8.18.1
+[debug] [2020-12-16T15:39:59.881Z] Platform:      win32
+[debug] [2020-12-16T15:39:59.881Z] Node Version:  v14.15.1
+[debug] [2020-12-16T15:39:59.883Z] Time:          Wed Dec 16 2020 17:39:59 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T15:39:59.883Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T15:39:59.884Z] 
+[debug] [2020-12-16T15:39:59.898Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T15:39:59.902Z] > authorizing via signed-in user
+[debug] [2020-12-16T15:39:59.903Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T15:39:59.910Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T15:39:59.912Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T15:40:00.157Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 16 Dec 2020 15:39:59 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T15:40:00.174Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T15:40:01.038Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 15:40:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=694","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T15:40:01.045Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T15:40:01.449Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 15:40:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T15:40:01.475Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T15:40:02.881Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 15:40:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mavkazno]: beginning deploy... 
+[info] i  hosting[mavkazno]: found 24 files in build 
+[debug] [2020-12-16T15:40:02.955Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T15:40:02.956Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T15:40:02.967Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T15:40:02.969Z] [hosting][hash queue][FINAL] {"max":12,"min":2,"avg":2,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":31}
+[debug] [2020-12-16T15:40:03.142Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 16 Dec 2020 15:40:02 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T15:40:03.156Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/4aeef9328282aeaf:populateFiles [none]
+[debug] [2020-12-16T15:40:03.158Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/4aeef9328282aeaf:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/asset-manifest.json":"ccea38e8417ba0a6aa83fbd6c9489a12a7206916448fa336d43a94e84368b042","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/index.html":"7855e57df359474c9a681cd005d41674dc4d5b12e45cbd4cae00358661449321","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.d8cc294f.chunk.js":"e661538361971a3c88ec3ebb9c4c6e0fe449e65ca5d26a71356daf494694d04c","/static/js/2.d8cc294f.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/2.d8cc294f.chunk.js.map":"4d78f061403216cd7d314a068ee89fdce85088df8195ac0473b4e60edc196695","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/main.88e511d3.chunk.js":"6a2dd847dfc3eaa7b5478495b160c12af8ee94ef0fd2b17cf8d32c2b0ed3842a","/static/js/main.88e511d3.chunk.js.map":"e005a4b9df877716a49c5018fd3a241b565b673d609d4e46bcf81b3ac2418865","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463"}}
+[debug] [2020-12-16T15:40:04.341Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/4aeef9328282aeaf:populateFiles 200
+[debug] [2020-12-16T15:40:04.342Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/4aeef9328282aeaf:populateFiles {"uploadRequiredHashes":["ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/4aeef9328282aeaf/files"}
+[debug] [2020-12-16T15:40:04.353Z] [hosting][populate queue][FINAL] {"max":1401,"min":1401,"avg":1401,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1401}
+[debug] [2020-12-16T15:40:04.355Z] [hosting] uploads queued: 1
+[debug] [2020-12-16T15:40:04.754Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T15:40:05.556Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T15:40:07.159Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T15:40:10.364Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[info] i  hosting: uploading new files [0/1] (0%) 
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T15:40:16.767Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T15:40:16.771Z] FirebaseError: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T15:40:16.774Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":1,"success":0,"errored":1,"retried":5,"total":1,"elapsed":12426}
+[debug] [2020-12-16T15:40:16.976Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:124:11)
+    at Object.resolve (path.js:139:9)
+    at Uploader.zipStream (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:212:47)
+    at Uploader.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:196:28)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:4:12)
+    at Uploader.uploadHandler (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:185:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:187:37)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:4:12)
+    at Queue.executeTask (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:182:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:200:29)
+[error] 
+[error] Error: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:16:55.648Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:16:55.650Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T16:16:55.650Z] CLI Version:   8.18.1
+[debug] [2020-12-16T16:16:55.651Z] Platform:      win32
+[debug] [2020-12-16T16:16:55.651Z] Node Version:  v14.15.1
+[debug] [2020-12-16T16:16:55.655Z] Time:          Wed Dec 16 2020 18:16:55 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T16:16:55.655Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:16:55.655Z] 
+[debug] [2020-12-16T16:16:55.664Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T16:16:55.665Z] > authorizing via signed-in user
+[debug] [2020-12-16T16:16:55.668Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T16:16:55.671Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:16:55.671Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:16:55.931Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 16 Dec 2020 16:16:55 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:16:55.944Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T16:16:56.808Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:16:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=695","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:16:56.816Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T16:16:57.144Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:16:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T16:16:57.156Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T16:16:58.607Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:16:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mavkazno]: beginning deploy... 
+[info] i  hosting[mavkazno]: found 24 files in build 
+[debug] [2020-12-16T16:16:59.279Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T16:16:59.279Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:16:59.284Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T16:16:59.284Z] [hosting][hash queue][FINAL] {"max":626,"min":4,"avg":64,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":639}
+[debug] [2020-12-16T16:16:59.468Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 16 Dec 2020 16:16:58 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:16:59.483Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/ff5e38f79b71ab64:populateFiles [none]
+[debug] [2020-12-16T16:16:59.485Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/ff5e38f79b71ab64:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/asset-manifest.json":"ccea38e8417ba0a6aa83fbd6c9489a12a7206916448fa336d43a94e84368b042","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/index.html":"7855e57df359474c9a681cd005d41674dc4d5b12e45cbd4cae00358661449321","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.d8cc294f.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/js/main.88e511d3.chunk.js":"6a2dd847dfc3eaa7b5478495b160c12af8ee94ef0fd2b17cf8d32c2b0ed3842a","/static/js/main.88e511d3.chunk.js.map":"e005a4b9df877716a49c5018fd3a241b565b673d609d4e46bcf81b3ac2418865","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/js/2.d8cc294f.chunk.js":"e661538361971a3c88ec3ebb9c4c6e0fe449e65ca5d26a71356daf494694d04c","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463","/static/js/2.d8cc294f.chunk.js.map":"4d78f061403216cd7d314a068ee89fdce85088df8195ac0473b4e60edc196695","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8"}}
+[info] i  hosting: adding files to version [0/24] (0%) 
+[debug] [2020-12-16T16:17:00.655Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/ff5e38f79b71ab64:populateFiles 200
+[debug] [2020-12-16T16:17:00.656Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/ff5e38f79b71ab64:populateFiles {"uploadRequiredHashes":["ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/ff5e38f79b71ab64/files"}
+[debug] [2020-12-16T16:17:00.665Z] [hosting][populate queue][FINAL] {"max":1387,"min":1387,"avg":1387,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1387}
+[debug] [2020-12-16T16:17:00.667Z] [hosting] uploads queued: 1
+[debug] [2020-12-16T16:17:01.066Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:17:01.868Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T16:17:03.472Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T16:17:06.674Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/1] (0%) 
+[info] i  hosting: uploading new files [0/1] (0%) 
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2020-12-16T16:17:13.079Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:17:13.083Z] FirebaseError: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:17:13.087Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":1,"success":0,"errored":1,"retried":5,"total":1,"elapsed":12427}
+[debug] [2020-12-16T16:17:13.258Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:124:11)
+    at Object.resolve (path.js:139:9)
+    at Uploader.zipStream (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:212:47)
+    at Uploader.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:196:28)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:4:12)
+    at Uploader.uploadHandler (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:185:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:187:37)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:4:12)
+    at Queue.executeTask (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:182:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:200:29)
+[error] 
+[error] Error: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:22:23.971Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:22:23.973Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T16:22:23.974Z] CLI Version:   8.18.1
+[debug] [2020-12-16T16:22:23.974Z] Platform:      win32
+[debug] [2020-12-16T16:22:23.974Z] Node Version:  v14.15.1
+[debug] [2020-12-16T16:22:23.978Z] Time:          Wed Dec 16 2020 18:22:23 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T16:22:23.978Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:22:23.978Z] 
+[debug] [2020-12-16T16:22:23.986Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T16:22:23.988Z] > authorizing via signed-in user
+[debug] [2020-12-16T16:22:23.989Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T16:22:23.993Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:22:23.993Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:22:24.251Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 16 Dec 2020 16:22:23 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:22:24.262Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T16:22:25.126Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:22:24 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=700","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:22:25.133Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T16:22:25.487Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:22:24 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T16:22:25.513Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T16:22:26.936Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:22:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mavkazno]: beginning deploy... 
+[info] i  hosting[mavkazno]: found 24 files in build 
+[debug] [2020-12-16T16:22:27.596Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T16:22:27.596Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:22:27.600Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T16:22:27.602Z] [hosting][hash queue][FINAL] {"max":610,"min":5,"avg":63.333333333333336,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":624}
+[debug] [2020-12-16T16:22:27.784Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Wed, 16 Dec 2020 16:22:27 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:22:27.794Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/985ee30dbb838ea6:populateFiles [none]
+[debug] [2020-12-16T16:22:27.795Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/985ee30dbb838ea6:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/asset-manifest.json":"94e1f2893896b33af10b04063322a3e905c3ae2e01413b62b1f23ca66410a5d6","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/index.html":"17f77dff9c1922811b0888a8730aab5ee4a5e157aa84097f02916896eadf0419","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.d8cc294f.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/js/main.fd75843d.chunk.js":"e81da277c5d73e95b9da74c723df784811290157278b9c3cbb3b97b950afd48b","/static/js/main.fd75843d.chunk.js.map":"328838904c71fb3e856e7cabd03a49caabf20f46de56ddd3096a88a1b3461edd","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/js/2.d8cc294f.chunk.js":"e661538361971a3c88ec3ebb9c4c6e0fe449e65ca5d26a71356daf494694d04c","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463","/static/js/2.d8cc294f.chunk.js.map":"4d78f061403216cd7d314a068ee89fdce85088df8195ac0473b4e60edc196695","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8"}}
+[info] i  hosting: adding files to version [0/24] (0%) 
+[debug] [2020-12-16T16:22:28.979Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/985ee30dbb838ea6:populateFiles 200
+[debug] [2020-12-16T16:22:28.981Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/985ee30dbb838ea6:populateFiles {"uploadRequiredHashes":["17f77dff9c1922811b0888a8730aab5ee4a5e157aa84097f02916896eadf0419","328838904c71fb3e856e7cabd03a49caabf20f46de56ddd3096a88a1b3461edd","e81da277c5d73e95b9da74c723df784811290157278b9c3cbb3b97b950afd48b","ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3","94e1f2893896b33af10b04063322a3e905c3ae2e01413b62b1f23ca66410a5d6"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files"}
+[debug] [2020-12-16T16:22:28.989Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/17f77dff9c1922811b0888a8730aab5ee4a5e157aa84097f02916896eadf0419 [none]
+[debug] [2020-12-16T16:22:28.989Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/17f77dff9c1922811b0888a8730aab5ee4a5e157aa84097f02916896eadf0419 [stream]
+[debug] [2020-12-16T16:22:28.996Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/328838904c71fb3e856e7cabd03a49caabf20f46de56ddd3096a88a1b3461edd [none]
+[debug] [2020-12-16T16:22:28.996Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/328838904c71fb3e856e7cabd03a49caabf20f46de56ddd3096a88a1b3461edd [stream]
+[debug] [2020-12-16T16:22:28.998Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/e81da277c5d73e95b9da74c723df784811290157278b9c3cbb3b97b950afd48b [none]
+[debug] [2020-12-16T16:22:29.000Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/e81da277c5d73e95b9da74c723df784811290157278b9c3cbb3b97b950afd48b [stream]
+[debug] [2020-12-16T16:22:29.005Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/94e1f2893896b33af10b04063322a3e905c3ae2e01413b62b1f23ca66410a5d6 [none]
+[debug] [2020-12-16T16:22:29.005Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/94e1f2893896b33af10b04063322a3e905c3ae2e01413b62b1f23ca66410a5d6 [stream]
+[debug] [2020-12-16T16:22:29.008Z] [hosting][populate queue][FINAL] {"max":1394,"min":1394,"avg":1394,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1413}
+[debug] [2020-12-16T16:22:29.008Z] [hosting] uploads queued: 5
+[debug] [2020-12-16T16:22:29.390Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:22:30.193Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/5] (0%) 
+[debug] [2020-12-16T16:22:31.092Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/328838904c71fb3e856e7cabd03a49caabf20f46de56ddd3096a88a1b3461edd 200
+[debug] [2020-12-16T16:22:31.094Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/328838904c71fb3e856e7cabd03a49caabf20f46de56ddd3096a88a1b3461edd [stream]
+[debug] [2020-12-16T16:22:31.234Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/17f77dff9c1922811b0888a8730aab5ee4a5e157aa84097f02916896eadf0419 200
+[debug] [2020-12-16T16:22:31.235Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/17f77dff9c1922811b0888a8730aab5ee4a5e157aa84097f02916896eadf0419 [stream]
+[debug] [2020-12-16T16:22:31.493Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/e81da277c5d73e95b9da74c723df784811290157278b9c3cbb3b97b950afd48b 200
+[debug] [2020-12-16T16:22:31.495Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/e81da277c5d73e95b9da74c723df784811290157278b9c3cbb3b97b950afd48b [stream]
+[debug] [2020-12-16T16:22:31.795Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:22:31.949Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/94e1f2893896b33af10b04063322a3e905c3ae2e01413b62b1f23ca66410a5d6 200
+[debug] [2020-12-16T16:22:31.950Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/985ee30dbb838ea6/files/94e1f2893896b33af10b04063322a3e905c3ae2e01413b62b1f23ca66410a5d6 [stream]
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[debug] [2020-12-16T16:22:34.999Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[debug] [2020-12-16T16:22:41.401Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:22:41.403Z] FirebaseError: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:22:41.410Z] [hosting][upload queue][FINAL] {"max":2974,"min":2114,"avg":2466,"active":0,"complete":5,"success":4,"errored":1,"retried":5,"total":5,"elapsed":12425}
+[debug] [2020-12-16T16:22:41.632Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:124:11)
+    at Object.resolve (path.js:139:9)
+    at Uploader.zipStream (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:212:47)
+    at Uploader.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:196:28)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:4:12)
+    at Uploader.uploadHandler (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:185:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:187:37)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:4:12)
+    at Queue.executeTask (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:182:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:200:29)
+[error] 
+[error] Error: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:33:05.981Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:33:05.983Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T16:33:05.983Z] CLI Version:   8.18.1
+[debug] [2020-12-16T16:33:05.983Z] Platform:      win32
+[debug] [2020-12-16T16:33:05.983Z] Node Version:  v14.15.1
+[debug] [2020-12-16T16:33:06.000Z] Time:          Wed Dec 16 2020 18:33:05 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T16:33:06.001Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:33:06.001Z] 
+[debug] [2020-12-16T16:33:06.014Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T16:33:06.016Z] > authorizing via signed-in user
+[debug] [2020-12-16T16:33:06.018Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T16:33:06.022Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:33:06.023Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:33:06.278Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 16 Dec 2020 16:33:05 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:33:06.288Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T16:33:07.181Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:33:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=704","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:33:07.188Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T16:33:07.581Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:33:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T16:33:07.606Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T16:33:09.177Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:33:08 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mavkazno]: beginning deploy... 
+[info] i  hosting[mavkazno]: found 24 files in build 
+[debug] [2020-12-16T16:33:09.823Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T16:33:09.824Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:33:09.861Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T16:33:09.862Z] [hosting][hash queue][FINAL] {"max":599,"min":5,"avg":62.583333333333336,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":646}
+[debug] [2020-12-16T16:33:10.038Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 16 Dec 2020 16:33:09 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:33:10.044Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/8aefd5a6360ef577:populateFiles [none]
+[debug] [2020-12-16T16:33:10.044Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/8aefd5a6360ef577:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/asset-manifest.json":"b9c85c70b0e3b0be1366dc42879a00e02a9090256a55b5c495aee4014d21b549","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/index.html":"cba1f9b48ba3a120d9d1a0a2b869f89f535cac7187acb0c5e3cab1dfd502732e","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.d8cc294f.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/js/main.f5b44aec.chunk.js":"bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b","/static/js/main.f5b44aec.chunk.js.map":"4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/js/2.d8cc294f.chunk.js":"e661538361971a3c88ec3ebb9c4c6e0fe449e65ca5d26a71356daf494694d04c","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463","/static/js/2.d8cc294f.chunk.js.map":"4d78f061403216cd7d314a068ee89fdce85088df8195ac0473b4e60edc196695","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8"}}
+[info] i  hosting: adding files to version [0/24] (0%) 
+[debug] [2020-12-16T16:33:11.255Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/8aefd5a6360ef577:populateFiles 200
+[debug] [2020-12-16T16:33:11.256Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/8aefd5a6360ef577:populateFiles {"uploadRequiredHashes":["4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3","bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b","cba1f9b48ba3a120d9d1a0a2b869f89f535cac7187acb0c5e3cab1dfd502732e","ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3","b9c85c70b0e3b0be1366dc42879a00e02a9090256a55b5c495aee4014d21b549"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files"}
+[debug] [2020-12-16T16:33:11.274Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 [none]
+[debug] [2020-12-16T16:33:11.275Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 [stream]
+[debug] [2020-12-16T16:33:11.282Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b [none]
+[debug] [2020-12-16T16:33:11.284Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b [stream]
+[debug] [2020-12-16T16:33:11.287Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/cba1f9b48ba3a120d9d1a0a2b869f89f535cac7187acb0c5e3cab1dfd502732e [none]
+[debug] [2020-12-16T16:33:11.289Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/cba1f9b48ba3a120d9d1a0a2b869f89f535cac7187acb0c5e3cab1dfd502732e [stream]
+[debug] [2020-12-16T16:33:11.292Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/b9c85c70b0e3b0be1366dc42879a00e02a9090256a55b5c495aee4014d21b549 [none]
+[debug] [2020-12-16T16:33:11.292Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/b9c85c70b0e3b0be1366dc42879a00e02a9090256a55b5c495aee4014d21b549 [stream]
+[debug] [2020-12-16T16:33:11.294Z] [hosting][populate queue][FINAL] {"max":1451,"min":1451,"avg":1451,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1471}
+[debug] [2020-12-16T16:33:11.297Z] [hosting] uploads queued: 5
+[debug] [2020-12-16T16:33:11.675Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:33:12.477Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/5] (0%) 
+[debug] [2020-12-16T16:33:13.397Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/b9c85c70b0e3b0be1366dc42879a00e02a9090256a55b5c495aee4014d21b549 200
+[debug] [2020-12-16T16:33:13.397Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/b9c85c70b0e3b0be1366dc42879a00e02a9090256a55b5c495aee4014d21b549 [stream]
+[debug] [2020-12-16T16:33:13.536Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 200
+[debug] [2020-12-16T16:33:13.537Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 [stream]
+[debug] [2020-12-16T16:33:13.672Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b 200
+[debug] [2020-12-16T16:33:13.673Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b [stream]
+[debug] [2020-12-16T16:33:13.773Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/cba1f9b48ba3a120d9d1a0a2b869f89f535cac7187acb0c5e3cab1dfd502732e 200
+[debug] [2020-12-16T16:33:13.774Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/8aefd5a6360ef577/files/cba1f9b48ba3a120d9d1a0a2b869f89f535cac7187acb0c5e3cab1dfd502732e [stream]
+[debug] [2020-12-16T16:33:14.079Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[debug] [2020-12-16T16:33:17.281Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[debug] [2020-12-16T16:33:23.684Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:33:23.687Z] FirebaseError: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:33:23.692Z] [hosting][upload queue][FINAL] {"max":2513,"min":2128,"avg":2334.25,"active":0,"complete":5,"success":4,"errored":1,"retried":5,"total":5,"elapsed":12428}
+[debug] [2020-12-16T16:33:23.854Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:124:11)
+    at Object.resolve (path.js:139:9)
+    at Uploader.zipStream (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:212:47)
+    at Uploader.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:196:28)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:4:12)
+    at Uploader.uploadHandler (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:185:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:187:37)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:4:12)
+    at Queue.executeTask (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:182:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:200:29)
+[error] 
+[error] Error: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:39:08.815Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:39:08.817Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T16:39:08.818Z] CLI Version:   8.18.1
+[debug] [2020-12-16T16:39:08.818Z] Platform:      win32
+[debug] [2020-12-16T16:39:08.818Z] Node Version:  v14.15.1
+[debug] [2020-12-16T16:39:08.822Z] Time:          Wed Dec 16 2020 18:39:08 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T16:39:08.822Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:39:08.822Z] 
+[debug] [2020-12-16T16:39:08.829Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T16:39:08.831Z] > authorizing via signed-in user
+[debug] [2020-12-16T16:39:08.833Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T16:39:08.837Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:39:08.837Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:39:09.092Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 16 Dec 2020 16:39:08 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:39:09.099Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T16:39:09.921Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:39:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=697","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:39:09.929Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T16:39:10.272Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:39:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T16:39:10.282Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T16:39:11.657Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:39:10 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mavkazno]: beginning deploy... 
+[info] i  hosting[mavkazno]: found 24 files in build 
+[debug] [2020-12-16T16:39:12.305Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T16:39:12.306Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:39:12.311Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T16:39:12.312Z] [hosting][hash queue][FINAL] {"max":604,"min":5,"avg":62.875,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":620}
+[debug] [2020-12-16T16:39:12.492Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 16 Dec 2020 16:39:11 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:39:12.508Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/25736dc27a1f8c83:populateFiles [none]
+[debug] [2020-12-16T16:39:12.509Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/25736dc27a1f8c83:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/asset-manifest.json":"7a80fca9504f2e6f45b3ad3d73f8bed7972dbe5896be2784b0ff1c3fd6b4b6b1","/index.html":"4a6e369e34756b17601cef62a5ed82e89f620d56f2b629b8a9586080d52de7e1","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.d8cc294f.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/js/main.543dcf1d.chunk.js":"f474a4801a8c63886e0e008a09cce67ea65df92a1a31c5f13d6472d0c5888160","/static/js/main.543dcf1d.chunk.js.map":"2f7b1a7206e8c33ebeb1f18a9bb4437ac9ec657355062252b1fe88f63a1e1e01","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/js/2.d8cc294f.chunk.js":"e661538361971a3c88ec3ebb9c4c6e0fe449e65ca5d26a71356daf494694d04c","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463","/static/js/2.d8cc294f.chunk.js.map":"4d78f061403216cd7d314a068ee89fdce85088df8195ac0473b4e60edc196695","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8"}}
+[debug] [2020-12-16T16:39:13.631Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/25736dc27a1f8c83:populateFiles 200
+[debug] [2020-12-16T16:39:13.632Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/25736dc27a1f8c83:populateFiles {"uploadRequiredHashes":["7a80fca9504f2e6f45b3ad3d73f8bed7972dbe5896be2784b0ff1c3fd6b4b6b1","2f7b1a7206e8c33ebeb1f18a9bb4437ac9ec657355062252b1fe88f63a1e1e01","4a6e369e34756b17601cef62a5ed82e89f620d56f2b629b8a9586080d52de7e1","f474a4801a8c63886e0e008a09cce67ea65df92a1a31c5f13d6472d0c5888160","ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files"}
+[debug] [2020-12-16T16:39:13.638Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/7a80fca9504f2e6f45b3ad3d73f8bed7972dbe5896be2784b0ff1c3fd6b4b6b1 [none]
+[debug] [2020-12-16T16:39:13.639Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/7a80fca9504f2e6f45b3ad3d73f8bed7972dbe5896be2784b0ff1c3fd6b4b6b1 [stream]
+[debug] [2020-12-16T16:39:13.641Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/2f7b1a7206e8c33ebeb1f18a9bb4437ac9ec657355062252b1fe88f63a1e1e01 [none]
+[debug] [2020-12-16T16:39:13.642Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/2f7b1a7206e8c33ebeb1f18a9bb4437ac9ec657355062252b1fe88f63a1e1e01 [stream]
+[debug] [2020-12-16T16:39:13.649Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/4a6e369e34756b17601cef62a5ed82e89f620d56f2b629b8a9586080d52de7e1 [none]
+[debug] [2020-12-16T16:39:13.649Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/4a6e369e34756b17601cef62a5ed82e89f620d56f2b629b8a9586080d52de7e1 [stream]
+[debug] [2020-12-16T16:39:13.651Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/f474a4801a8c63886e0e008a09cce67ea65df92a1a31c5f13d6472d0c5888160 [none]
+[debug] [2020-12-16T16:39:13.651Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/f474a4801a8c63886e0e008a09cce67ea65df92a1a31c5f13d6472d0c5888160 [stream]
+[debug] [2020-12-16T16:39:13.653Z] [hosting][populate queue][FINAL] {"max":1333,"min":1333,"avg":1333,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1348}
+[debug] [2020-12-16T16:39:13.654Z] [hosting] uploads queued: 5
+[info] i  hosting: uploading new files [0/5] (0%) 
+[debug] [2020-12-16T16:39:14.041Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:39:14.844Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:39:15.400Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/4a6e369e34756b17601cef62a5ed82e89f620d56f2b629b8a9586080d52de7e1 200
+[debug] [2020-12-16T16:39:15.400Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/4a6e369e34756b17601cef62a5ed82e89f620d56f2b629b8a9586080d52de7e1 [stream]
+[debug] [2020-12-16T16:39:15.498Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/2f7b1a7206e8c33ebeb1f18a9bb4437ac9ec657355062252b1fe88f63a1e1e01 200
+[debug] [2020-12-16T16:39:15.499Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/2f7b1a7206e8c33ebeb1f18a9bb4437ac9ec657355062252b1fe88f63a1e1e01 [stream]
+[debug] [2020-12-16T16:39:15.628Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/7a80fca9504f2e6f45b3ad3d73f8bed7972dbe5896be2784b0ff1c3fd6b4b6b1 200
+[debug] [2020-12-16T16:39:15.629Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/7a80fca9504f2e6f45b3ad3d73f8bed7972dbe5896be2784b0ff1c3fd6b4b6b1 [stream]
+[info] i  hosting: uploading new files [3/5] (60%) 
+[debug] [2020-12-16T16:39:16.022Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/f474a4801a8c63886e0e008a09cce67ea65df92a1a31c5f13d6472d0c5888160 200
+[debug] [2020-12-16T16:39:16.024Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/25736dc27a1f8c83/files/f474a4801a8c63886e0e008a09cce67ea65df92a1a31c5f13d6472d0c5888160 [stream]
+[debug] [2020-12-16T16:39:16.446Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [4/5] (80%) 
+[debug] [2020-12-16T16:39:19.647Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[info] i  hosting: uploading new files [4/5] (80%) 
+[debug] [2020-12-16T16:39:26.049Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:39:26.052Z] FirebaseError: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:39:26.056Z] [hosting][upload queue][FINAL] {"max":2397,"min":1767,"avg":2009.25,"active":0,"complete":5,"success":4,"errored":1,"retried":5,"total":5,"elapsed":12422}
+[debug] [2020-12-16T16:39:26.220Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined
+    at validateString (internal/validators.js:124:11)
+    at Object.resolve (path.js:139:9)
+    at Uploader.zipStream (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:212:47)
+    at Uploader.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:196:28)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:4:12)
+    at Uploader.uploadHandler (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\uploader.js:185:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:187:37)
+    at Generator.next (<anonymous>)
+    at C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:4:12)
+    at Queue.executeTask (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:182:16)
+    at Queue.<anonymous> (C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\throttler\throttler.js:200:29)
+[error] 
+[error] Error: Task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3 failed: retries exhausted after 6 attempts
+[debug] [2020-12-16T16:49:33.858Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:49:33.860Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T16:49:33.861Z] CLI Version:   8.18.1
+[debug] [2020-12-16T16:49:33.861Z] Platform:      win32
+[debug] [2020-12-16T16:49:33.861Z] Node Version:  v14.15.1
+[debug] [2020-12-16T16:49:33.862Z] Time:          Wed Dec 16 2020 18:49:33 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T16:49:33.862Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:49:33.862Z] 
+[debug] [2020-12-16T16:49:33.870Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T16:49:33.872Z] > authorizing via signed-in user
+[debug] [2020-12-16T16:49:33.874Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T16:49:33.877Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:49:33.878Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:49:34.113Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Wed, 16 Dec 2020 16:49:33 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:49:34.121Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T16:49:34.980Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:49:34 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=695","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:49:34.987Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T16:49:35.313Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:49:34 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T16:49:35.323Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T16:49:36.732Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:49:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mavkazno]: beginning deploy... 
+[info] i  hosting[mavkazno]: found 24 files in build 
+[debug] [2020-12-16T16:49:37.373Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T16:49:37.373Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:49:37.379Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T16:49:37.379Z] [hosting][hash queue][FINAL] {"max":601,"min":5,"avg":62,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":618}
+[debug] [2020-12-16T16:49:37.565Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 16 Dec 2020 16:49:36 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:49:37.580Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/178097b02a2dd324:populateFiles [none]
+[debug] [2020-12-16T16:49:37.581Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/178097b02a2dd324:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/asset-manifest.json":"ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/index.html":"745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.e5249f51.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/js/main.f5b44aec.chunk.js":"bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b","/static/js/main.f5b44aec.chunk.js.map":"4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/js/2.e5249f51.chunk.js":"aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463","/static/js/2.e5249f51.chunk.js.map":"eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8"}}
+[info] i  hosting: adding files to version [0/24] (0%) 
+[debug] [2020-12-16T16:49:39.752Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/178097b02a2dd324:populateFiles 200
+[debug] [2020-12-16T16:49:39.752Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/mavkazno/versions/178097b02a2dd324:populateFiles {"uploadRequiredHashes":["aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799","ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3","745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7","ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931","eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files"}
+[debug] [2020-12-16T16:49:39.761Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799 [none]
+[debug] [2020-12-16T16:49:39.761Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799 [stream]
+[debug] [2020-12-16T16:49:39.765Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7 [none]
+[debug] [2020-12-16T16:49:39.768Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7 [stream]
+[debug] [2020-12-16T16:49:39.770Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931 [none]
+[debug] [2020-12-16T16:49:39.770Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931 [stream]
+[debug] [2020-12-16T16:49:39.771Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c [none]
+[debug] [2020-12-16T16:49:39.772Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/mavkazno/versions/178097b02a2dd324/files/eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c [stream]
+[debug] [2020-12-16T16:49:39.773Z] [hosting][populate queue][FINAL] {"max":2389,"min":2389,"avg":2389,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":2401}
+[debug] [2020-12-16T16:49:39.774Z] [hosting] uploads queued: 5
+[debug] [2020-12-16T16:49:40.161Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[info] i  hosting: uploading new files [0/5] (0%) 
+[debug] [2020-12-16T16:49:40.963Z] [uploadQueue] Retrying task ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3
+[debug] [2020-12-16T16:50:15.515Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:50:15.517Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\anton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --project mavka-c5c01 --debug
+[debug] [2020-12-16T16:50:15.518Z] CLI Version:   8.18.1
+[debug] [2020-12-16T16:50:15.518Z] Platform:      win32
+[debug] [2020-12-16T16:50:15.518Z] Node Version:  v14.15.1
+[debug] [2020-12-16T16:50:15.519Z] Time:          Wed Dec 16 2020 18:50:15 GMT+0200 (Eastern European Standard Time)
+[debug] [2020-12-16T16:50:15.519Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T16:50:15.519Z] 
+[debug] [2020-12-16T16:50:15.526Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T16:50:15.528Z] > authorizing via signed-in user
+[debug] [2020-12-16T16:50:15.530Z] [iam] checking project mavka-c5c01 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-12-16T16:50:15.539Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:50:15.540Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:50:15.769Z] <<< HTTP RESPONSE 200 {"date":"Wed, 16 Dec 2020 16:50:15 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:50:15.780Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mavka-c5c01:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-12-16T16:50:16.593Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:50:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=695","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:50:16.600Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mavka-c5c01  
+ 
+[debug] [2020-12-16T16:50:16.898Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:50:16 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mavka-c5c01'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-12-16T16:50:16.909Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-12-16T16:50:18.255Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:50:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[plannertest]: beginning deploy... 
+[info] i  hosting[plannertest]: found 24 files in build 
+[debug] [2020-12-16T16:50:18.302Z] > refreshing access token with scopes: []
+[debug] [2020-12-16T16:50:18.302Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:50:18.306Z] [hosting] hash cache [YnVpbGQ] stored for 24 files
+[debug] [2020-12-16T16:50:18.307Z] [hosting][hash queue][FINAL] {"max":3,"min":1,"avg":1,"active":0,"complete":24,"success":24,"errored":0,"retried":0,"total":24,"elapsed":10}
+[debug] [2020-12-16T16:50:18.471Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Wed, 16 Dec 2020 16:50:17 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:50:18.488Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/versions/b4d93b1e974c0b80:populateFiles [none]
+[debug] [2020-12-16T16:50:18.490Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/versions/b4d93b1e974c0b80:populateFiles {"files":{"/404.html":"3240c6b45513fdd97861a63c8ae3ef0e7d2bf1357ec632ad7e6839473710326c\r","/asset-manifest.json":"ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931","/favicon.ico":"ef2d1257f1e3eca648bdbf68a8819ade5f832001f0b7b5b3894241c1462932a3\r","/index.html":"745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7","/logo192.png":"34f0a1e968f1e7c0f8a7111ce2f31d29c762c28bab3d46434752a21ee7d6accd\r","/logo512.png":"f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","/manifest.json":"5c997de1364b8be939319fa9209abd77f2caf7f8844999a9e2e9173f844e7840\r","/robots.txt":"b2090cf9761ef60aa06e4fab97679bd43dfa5e5df073701ead5879d7c68f1ec5\r","/static/css/main.84e2a4dc.chunk.css":"8894a8906c1170f66e09a4e5242df88862da534c5e8b8cb9ee0b274519c35adf","/static/css/main.84e2a4dc.chunk.css.map":"7d85dea9ea1530e30644bca0c239c6443f5820dc6783cf8916c230eec102c6a8","/static/js/2.e5249f51.chunk.js":"aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799","/static/js/2.e5249f51.chunk.js.LICENSE.txt":"af764280b3c0030f655aec0487efb48eec6c89012cb07b9fdf0e16a63c7b4b37","/static/js/2.e5249f51.chunk.js.map":"eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c","/static/js/3.7d6180be.chunk.js":"9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","/static/js/3.7d6180be.chunk.js.map":"0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","/static/js/main.f5b44aec.chunk.js":"bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b","/static/js/main.f5b44aec.chunk.js.map":"4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3","/static/js/runtime-main.29312922.js":"314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","/static/js/runtime-main.29312922.js.map":"c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","/static/media/checkbox.913f705a.gif":"9d0803af7fd029a5689c7f103efb14d1ac261d9d610ae16bd58d2406fecd1dd8","/static/media/demo.274a8b26.gif":"663de7ed1fdd0e23e2995b88e9c4d1c0f256f9c86e47c0be8dd2deed99282ef8","/static/media/giphy.5193be4b.gif":"e82507ed0bd9156d4d55fde5a647d224d211a6ed21ae3aaabe9dc49590cc13f4","/static/media/study-mats.7c3a53e0.gif":"2d921a69645982e7170cfa8b82451e960926a4c1a0b8f2e12080773c445fd84e","/static/media/weeks.3a5d96a0.gif":"6051fbb094e4e12c4f2c32be058754008f4647b518b7e8260cf4be951d601463"}}
+[debug] [2020-12-16T16:50:19.651Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/versions/b4d93b1e974c0b80:populateFiles 200
+[debug] [2020-12-16T16:50:19.651Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/versions/b4d93b1e974c0b80:populateFiles {"uploadRequiredHashes":["bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b","745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7","9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724","aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799","314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213","0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38","ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931","c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f","4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3","f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9","eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files"}
+[debug] [2020-12-16T16:50:19.658Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b [none]
+[debug] [2020-12-16T16:50:19.658Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b [stream]
+[debug] [2020-12-16T16:50:19.661Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7 [none]
+[debug] [2020-12-16T16:50:19.661Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7 [stream]
+[debug] [2020-12-16T16:50:19.665Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724 [none]
+[debug] [2020-12-16T16:50:19.668Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724 [stream]
+[debug] [2020-12-16T16:50:19.669Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799 [none]
+[debug] [2020-12-16T16:50:19.670Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799 [stream]
+[debug] [2020-12-16T16:50:19.671Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213 [none]
+[debug] [2020-12-16T16:50:19.672Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213 [stream]
+[debug] [2020-12-16T16:50:19.676Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38 [none]
+[debug] [2020-12-16T16:50:19.680Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38 [stream]
+[debug] [2020-12-16T16:50:19.681Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931 [none]
+[debug] [2020-12-16T16:50:19.682Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931 [stream]
+[debug] [2020-12-16T16:50:19.683Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f [none]
+[debug] [2020-12-16T16:50:19.686Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f [stream]
+[debug] [2020-12-16T16:50:19.690Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 [none]
+[debug] [2020-12-16T16:50:19.691Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 [stream]
+[debug] [2020-12-16T16:50:19.692Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9 [none]
+[debug] [2020-12-16T16:50:19.693Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9 [stream]
+[debug] [2020-12-16T16:50:19.695Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c [none]
+[debug] [2020-12-16T16:50:19.697Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c [stream]
+[debug] [2020-12-16T16:50:19.702Z] [hosting][populate queue][FINAL] {"max":1357,"min":1357,"avg":1357,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1401}
+[debug] [2020-12-16T16:50:19.702Z] [hosting] uploads queued: 11
+[info] i  hosting: uploading new files [0/11] (0%) 
+[debug] [2020-12-16T16:50:21.802Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38 200
+[debug] [2020-12-16T16:50:21.805Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/0ff3b634e4380658b5494b61efae82ec8bed5482a9fc68b915a3cbf87aa35e38 [stream]
+[debug] [2020-12-16T16:50:22.074Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7 200
+[debug] [2020-12-16T16:50:22.075Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/745495f8db95456f8df98d8d4a3a531f9c146d9f20517d9bb25eee5367977fd7 [stream]
+[debug] [2020-12-16T16:50:22.191Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f 200
+[debug] [2020-12-16T16:50:22.191Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/c71b2063c9dcf8157d68fa0b841e265e405213c85a8148acc55598422123c64f [stream]
+[debug] [2020-12-16T16:50:22.200Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724 200
+[debug] [2020-12-16T16:50:22.201Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/9a5ce515d0483cea6421d2a6a5ca631d758b917547a88ead6b2aa45527dfa724 [stream]
+[debug] [2020-12-16T16:50:22.213Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931 200
+[debug] [2020-12-16T16:50:22.213Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/ded548283293393a23d68abebe6923c50fcbb283e768f6d0b88ac6df61147931 [stream]
+[debug] [2020-12-16T16:50:22.236Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213 200
+[debug] [2020-12-16T16:50:22.237Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/314db7d85f6f2cb5a6adf014eeef9e60771192fc5a033db6744aab5ca9987213 [stream]
+[info] i  hosting: uploading new files [6/11] (54%) 
+[debug] [2020-12-16T16:50:22.352Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 200
+[debug] [2020-12-16T16:50:22.353Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/4a45523ffe0f6000b5c9e03b111d00438f0c4b504f72402afbeec552b201ada3 [stream]
+[debug] [2020-12-16T16:50:22.408Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b 200
+[debug] [2020-12-16T16:50:22.409Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/bdd3c6cfaede587500f81bddf844f3a38a35ad863f912d1dd3e6872ad4c5e54b [stream]
+[debug] [2020-12-16T16:50:22.554Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9 200
+[debug] [2020-12-16T16:50:22.555Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/f79035bd54a02963825e56ba6b107f4f5337c9a7210f0e37e22ccd227bf738c9 [stream]
+[debug] [2020-12-16T16:50:22.605Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c 200
+[debug] [2020-12-16T16:50:22.606Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/eeddd5fc2266df996c46643409633126757c27d26728bce6796f56070bc9825c [stream]
+[debug] [2020-12-16T16:50:22.727Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799 200
+[debug] [2020-12-16T16:50:22.727Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/plannertest/versions/b4d93b1e974c0b80/files/aabdc8e1dd13d79dbb8395862dcb96c8f30b995e1d56fd1777fcb39e16452799 [stream]
+[debug] [2020-12-16T16:50:22.731Z] [hosting][upload queue][FINAL] {"max":3075,"min":2157,"avg":2655.4545454545455,"active":0,"complete":11,"success":11,"errored":0,"retried":0,"total":11,"elapsed":3077}
+[info] +  hosting[plannertest]: file upload complete 
+[debug] [2020-12-16T16:50:22.735Z] [hosting] deploy completed after 4470ms
+[debug] [2020-12-16T16:50:22.896Z] [
+  {
+    "config": {
+      "target": "planner",
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "plannertest"
+    },
+    "site": "plannertest",
+    "version": "sites/plannertest/versions/b4d93b1e974c0b80"
+  }
+]
+[info] i  hosting[plannertest]: finalizing version... 
+[debug] [2020-12-16T16:50:22.916Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T16:50:22.919Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T16:50:23.089Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Wed, 16 Dec 2020 16:50:22 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:50:23.095Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/versions/b4d93b1e974c0b80?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2020-12-16T16:50:24.195Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:50:23 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:50:24.196Z] [hosting] finalized version for plannertest: {"name":"sites/plannertest/versions/b4d93b1e974c0b80","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2020-12-16T16:50:17.104545Z","createUser":{"email":"antonina.zakorchemna.23@dartmouth.edu"},"finalizeTime":"2020-12-16T16:50:23.444763Z","finalizeUser":{"email":"antonina.zakorchemna.23@dartmouth.edu"}}
+[info] +  hosting[plannertest]: version finalized 
+[info] i  hosting[plannertest]: releasing new version... 
+[debug] [2020-12-16T16:50:24.203Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/plannertest/releases?version_name=sites/plannertest/versions/b4d93b1e974c0b80  
+ {"message":null}
+[debug] [2020-12-16T16:50:25.271Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 16:50:24 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T16:50:25.274Z] [hosting] release: {"name":"sites/plannertest/releases/1608137423853556","version":{"name":"sites/plannertest/versions/b4d93b1e974c0b80","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2020-12-16T16:50:17.104545Z","createUser":{"email":"antonina.zakorchemna.23@dartmouth.edu"},"finalizeTime":"2020-12-16T16:50:23.444763Z","finalizeUser":{"email":"antonina.zakorchemna.23@dartmouth.edu"},"preview":{}},"type":"DEPLOY","releaseTime":"2020-12-16T16:50:23.853556790Z","releaseUser":{"email":"antonina.zakorchemna.23@dartmouth.edu"}}
+[info] +  hosting[plannertest]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/mavka-c5c01/overview
+[info] Hosting URL: https://plannertest.web.app

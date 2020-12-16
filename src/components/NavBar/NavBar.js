@@ -54,8 +54,13 @@ const NavBar = (props) => {
 
       <Box flexGrow={1}>
        {/*<NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>*/}
-        <NavLink to="/">
-          <img name="NavLandingButton" src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
+        <NavLink to="/" onClick={(e) => tracking.trigger("LogoFromMenuClicked")}>
+       {/*   <NavLink to="/">*/}
+          <img
+              name="NavLandingButton"
+              src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)}
+              alt="mavka"
+              className={classes.Logo} />
         </NavLink>
       </Box>
 
@@ -67,7 +72,7 @@ const NavBar = (props) => {
               <Button
                   name="NavPlannerButton"
                   active={props.selected === "planner"}
-                  onClick={(e) => tracking.trigger("PlannerFromMenuClicked", {}, {"int_redirect": {"href": '/planner', "history": history }})}
+                  onClick={(e) => tracking.trigger("PlannerFromMenuClicked", {}, {"int_redirect": {"href": '/planner', "history": history }} )}
               >
                   планер
               </Button>
