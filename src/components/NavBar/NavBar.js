@@ -33,6 +33,9 @@ const NavBar = (props) => {
     setOpenedLogin(false)
   }
 
+  const addEvent = () => {}
+
+
   const handleLoggedOut = () => {
     addAnalyticsEvent(user,"LogOutClicked", {}).then(
         () => {

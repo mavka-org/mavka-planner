@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import React, { useEffect } from 'react'
 import Redirect from "react-router-dom/es/Redirect";
 import { useHistory } from "react-router-dom";
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Landing = (props) => {
   const user = useContext(UserContext);
+  const classes = useStyles();
+  const history = useHistory();
+  const tracking = useContext(TrackingContext)
 
   useEffect(
     () => {
@@ -39,9 +43,6 @@ const Landing = (props) => {
     [user]
   )
 
-
-  const classes = useStyles();
-  const history = useHistory();
 
   return (
     <Box>
@@ -59,13 +60,16 @@ const Landing = (props) => {
 
           <Grid container item>
             <LargeButton
-              // href='planner'
+              //href='planner'
               fullWidth
               color="primary"
               style={{background: '#000'}}
               variant="contained"
               name="LandingPlannerButton"
-              onClick={(e) => addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
+              //onClick={(e)=>console.log(history)}
+              onClick={(e)=>tracking.trigger("h", {"ext_href":"https://reactrouter.com/web/api/history", "history":history})}
+              //onClick={(e)=>tracking.trigger("h", {"int_href":"/program", "history":history})}
+              //onClick={(e) => addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
               //onClick={(e) => window.location.href="https://www.youtube.com/watch?v=Lrle0x_DHBM"}
             >
             📅  планер підготовки

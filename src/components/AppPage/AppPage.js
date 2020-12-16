@@ -29,7 +29,8 @@ const AppPage = (props) => {
 
   const handleClickSubjectsDialog = () => {
     setOpenSubjectsDialog(true);
-    addAnalyticsEvent(user, "SubjectDropdownClicked", {"path":props.history.location.pathname})
+    // addAnalyticsEvent(user, "SubjectDropdownClicked", {"path":props.history.location.pathname})
+    addAnalyticsEvent(user, "SubjectDropdownClicked", {"path":"props.history.location.pathname"})
   };
 
   const handleSubjectsDialogClosed = () => {
