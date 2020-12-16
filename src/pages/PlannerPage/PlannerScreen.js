@@ -9,18 +9,20 @@ import {addAnalyticsEvent} from './../../services/API/httpRequests';
 import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
 import {SubjectContext} from "../../providers/SubjectProvider";
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 const PlannerScreen = (props) => {
 
   const { planner, deletePlanner } = props
   const user = useContext(UserContext);
   const subject = useContext(SubjectContext)[0]
+  const tracking = useContext(TrackingContext)
 
 
   useEffect(
       () => {
         if(user) {
-          addAnalyticsEvent(user, "PlannerPageOpened", {"subject_id":subject.id})
+          tracking.trigger("PlannerPageViewed")
         }
       },
       [user]
@@ -44,7 +46,8 @@ const PlannerScreen = (props) => {
   const [settingsOpen, setSettingsOpen] = React.useState(false);
 
   const handleClickSettingsOpen = () => {
-    addAnalyticsEvent(user, "PlannerSettingsClicked", {"subject_id":subject.id})
+    tracking.trigger("PlannerSettingsClicked")
+
     setSettingsOpen(true);
   };
 

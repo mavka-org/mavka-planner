@@ -14,6 +14,7 @@ import { getProgram } from "../../services/API/httpRequests";
 import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
+import {TrackingContext} from "@vrbo/react-event-tracking";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -214,6 +215,7 @@ const InputCard = (props) => {
     const classes = useStyles();
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
+    const tracking = useContext(TrackingContext)
 
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
@@ -224,8 +226,8 @@ const InputCard = (props) => {
     const handleProceed = () => {
         props.handleProceed(selectedTopicIds)
         if(props.program) {
-            addAnalyticsEvent(user, "FinishPlannerSetupClicked", {"subject_id": subject.id, "topics_to_excule": selectedTopicIds})
-        }
+            tracking.trigger("FinishPlannerSetupClicked", {"topics_to_exclude": selectedTopicIds})
+            }
     }
 
     return(

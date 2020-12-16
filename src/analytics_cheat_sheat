@@ -1,3 +1,20 @@
+import {TrackingContext} from '@vrbo/react-event-tracking'
+
+const tracking = useContext(TrackingContext)
+
+
+tracking.trigger("LandingPlannerButtonClicked", {}, {"int_redirect": {"href":'planner', "history":history}})
+
+tracking.trigger("FinishPlannerSetupClicked")
+
+
+import { useHistory } from "react-router-dom";
+const history = useHistory();
+
+
+
+
+
 import { useEffect } from 'react'
 import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 

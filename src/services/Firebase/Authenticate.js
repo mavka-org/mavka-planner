@@ -2,27 +2,35 @@ import React, {useContext} from 'react'
 import {auth} from './firebase'
 import { setUserInfo } from './../API/httpRequests'
 import {addAnalyticsEvent} from "../API/httpRequests";
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 
 
 export const logIn = async(email, password, userInfo) => {
+   // const tracking = useContext(TrackingContext)
+
     console.log(userInfo)
     await auth.createUserWithEmailAndPassword(email, password).then((authUser) =>{
         console.log('user created!')
         console.log(authUser)
-        addAnalyticsEvent(authUser.user, "SignUpClicked", {})
+
         authUser.user.getIdToken().then((userToken) => {
             console.log(userToken)
+
             setUserInfo(userToken, userInfo).then((res) => {
                 console.log(res)
+                //tracking.trigger("SignedUp")
             })
+
         })
     }).catch((error) => {
         if(error.code === 'auth/email-already-in-use'){
+
             auth.signInWithEmailAndPassword(email, password).then((loggedUser) => {
                 console.log('user logged in!')
-                addAnalyticsEvent(loggedUser.user, "LogInClicked", {})
+                //tracking.trigger("LoggedIn")
             })
+
         }
     })
 }

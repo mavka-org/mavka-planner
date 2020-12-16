@@ -6,11 +6,13 @@ import { Typography } from '@material-ui/core';
 import { getUserPlanner, setUserPlanner, getDefaultPlanner, deleteUserPlanner } from './../../services/API/httpRequests';
 import { UserContext } from './../../providers/UserProvider';
 import { SubjectContext } from './../../providers/SubjectProvider';
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 const PlannerPage = (props) => {
 
   const user = useContext(UserContext)
   const subject = useContext(SubjectContext)[0]
+  const tracking = useContext(TrackingContext)
 
   // const [fakeLoading, setFakeLoading] = React.useState(true)
   const [planner, setPlanner] = React.useState(undefined);

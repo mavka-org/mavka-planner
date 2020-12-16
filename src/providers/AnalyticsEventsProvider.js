@@ -13,24 +13,31 @@ const AnalyticsEventsProvider = (props) => {
     const user = useContext(UserContext);
     const isTesting = true
 
-    const defaultFields = {"subject_id": subject.id, "user": user, "isTesting": isTesting};
-    const defaultOptions = {asynchronous: true};
-    const customTrigger = (event, fields, options) => {
+    const defaultFields = {"subject_id":subject.id};
+    const defaultOptions = {asynchronous: false};
+    const customTrigger = (event_name, fields, options) => {
 
-        let event_params = fields
-        addAnalyticsEvent(user, event, event_params, defaultFields.isTesting).then(
+
+        addAnalyticsEvent(user, event_name, fields, isTesting).then(
             () => {
-                console.log("yayayayay this works thanks universe!!")
-                console.log("history ", fields.history)
-                console.log("fields ", fields)
-                console.log("options ", options)
+                // console.log("yayayayay this works thanks universe!!")
+                // console.log("history ", fields.history)
+                // console.log("fields ", fields)
+                // console.log("options ", options)
 
-                if (fields.int_href && fields.history) {
-                    fields.history.push(fields.int_href)
+                if (options.int_redirect) {
+                    if (options.int_redirect.href && options.int_redirect.history) {
+                        options.int_redirect.history.push(options.int_redirect.href)
+                    } else {console.log("Event analytics error: tried to redirect internally but didnt provide href or history")}
                 }
-                if (fields.ext_href){
-                    window.location.href = fields.ext_href
+
+                if (options.ext_redirect) {
+                    if (options.ext_redirect.href) {
+                        console.log("options.ext_redirect.href ", options.ext_redirect.href)
+                        window.location.href = options.ext_redirect.href
+                    } else {console.log("Event analytics error: tried to redirect externally but didnt provide href")}
                 }
+
 
             }
         )

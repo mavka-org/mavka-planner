@@ -84,14 +84,12 @@ export const updateUserPlanner = async (user, subject, changes) => {
   if (user) {
     const userToken = await user.getIdToken()
 
-    const response = await axios.put(
+    await axios.put(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`,
         JSON.stringify({changes: changes }),
       { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
     )
 
-
-    return response
   }
 
   return null

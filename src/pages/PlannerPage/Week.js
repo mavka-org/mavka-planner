@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { TopicEvent, UrlEvent, TextEvent } from "./Event";
 import { updateUserPlanner } from './../../services/API/httpRequests';
 import {addAnalyticsEvent} from "../../services/API/httpRequests";
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,7 @@ const Week = (props) => {
 
   const user = useContext(UserContext)
   const subject = useContext(SubjectContext)[0]
+  const tracking = useContext(TrackingContext)
 
   const idx = props.idx
   const start_date = new Date(props.json.start_date + 'T00:00:00')
@@ -44,8 +46,7 @@ const Week = (props) => {
 
   const handleEventCompleted = (eventIdx, eventId, state) => {
     // Update eventsCompleted state with a new value
-    // TODO add subject to event!!
-    addAnalyticsEvent(user, "PlannerEventCheckboxClicked", {"subject_id":subject.id, "event_id": eventId, "checkbox_new_state": state, "week_tense": getWeekTense()})
+    tracking.trigger("PlannerEventCheckboxClicked", {"event_id": eventId, "completed": state, "week_tense": getWeekTense()})
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)
@@ -66,9 +67,6 @@ const Week = (props) => {
       'text': TextEvent
   }
 
-  const handleButtonClick = (eventId) => {
-    addAnalyticsEvent(user, "PlannerEventButtonClicked", {"event_id": eventId})
-  }
 
   const isCurrentWeek = () => {
     // returns true if today is in between the start date and end date of the week
@@ -121,7 +119,7 @@ const Week = (props) => {
 
         let Event = event_types_classes[event_json.type]
         return (
-          <Event subject={subject} idx={event_idx} weekIdx={idx} json={event_json} handleButtonClick={handleButtonClick} handleEventCompleted={handleEventCompleted}/>
+          <Event subject={subject} idx={event_idx} weekIdx={idx} json={event_json} handleEventCompleted={handleEventCompleted}/>
         )
       })
   }

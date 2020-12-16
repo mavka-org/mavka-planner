@@ -10,14 +10,17 @@ import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
 import Page from '../../components/Page/Page';
+import {TrackingContext} from '@vrbo/react-event-tracking'
+import { useHistory } from "react-router-dom";
 
 
 export default function TopicPage(props) {
-    console.log("TopicPage props ", props)
 
     const [topic, setTopic] = React.useState(null)
     const user = useContext(UserContext);
     const subject = useContext(SubjectContext)[0]
+    const tracking = useContext(TrackingContext)
+    const history = useHistory();
 
     if (!topic) {
         getTopic(props.match.params.id).then((topicResponse) => {
@@ -28,8 +31,7 @@ export default function TopicPage(props) {
     useEffect(
         () => {
             if(user) {
-                // TODO add subject
-                addAnalyticsEvent(user, "TopicPageOpened", {"subject_id":subject.id, "topic_id": props.match.params.id})
+                tracking.trigger("TopicPageViewed", {"topic_id": props.match.params.id})
             }
         },
         [user]
@@ -45,10 +47,31 @@ export default function TopicPage(props) {
             <Box pt={3} pb={3}>
                 <Grid container spacing={3} p={3}>
                     <Grid item xs={6}>
-                        <Button name="TopicTestsButton" onClick={(e)=>addAnalyticsEvent(user, "TopicTestsButtonClicked", {"subject_id":subject.id, "event_id":topic.id})} fullWidth size="big"  variant="contained" color="primary" target="_blank" href={topic.practice_link}>тести</Button>
+                        <Button
+                            name="TopicTestsButton"
+                            onClick = {(e) => tracking.trigger("TopicTestsButtonClicked", {"topic_id":topic.id}, {"ext_redirect": {"href": topic.practice_link, "history": history }})}
+                            //onClick={(e)=>addAnalyticsEvent(user, "TopicTestsButtonClicked", {"subject_id":subject.id, "event_id":topic.id})}
+                            fullWidth size="big"
+                            variant="contained"
+                            color="primary"
+                            target="_blank"
+                            //href={topic.practice_link}
+                        >тести
+                        </Button>
                     </Grid>
                     <Grid item xs={6}>
-                        <Button name="TopicStudyGuidesButton" onClick={(e)=>addAnalyticsEvent(user, "TopicStudyGuidesButtonClicked", {"subject_id":subject.id,"event_id":topic.id})} fullWidth size="medium" variant="contained" color="primary" target="_blank" href={topic.study_guide_link}>конспекти</Button>
+                        <Button
+                            name="TopicStudyGuidesButton"
+                            onClick = {(e) => tracking.trigger("TopicStudyGuidesButtonClicked", {"topic_id":topic.id}, {"ext_redirect": {"href": topic.study_guide_link, "history": history }})}
+                            //onClick={(e)=>addAnalyticsEvent(user, "TopicStudyGuidesButtonClicked", {"subject_id":subject.id,"event_id":topic.id})}
+                            fullWidth
+                            size="medium"
+                            variant="contained"
+                            color="primary"
+                            target="_blank"
+                            //href={topic.study_guide_link}
+                        >конспекти
+                        </Button>
                     </Grid>
                 </Grid>
             </Box>

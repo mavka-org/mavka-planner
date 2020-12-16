@@ -37,7 +37,7 @@ const Landing = (props) => {
   useEffect(
     () => {
       if (user) {
-        addAnalyticsEvent(user, "LandingPageOpened", {})
+        tracking.trigger("LandingPageViewed")
       }
     },
     [user]
@@ -66,11 +66,7 @@ const Landing = (props) => {
               style={{background: '#000', fontSize: '17px'}}
               variant="contained"
               name="LandingPlannerButton"
-              //onClick={(e)=>console.log(history)}
-              onClick={(e)=>tracking.trigger("h", {"ext_href":"https://reactrouter.com/web/api/history", "history":history})}
-              //onClick={(e)=>tracking.trigger("h", {"int_href":"/program", "history":history})}
-              //onClick={(e) => addAnalyticsEvent(user, "LandingPlannerButtonClicked", {})}
-              //onClick={(e) => window.location.href="https://www.youtube.com/watch?v=Lrle0x_DHBM"}
+              onClick={(e)=>tracking.trigger("LandingPlannerButtonClicked", {}, {"int_redirect": {"href":'planner', "history":history}})}
             >
             📅  планер підготовки
             </LargeButton>
@@ -78,13 +74,13 @@ const Landing = (props) => {
 
           <Grid container item>
             <LargeButton
-              href='program'
+              //href='program'
               fullWidth
               style={{fontSize: '17px' }}
               variant="contained"
               className={classes.oppositeColor}
               name="LandingProgramButton"
-              onClick={(e) => addAnalyticsEvent(user, "LandingProgramButtonClicked", {})}
+              onClick={(e)=>tracking.trigger("LandingProgramButtonСlicked", {}, {"int_redirect": {"href":'program', "history":history}})}
             >
             📚  тести та матеріали
             </LargeButton>

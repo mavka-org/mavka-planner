@@ -14,6 +14,8 @@ import IconButton from "@material-ui/core/IconButton";
 import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
+import {TrackingContext} from '@vrbo/react-event-tracking'
+import { useHistory } from "react-router-dom";
 
 
 const Accordion = withStyles({
@@ -65,6 +67,8 @@ export default function ProgramAccordion(props) {
 
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
+    const tracking = useContext(TrackingContext)
+    const history = useHistory();
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -72,7 +76,8 @@ export default function ProgramAccordion(props) {
         setExpanded(newExpanded ? panel : false);
 
         if(newExpanded) {
-            addAnalyticsEvent(user, "ProgramTopicAccordionOpened", {"subject_id":subject.id, "topic_id":topic_id})
+            tracking.trigger("ProgramTopicAccordionClicked", {"topic_id":topic_id})
+            //addAnalyticsEvent(user, "ProgramTopicAccordionClicked", {"subject_id":subject.id, "topic_id":topic_id})
         }
     };
 
@@ -122,10 +127,11 @@ export default function ProgramAccordion(props) {
 
     function createAccordion(topic) {
 
-        const handleButtonClick = (event) => {
+        const handleButtonClick = (event, options) => {
+            console.log("eventttt", event)
             event.stopPropagation()
-            // addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
-            addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
+            tracking.trigger("ProgramTopicLearnButtonClicked", {"topic_id":topic.id}, options)
+            //addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
         }
 
         return (
@@ -150,11 +156,11 @@ export default function ProgramAccordion(props) {
                                 {/*href={"/math/topic/"+topic.id}*/}
                                 <Button
                                   name={topic.id + 'TopicAccordionButton'}
-                                  onClick={(e)=>addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})}
+                                  onClick={ (e)=> handleButtonClick(e, {"int_redirect":{"href":("/math/topic/"+topic.id), "history":history}}) }
                                   size="small"
                                   variant="contained"
                                   color="primary"
-                                  href={"/math/topic/"+topic.id}
+                                  //href={"/math/topic/"+topic.id}
                                 >
                                   вчити
                                 </Button>

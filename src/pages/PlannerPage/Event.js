@@ -2,13 +2,13 @@ import React from 'react'
 import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
-import { UserContext } from "../../providers/UserProvider";
+import {TrackingContext} from '@vrbo/react-event-tracking'
+
 
 
 class Event extends React.Component {
 
-    //static user = UserContext
+    static contextType = TrackingContext;
 
     constructor(props, title){
       super(props)
@@ -31,10 +31,12 @@ class Event extends React.Component {
       })
     }
 
-    handleButtonClick = (e) => {
-        addAnalyticsEvent(this.context, "PlannerEventButtonClicked", {"subject_id":this.subject.id, "event_id":this.id})
-        console.log("Event analytix")
+    handleButtonClick = (options) => {
+        //this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
+        // ріал костиль, бо для int_redirect треба контекст історії, а в класі можна використовувати лише один контекст (вже є трігер)
+        this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
     }
+
 
     getButton() {
       return ''
@@ -74,7 +76,6 @@ class Event extends React.Component {
     }
 
 }
-Event.contextType = UserContext;
 
 
 export class TopicEvent extends Event {
@@ -89,7 +90,14 @@ export class TopicEvent extends Event {
 
     getButton() {
         // href={"/math/topic/" + this.topic_id}
-      return (<LinkButton name={this.id + 'Button'} onClick={(e)=>this.handleButtonClick()} size="small" variant="contained" >вчити</LinkButton>)
+      return (<LinkButton
+          name={this.id + 'Button'}
+          //onClick={(e)=>this.handleButtonClick()}
+          onClick={(e)=>this.handleButtonClick({"ext_redirect": {"href":("/math/topic/" + this.topic_id)}})}
+          size="small"
+          variant="contained"
+      >вчити
+      </LinkButton>)
     }
 }
 
@@ -103,7 +111,14 @@ export class UrlEvent extends Event {
 
     getButton() {
       return (
-        <LinkButton name={this.id + 'Button'} href={this.url} onClick={(e)=>this.handleButtonClick()}  variant="outlined" >перейти</LinkButton>
+        <LinkButton
+            name={this.id + 'Button'}
+            //href={this.url}
+            onClick={(e)=>this.handleButtonClick({"ext_redirect": {"href":this.url}})}
+            //onClick={(e)=>this.handleButtonClick()}
+            variant="outlined"
+        >перейти
+        </LinkButton>
       )
     }
 }

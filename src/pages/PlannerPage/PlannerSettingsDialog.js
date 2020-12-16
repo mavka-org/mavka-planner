@@ -12,16 +12,18 @@ import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
 import { useEffect } from 'react'
 import {SubjectContext} from "../../providers/SubjectProvider";
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 const PlannerSettingsDialog = (props) => {
   const {open, onClose} = props;
   const user = useContext(UserContext);
   const subject = useContext(SubjectContext)[0]
+  const tracking = useContext(TrackingContext)
 
 
-  const deleteUserPlanner = (name, par) => {
+  const deleteUserPlanner = () => {
     props.deletePlanner(user, subject)
-    addAnalyticsEvent(user, name, par)
+    tracking.trigger("PlannerResetClicked")
   }
 
   return (
@@ -52,7 +54,7 @@ const PlannerSettingsDialog = (props) => {
             назад
           </Button>
 
-        <Button name="resetPlannerButton" size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner("PlannerResetClicked", {"subject":subject})}>
+        <Button name="resetPlannerButton" size="medium" href="" variant="outlined" color="primary" onClick={(e) => deleteUserPlanner}>
             перестворити планер
           </Button>
 

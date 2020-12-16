@@ -12,6 +12,7 @@ import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
 import Link from "@material-ui/core/Link";
 import { useHistory } from "react-router-dom";
 import  { Redirect } from 'react-router-dom'
+import {TrackingContext} from '@vrbo/react-event-tracking'
 
 const useStyles = makeStyles((theme) => ({
   Logo: {
@@ -26,6 +27,7 @@ const NavBar = (props) => {
 
   const user = useContext(UserContext)
   const history = useHistory();
+  const tracking = useContext(TrackingContext)
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
 
@@ -33,31 +35,25 @@ const NavBar = (props) => {
     setOpenedLogin(false)
   }
 
-  const addEvent = () => {}
 
 
   const handleLoggedOut = () => {
-    addAnalyticsEvent(user,"LogOutClicked", {}).then(
-        () => {
-          history.push("/math/topic/11")
-          signOut()
-        }
-    )
+      tracking.trigger("LoggedOut")
+      signOut()
+
   }
 
-  const recordAnalyticsAndRedirect = (event_name, event_params, href) => {
-      addAnalyticsEvent(user,event_name, event_params).then(
-          () => {
-              history.push(href)
-          }
-      )
+  const handleLogIn = () => {
+      tracking.trigger("LogInClicked")
+      setOpenedLogin(true)
   }
+
 
   return (
     <Box display="flex" alignItems="center" py={1}>
 
       <Box flexGrow={1}>
-      // <NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>
+       {/*<NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>*/}
         <NavLink to="/">
           <img name="NavLandingButton" src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)} alt="mavka" className={classes.Logo} />
         </NavLink>
@@ -69,16 +65,25 @@ const NavBar = (props) => {
             props.selected !== undefined &&
             <div>
               <Button
-                  //href='/planner'
                   name="NavPlannerButton"
                   active={props.selected === "planner"}
-                  //onClick={(e) => addAnalyticsEvent(user,"PlannerFromMenuClicked", {})}
-                  onClick={(e) => recordAnalyticsAndRedirect("PlannerFromMenuClicked", {}, '/planner')}
+                  onClick={(e) => tracking.trigger("PlannerFromMenuClicked", {}, {"int_redirect": {"href": '/planner', "history": history }})}
               >
                   планер
               </Button>
-              <Button name="NavProgramButton" href='/program' active={props.selected === "program"} onClick={(e) => addEvent("ProgramFromMenuClicked", {})}>програма</Button>
-              <Button name="NavTestButton" href='https://tests.mavka.org' active={props.selected === "tests"} onClick={(e) => addEvent("TestFromMenuClicked", {})}>тести</Button>
+              <Button
+                  name="NavProgramButton"
+                  active={props.selected === "program"}
+                  onClick={(e) => tracking.trigger("ProgramFromMenuClicked", {}, {"int_redirect": {"href": '/program', "history": history }})}
+              >програма
+              </Button>
+              <Button
+                  name="NavTestButton"
+                  active={props.selected === "tests"}
+                  //onClick={(e) => tracking.trigger("TestFromMenuClicked", {},)}
+                  onClick={(e) => tracking.trigger("TestFromMenuClicked", {}, {"ext_redirect": {"href": 'https://tests.mavka.org', "history": history }})}
+              >тести
+              </Button>
             </div>
           }
           {
@@ -86,7 +91,13 @@ const NavBar = (props) => {
               <Button onClick={handleLoggedOut} style={{ opacity: 0 }}>вийти</Button>
               :
               (!user || user.isAnonymous) ?
-                <Button name="NavLoginButton" onClick={() => setOpenedLogin(true)} variant="outlined">увійти</Button>
+                <Button
+                    name="NavLoginButton"
+                    onClick={() => handleLogIn()}
+                    //onClick={() => setOpenedLogin(true)}
+                    variant="outlined"
+                >увійти
+                </Button>
                 :
                 <Button name="NavLogoutButton" onClick={handleLoggedOut}>вийти</Button>
               // href='/'
