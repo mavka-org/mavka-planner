@@ -66,7 +66,7 @@ const PlannerPage = (props) => {
 
   const deletePlanner = () => {
     // TODO need to notify user of the request loading
-    deleteUserPlanner(user, subject.id).then((response) => {
+    deleteUserPlanner(user, subject.id).then(() => {
       setOwnsPlanner(undefined);
       setPlanner(undefined)
     })
