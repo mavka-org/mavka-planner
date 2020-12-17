@@ -46,10 +46,9 @@ export const deleteUserPlanner = async (user, subject) => {
 
   if (user) {
     if (!user.isAnonymous) {
-      const userToken = await user.getIdToken()
-      const response = await axios.delete(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
-      console.log(response)
-      return response
+      await user.getIdToken().then((userToken) => {
+        axios.delete(`https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`)
+      })
     }
   }
 
@@ -89,14 +88,15 @@ export const updateUserPlanner = async (user, subject, changes) => {
 
   if (user) {
     if (!user.isAnonymous) {
-      const userToken = await user.getIdToken()
+      await user.getIdToken().then((userToken) => {
 
-      await axios.put(
-          `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`,
-          JSON.stringify({changes: changes }),
-        { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
-      )
-
+        axios.put(
+            `https://mvp-api-5dvjwdatfq-ew.a.run.app/planner/${userToken}/${subject}`,
+            JSON.stringify({changes: changes }),
+          { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+        )
+        
+      })
     }
   }
 
@@ -107,12 +107,14 @@ export const updateUserPlanner = async (user, subject, changes) => {
 export const addAnalyticsEvent = async (user, eventName, params, isTesting) => {
 
     if (user) {
-        let userToken = await user.getIdToken()
-
-         axios.post(
-            `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${user.isAnonymous}`,
-            JSON.stringify({params: params, isTesting: isTesting}),
-          { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
+         await user.getIdToken().then(
+            (userToken) => {
+                axios.post(
+                    `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${user.isAnonymous}`,
+                    JSON.stringify({params: params, isTesting: isTesting}),
+                    {headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'}}
+                )
+            }
         )
       }
 
