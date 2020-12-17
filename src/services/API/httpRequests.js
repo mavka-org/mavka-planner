@@ -107,7 +107,7 @@ export const updateUserPlanner = async (user, subject, changes) => {
 export const addAnalyticsEvent = async (user, eventName, params, isTesting) => {
 
     if (user) {
-        await user.getIdToken().then(
+         await user.getIdToken().then(
             (userToken) => {
                 axios.post(
                     `https://mvp-api-5dvjwdatfq-ew.a.run.app/add_event/${eventName}/${userToken}/${user.isAnonymous}`,

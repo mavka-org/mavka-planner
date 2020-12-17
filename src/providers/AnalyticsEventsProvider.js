@@ -3,6 +3,7 @@ import React, {useContext} from "react";
 import SubjectProvider, {SubjectContext} from "./SubjectProvider";
 import {UserContext} from "./UserProvider";
 import {addAnalyticsEvent} from "../services/API/httpRequests";
+import { devMode as isTesting } from "../config";
 
 //import {TrackingContext} from '@vrbo/react-event-tracking'
 //const tracking = useContext(TrackingContext)
@@ -11,7 +12,7 @@ const AnalyticsEventsProvider = (props) => {
 
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
-    const isTesting = false
+    //const isTesting = false
 
     const defaultFields = {"subject_id":subject.id};
     const defaultOptions = {asynchronous: false};
