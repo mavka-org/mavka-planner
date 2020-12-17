@@ -11,7 +11,7 @@ const AnalyticsEventsProvider = (props) => {
 
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
-    const isTesting = true
+    const isTesting = false
 
     const defaultFields = {"subject_id":subject.id};
     const defaultOptions = {asynchronous: false};
