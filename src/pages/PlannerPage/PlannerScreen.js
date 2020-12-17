@@ -28,20 +28,6 @@ const PlannerScreen = (props) => {
       [user]
   )
 
-/* TODO
-  // confetti references
-  var confettiCanvasRef = React.createRef()
-  const setConfettiCanvasRef = (input) => {
-    confettiCanvasRef = input
-  }
-
-  var confettiElementRef = React.createRef()
-
-  const handleAnimateConfetti = () => {
-    animateConfetti(confettiElementRef.current, confettiCanvasRef)
-  }
-  */
-
   // settings button
   const [settingsOpen, setSettingsOpen] = React.useState(false);
 
@@ -68,16 +54,6 @@ const PlannerScreen = (props) => {
       selected="planner"
       {...props}
     >
-
-    {
-      /*
-      <ConfettiCanvas setConfettiCanvasRef={setConfettiCanvasRef}/>
-
-      <div ref={confettiElementRef}>TEST</div>
-
-      <Button onClick={handleAnimateConfetti}>click</Button>
-      */
-    }
 
       <Grid container spacing={2}>
           {getWeeks()}
