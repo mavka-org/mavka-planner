@@ -91,7 +91,7 @@ const Landing = (props) => {
 
 
         <Box styles={{ width: '80%', maxWidth: '300px' }} display="flex" justifyContent="center" p={4}>
-          <img width="100%" src={Demo} alt="mavka" />
+          <img width="100%" src={Demo} alt="mavka" styles={{ alignSelf: "flex-start" }}/>
         </Box>
 
 
