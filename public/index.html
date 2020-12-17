@@ -49,6 +49,33 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+
+  <!-- Scrip that enables Google Analytics -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCpJw3Fn2f1zwE74t0vmKAZG6MnR_3ZQfc",
+      authDomain: "mavka-c5c01.firebaseapp.com",
+      databaseURL: "https://mavka-c5c01.firebaseio.com",
+      projectId: "mavka-c5c01",
+      storageBucket: "mavka-c5c01.appspot.com",
+      messagingSenderId: "477171666648",
+      appId: "1:477171666648:web:3f3932e925ad180d2f11ad",
+      measurementId: "G-KZ75XQH4T5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
