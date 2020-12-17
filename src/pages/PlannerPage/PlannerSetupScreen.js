@@ -140,10 +140,7 @@ const PlannerSetupScreen = (props) => {
 
 const InfoCard = (props) => {
     const classes = useStyles();
-    const classList = [
-        classes.GifContainer,
-        classes.boxBorders
-    ]
+
     const handleProceed = () => {
         props.handleProceed()
     }
@@ -165,8 +162,8 @@ const InfoCard = (props) => {
                     </Typography>
                 </Box>
 
-                <Box className={classList.join(' ')} >
-                    <img width="100%" src={props.img} alt="mavka" />
+                <Box className={classes.GifContainer} >
+                    <img width="100%" className={classes.boxBorders} src={props.img} alt="mavka" />
                 </Box>
             </Grid>
 

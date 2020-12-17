@@ -11,7 +11,6 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import TopicPage from './pages/TopicPage/TopicPage';
-import TestPage from './pages/TestPage/TestPage';
 
 
 
@@ -31,8 +30,6 @@ function App() {
                   <Route path="/program" component={ProgramPage} />
 
                   <Route path="/math/topic/:id" component={TopicPage} />
-
-                  <Route path="/test" component={TestPage} />
 
                 </Switch>
               </Router>

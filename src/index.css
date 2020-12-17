@@ -298,27 +298,6 @@
 }
 
 /* Global Styles */
-.defaultText {
-  font-size: 18px;
-  line-height: 21px;
-  color: black;
-  font-family: Gilroy-Regular;
-}
-.lightUnderlinedText {
-  font-size: 18px;
-  line-height: 21px;
-  text-decoration-line: underline;
-  color: #4f4f4f;
-  font-family: Gilroy-Light;
-}
-.lightText {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 14px;
-  color: #bdbdbd;
-  font-family: Gilroy-Light;
-}
-
-button {
-  width: max-content;
+body {
+  overflow-x: hidden;
 }

@@ -6,8 +6,9 @@ import { format } from "date-fns"
 import { makeStyles } from '@material-ui/core/styles';
 import { TopicEvent, UrlEvent, TextEvent } from "./Event";
 import { updateUserPlanner } from './../../services/API/httpRequests';
-import {addAnalyticsEvent} from "../../services/API/httpRequests";
-import {TrackingContext} from '@vrbo/react-event-tracking'
+import { addAnalyticsEvent } from "../../services/API/httpRequests";
+import { WeekConfetti } from './../../components/Confetti/Confetti';
+import { TrackingContext } from '@vrbo/react-event-tracking'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +35,8 @@ const Week = (props) => {
   const end_date = new Date(props.json.end_date + 'T23:59:59')
   const dates = format(start_date, 'dd.MM') + ' - ' + format(end_date, 'dd.MM')
 
+  const [isConfettiActive, setIsConfettiActive] = React.useState(false)
+
   const [eventsCompleted, setEventsCompleted] = React.useState( function() {
     //retrieve completed values of the events and set them as a state
     let eventsCompleted = []
@@ -50,6 +53,8 @@ const Week = (props) => {
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)
+
+    setIsConfettiActive(isFullyCompleted(newEventsCompleted))
 
     // update the state in the database
     let changes = {
@@ -86,23 +91,23 @@ const Week = (props) => {
   }
 
 
-  const isFullyCompleted = () => {
+  const isFullyCompleted = (events) => {
       // returns true if every event of the week is completed
-      for(var event of eventsCompleted) {
+      for(var event of events) {
           if (event === false) return false
       }
       return true
   }
 
   const getWeekSubtitle = () => {
-    if (isFullyCompleted()) {
+    if (isFullyCompleted(eventsCompleted)) {
       return (<Typography variant="body2" component="span">· виконано</Typography>)
     }
     if (isCurrentWeek()) {
       return (<Typography variant="body2" color="secondary" component="span">· ти тут</Typography>)
     }
     if (isPastWeek()) {
-      if (!isFullyCompleted()) {
+      if (!isFullyCompleted(eventsCompleted)) {
         return (<Typography variant="body2" color="error" component="span">· не все виконано</Typography>)
       }
     }
@@ -124,10 +129,11 @@ const Week = (props) => {
       })
   }
 
+  // <WeekConfetti active={isConfettiActive}/>
 
   return (
 
-      <Grid item container>
+    <Grid item container style={{justifyContent: "center"}}>
 
         <Grid item container direction="row" alignItems="flex-end" className={classes.WeekTitleItem}>
 

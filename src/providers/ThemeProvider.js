@@ -41,7 +41,7 @@ const theme = createMuiTheme({
     },
     h3: {
       fontSize: '18px',
-      lineHeight: '21px',
+      lineHeight: '24px',
       fontWeight: 'bold',
       color: '#333333',
     },
@@ -68,7 +68,7 @@ const theme = createMuiTheme({
     },
     body1: {
       fontSize: '14px',
-      lineHeight: '17px',
+      lineHeight: '20px',
       color: '#333333',
     },
     body2: {

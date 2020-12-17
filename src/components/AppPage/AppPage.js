@@ -73,10 +73,10 @@ const AppPage = (props) => {
           </Grid>
 
           <Box py={2}>
-            <Alert severity="success" icon={<FlashOnRoundedIcon fontSize="inherit" />} >
-              <AlertTitle><Typography variant="h3"><strong>Стратегія підготовки для тебе 💪</strong></Typography></AlertTitle>
+            <Alert severity="success" icon={"🔥"} >
+              <AlertTitle><Typography variant="h3"><strong>Стратегія підготовки</strong></Typography></AlertTitle>
               <Typography>
-                Чудові ЗНОшники минулих років підібрали серію порад, які допомогли їм потрапити в їх омріяні універи.
+                Чудові ЗНОшники минулих років підібрали для тебе серію порад, які допомогли їм потрапити в їх омріяні універи.
                 <strong><Link
                     //onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {"path":props.history.location.pathname}, {"ext_redirect": {"href":strategy_url}} )}
                     onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {}, {"ext_redirect": {"href":strategy_url}} )}

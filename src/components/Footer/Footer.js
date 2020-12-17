@@ -1,23 +1,22 @@
 import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Box, Link, Card, CardContent } from '@material-ui/core';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { LargeButton } from '../Button/Button';
+import { LargeButton } from '../../components/Button/Button';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( (theme) => ({
   root: {
-    width: '228px',
     display: 'flex',
-    flexDirection: 'row',
+    margin: 'auto',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'black',
+    backgroundColor: theme.palette.primary.main,
     borderRadius: '20px',
     padding: '15px'
   },
   mb: {
     marginBottom: 12,
   },
-});
+}));
 
 const WhiteText = withStyles({
   root: {
@@ -25,18 +24,18 @@ const WhiteText = withStyles({
   },
 })(Typography);
 
-const WhiteButton = withStyles({
+const WhiteButton = withStyles( (theme) => ({
   root: {
-    backgroundColor: "white",
-    color: 'black',
-    borderRadius: '10px',
-    width: '220px',
-    '&:hover': {
-      backgroundColor: 'black',
-      color: 'white'
-    }
-  },
-})(LargeButton);
+  backgroundColor: "white",
+  color: 'black',
+  borderRadius: '10px',
+  width: '220px',
+  '&:hover': {
+    backgroundColor: theme.palette.primary.main,
+    color: 'white'
+  }
+},
+}))(LargeButton);
 
 const Footer = props => {
 
@@ -44,30 +43,32 @@ const Footer = props => {
 
   return (
 
-    <Box pt={5}>
-
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        spacing={8}
-      >
-        <Grid item alignItems="center" direction="column">
+    <Box
+      pt={4}
+      alignItems="center"
+      justifyContent="center"
+    >
+        <Box justifyContent="center" pb={6}>
             <Card className={classes.root}>
               <CardContent>
                 <Grid container alignItems="center" direction="column" spacing={2}>
-                  <Grid item><WhiteText className={classes.mb} align="center">Наша платформа лише у бета-версії. Якщо щось поламалось або у тебе є ідеї як її покращити — напиши нам, будь ласка</WhiteText></Grid>
-                <Grid item><WhiteButton href="https://t.me/tonia_zakorchemna">Написати нам</WhiteButton></Grid>
+
+                  <Grid item>
+                    <WhiteText variant="h3" className={classes.mb} align="center" paragraph><strong>🌱 Ми зростаємо разом з вами!</strong></WhiteText>
+                    <WhiteText align="center">Мавка лише у бета-версії. Якщо у тебе є ідеї як її покращитищось, ти хочеш допомогти команді або щось поламалось — не зволікай, будь ласка, і пиши нам.</WhiteText>
+                  </Grid>
+
+                  <Grid item><WhiteButton href="https://t.me/tonia_zakorchemna">Написати нам</WhiteButton></Grid>
+
                 </Grid>
               </CardContent>
             </Card>
-        </Grid>
+        </Box>
 
-        <Grid item>
+        <Box pb={6}>
           <Typography align="center"><b>Мавка</b> — це інноваційна неприбуткова освітня онлайн платформа з контентом, що дійсно підходить учням 21го сторіччя. Створюється з любов'ю ❤️
-           </Typography>
-        </Grid>
+          </Typography>
+        </Box>
 
         <Grid
           item
@@ -84,7 +85,6 @@ const Footer = props => {
           <Grid item><Typography>hello@mavka.org</Typography></Grid>
         </Grid>
 
-      </Grid>
     </Box>
   )
 }
