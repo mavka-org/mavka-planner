@@ -10,8 +10,9 @@ const firebaseConfig = {
     storageBucket: "mavka-c5c01.appspot.com",
     messagingSenderId: "477171666648",
     appId: "1:477171666648:web:3f3932e925ad180d2f11ad",
-    measurementId: "G-GDHG2W55Q5"
+    measurementId: "G-54STW77ZS4"
 };
+
 
 
 

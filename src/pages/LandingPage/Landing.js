@@ -13,6 +13,7 @@ import React, { useEffect } from 'react'
 import Redirect from "react-router-dom/es/Redirect";
 import { useHistory } from "react-router-dom";
 import {TrackingContext} from '@vrbo/react-event-tracking'
+import firebase from "firebase";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,6 +39,8 @@ const Landing = (props) => {
     () => {
       if (user) {
         tracking.trigger("LandingPageViewed")
+        firebase.analytics().logEvent('LandingPageViewed')
+        console.log("LandingPageViewed")
       }
     },
     [user]
@@ -90,8 +93,8 @@ const Landing = (props) => {
 
 
 
-        <Box styles={{ width: '80%', maxWidth: '300px' }} display="flex" justifyContent="center" p={4}>
-          <img width="100%" src={Demo} alt="mavka" />
+        <Box style={{ width: '80%', maxWidth: '300px' }} display="flex" justifyContent="center" p={4}>
+          <img style={{alignItems: "flex-start"}} width="100%" src={Demo} alt="mavka" />
         </Box>
 
 
