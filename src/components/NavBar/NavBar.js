@@ -8,11 +8,10 @@ import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginDialog from './../../components/LoginDialog/LoginDialog';
 import { getCurrentUser, handleTelegramResponse, signOut } from './../../services/Firebase/Authenticate'
-import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
+
 import Link from "@material-ui/core/Link";
 import { useHistory } from "react-router-dom";
 import  { Redirect } from 'react-router-dom'
-import {TrackingContext} from '@vrbo/react-event-tracking'
 import {SubjectContext} from "../../providers/SubjectProvider";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +28,6 @@ const NavBar = (props) => {
   const user = useContext(UserContext)
   const subject = useContext(SubjectContext)[0]
   const history = useHistory();
-  const tracking = useContext(TrackingContext)
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
 
@@ -40,13 +38,11 @@ const NavBar = (props) => {
 
 
   const handleLoggedOut = () => {
-      // tracking.trigger("LoggedOut", {}, {"int_redirect": { "href": "/", "history": history }})
       signOut()
 
   }
 
   const handleLogIn = () => {
-      //tracking.trigger("LogInClicked")
       window.gtag('event', 'authenticate_action', {
           'action' : 'login_button_click',
       })
@@ -59,16 +55,13 @@ const NavBar = (props) => {
     <Box display="flex" alignItems="center" py={1}>
 
       <Box flexGrow={1}>
-       {/*<NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>*/}
-       {/* <NavLink to="/" onClick={() => tracking.trigger("LogoFromMenuClicked")}>*/}
-          <NavLink
+       <NavLink
               to="/"
               onClick={() => window.gtag('event', 'menu_action', {
                   'action' : 'logo_button_click',
                   'subject_id' : subject.id,
               }) }
           >
-       {/*   <NavLink to="/">*/}
           <img
               name="NavLandingButton"
               src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)}
@@ -90,8 +83,7 @@ const NavBar = (props) => {
                       'action' : 'planner_button_click',
                       'subject_id' : subject.id,
                   }) }
-                  //onClick={(e) => tracking.trigger("PlannerFromMenuClicked", {}, {"int_redirect": {"href": '/planner', "history": history }} )}
-              >
+                  >
                   планер
               </Button>
               <Button
@@ -102,8 +94,7 @@ const NavBar = (props) => {
                       'action' : 'program_button_click',
                       'subject_id' : subject.id,
                   }) }
-                  //onClick={(e) => tracking.trigger("ProgramFromMenuClicked", {}, {"int_redirect": {"href": '/program', "history": history }})}
-              >програма
+                  >програма
               </Button>
               <Button
                   name="NavTestButton"
@@ -113,9 +104,7 @@ const NavBar = (props) => {
                       'action' : 'tests_button_click',
                       'subject_id' : subject.id,
                   }) }
-                  //onClick={(e) => tracking.trigger("TestFromMenuClicked", {},)}
-                  //onClick={(e) => tracking.trigger("TestFromMenuClicked", {}, {"ext_redirect": {"href": 'https://tests.mavka.org', "history": history }})}
-              >тести
+                  >тести
               </Button>
             </div>
           }

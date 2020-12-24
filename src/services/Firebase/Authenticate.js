@@ -1,13 +1,10 @@
 import React, {useContext} from 'react'
 import {auth} from './firebase'
 import { setUserInfo } from './../API/httpRequests'
-import {addAnalyticsEvent} from "../API/httpRequests";
-import {TrackingContext} from '@vrbo/react-event-tracking'
 
 
 
 export const logIn = async(email, password, userInfo) => {
-   // const tracking = useContext(TrackingContext)
 
     console.log(userInfo)
     await auth.createUserWithEmailAndPassword(email, password).then((authUser) =>{

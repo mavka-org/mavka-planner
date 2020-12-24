@@ -2,17 +2,12 @@ import LandingHeader from './../../assets/img/LandingHeader.png';
 import { LargeButton } from '../../components/Button/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Box } from '@material-ui/core';
-// import Demo from '../../assets/img/demo.gif'
 import Demo from '../../assets/img/demo.gif'
 import Footer from '../../components/Footer/Footer';
-import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserProvider";
-import Paper from '@material-ui/core/Paper';
 import React, { useEffect } from 'react'
 import Redirect from "react-router-dom/es/Redirect";
-import { useHistory } from "react-router-dom";
-import {TrackingContext} from '@vrbo/react-event-tracking'
 import firebase from "../../services/Firebase/firebase";
 
 
@@ -32,12 +27,8 @@ const useStyles = makeStyles((theme) => ({
 const Landing = (props) => {
   const user = useContext(UserContext);
   const classes = useStyles();
-  const history = useHistory();
-  const tracking = useContext(TrackingContext)
-
 
   const onClickProgram = () => {
-    //tracking.trigger("LandingProgramButtonСlicked", {}, {"int_redirect": {"href":'program', "history":history}})
 
     window.gtag('event', 'landing_page_action', {
       'action' : 'program_button_click'

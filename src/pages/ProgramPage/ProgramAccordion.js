@@ -11,11 +11,8 @@ import Box from '@material-ui/core/Box';
 import { ExpansionPanelSummary } from '@material-ui/core';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import IconButton from "@material-ui/core/IconButton";
-import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
-import {TrackingContext} from '@vrbo/react-event-tracking'
-import { useHistory } from "react-router-dom";
 
 
 const Accordion = withStyles({
@@ -67,8 +64,6 @@ export default function ProgramAccordion(props) {
 
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
-    const tracking = useContext(TrackingContext)
-    const history = useHistory();
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -81,9 +76,6 @@ export default function ProgramAccordion(props) {
                 'subject_id' : subject.id,
                 'topic_id' : topic_id,
             })
-
-            //tracking.trigger("ProgramTopicAccordionClicked", {"topic_id":topic_id})
-            //addAnalyticsEvent(user, "ProgramTopicAccordionClicked", {"subject_id":subject.id, "topic_id":topic_id})
         }
     };
 
@@ -141,9 +133,7 @@ export default function ProgramAccordion(props) {
                 'topic_id' : topic.id,
             })
 
-            //tracking.trigger("ProgramTopicLearnButtonClicked", {"topic_id":topic.id}, options)
-            //addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
-        }
+           }
 
         return (
             <Accordion

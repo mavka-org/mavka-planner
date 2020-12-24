@@ -28,7 +28,6 @@ const Week = (props) => {
 
   const user = useContext(UserContext)
   const subject = useContext(SubjectContext)[0]
-  const tracking = useContext(TrackingContext)
 
   const idx = props.idx
   const start_date = new Date(props.json.start_date + 'T00:00:00')
@@ -59,7 +58,6 @@ const Week = (props) => {
       })
     }
 
-    //tracking.trigger("PlannerEventCheckboxClicked", {"event_id": eventId, "completed": state, "week_tense": getWeekTense()})
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)

@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import {TrackingContext} from '@vrbo/react-event-tracking'
 import {SubjectContext} from "../../providers/SubjectProvider";
 
 
@@ -31,14 +30,11 @@ class Event extends React.Component {
       })
     }
 
-    handleButtonClick = (topic_id) => {
-        //this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
-        // ріал костиль, бо для int_redirect треба контекст історії, а в класі можна використовувати лише один контекст (вже є трігер)
-        //this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
+    handleButtonClick = (event_id) => {
         window.gtag('event', 'planner_page_action', {
             'action': 'event_button_click',
             'subject_id' : this.context.id,
-            'topic_id' : topic_id,
+            'event_id' : event_id,
         });
     }
 
@@ -97,9 +93,7 @@ export class TopicEvent extends Event {
       return (<LinkButton
           href={"/math/topic/" + this.topic_id}
           name={this.id + 'Button'}
-          //onClick={(e)=>this.handleButtonClick()}
-          //onClick={(e)=>this.handleButtonClick({"ext_redirect": {"href":("/math/topic/" + this.topic_id)}})}
-          onClick = { () => this.handleButtonClick(this.topic_id) }
+          onClick = { () => this.handleButtonClick(this.id) }
           size="small"
           variant="contained"
       >вчити
@@ -119,9 +113,8 @@ export class UrlEvent extends Event {
       return (
         <LinkButton
             name={this.id + 'Button'}
-            //href={this.url}
-            onClick={(e)=>this.handleButtonClick({"ext_redirect": {"href":this.url}})}
-            //onClick={(e)=>this.handleButtonClick()}
+            href={this.url}
+            onClick = { () => this.handleButtonClick(this.id) }
             variant="outlined"
         >перейти
         </LinkButton>
