@@ -29,7 +29,9 @@ const AppPage = (props) => {
 
   const handleClickSubjectsDialog = () => {
     setOpenSubjectsDialog(true);
-    window.gtag('event', 'subject_dropdown_click')
+    window.gtag('event', 'subject_dropdown_action', {
+      'action' : 'dropdown_open'
+    })
   };
 
   const handleSubjectsDialogClosed = () => {

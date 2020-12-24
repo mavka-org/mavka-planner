@@ -35,6 +35,12 @@ const SubjectsDialog = (props) => {
 
   const handleListItemClick = (selectedSubject) => {
     setSubject(selectedSubject)
+
+    window.gtag('event', 'subject_dropdown_action', {
+      'action' : 'subject_click',
+      'selected_subject_id' : selectedSubject.id,
+    })
+
     onClose();
   };
 
