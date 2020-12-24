@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import Page from './../../components/Page/Page';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
 import {ScalableLargeButton, LargeButton} from './../../components/Button/Button.js'
@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PlannerSetupScreen = (props) => {
     const classes = useStyles();
+    const subject = useContext(SubjectContext)[0]
 
     const [currentCard, setCurrentCard] = React.useState(0);
     const [program, setProgram] = React.useState(null)
@@ -74,6 +75,17 @@ const PlannerSetupScreen = (props) => {
             setProgram(new Program(programResponse["data"]))
         })
     }
+
+    // use effects
+    useEffect(
+        () => {
+            window.gtag('event', 'planner_setup', {
+                'status' : 'started',
+                'subject_id' : subject.id,
+            })
+        },
+    )
+
 
     const cards = [
         {
@@ -221,10 +233,18 @@ const InputCard = (props) => {
     }
 
     const handleProceed = () => {
+        window.gtag('event', 'planner_setup', {
+            'status' : 'finished',
+            'subject_id' : subject.id,
+            'topics_to_exclude' : selectedTopicIds,
+        })
+
         props.handleProceed(selectedTopicIds)
-        if(props.program) {
-            tracking.trigger("FinishPlannerSetupClicked", {"topics_to_exclude": selectedTopicIds})
-            }
+
+
+        // if(props.program) {
+        //     tracking.trigger("FinishPlannerSetupClicked", {"topics_to_exclude": selectedTopicIds})
+        //     }
     }
 
     return(

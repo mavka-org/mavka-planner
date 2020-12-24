@@ -1,3 +1,13 @@
+window.gtag('event', 'sakses', {
+      'method': 'Google'
+    });
+
+
+
+
+
+
+
 import {TrackingContext} from '@vrbo/react-event-tracking'
 
 const tracking = useContext(TrackingContext)

@@ -13,7 +13,7 @@ import React, { useEffect } from 'react'
 import Redirect from "react-router-dom/es/Redirect";
 import { useHistory } from "react-router-dom";
 import {TrackingContext} from '@vrbo/react-event-tracking'
-import firebase from "firebase";
+import firebase from "../../services/Firebase/firebase";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,16 +35,14 @@ const Landing = (props) => {
   const history = useHistory();
   const tracking = useContext(TrackingContext)
 
-  useEffect(
-    () => {
-      if (user) {
-        tracking.trigger("LandingPageViewed")
-        firebase.analytics().logEvent('LandingPageViewed')
-        console.log("LandingPageViewed")
-      }
-    },
-    [user]
-  )
+
+  const onClickProgram = () => {
+    //tracking.trigger("LandingProgramButtonСlicked", {}, {"int_redirect": {"href":'program', "history":history}})
+
+    window.gtag('event', 'landing_page_action', {
+      'action' : 'program_button_click'
+    })
+  }
 
 
   return (
@@ -62,14 +60,15 @@ const Landing = (props) => {
         <Grid item container spacing={3} style={{ width: '300px'}}>
 
           <Grid container item>
-            <LargeButton
-              //href='planner'
+            <LargeButton href='planner'
               fullWidth
               color="primary"
               style={{background: '#000', fontSize: '17px'}}
               variant="contained"
               name="LandingPlannerButton"
-              onClick={(e)=>tracking.trigger("LandingPlannerButtonClicked", {}, {"int_redirect": {"href":'planner', "history":history}})}
+              onClick = { () => window.gtag('event', 'landing_page_action', {
+                'action' : 'planner_button_click'
+              }) }
             >
             📅  планер підготовки
             </LargeButton>
@@ -77,13 +76,15 @@ const Landing = (props) => {
 
           <Grid container item>
             <LargeButton
-              //href='program'
+              href='program'
               fullWidth
               style={{fontSize: '17px' }}
               variant="contained"
               className={classes.oppositeColor}
               name="LandingProgramButton"
-              onClick={(e)=>tracking.trigger("LandingProgramButtonСlicked", {}, {"int_redirect": {"href":'program', "history":history}})}
+              onClick={ () => window.gtag('event', 'landing_page_action', {
+                'action' : 'program_button_click'
+              }) }
             >
             📚  тести та матеріали
             </LargeButton>

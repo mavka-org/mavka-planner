@@ -3,12 +3,12 @@ import { Grid, Typography } from '@material-ui/core';
 import { LinkButton } from './../../components/Button/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import {TrackingContext} from '@vrbo/react-event-tracking'
-
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 
 class Event extends React.Component {
 
-    static contextType = TrackingContext;
+    static contextType = SubjectContext;
 
     constructor(props, title){
       super(props)
@@ -31,10 +31,15 @@ class Event extends React.Component {
       })
     }
 
-    handleButtonClick = (options) => {
+    handleButtonClick = (topic_id) => {
         //this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
         // ріал костиль, бо для int_redirect треба контекст історії, а в класі можна використовувати лише один контекст (вже є трігер)
-        this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
+        //this.context.trigger("PlannerEventButtonClicked", {"event_id":this.id}, options)
+        window.gtag('event', 'planner_page_action', {
+            'action': 'event_button_click',
+            'subject_id' : this.context.id,
+            'topic_id' : topic_id,
+        });
     }
 
 
@@ -89,11 +94,12 @@ export class TopicEvent extends Event {
     }
 
     getButton() {
-        // href={"/math/topic/" + this.topic_id}
       return (<LinkButton
+          href={"/math/topic/" + this.topic_id}
           name={this.id + 'Button'}
           //onClick={(e)=>this.handleButtonClick()}
-          onClick={(e)=>this.handleButtonClick({"ext_redirect": {"href":("/math/topic/" + this.topic_id)}})}
+          //onClick={(e)=>this.handleButtonClick({"ext_redirect": {"href":("/math/topic/" + this.topic_id)}})}
+          onClick = { () => this.handleButtonClick(this.topic_id) }
           size="small"
           variant="contained"
       >вчити

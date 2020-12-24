@@ -19,20 +19,18 @@ const PlannerScreen = (props) => {
   const tracking = useContext(TrackingContext)
 
 
-  useEffect(
-      () => {
-        if(user) {
-          tracking.trigger("PlannerPageViewed")
-        }
-      },
-      [user]
-  )
-
   // settings button
   const [settingsOpen, setSettingsOpen] = React.useState(false);
 
   const handleClickSettingsOpen = () => {
-    tracking.trigger("PlannerSettingsClicked")
+    //tracking.trigger("PlannerSettingsClicked")
+
+
+
+    window.gtag('event', 'planner_page_action', {
+      'action': 'planner_settings_click',
+      'subject_id' : subject.id,
+    });
 
     setSettingsOpen(true);
   };

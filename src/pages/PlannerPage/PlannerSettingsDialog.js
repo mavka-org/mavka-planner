@@ -22,8 +22,13 @@ const PlannerSettingsDialog = (props) => {
 
 
   const deleteUserPlanner = () => {
-    tracking.trigger("PlannerResetClicked")
-    console.log("PlannerResetClicked")
+    // tracking.trigger("PlannerResetClicked")
+    // console.log("PlannerResetClicked")
+
+    window.gtag('event', 'planner_page_action', {
+      'action': 'planner_reset_click',
+      'subject_id' : subject.id,
+    });
     props.deletePlanner(user, subject)
   }
 

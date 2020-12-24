@@ -49,7 +49,17 @@ const Week = (props) => {
 
   const handleEventCompleted = (eventIdx, eventId, state) => {
     // Update eventsCompleted state with a new value
-    tracking.trigger("PlannerEventCheckboxClicked", {"event_id": eventId, "completed": state, "week_tense": getWeekTense()})
+
+    if (state) {
+      window.gtag('event', 'planner_page_action', {
+        'action' : 'event_checkbox_click',
+        'subject_id' : subject.id,
+        'event_id' : eventId,
+        'week_tense' : getWeekTense(),
+      })
+    }
+
+    //tracking.trigger("PlannerEventCheckboxClicked", {"event_id": eventId, "completed": state, "week_tense": getWeekTense()})
     let newEventsCompleted = [...eventsCompleted]
     newEventsCompleted[eventIdx] = state
     setEventsCompleted(newEventsCompleted)

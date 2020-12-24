@@ -11,10 +11,10 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import TopicPage from './pages/TopicPage/TopicPage';
-
-
+import { analytics } from './services/Firebase/firebase.js'
 
 function App() {
+
     return (
         <UserProvider>
           <ThemeProvider>

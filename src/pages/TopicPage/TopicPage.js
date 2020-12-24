@@ -28,14 +28,14 @@ export default function TopicPage(props) {
         })
     }
 
-    useEffect(
-        () => {
-            if(user) {
-                tracking.trigger("TopicPageViewed", {"topic_id": props.match.params.id})
-            }
-        },
-        [user]
-    )
+    // useEffect(
+    //     () => {
+    //         if(user) {
+    //             tracking.trigger("TopicPageViewed", {"topic_id": props.match.params.id})
+    //         }
+    //     },
+    //     [user]
+    // )
 
     return (
         topic ?
@@ -49,27 +49,37 @@ export default function TopicPage(props) {
                     <Grid item xs={6}>
                         <Button
                             name="TopicTestsButton"
-                            onClick = {(e) => tracking.trigger("TopicTestsButtonClicked", {"topic_id":topic.id}, {"ext_redirect": {"href": topic.practice_link, "history": history }})}
+                            //onClick = {(e) => tracking.trigger("TopicTestsButtonClicked", {"topic_id":topic.id}, {"ext_redirect": {"href": topic.practice_link, "history": history }})}
                             //onClick={(e)=>addAnalyticsEvent(user, "TopicTestsButtonClicked", {"subject_id":subject.id, "event_id":topic.id})}
+                            onClick = { () => window.gtag('event', 'topic_page_action', {
+                                'action' : 'tests_button_click',
+                                'subject_id' : subject.id,
+                                'topic_id' : topic.id,
+                            })}
                             fullWidth size="big"
                             variant="contained"
                             color="primary"
                             target="_blank"
-                            //href={topic.practice_link}
+                            href={topic.practice_link}
                         >тести
                         </Button>
                     </Grid>
                     <Grid item xs={6}>
                         <Button
                             name="TopicStudyGuidesButton"
-                            onClick = {(e) => tracking.trigger("TopicStudyGuidesButtonClicked", {"topic_id":topic.id}, {"ext_redirect": {"href": topic.study_guide_link, "history": history }})}
+                            //onClick = {(e) => tracking.trigger("TopicStudyGuidesButtonClicked", {"topic_id":topic.id}, {"ext_redirect": {"href": topic.study_guide_link, "history": history }})}
                             //onClick={(e)=>addAnalyticsEvent(user, "TopicStudyGuidesButtonClicked", {"subject_id":subject.id,"event_id":topic.id})}
                             fullWidth
+                            onClick = { () => window.gtag('event', 'topic_page_action', {
+                                'action' : 'study_guides_button_click',
+                                'subject_id' : subject.id,
+                                'topic_id' : topic.id,
+                            })}
                             size="medium"
                             variant="contained"
                             color="primary"
                             target="_blank"
-                            //href={topic.study_guide_link}
+                            href={topic.study_guide_link}
                         >конспекти
                         </Button>
                     </Grid>
