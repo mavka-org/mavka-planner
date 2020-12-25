@@ -79,7 +79,7 @@ const Footer = props => {
           spacing={2}
           >
           <Grid item><Typography><Link href="https://mavka.org/">Про мавку</Link></Typography></Grid>
-          <Grid item><Typography><Link href="https://t.me/mavkazno">Телеграм</Link></Typography></Grid>
+          {/*<Grid item><Typography><Link href="https://t.me/mavkazno">Телеграм</Link></Typography></Grid>*/}
           <Grid item><Typography><Link href="https://www.instagram.com/mavka.zno/">Інстаграм</Link></Typography></Grid>
           <Grid item><Typography><Link href="https://send.monobank.ua/jar/6LyzveDwkG">Підтримати</Link></Typography></Grid>
           <Grid item><Typography>hello@mavka.org</Typography></Grid>

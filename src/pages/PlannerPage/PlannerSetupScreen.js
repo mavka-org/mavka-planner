@@ -88,43 +88,43 @@ const PlannerSetupScreen = (props) => {
 
 
     const cards = [
-        {
-            "Card": InfoCard,
-            "props": {
-                "text": "Хееей! Го створимо тобі твій особистий планер ",
-                "img": CuteGif,
-                "order": 0
-            }
-        },
+        // {
+        //     "Card": InfoCard,
+        //     "props": {
+        //         "text": "Хееей! Го створимо тобі твій особистий планер ",
+        //         "img": CuteGif,
+        //         "order": 0
+        //     }
+        // },
         {
             "Card": InfoCard,
             "props": {
                 "text": "Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО",
                 "img": WeeksDemo,
-                "order": 1
+                "order": 0
             }
         },
+        // {
+        //     "Card": InfoCard,
+        //     "props": {
+        //         "text": "Коли тема вивчена, викреслюй її зі списку",
+        //         "img": CheckboxDemo,
+        //         "order": 2
+        //     }
+        // },
         {
             "Card": InfoCard,
             "props": {
-                "text": "Коли тема вивчена, викреслюй її зі списку",
-                "img": CheckboxDemo,
-                "order": 2
-            }
-        },
-        {
-            "Card": InfoCard,
-            "props": {
-                "text": "До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”",
+                "text": "До кожної теми ми підібрали конспекти, теорію і пробні ЗНО”",
                 "img": StudyMatsDemo,
-                "order": 3
+                "order": 1
             }
         },
         {
             "Card": InputCard,
             "props": {
                 "text": "І останнє, можеш виключити теми, які вже знаєш, щоб ми не додавали їх в твій планер. Якщо хочеш вчити все, просто пропусти",
-                "order": 4,
+                "order": 2,
                 "program": program
             }
         }
@@ -203,7 +203,7 @@ const InfoCard = (props) => {
                 <Box my={1} >
                     <MobileStepper
                         variant="dots"
-                        steps={5}
+                        steps={3}
                         position="static"
                         activeStep={props.order}
                         className={classes.Stepper}/>
@@ -273,13 +273,13 @@ const InputCard = (props) => {
                     style={{background: '#000'}}
 
                 >
-                    Далі
+                    Створити планер 🚀
                 </ScalableLargeButton>
 
                 <Box my={1}>
                     <MobileStepper
                         variant="dots"
-                        steps={5}
+                        steps={3}
                         position="static"
                         activeStep={props.order}
                         className={classes.Stepper}/>

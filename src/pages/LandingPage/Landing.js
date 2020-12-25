@@ -61,7 +61,7 @@ const Landing = (props) => {
                 'action' : 'planner_button_click'
               }) }
             >
-            📅  планер підготовки
+            📅  планер підготовки зно
             </LargeButton>
           </Grid>
 
@@ -77,7 +77,7 @@ const Landing = (props) => {
                 'action' : 'program_button_click'
               }) }
             >
-            📚  тести та матеріали
+            📚  конспекти та тести зно
             </LargeButton>
           </Grid>
 

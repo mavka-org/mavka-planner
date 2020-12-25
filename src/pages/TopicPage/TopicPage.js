@@ -35,22 +35,7 @@ export default function TopicPage(props) {
             {/*display buttons*/}
             <Box pt={3} pb={3}>
                 <Grid container spacing={3} p={3}>
-                    <Grid item xs={6}>
-                        <Button
-                            name="TopicTestsButton"
-                            onClick = { () => window.gtag('event', 'topic_page_action', {
-                                'action' : 'tests_button_click',
-                                'subject_id' : subject.id,
-                                'topic_id' : topic.id,
-                            })}
-                            fullWidth size="big"
-                            variant="contained"
-                            color="primary"
-                            target="_blank"
-                            href={topic.practice_link}
-                        >тести
-                        </Button>
-                    </Grid>
+
                     <Grid item xs={6}>
                         <Button
                             name="TopicStudyGuidesButton"
@@ -68,6 +53,25 @@ export default function TopicPage(props) {
                         >конспекти
                         </Button>
                     </Grid>
+
+
+                    <Grid item xs={6}>
+                        <Button
+                            name="TopicTestsButton"
+                            onClick = { () => window.gtag('event', 'topic_page_action', {
+                                'action' : 'tests_button_click',
+                                'subject_id' : subject.id,
+                                'topic_id' : topic.id,
+                            })}
+                            fullWidth size="big"
+                            variant="contained"
+                            color="primary"
+                            target="_blank"
+                            href={topic.practice_link}
+                        >тести
+                        </Button>
+                    </Grid>
+
                 </Grid>
             </Box>
 

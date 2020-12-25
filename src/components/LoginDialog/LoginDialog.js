@@ -39,7 +39,7 @@ const LoginDialog = (props) => {
           </Box>
 
           <Box p={1}>
-            <Typography variant="subtitle2">* При реєстрації ти погоджуєшся з обробкою персональних даних</Typography>
+            <Typography variant="subtitle2">* При реєстрації ти погоджуєшся з обробкою персональних даних. Ми не отримуємо доступу до твого номеру телефону</Typography>
           </Box>
         </Grid>
 
