@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+// User
+
 export const setUserInfo = async (userToken, userInfo) => {
     const response = await axios.post(
         `https://mvp-api-5dvjwdatfq-ew.a.run.app/user/${userToken}`, {
@@ -11,21 +13,21 @@ export const setUserInfo = async (userToken, userInfo) => {
 }
 
 
+// Program
+
 export const getProgram = async () => {
-    console.log('getting program')
     const response = await axios.get('https://mvp-api-5dvjwdatfq-ew.a.run.app/program/math')
-    console.log('got program')
     return response
 }
 
 
 export const getTopic = async (topic_id) => {
-    console.log('getting topic')
     const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/topic/math/${topic_id}`)
-    console.log('got topic')
     return response
 }
 
+
+// Planner
 
 export const getUserPlanner = async (user, subject) => {
 
@@ -95,7 +97,7 @@ export const updateUserPlanner = async (user, subject, changes) => {
             JSON.stringify({changes: changes }),
           { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } }
         )
-        
+
       })
     }
   }
@@ -103,6 +105,53 @@ export const updateUserPlanner = async (user, subject, changes) => {
   return null
 }
 
+
+// Questions
+
+export const getTestsLists = async (subject) => {
+    //const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/all_tests_topics/${subject}`)
+    // sample
+    const response = {
+      'by_sessions': {
+        'years': [
+          {
+            'year': 2021,
+            'sessions': [
+              {
+                'session': 'демонстраційний варіант',
+                'id': '5ffaf251cf51722ed817be8e'
+              }
+            ]
+          },
+          {
+            'year': 2020,
+            'sessions': [
+              {
+                'session': 'основна сесія',
+                'id': '5ffaf253cf51722ed817be8f'
+              },
+              {
+                'session': 'додаткова сесія',
+                'id': '5ffaf256cf51722ed817be90'
+              }
+            ]
+          }
+        ]
+      },
+        'by_topics': {
+          'modules': [
+            {
+              'name': 'Алгебра і початки аналізу',
+            }
+          ]
+        }
+    }
+
+    return response
+}
+
+
+// Analytics
 
 export const addAnalyticsEvent = async (user, eventName, params, isTesting) => {
 
