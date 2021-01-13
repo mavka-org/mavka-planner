@@ -65,7 +65,13 @@ const SubjectsDialog = (props) => {
               </Avatar>
             </ListItemAvatar>
 
-            <ListItemText primary={subjectOption.name} />
+            {subjectOption.available ? (
+                <ListItemText primary={subjectOption.name}/>
+            ) : (
+                <ListItemText primary={'незабаром: ' + subjectOption.name}/>
+            )
+            }
+
 
           </ListItem>
 
