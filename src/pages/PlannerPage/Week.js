@@ -143,6 +143,8 @@ const Week = (props) => {
 
     <Grid item container style={{justifyContent: "center"}}>
 
+        <WeekConfetti active={isConfettiActive}/>
+
         <Grid item container direction="row" alignItems="flex-end" className={classes.WeekTitleItem}>
 
           <Grid item xs={8}>

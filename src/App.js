@@ -10,6 +10,8 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import TopicPage from './pages/TopicPage/TopicPage';
+import TestsPage from './pages/TestsPage/TestsPage';
+
 import { analytics } from './services/Firebase/firebase.js'
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
                   <Route path="/program" component={ProgramPage} />
 
                   <Route path="/math/topic/:id" component={TopicPage} />
+
+                  <Route path="/tests" component={TestsPage} />
 
                 </Switch>
               </Router>
