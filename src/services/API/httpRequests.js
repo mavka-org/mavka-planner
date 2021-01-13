@@ -116,10 +116,10 @@ export const getTestsLists = async (subject) => {
     return response
 }
 
-export const getQuestionsByTets = async (subject, test_strapi_id) => {
+export const getQuestionsByTest = async (subject, test_strapi_id) => {
   //const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/questions_by_test/${subject}/${test_strapi_id}`)
   // sample
-  const respose = require('./getQuestionsByTets_sample.json');
+  const respose = require('./getQuestionsByTest_sample.json');
 }
 
 
