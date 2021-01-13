@@ -11,11 +11,8 @@ import Box from '@material-ui/core/Box';
 import { ExpansionPanelSummary } from '@material-ui/core';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import IconButton from "@material-ui/core/IconButton";
-import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
-import {TrackingContext} from '@vrbo/react-event-tracking'
-import { useHistory } from "react-router-dom";
 
 
 const Accordion = withStyles({
@@ -67,8 +64,6 @@ export default function ProgramAccordion(props) {
 
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
-    const tracking = useContext(TrackingContext)
-    const history = useHistory();
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -76,8 +71,11 @@ export default function ProgramAccordion(props) {
         setExpanded(newExpanded ? panel : false);
 
         if(newExpanded) {
-            tracking.trigger("ProgramTopicAccordionClicked", {"topic_id":topic_id})
-            //addAnalyticsEvent(user, "ProgramTopicAccordionClicked", {"subject_id":subject.id, "topic_id":topic_id})
+            window.gtag('event', 'program_page_action', {
+                'action' : 'topic_accordion_click',
+                'subject_id' : subject.id,
+                'topic_id' : topic_id,
+            })
         }
     };
 
@@ -127,12 +125,15 @@ export default function ProgramAccordion(props) {
 
     function createAccordion(topic) {
 
-        const handleButtonClick = (event, options) => {
-            console.log("eventttt", event)
+        const handleButtonClick = (event) => {
             event.stopPropagation()
-            tracking.trigger("ProgramTopicLearnButtonClicked", {"topic_id":topic.id}, options)
-            //addAnalyticsEvent(user, "ProgramTopicLearnButtonClicked", {"subject_id":subject.id, "topic_id":topic.id})
-        }
+            window.gtag('event', 'program_page_action', {
+                'action' : 'topic_learn_button_click',
+                'subject_id' : subject.id,
+                'topic_id' : topic.id,
+            })
+
+           }
 
         return (
             <Accordion
@@ -155,8 +156,10 @@ export default function ProgramAccordion(props) {
                             <Box>
                                 {/*href={"/math/topic/"+topic.id}*/}
                                 <Button
+                                  href={"/math/topic/" + topic.id}
                                   name={topic.id + 'TopicAccordionButton'}
-                                  onClick={ (e)=> handleButtonClick(e, {"int_redirect":{"href":("/math/topic/"+topic.id), "history":history}}) }
+                                  //onClick={ (e)=> handleButtonClick(e, {"int_redirect":{"href":("/math/topic/"+topic.id), "history":history}}) }
+                                  onClick={ (event)=> handleButtonClick(event) }
                                   size="small"
                                   variant="contained"
                                   color="primary"

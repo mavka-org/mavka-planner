@@ -12,18 +12,19 @@ import {UserContext} from "../../providers/UserProvider";
 import {useContext} from "react";
 import { useEffect } from 'react'
 import {SubjectContext} from "../../providers/SubjectProvider";
-import {TrackingContext} from '@vrbo/react-event-tracking'
+
 
 const PlannerSettingsDialog = (props) => {
   const {open, onClose} = props;
   const user = useContext(UserContext);
   const subject = useContext(SubjectContext)[0]
-  const tracking = useContext(TrackingContext)
 
 
   const deleteUserPlanner = () => {
-    tracking.trigger("PlannerResetClicked")
-    console.log("PlannerResetClicked")
+    window.gtag('event', 'planner_page_action', {
+      'action': 'planner_reset_click',
+      'subject_id' : subject.id,
+    });
     props.deletePlanner(user, subject)
   }
 

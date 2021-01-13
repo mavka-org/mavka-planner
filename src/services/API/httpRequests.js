@@ -111,43 +111,15 @@ export const updateUserPlanner = async (user, subject, changes) => {
 export const getTestsLists = async (subject) => {
     //const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/all_tests_topics/${subject}`)
     // sample
-    const response = {
-      'by_sessions': {
-        'years': [
-          {
-            'year': 2021,
-            'sessions': [
-              {
-                'session': 'демонстраційний варіант',
-                'id': '5ffaf251cf51722ed817be8e'
-              }
-            ]
-          },
-          {
-            'year': 2020,
-            'sessions': [
-              {
-                'session': 'основна сесія',
-                'id': '5ffaf253cf51722ed817be8f'
-              },
-              {
-                'session': 'додаткова сесія',
-                'id': '5ffaf256cf51722ed817be90'
-              }
-            ]
-          }
-        ]
-      },
-        'by_topics': {
-          'modules': [
-            {
-              'name': 'Алгебра і початки аналізу',
-            }
-          ]
-        }
-    }
+    const response = require('./getTestsLists_sample.json');
 
     return response
+}
+
+export const getQuestionsByTets = async (subject, test_strapi_id) => {
+  //const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/questions_by_test/${subject}/${test_strapi_id}`)
+  // sample
+  const respose = require('./getQuestionsByTets_sample.json');
 }
 
 

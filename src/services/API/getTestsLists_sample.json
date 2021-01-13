@@ -1,0 +1,229 @@
+{
+  "by_sessions": {
+    "years": [
+      {
+        "sessions": [
+          {
+            "id": "5ffaf251cf51722ed817be8e",
+            "session": "демонстраційний варіант"
+          }
+        ],
+        "year": "2021"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf253cf51722ed817be8f",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf256cf51722ed817be90",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf259cf51722ed817be91",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2020"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf25bcf51722ed817be92",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf25ecf51722ed817be93",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf261cf51722ed817be94",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2019"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf263cf51722ed817be95",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf266cf51722ed817be96",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf269cf51722ed817be97",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2018"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf26ccf51722ed817be98",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf26ecf51722ed817be99",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf271cf51722ed817be9a",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2017"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf274cf51722ed817be9b",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf276cf51722ed817be9c",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf279cf51722ed817be9d",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2016"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf27ccf51722ed817be9e",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf27fcf51722ed817be9f",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf282cf51722ed817bea0",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2015"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf285cf51722ed817bea1",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf287cf51722ed817bea2",
+            "session": "додаткова сесія"
+          },
+          {
+            "id": "5ffaf28acf51722ed817bea3",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2014"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf28ecf51722ed817bea4",
+            "session": "1 сесія"
+          },
+          {
+            "id": "5ffaf290cf51722ed817bea5",
+            "session": "2 сесія"
+          },
+          {
+            "id": "5ffaf293cf51722ed817bea6",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2013"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf296cf51722ed817bea7",
+            "session": "1 сесія"
+          },
+          {
+            "id": "5ffaf29acf51722ed817bea8",
+            "session": "2 сесія"
+          },
+          {
+            "id": "5ffaf29ecf51722ed817bea9",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2012"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf2a2cf51722ed817beaa",
+            "session": "основна сесія"
+          },
+          {
+            "id": "5ffaf2a9cf51722ed817beab",
+            "session": "пробний тест"
+          }
+        ],
+        "year": "2011"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf2aecf51722ed817beac",
+            "session": "1 сесія"
+          },
+          {
+            "id": "5ffaf2b1cf51722ed817bead",
+            "session": "2 сесія"
+          },
+          {
+            "id": "5ffaf2b4cf51722ed817beae",
+            "session": "пробний тест 1"
+          },
+          {
+            "id": "5ffaf2b8cf51722ed817beaf",
+            "session": "пробний тест 2"
+          }
+        ],
+        "year": "2010"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf2bccf51722ed817beb0",
+            "session": "основна сесія"
+          }
+        ],
+        "year": "2009"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf2c0cf51722ed817beb1",
+            "session": "основна сесія"
+          }
+        ],
+        "year": "2008"
+      },
+      {
+        "sessions": [
+          {
+            "id": "5ffaf2c3cf51722ed817beb2",
+            "session": "основна сесія"
+          }
+        ],
+        "year": "2007"
+      }
+    ]
+  }
+}

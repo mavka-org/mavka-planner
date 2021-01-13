@@ -5,8 +5,9 @@ import {UserContext} from "./UserProvider";
 import {addAnalyticsEvent} from "../services/API/httpRequests";
 import { devMode as isTesting } from "../config";
 
-//import {TrackingContext} from '@vrbo/react-event-tracking'
-//const tracking = useContext(TrackingContext)
+
+// IMPORTANT: all current analytics is recorded via Google Analytics' gtag
+// AnalyticsEventsProvider is no longer in use, but is left for possible future need
 
 const AnalyticsEventsProvider = (props) => {
 

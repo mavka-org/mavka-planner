@@ -13,7 +13,6 @@ export default function ProgramPage(props) {
 
   const [program, setProgram] = React.useState(null)
   const user = useContext(UserContext);
-  const tracking = useContext(TrackingContext)
 
   if (!program) {
       getProgram().then((programResponse) => {
@@ -21,14 +20,6 @@ export default function ProgramPage(props) {
     })
   }
 
-    useEffect(
-        () => {
-            if(user) {
-                tracking.trigger("ProgramPageViewed")
-            }
-        },
-        [user]
-    )
 
   return (
       program ?

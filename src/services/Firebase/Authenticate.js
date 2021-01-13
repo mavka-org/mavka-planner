@@ -1,13 +1,10 @@
 import React, {useContext} from 'react'
 import {auth} from './firebase'
 import { setUserInfo } from './../API/httpRequests'
-import {addAnalyticsEvent} from "../API/httpRequests";
-import {TrackingContext} from '@vrbo/react-event-tracking'
 
 
 
 export const logIn = async(email, password, userInfo) => {
-   // const tracking = useContext(TrackingContext)
 
     console.log(userInfo)
     await auth.createUserWithEmailAndPassword(email, password).then((authUser) =>{
@@ -19,7 +16,10 @@ export const logIn = async(email, password, userInfo) => {
 
             setUserInfo(userToken, userInfo).then((res) => {
                 console.log(res)
-                //tracking.trigger("SignedUp")
+                window.gtag('event', 'authenticate_action', {
+                    'action' : 'signup',
+                    'method': "telegram"
+                })
             })
 
         })
@@ -28,7 +28,10 @@ export const logIn = async(email, password, userInfo) => {
 
             auth.signInWithEmailAndPassword(email, password).then((loggedUser) => {
                 console.log('user logged in!')
-                //tracking.trigger("LoggedIn")
+                window.gtag('event', 'authenticate_action', {
+                    'action' : 'login',
+                    'method': "telegram"
+                })
             })
 
         }
@@ -37,7 +40,11 @@ export const logIn = async(email, password, userInfo) => {
 
 
 export const signOut = async() => {
-    await auth.signOut();
+    await auth.signOut().then( () => {
+        window.gtag('event', 'authenticate_action', {
+            'action' : 'logout',
+        })
+    });
 }
 
 export const signInAnonymously = async() => {

@@ -3,7 +3,6 @@ import React from "react";
 import UserProvider from "./providers/UserProvider";
 import ThemeProvider from "./providers/ThemeProvider";
 import SubjectProvider from "./providers/SubjectProvider";
-import AnalyticsEventsProvider from "./providers/AnalyticsEventsProvider";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -13,14 +12,14 @@ import ProgramPage from './pages/ProgramPage/ProgramPage';
 import TopicPage from './pages/TopicPage/TopicPage';
 import TestsPage from './pages/TestsPage/TestsPage';
 
-
+import { analytics } from './services/Firebase/firebase.js'
 
 function App() {
+
     return (
         <UserProvider>
           <ThemeProvider>
             <SubjectProvider>
-                <AnalyticsEventsProvider>
 
               <Router>
                 <Switch>
@@ -37,7 +36,6 @@ function App() {
                 </Switch>
               </Router>
 
-                </AnalyticsEventsProvider>
             </SubjectProvider>
           </ThemeProvider>
         </UserProvider>

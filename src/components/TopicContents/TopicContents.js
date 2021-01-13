@@ -47,6 +47,7 @@ export default function TopicContents(props) {
                 <div>
 
                     <Typography paragraph fontWeight="fontWeightBold" variant="h4" >що треба знати і вміти:</Typography>
+                    <Typography paragraph variant = "body2">{"* згідно з офіційними вимогами УЦЯО"}</Typography>
 
                     {/*display standart skill reqs*/}
                     <Typography paragraph variant="h4" color="secondary">стандарт</Typography>
@@ -79,7 +80,7 @@ export default function TopicContents(props) {
                         </div>
                     }
                     <Typography paragraph />
-                    <Typography color="secondary" variant = "body2">{"* зміст та компетентності згідно з офіційним документом УЦЯО"}</Typography>
+                    {/*<Typography color="secondary" variant = "body2">{"* згідно з офіційними вимогами УЦЯО"}</Typography>*/}
 
 
                 </div>

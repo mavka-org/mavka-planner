@@ -15,24 +15,23 @@ import Typography from '@material-ui/core/Typography';
 import { RoundButton } from './../../components/Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
-import {addAnalyticsEvent} from "../../services/API/httpRequests";
 import {UserContext} from "../../providers/UserProvider";
-import {TrackingContext} from '@vrbo/react-event-tracking'
+
 
 
 const AppPage = (props) => {
 
   const subject = useContext(SubjectContext)[0]
   const user = useContext(UserContext);
-  const tracking = useContext(TrackingContext)
 
 
   const [openSubjectsDialog, setOpenSubjectsDialog] = React.useState(false);
 
   const handleClickSubjectsDialog = () => {
     setOpenSubjectsDialog(true);
-    //tracking.trigger("SubjectDropdownClicked", {"path":props.history.location.pathname})
-    tracking.trigger("SubjectDropdownClicked", {})
+    window.gtag('event', 'subject_dropdown_action', {
+      'action' : 'dropdown_open'
+    })
   };
 
   const handleSubjectsDialogClosed = () => {
@@ -78,8 +77,8 @@ const AppPage = (props) => {
               <Typography>
                 Чудові ЗНОшники минулих років підібрали для тебе серію порад, які допомогли їм потрапити в їх омріяні універи.
                 <strong><Link
-                    //onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {"path":props.history.location.pathname}, {"ext_redirect": {"href":strategy_url}} )}
-                    onClick={(e) => tracking.trigger("StrategyFromAlertClicked", {}, {"ext_redirect": {"href":strategy_url}} )}
+                    href = {strategy_url}
+                    onClick = { () => window.gtag('event', 'strategy_link_click') }
                 >→ Читай тут!
                 </Link></strong>
               </Typography>

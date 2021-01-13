@@ -1,3 +1,27 @@
+
+
+window.gtag('event', 'sakses', {
+      'method': 'pure_talent'
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import {addAnalyticsEvent} from "../../services/API/httpRequests";
+
+
 import {TrackingContext} from '@vrbo/react-event-tracking'
 
 const tracking = useContext(TrackingContext)

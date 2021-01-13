@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import Page from './../../components/Page/Page';
 import TopicsMultipleSelect from "./TopicsMultipleSelect.js";
 import {ScalableLargeButton, LargeButton} from './../../components/Button/Button.js'
@@ -11,10 +11,8 @@ import CuteGif from '../../assets/img/giphy.gif'
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Program from "../../models/program/program"
 import { getProgram } from "../../services/API/httpRequests";
-import {addAnalyticsEvent} from '../../services/API/httpRequests.js'
 import {UserContext} from "../../providers/UserProvider";
 import {SubjectContext} from "../../providers/SubjectProvider";
-import {TrackingContext} from "@vrbo/react-event-tracking";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const PlannerSetupScreen = (props) => {
-    const classes = useStyles();
+    const subject = useContext(SubjectContext)[0]
 
     const [currentCard, setCurrentCard] = React.useState(0);
     const [program, setProgram] = React.useState(null)
@@ -75,44 +73,58 @@ const PlannerSetupScreen = (props) => {
         })
     }
 
+
+    // use effects
+    useEffect(
+        () => {
+               window.gtag('event', 'planner_setup_action', {
+                    'action' : 'started',
+                    'subject_id' : subject.id,
+                })
+        }, []
+    )
+
+
+
+
     const cards = [
-        {
-            "Card": InfoCard,
-            "props": {
-                "text": "Хееей! Го створимо тобі твій особистий планер ",
-                "img": CuteGif,
-                "order": 0
-            }
-        },
+        // {
+        //     "Card": InfoCard,
+        //     "props": {
+        //         "text": "Хееей! Го створимо тобі твій особистий планер ",
+        //         "img": CuteGif,
+        //         "order": 0
+        //     }
+        // },
         {
             "Card": InfoCard,
             "props": {
                 "text": "Починаючи від цього тижня, планер показує тобі, які саме теми треба вчити, щоб встигнути все до ЗНО",
                 "img": WeeksDemo,
-                "order": 1
+                "order": 0
             }
         },
+        // {
+        //     "Card": InfoCard,
+        //     "props": {
+        //         "text": "Коли тема вивчена, викреслюй її зі списку",
+        //         "img": CheckboxDemo,
+        //         "order": 2
+        //     }
+        // },
         {
             "Card": InfoCard,
             "props": {
-                "text": "Коли тема вивчена, викреслюй її зі списку",
-                "img": CheckboxDemo,
-                "order": 2
-            }
-        },
-        {
-            "Card": InfoCard,
-            "props": {
-                "text": "До кожної теми ми підібрали конспекти, теорію і пробні ЗНО — тицяй на “Вчити”",
+                "text": "До кожної теми ми підібрали конспекти, теорію і пробні ЗНО”",
                 "img": StudyMatsDemo,
-                "order": 3
+                "order": 1
             }
         },
         {
             "Card": InputCard,
             "props": {
                 "text": "І останнє, можеш виключити теми, які вже знаєш, щоб ми не додавали їх в твій планер. Якщо хочеш вчити все, просто пропусти",
-                "order": 4,
+                "order": 2,
                 "program": program
             }
         }
@@ -191,7 +203,7 @@ const InfoCard = (props) => {
                 <Box my={1} >
                     <MobileStepper
                         variant="dots"
-                        steps={5}
+                        steps={3}
                         position="static"
                         activeStep={props.order}
                         className={classes.Stepper}/>
@@ -212,7 +224,6 @@ const InputCard = (props) => {
     const classes = useStyles();
     const subject = useContext(SubjectContext)[0]
     const user = useContext(UserContext);
-    const tracking = useContext(TrackingContext)
 
     const [selectedTopicIds, setSelectedIds] = React.useState([]);
 
@@ -221,10 +232,14 @@ const InputCard = (props) => {
     }
 
     const handleProceed = () => {
+        window.gtag('event', 'planner_setup_action', {
+            'action' : 'finished',
+            'subject_id' : subject.id,
+            'topics_to_exclude' : selectedTopicIds,
+        })
+
         props.handleProceed(selectedTopicIds)
-        if(props.program) {
-            tracking.trigger("FinishPlannerSetupClicked", {"topics_to_exclude": selectedTopicIds})
-            }
+
     }
 
     return(
@@ -258,13 +273,13 @@ const InputCard = (props) => {
                     style={{background: '#000'}}
 
                 >
-                    Далі
+                    Створити планер 🚀
                 </ScalableLargeButton>
 
                 <Box my={1}>
                     <MobileStepper
                         variant="dots"
-                        steps={5}
+                        steps={3}
                         position="static"
                         activeStep={props.order}
                         className={classes.Stepper}/>

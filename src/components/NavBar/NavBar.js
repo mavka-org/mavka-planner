@@ -8,11 +8,11 @@ import MavkaTextLogo from './../../assets/img/mavka-text-logo.png';
 import { makeStyles } from '@material-ui/core/styles';
 import LoginDialog from './../../components/LoginDialog/LoginDialog';
 import { getCurrentUser, handleTelegramResponse, signOut } from './../../services/Firebase/Authenticate'
-import { addAnalyticsEvent } from '../../services/API/httpRequests.js'
+
 import Link from "@material-ui/core/Link";
 import { useHistory } from "react-router-dom";
 import  { Redirect } from 'react-router-dom'
-import {TrackingContext} from '@vrbo/react-event-tracking'
+import {SubjectContext} from "../../providers/SubjectProvider";
 
 const useStyles = makeStyles((theme) => ({
   Logo: {
@@ -26,8 +26,8 @@ const NavBar = (props) => {
   const classes = useStyles();
 
   const user = useContext(UserContext)
+  const subject = useContext(SubjectContext)[0]
   const history = useHistory();
-  const tracking = useContext(TrackingContext)
   const [openedLogin, setOpenedLogin] = React.useState(false)
 
 
@@ -38,13 +38,15 @@ const NavBar = (props) => {
 
 
   const handleLoggedOut = () => {
-      tracking.trigger("LoggedOut", {}, {"int_redirect": { "href": "/", "history": history }})
       signOut()
 
   }
 
   const handleLogIn = () => {
-      tracking.trigger("LogInClicked")
+      window.gtag('event', 'authenticate_action', {
+          'action' : 'login_button_click',
+      })
+
       setOpenedLogin(true)
   }
 
@@ -53,9 +55,13 @@ const NavBar = (props) => {
     <Box display="flex" alignItems="center" py={1}>
 
       <Box flexGrow={1}>
-       {/*<NavLink to="/" onClick={(e) => addEvent("LogoFromMenuClicked", {})}>*/}
-        <NavLink to="/" onClick={(e) => tracking.trigger("LogoFromMenuClicked")}>
-       {/*   <NavLink to="/">*/}
+       <NavLink
+              to="/"
+              onClick={() => window.gtag('event', 'menu_action', {
+                  'action' : 'logo_button_click',
+                  'subject_id' : subject.id,
+              }) }
+          >
           <img
               name="NavLandingButton"
               src={props.selected === undefined ? (MavkaTextLogo) : (MavkaSmallLogo)}
@@ -72,28 +78,39 @@ const NavBar = (props) => {
               <Button
                   name="NavPlannerButton"
                   active={props.selected === "planner"}
-                  onClick={(e) => tracking.trigger("PlannerFromMenuClicked", {}, {"int_redirect": {"href": '/planner', "history": history }} )}
-              >
+                  href='/planner'
+                  onClick={() => window.gtag('event', 'menu_action', {
+                      'action' : 'planner_button_click',
+                      'subject_id' : subject.id,
+                  }) }
+                  >
                   планер
               </Button>
               <Button
                   name="NavProgramButton"
                   active={props.selected === "program"}
-                  onClick={(e) => tracking.trigger("ProgramFromMenuClicked", {}, {"int_redirect": {"href": '/program', "history": history }})}
-              >програма
+                  href='/program'
+                  onClick={() => window.gtag('event', 'menu_action', {
+                      'action' : 'program_button_click',
+                      'subject_id' : subject.id,
+                  }) }
+                  >програма
               </Button>
               <Button
                   name="NavTestButton"
                   active={props.selected === "tests"}
-                  //onClick={(e) => tracking.trigger("TestFromMenuClicked", {},)}
-                  onClick={(e) => tracking.trigger("TestFromMenuClicked", {}, {"ext_redirect": {"href": 'https://tests.mavka.org', "history": history }})}
-              >тести
+                  href='https://tests.mavka.org'
+                  onClick={() => window.gtag('event', 'menu_action', {
+                      'action' : 'tests_button_click',
+                      'subject_id' : subject.id,
+                  }) }
+                  >тести
               </Button>
             </div>
           }
           {
             user === undefined ?
-              <Button onClick={handleLoggedOut} style={{ opacity: 0 }}>вийти</Button>
+              <Button onClick={handleLoggedOut} href="/" style={{ opacity: 0 }}>вийти</Button>
               :
               (!user || user.isAnonymous) ?
                 <Button
