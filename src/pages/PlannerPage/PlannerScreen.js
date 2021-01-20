@@ -45,6 +45,7 @@ const PlannerScreen = (props) => {
       handleIconClick={handleClickSettingsOpen}
       headerImageSrc={PlannerHeader}
       selected="planner"
+      showStrategy = {true}
       {...props}
     >
 

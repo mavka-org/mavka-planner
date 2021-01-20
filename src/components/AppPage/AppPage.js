@@ -71,19 +71,24 @@ const AppPage = (props) => {
 
           </Grid>
 
-          <Box py={2}>
-            <Alert severity="success" icon={"🔥"} >
-              <AlertTitle><Typography variant="h3"><strong>Стратегія підготовки</strong></Typography></AlertTitle>
-              <Typography>
-                Чудові ЗНОшники минулих років підібрали для тебе серію порад, які допомогли їм потрапити в їх омріяні універи.
-                <strong><Link
-                    href = {strategy_url}
-                    onClick = { () => window.gtag('event', 'strategy_link_click') }
-                >→ Читай тут!
-                </Link></strong>
-              </Typography>
-            </Alert>
-          </Box>
+          {props.showStrategy ? (
+              <Box py={2}>
+                <Alert severity="success" icon={"🔥"} >
+                  <AlertTitle><Typography variant="h3"><strong>Стратегія підготовки</strong></Typography></AlertTitle>
+                  <Typography>
+                    Чудові ЗНОшники минулих років підібрали для тебе серію порад, які допомогли їм потрапити в їх омріяні універи.
+                    <strong><Link
+                        href = {strategy_url}
+                        onClick = { () => window.gtag('event', 'strategy_link_click') }
+                    >→ Читай тут!
+                    </Link></strong>
+                  </Typography>
+                </Alert>
+              </Box>
+          ) : ("")}
+
+
+
 
           {props.children}
         </Page>

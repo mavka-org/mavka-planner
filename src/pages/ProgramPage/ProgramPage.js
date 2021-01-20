@@ -26,6 +26,7 @@ export default function ProgramPage(props) {
     <AppPage
       headerImageSrc={ProgramHeader}
       selected="program"
+      showStrategy = {true}
       {...props}
     >
           <ProgramAccordion program={program}/>

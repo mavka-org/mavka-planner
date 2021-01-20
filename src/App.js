@@ -11,6 +11,7 @@ import PlannerPage from './pages/PlannerPage/PlannerPage';
 import ProgramPage from './pages/ProgramPage/ProgramPage';
 import TopicPage from './pages/TopicPage/TopicPage';
 import TestsPage from './pages/TestsPage/TestsPage';
+import PracticeTestPage from './pages/PracticeTestPage/PracticeTestPage';
 
 import { analytics } from './services/Firebase/firebase.js'
 
@@ -32,6 +33,8 @@ function App() {
                   <Route path="/math/topic/:id" component={TopicPage} />
 
                   <Route path="/tests" component={TestsPage} />
+
+                  <Route path="/practice/test/:id" component={PracticeTestPage} />
 
                 </Switch>
               </Router>

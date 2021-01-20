@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 
 const TestsSection = (props) => {
 
-  const [yearIdx, setYearIdx] = React.useState(0);
+  const [yearIdx, setYearIdx] = React.useState(1);
 
   const getTestCards = () => {
     let year = props.tests.years[yearIdx].year
@@ -18,6 +18,7 @@ const TestsSection = (props) => {
         </>
       )
     })
+
   }
 
   const handleSelectYearClicked = () => {

@@ -6,6 +6,8 @@ import { getTestsLists } from './../../services/API/httpRequests';
 import { UserContext } from './../../providers/UserProvider';
 import { SubjectContext } from './../../providers/SubjectProvider';
 import { TrackingContext } from '@vrbo/react-event-tracking'
+import ProgramHeader from "../../assets/img/program-header.png";
+import AppPage from "../../components/AppPage/AppPage";
 
 const TestsPage = (props) => {
 
@@ -22,15 +24,24 @@ const TestsPage = (props) => {
   }
 
   if(testsLists) {
+    // at this point, the subject is chosen
     console.log('testsLists', testsLists.by_sessions)
     return(
-      <>
-        <TestsSection name="ЗНО минулих років" tests={testsLists.by_sessions}/>
-      </>
+        <AppPage
+            headerImageSrc={ProgramHeader}
+            selected="program"
+            showStrategy = {false}
+            {...props}
+        >
+          <>
+            <TestsSection name="ЗНО минулих років" tests={testsLists.by_sessions}/>
+          </>
+        </AppPage>
+
     )
   }
 
-  return (<Loading />)
+  return (<Loading/>)
 }
 
 export default TestsPage
