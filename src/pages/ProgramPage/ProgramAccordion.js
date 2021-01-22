@@ -71,8 +71,8 @@ export default function ProgramAccordion(props) {
         setExpanded(newExpanded ? panel : false);
 
         if(newExpanded) {
-            window.gtag('event', 'program_page_action', {
-                'action' : 'topic_accordion_click',
+            window.gtag('event', 'program_topic_accordion_click', {
+                'category' : 'program_page_action',
                 'subject_id' : subject.id,
                 'topic_id' : topic_id,
             })
@@ -127,8 +127,8 @@ export default function ProgramAccordion(props) {
 
         const handleButtonClick = (event) => {
             event.stopPropagation()
-            window.gtag('event', 'program_page_action', {
-                'action' : 'topic_learn_button_click',
+            window.gtag('event', 'program_learn_topic_button_click', {
+                'category' : 'program_page_action',
                 'subject_id' : subject.id,
                 'topic_id' : topic.id,
             })

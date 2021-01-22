@@ -43,8 +43,8 @@ const NavBar = (props) => {
   }
 
   const handleLogIn = () => {
-      window.gtag('event', 'authenticate_action', {
-          'action' : 'login_button_click',
+      window.gtag('event', 'login_button_click', {
+          'category' : 'authentication_action',
       })
 
       setOpenedLogin(true)
@@ -57,8 +57,8 @@ const NavBar = (props) => {
       <Box flexGrow={1}>
        <NavLink
               to="/"
-              onClick={() => window.gtag('event', 'menu_action', {
-                  'action' : 'logo_button_click',
+              onClick={() => window.gtag('event', 'menu_logo_button_click', {
+                  'category' : 'menu_action',
                   'subject_id' : subject.id,
               }) }
           >
@@ -79,8 +79,8 @@ const NavBar = (props) => {
                   name="NavPlannerButton"
                   active={props.selected === "planner"}
                   href='/planner'
-                  onClick={() => window.gtag('event', 'menu_action', {
-                      'action' : 'planner_button_click',
+                  onClick={() => window.gtag('event', 'menu_planner_button_click', {
+                      'category' : 'menu_action',
                       'subject_id' : subject.id,
                   }) }
                   >
@@ -90,8 +90,8 @@ const NavBar = (props) => {
                   name="NavProgramButton"
                   active={props.selected === "program"}
                   href='/program'
-                  onClick={() => window.gtag('event', 'menu_action', {
-                      'action' : 'program_button_click',
+                  onClick={() => window.gtag('event', 'menu_program_button_click', {
+                      'category' : 'menu_action',
                       'subject_id' : subject.id,
                   }) }
                   >програма
@@ -100,8 +100,8 @@ const NavBar = (props) => {
                   name="NavTestButton"
                   active={props.selected === "tests"}
                   href='https://tests.mavka.org'
-                  onClick={() => window.gtag('event', 'menu_action', {
-                      'action' : 'tests_button_click',
+                  onClick={() => window.gtag('event', 'menu_tests_button_click', {
+                      'category' : 'menu_action',
                       'subject_id' : subject.id,
                   }) }
                   >тести

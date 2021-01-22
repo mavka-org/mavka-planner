@@ -28,12 +28,12 @@ const Landing = (props) => {
   const user = useContext(UserContext);
   const classes = useStyles();
 
-  const onClickProgram = () => {
-
-    window.gtag('event', 'landing_page_action', {
-      'action' : 'program_button_click'
-    })
-  }
+  // const onClickProgram = () => {
+  //
+  //   window.gtag('event', 'landing_page_action', {
+  //     'action' : 'program_button_click'
+  //   })
+  // }
 
 
   return (
@@ -57,8 +57,8 @@ const Landing = (props) => {
               style={{background: '#000', fontSize: '17px'}}
               variant="contained"
               name="LandingPlannerButton"
-              onClick = { () => window.gtag('event', 'landing_page_action', {
-                'action' : 'planner_button_click'
+              onClick = { () => window.gtag('event', 'landing_planner_button_click', {
+                'category' : 'landing_page_action'
               }) }
             >
             📅  планер підготовки зно
@@ -73,8 +73,8 @@ const Landing = (props) => {
               variant="contained"
               className={classes.oppositeColor}
               name="LandingProgramButton"
-              onClick={ () => window.gtag('event', 'landing_page_action', {
-                'action' : 'program_button_click'
+              onClick={ () => window.gtag('event', 'landing_program_button_click', {
+                'category' : 'landing_page_action'
               }) }
             >
             📚  конспекти та тести зно

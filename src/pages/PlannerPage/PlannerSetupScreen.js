@@ -77,8 +77,8 @@ const PlannerSetupScreen = (props) => {
     // use effects
     useEffect(
         () => {
-               window.gtag('event', 'planner_setup_action', {
-                    'action' : 'started',
+               window.gtag('event', 'planner_setup_started', {
+                    'category' : 'planner_page_action',
                     'subject_id' : subject.id,
                 })
         }, []
@@ -232,8 +232,8 @@ const InputCard = (props) => {
     }
 
     const handleProceed = () => {
-        window.gtag('event', 'planner_setup_action', {
-            'action' : 'finished',
+        window.gtag('event', 'planner_setup_finished', {
+            'category' : 'planner_page_action',
             'subject_id' : subject.id,
             'topics_to_exclude' : selectedTopicIds,
         })

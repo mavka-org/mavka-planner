@@ -40,8 +40,8 @@ export default function TopicPage(props) {
                         <Button
                             name="TopicStudyGuidesButton"
                             fullWidth
-                            onClick = { () => window.gtag('event', 'topic_page_action', {
-                                'action' : 'study_guides_button_click',
+                            onClick = { () => window.gtag('event', 'topic_study_guides_button_click', {
+                                'category' : 'topic_page_action',
                                 'subject_id' : subject.id,
                                 'topic_id' : topic.id,
                             })}
@@ -58,8 +58,8 @@ export default function TopicPage(props) {
                     <Grid item xs={6}>
                         <Button
                             name="TopicTestsButton"
-                            onClick = { () => window.gtag('event', 'topic_page_action', {
-                                'action' : 'tests_button_click',
+                            onClick = { () => window.gtag('event', 'topic_tests_button_click', {
+                                'category' : 'topic_page_action',
                                 'subject_id' : subject.id,
                                 'topic_id' : topic.id,
                             })}

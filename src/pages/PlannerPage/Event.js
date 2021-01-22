@@ -31,8 +31,8 @@ class Event extends React.Component {
     }
 
     handleButtonClick = (event_id) => {
-        window.gtag('event', 'planner_page_action', {
-            'action': 'event_button_click',
+        window.gtag('event', 'planner_event_button_click', {
+            'category': 'planner_page_action',
             'subject_id' : this.context.id,
             'event_id' : event_id,
         });

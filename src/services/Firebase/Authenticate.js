@@ -16,8 +16,8 @@ export const logIn = async(email, password, userInfo) => {
 
             setUserInfo(userToken, userInfo).then((res) => {
                 console.log(res)
-                window.gtag('event', 'authenticate_action', {
-                    'action' : 'signup',
+                window.gtag('event', 'signup', {
+                    'category' : 'authentication_action',
                     'method': "telegram"
                 })
             })
@@ -28,8 +28,8 @@ export const logIn = async(email, password, userInfo) => {
 
             auth.signInWithEmailAndPassword(email, password).then((loggedUser) => {
                 console.log('user logged in!')
-                window.gtag('event', 'authenticate_action', {
-                    'action' : 'login',
+                window.gtag('event', 'login', {
+                    'category' : 'authentication_action',
                     'method': "telegram"
                 })
             })
@@ -41,8 +41,8 @@ export const logIn = async(email, password, userInfo) => {
 
 export const signOut = async() => {
     await auth.signOut().then( () => {
-        window.gtag('event', 'authenticate_action', {
-            'action' : 'logout',
+        window.gtag('event', 'logout', {
+            'category' : 'authentication_action',
         })
     });
 }

@@ -50,8 +50,8 @@ const Week = (props) => {
     // Update eventsCompleted state with a new value
 
     if (state) {
-      window.gtag('event', 'planner_page_action', {
-        'action' : 'event_checkbox_click',
+      window.gtag('event', 'planner_event_checkbox_click', {
+        'category' : 'planner_page_action',
         'subject_id' : subject.id,
         'event_id' : eventId,
         'week_tense' : getWeekTense(),

@@ -22,8 +22,8 @@ const PlannerScreen = (props) => {
 
   const handleClickSettingsOpen = () => {
 
-    window.gtag('event', 'planner_page_action', {
-      'action': 'planner_settings_click',
+    window.gtag('event', 'planner_settings_click', {
+      'category': 'planner_page_action',
       'subject_id' : subject.id,
     });
 
