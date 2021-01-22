@@ -9,9 +9,14 @@ import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 // TODO dave it somewhere
 let questionDatas = []
 
-const classes = {
-    'ABCD': ABCD,
-    'ABCDE' : ABCDE,
+const questionTypes = {
+    "ABCD" : ABCD,
+    "ABCDE" : ABCDE,
+    "LangMultipleChoice" : LangMultipleChoice,
+    "OneOutOfSeven" : OneOutOfSeven,
+    "TrueFalse" : TrueFalse,
+    "Matching" : Matching,
+    "MultipleChoice" : MultipleChoice
 }
 
 
@@ -58,8 +63,9 @@ export default function PracticeTestPage(props) {
 
 
         return questionDatas.map((questionData, idx) => {
+            let QuestionType = questionTypes[questionData.type.slug]
 
-            return <Matching
+            return <QuestionType
                 question={questionData}
                 hidden = {currentQuestionIdx != idx}
                 currentQuestionIdx={currentQuestionIdx}
@@ -96,7 +102,7 @@ export default function PracticeTestPage(props) {
             (currentQuestionIdx !== undefined) ? (
                     <div>
                         <button> currentQuestionIdx {currentQuestionIdx}</button>
-                        <div> {getNavBar()} </div>
+                        <div> NavBar {getNavBar()} </div>
                         {getQuestionComponents(currentQuestionIdx)}
 
                     </div>

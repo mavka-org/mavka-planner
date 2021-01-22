@@ -41,13 +41,13 @@ export class MultipleChoice extends QuestionComponent {
     getCorrectOption(answer_option_data) {
         // TODO front
         return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text}
-            correct </button>
+             correct </button>
     }
 
     getSubmittedIncorrectOption(answer_option_data) {
         // TODO front
         return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text}
-            incorrect </button>
+             incorrect </button>
     }
 
     isOptionChosen(answer_option_data) {
