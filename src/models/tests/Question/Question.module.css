@@ -12,7 +12,7 @@
 .CheckButton {
   cursor: pointer;
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 173px;
@@ -24,7 +24,7 @@
 .RoundedButton {
   display: flex;
   cursor: pointer;
-  flex-direction:row ;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.15));
@@ -33,12 +33,12 @@
   background-color: #1ab2a8;
   border-radius: 50%;
 }
-.RoundedButton > *{
+.RoundedButton > * {
   width: 64px;
   color: white;
 }
-.unactive{
-  background-color: #A6D5D1;
+.unactive {
+  background-color: #a6d5d1;
   opacity: 0.5;
 }
 /* Multiple Choice */
@@ -70,4 +70,107 @@
 }
 .wrong {
   filter: drop-shadow(4px 4px 12px rgba(178, 26, 26, 0.5));
+}
+
+/* matching  */
+
+.Button__MatchingText {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 335px;
+  height: 55px;
+  color: black;
+  background-color: white;
+  margin: 12.5px 0;
+  padding: 0px 20px;
+  border: 1px solid white;
+  border-radius: 30px;
+  text-align: left;
+  font-weight: 300;
+  line-height: 21px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* table */
+
+.table{
+  font-family: 'SF Display';
+  font-size: 24px;
+}
+
+.marker {
+  width: 27px;
+  height: 27px;
+  background-color: #bbc8da;
+  text-align: center;
+  vertical-align: auto;
+  font-weight: 500;
+}
+
+.marker p {
+  margin: auto;
+}
+
+.marker_and_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.marker {
+  margin-right: 15px;
+}
+
+/* table */
+
+.select_answer {
+  display: table;
+  border-collapse: separate;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-spacing: 2px;
+  border-color: grey;
+  border-spacing: 8px 8px;
+}
+
+.select_answer label {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  line-height: 27px;
+  vertical-align: middle;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.select_answer label > input[type="radio"] {
+  display: none;
+}
+
+.select_answer label > span {
+  background: #fff;
+  border: solid 1px #bbb;
+  display: inline-block;
+  width: 26px;
+  border-radius: 50%;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.select_answer input[type="radio"]:checked + span {
+  background-color: #828282;
+}
+
+.select_answer span:hover {
+  background: rgba(0, 0, 0, 0.274);
 }

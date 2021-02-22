@@ -105,7 +105,7 @@ export default function PracticeTestPage(props) {
             <Container maxWidth="xs">
                 <Grid container direction="column">
                     <Grid item><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
-                    {/* <div> NavBar {getNavBar()} </div> */}
+                    <div> NavBar {getNavBar()} </div>
                     {/* navbar будет */}
                     {getQuestionComponents(currentQuestionIdx)}
 
