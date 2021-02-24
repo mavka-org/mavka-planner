@@ -90,7 +90,7 @@ export class Matching extends QuestionComponent {
         // TODO front
         return <>
             <label>
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name} class={s.q_radio} ></input>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name} ></input>
                 <span class={s.marker}></span>
             </label>
         </>
@@ -101,23 +101,33 @@ export class Matching extends QuestionComponent {
         // TODO front
         return <>
             <label>
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name} class={s.q_radio} ></input>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name}></input>
                 <span class={s.marker}></span>
             </label>
         </>
     }
 
-    getCorrectOption(answer_option_data) {
+    getCorrectOption(answer_option_data, value, name) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data} correct </button>
+        return <>
+            <label >
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name}  ></input>
+                <span style={{backgroundColor:'#1AB2A8'}} class={s.marker__correct}></span>
+            </label>
+        </>
     }
 
-    getSubmittedIncorrectOption(answer_option_data) {
+    getSubmittedIncorrectOption(answer_option_data, value, name) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data} incorrect </button>
+        return <>
+            <label>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name} ></input>
+                <span  style={{backgroundColor:'#EB5757'}} class={s.marker}></span>
+            </label>
+        </>
     }
 
-    handleAnswerOptionClick = (answer_option_data) => {
+    handleAnswerOptionClick = (answer_option_data, value, name) => {
         if (!this.state.is_submitted) {
             let newUserAnswer = ""
 
