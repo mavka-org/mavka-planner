@@ -1,22 +1,24 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { getQuestionsByTest } from "../../services/API/httpRequests.js"
 import Loading from "../../components/Loading/Loading";
 import QuestionData from "../../models/tests/QuestionData.js"
 import { ABCD, ABCDE, LangMultipleChoice, OneOutOfSeven, TrueFalse } from "../../models/tests/Question/MultipleChoice";
 import { Matching } from "../../models/tests/Question/Matching";
 import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
+import Page from "../../components/Page/Page.js";
+import { Container, Grid, Typography } from "@material-ui/core";
 
 // TODO dave it somewhere
 let questionDatas = []
 
 const questionTypes = {
-    "ABCD" : ABCD,
-    "ABCDE" : ABCDE,
-    "LangMultipleChoice" : LangMultipleChoice,
-    "OneOutOfSeven" : OneOutOfSeven,
-    "TrueFalse" : TrueFalse,
-    "Matching" : Matching,
-    "MultipleChoice" : MultipleChoice
+    "ABCD": ABCD,
+    "ABCDE": ABCDE,
+    "LangMultipleChoice": LangMultipleChoice,
+    "OneOutOfSeven": OneOutOfSeven,
+    "TrueFalse": TrueFalse,
+    "Matching": Matching,
+    "MultipleChoice": MultipleChoice
 }
 
 
@@ -30,14 +32,14 @@ export default function PracticeTestPage(props) {
     if (!isDataLoaded) {
 
         // TODO load actual test questions
-        getQuestionsByTest("math_TODO", "strapi_id_TODO").then( (testQuestionsResponse) => {
+        getQuestionsByTest("math_TODO", "strapi_id_TODO").then((testQuestionsResponse) => {
 
-            testQuestionsResponse.forEach(function(q_data, idx) {
+            testQuestionsResponse.forEach(function (q_data, idx) {
 
                 let questionData = new QuestionData(q_data)
                 questionDatas.push(questionData)
 
-                })
+            })
             setDataLoaded(true)
 
         })
@@ -54,7 +56,7 @@ export default function PracticeTestPage(props) {
     const handleChangeQuestion = (new_q_id) => {
         console.log('handleChangeQuestion', new_q_id)
 
-        if (new_q_id >=0 && new_q_id < questionDatas.length) {
+        if (new_q_id >= 0 && new_q_id < questionDatas.length) {
             setCurrentQuestionIdx(new_q_id)
         }
     }
@@ -67,9 +69,9 @@ export default function PracticeTestPage(props) {
 
             return <QuestionType
                 question={questionData}
-                hidden = {currentQuestionIdx != idx}
+                hidden={currentQuestionIdx != idx}
                 currentQuestionIdx={currentQuestionIdx}
-                idx = {idx}
+                idx={idx}
                 handleChangeQuestion={handleChangeQuestion}
             />
 
@@ -98,16 +100,19 @@ export default function PracticeTestPage(props) {
     }
 
 
-        return (
-            (currentQuestionIdx !== undefined) ? (
-                    <div>
-                        <button> currentQuestionIdx {currentQuestionIdx}</button>
-                        <div> NavBar {getNavBar()} </div>
-                        {getQuestionComponents(currentQuestionIdx)}
+    return (
+        (currentQuestionIdx !== undefined) ? (
+            <Container maxWidth="xs">
+                <Grid container direction="column">
+                    <Grid item><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
+                    <div> NavBar {getNavBar()} </div>
+                    {/* navbar будет */}
+                    {getQuestionComponents(currentQuestionIdx)}
 
-                    </div>
-                )
-                : <Loading/>
-        );
+                </Grid>
+            </Container>
+        )
+            : <Loading />
+    );
 
 }

@@ -2,7 +2,7 @@ import Button from './../../components/Button/Button';
 import { Grid, Typography } from '@material-ui/core';
 import TopicContents from "../../components/TopicContents/TopicContents";
 import Topic from '../../models/program/topic';
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import Box from "@material-ui/core/Box";
 import Loading from './../../components/Loading/Loading';
 import {getTopic} from './../../services/API/httpRequests';

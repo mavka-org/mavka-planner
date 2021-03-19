@@ -53,31 +53,27 @@ const theme = createMuiTheme({
     },
     h6: {
       fontWeight: '600',
+      fontSize: '20px'
     },
     subtitle1: {
-      fontWeight: "normal",
       fontSize: '18px',
       lineHeight: '21px',
       color: '#333333',
+      fontWeight: '300',
     },
-    subtitle1: {
-      fontWeight: "normal",
-      fontSize: '18px',
-      lineHeight: '21px',
+body1: {
+  fontSize: '14px',
+    lineHeight: '20px',
       color: '#333333',
     },
-    body1: {
-      fontSize: '14px',
-      lineHeight: '20px',
-      color: '#333333',
+body2: {
+  fontSize: '14px',
+    color: '#333333',
     },
-    body2: {
-      fontSize: '14px',
-      color: '#333333',
-    },
-    button: {
-      fontWeight: '400'
-    }
+button: {
+  fontWeight: '300',
+    fontSize: '18px'
+}
   },
 });
 
