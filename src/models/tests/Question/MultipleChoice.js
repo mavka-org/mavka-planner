@@ -1,53 +1,59 @@
 import React from "react";
-import {QuestionComponent} from "./QuestionComponent";
-
+import { QuestionComponent } from "./QuestionComponent";
+import s from './Question.module.css'
+import { Typography } from "@material-ui/core";
+import clsx from 'clsx'
 export class MultipleChoice extends QuestionComponent {
-
     constructor(props, answer_options) {
         super(props)
         this.answer_options_data = this.formAnswerOptionsData(answer_options)
     }
-
     formAnswerOptionsData(answer_options) {
         let answer_options_data = []
         this.props.question.data.options.map( (text_option, idx) => {
             answer_options_data.push({ "answer" : answer_options[idx], "text" : text_option})
+
         })
         return answer_options_data
     }
 
     handleAnswerOptionClick = (answer_option_data) => {
         if (!this.state.is_submitted) {
-            this.setState({user_answer: answer_option_data.answer})
+            this.setState({ user_answer: answer_option_data.answer })
         }
     }
 
     displayOptions() {
         // TODO put buttons in a grid
-        return this.answer_options_data.map( (answer_option_data) => this.getAnswerOption(answer_option_data) )
+        return this.answer_options_data.map((answer_option_data) => this.getAnswerOption(answer_option_data))
+
     }
 
     getNormalOption(answer_option_data) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text} </button>
+        return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography variant="subtitle1">{answer_option_data.text}</Typography></div>
     }
 
     getClickedOption(answer_option_data) {
         // TODO front
-        return <button
-            onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text} chosen </button>
+        return <div className={clsx(s.Button, s.choosen)}
+            onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography style={{fontWeight:'bold'}} variant="subtitle1">{answer_option_data.text}</Typography></div>
     }
 
     getCorrectOption(answer_option_data) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
-              correct {"\n\n "} </button>
+        // return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
+        //       correct {"\n\n "} </button>
+        return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography variant="subtitle1">{answer_option_data.text}</Typography></div>
+
     }
 
     getSubmittedIncorrectOption(answer_option_data) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
-              incorrect </button>
+        // return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
+        //       incorrect </button>
+
+        return <div  className={clsx(s.Button, s.wrong)}  onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography variant="subtitle1">{answer_option_data.text}</Typography></div>
     }
 
     isOptionChosen(answer_option_data) {
@@ -112,8 +118,8 @@ export class TrueFalse extends MultipleChoice {
     // TODO check if TrueFalse buttons are displayd the same as ABCD
     // TODO especially to match "answer" string from here with "correct_answer" from strapi
     formAnswerOptionsData(answer_options) {
-        return [{ "answer" : "True", "text" : ""},
-            { "answer" : "False", "text" : ""}]
+        return [{ "answer": "True", "text": "" },
+        { "answer": "False", "text": "" }]
     }
 }
 
@@ -123,16 +129,16 @@ export class Open extends QuestionComponent {
         // TODO front
     }
 }
-export class SingleOpen extends Open {}
-export class DoubleOpen extends Open {}
+export class SingleOpen extends Open { }
+export class DoubleOpen extends Open { }
 
-export class Free extends QuestionComponent {}
+export class Free extends QuestionComponent { }
 
-export class Sequencing extends QuestionComponent {}
-export class Sequencing4x4 extends Sequencing {}
+export class Sequencing extends QuestionComponent { }
+export class Sequencing4x4 extends Sequencing { }
 
-export class ThreeOutOfSeven extends QuestionComponent {}
-export class TripleMultipleChoice extends QuestionComponent {}
+export class ThreeOutOfSeven extends QuestionComponent { }
+export class TripleMultipleChoice extends QuestionComponent { }
 
 
 

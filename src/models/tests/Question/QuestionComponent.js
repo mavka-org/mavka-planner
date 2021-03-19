@@ -1,10 +1,12 @@
 import React from "react";
-
+import { Container, Typography } from "@material-ui/core";
+import s from './Question.module.css'
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 export class QuestionComponent extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {user_answer: undefined, is_submitted: false, test_state: "yo"}
+        this.state = { user_answer: undefined, is_submitted: false, test_state: "yo" }
     }
 
     getUserAnswerState() {
@@ -15,7 +17,7 @@ export class QuestionComponent extends React.Component {
         return this.state.user_answer
     }
 
-    handleAnswerOptionClick = (answer_option_data) => {}
+    handleAnswerOptionClick = (answer_option_data) => { }
 
 
     handleSubmitQuestionClick = () => {
@@ -28,15 +30,16 @@ export class QuestionComponent extends React.Component {
 
         this.setState({is_submitted: true})
         this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
+
     }
 
-    score() {}
+    score() { }
 
-    isQuestionCorrect() {}
+    isQuestionCorrect() { }
 
-    isOptionChosen(answer_option_data) {}
+    isOptionChosen(answer_option_data) { }
 
-    isOptionCorrect(answer_option_data) {}
+    isOptionCorrect(answer_option_data) { }
 
     showInfo() {
         console.log("\n\n Question ", this.props.question.order_id)
@@ -45,16 +48,16 @@ export class QuestionComponent extends React.Component {
 
     }
 
-    getCorrectOption(answer_option_data) {}
+    getCorrectOption(answer_option_data) { }
 
-    getSubmittedIncorrectOption(answer_option_data) {}
+    getSubmittedIncorrectOption(answer_option_data) { }
 
-    getClickedOption(answer_option_data) {}
+    getClickedOption(answer_option_data) { }
 
-    getNormalOption(answer_option_data) {}
+    getNormalOption(answer_option_data) { }
 
 
-    getAnswerOption(answer_option_data) {
+    getAnswerOption(answer_option_data, value, name) {
 
         if (this.state.is_submitted) {
 
@@ -62,7 +65,7 @@ export class QuestionComponent extends React.Component {
                 return this.getCorrectOption(answer_option_data)
             }
 
-            if (this.isOptionChosen(answer_option_data) ) {
+            if (this.isOptionChosen(answer_option_data)) {
                 return this.getSubmittedIncorrectOption(answer_option_data)
             } else {
                 return this.getNormalOption(answer_option_data)
@@ -71,34 +74,36 @@ export class QuestionComponent extends React.Component {
         }
         else {
             if (this.isOptionChosen(answer_option_data)) {
-                return this.getClickedOption(answer_option_data)
+                return this.getClickedOption(answer_option_data, value, name)
             } else {
-                return this.getNormalOption(answer_option_data)
+                return this.getNormalOption(answer_option_data, value, name)
             }
         }
     }
 
-    displayOptions() {}
 
 
     render() {
         this.user_answer = this.state.is_submitted
 
-            return (
-                (!this.props.hidden) ?
+        return (
+            (!this.props.hidden) ?
                 <>
                     <div className='question-section'>
                         <div className='question-count'>
-                            <span>Question {this.props.question.data.order_id} of type {this.props.question.data.type.slug}</span>
+
+
+                            {/* <span>Question {this.props.question.data.order_id} of type {this.props.question.data.type.slug}</span> */}
                         </div>
                         {/*TODO show text as html*/}
                         {/*<div className='question-text' dangerouslySetInnerHTML={{ __html: "<div>{testQuestions[currentQuestion].primary_question}</div>" }} ></div>*/}
                         {this.props.question.data.primary_question}
-
+                        <Typography variant="h2">обери одну відповідь:</Typography>
                     </div>
                     <div className='answer-section'>
                         {this.displayOptions()}
                     </div>
+
 
                     {this.props.question.is_submitted ? (
                         <div>
@@ -112,40 +117,22 @@ export class QuestionComponent extends React.Component {
                     ) : (null) }
 
 
-                    <div>
-                        <button onClick={() => this.handleSubmitQuestionClick()}>Перевірити</button>
-                    </div>
-                    <div>
-                        <button onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id + 1)}>Наступне питання</button>
-                    </div>
-                    <div>
-                        <button onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id - 1)}>Попереднє питання</button>
+
+                    <div className={s.ButtonContainer}>
+                        <div className={s.RoundedButton} onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id - 1)}><PlayArrowIcon style={{ transform: 'rotate(60deg)' }} /></div>
+                        <div className={s.CheckButton} onClick={() => this.handleSubmitQuestionClick()}><Typography style={{ color: 'white' }} variant="h3">перевірити</Typography> </div>
+                        <div className={s.RoundedButton} onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id + 1)}><PlayArrowIcon /></div>
+
                     </div>
                 </>
-                    : null
+                : null
 
-            )
+        )
 
     }
 
 }
 
-export class Test extends QuestionComponent {
-
-    displayOptions() {
-        return <button>{this.props.question.options}</button>
-    }
-
-
-    displayOption(answer_option_data) {
-        return <div>
-            {super.displayOption(answer_option_data)}
-            <button>{this.props.question.options}</button>
-        </div>
-    }
-
-
-}
 
 // TODO -----------------------------------------------------------------------------------------------------------------
 
