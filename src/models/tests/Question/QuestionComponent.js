@@ -27,6 +27,7 @@ export class QuestionComponent extends React.Component {
         console.log("handleSubmitQuestionClick", this.props.question)
 
         this.setState({is_submitted: true})
+        this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
     }
 
     score() {}
@@ -88,27 +89,37 @@ export class QuestionComponent extends React.Component {
                 <>
                     <div className='question-section'>
                         <div className='question-count'>
-                            <span>Question {this.props.question.order_id} of type {this.props.question.type.slug}</span>
+                            <span>Question {this.props.question.data.order_id} of type {this.props.question.data.type.slug}</span>
                         </div>
                         {/*TODO show text as html*/}
                         {/*<div className='question-text' dangerouslySetInnerHTML={{ __html: "<div>{testQuestions[currentQuestion].primary_question}</div>" }} ></div>*/}
-                        {this.props.question.primary_question}
+                        {this.props.question.data.primary_question}
 
                     </div>
                     <div className='answer-section'>
-                        {/*TODO question.displayOptions*/}
-                        {/*{this.showInfo()}*/}
                         {this.displayOptions()}
                     </div>
+
+                    {this.props.question.is_submitted ? (
+                        <div>
+                            <div>Тема: {this.props.question.data.topic.name}</div>
+
+                            {this.props.question.data.hasOwnProperty("general_comment") ? (
+                                <div>Загальний коментар: {this.props.question.data.general_comment}</div>
+                            ) : (null)}
+
+                        </div>
+                    ) : (null) }
+
 
                     <div>
                         <button onClick={() => this.handleSubmitQuestionClick()}>Перевірити</button>
                     </div>
                     <div>
-                        <button onClick={() => this.props.handleChangeQuestion(this.props.question.order_id + 1)}>Наступне питання</button>
+                        <button onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id + 1)}>Наступне питання</button>
                     </div>
                     <div>
-                        <button onClick={() => this.props.handleChangeQuestion(this.props.question.order_id - 1)}>Попереднє питання</button>
+                        <button onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id - 1)}>Попереднє питання</button>
                     </div>
                 </>
                     : null

@@ -1,9 +1,10 @@
-import React, {useContext} from "react";
+import React, {useContext, useReducer} from "react";
 import { getQuestionsByTest } from "../../services/API/httpRequests.js"
 import Loading from "../../components/Loading/Loading";
 import QuestionData from "../../models/tests/QuestionData.js"
 import { ABCD, ABCDE, LangMultipleChoice, OneOutOfSeven, TrueFalse } from "../../models/tests/Question/MultipleChoice";
 import { Matching } from "../../models/tests/Question/Matching";
+import { Open } from "../../models/tests/Question/Open";
 import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 
 // TODO dave it somewhere
@@ -16,7 +17,8 @@ const questionTypes = {
     "OneOutOfSeven" : OneOutOfSeven,
     "TrueFalse" : TrueFalse,
     "Matching" : Matching,
-    "MultipleChoice" : MultipleChoice
+    "MultipleChoice" : MultipleChoice,
+    "Open" : Open,
 }
 
 
@@ -24,7 +26,7 @@ export default function PracticeTestPage(props) {
 
     const [isDataLoaded, setDataLoaded] = React.useState(false)
     const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
-
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 
     if (!isDataLoaded) {
@@ -63,7 +65,7 @@ export default function PracticeTestPage(props) {
 
 
         return questionDatas.map((questionData, idx) => {
-            let QuestionType = questionTypes[questionData.type.slug]
+            let QuestionType = questionTypes[questionData.data.type.slug]
 
             return <QuestionType
                 question={questionData}
@@ -71,6 +73,7 @@ export default function PracticeTestPage(props) {
                 currentQuestionIdx={currentQuestionIdx}
                 idx = {idx}
                 handleChangeQuestion={handleChangeQuestion}
+                forceUpdate = {forceUpdate}
             />
 
         })
@@ -81,16 +84,17 @@ export default function PracticeTestPage(props) {
 
         // TODO front
         return questionDatas.map((questionData, idx) => {
+            console.log("idx ", idx, questionData.is_submitted)
             if (questionData.is_submitted) {
                 if (questionData.is_correct) {
-                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.order_id} green </button>
+                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} green </button>
                 }
                 else {
-                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.order_id} red </button>
+                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} red </button>
                 }
             }
             else {
-                return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.order_id} </button>
+                return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} </button>
             }
         })
 

@@ -10,7 +10,7 @@ export class MultipleChoice extends QuestionComponent {
 
     formAnswerOptionsData(answer_options) {
         let answer_options_data = []
-        this.props.question.options.map( (text_option, idx) => {
+        this.props.question.data.options.map( (text_option, idx) => {
             answer_options_data.push({ "answer" : answer_options[idx], "text" : text_option})
         })
         return answer_options_data
@@ -40,14 +40,14 @@ export class MultipleChoice extends QuestionComponent {
 
     getCorrectOption(answer_option_data) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text}
-             correct </button>
+        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
+              correct {"\n\n "} </button>
     }
 
     getSubmittedIncorrectOption(answer_option_data) {
         // TODO front
-        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text}
-             incorrect </button>
+        return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
+              incorrect </button>
     }
 
     isOptionChosen(answer_option_data) {
@@ -58,17 +58,17 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     isOptionCorrect(answer_option_data) {
-        return answer_option_data.answer === this.props.question.correct_answer
+        return answer_option_data.answer === this.props.question.data.correct_answer
     }
 
     score() {
         //TODO are they always scored 1?
-        if (this.getUserAnswerState() === this.props.question.correct_answer) return 1
+        if (this.getUserAnswerState() === this.props.question.data.correct_answer) return 1
         return 0
     }
 
     isQuestionCorrect() {
-        if (this.getUserAnswerState() === this.props.question.correct_answer) return true
+        if (this.getUserAnswerState() === this.props.question.data.correct_answer) return true
         return false
     }
 

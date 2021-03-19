@@ -36,6 +36,8 @@ function App() {
 
                   <Route path="/practice/test/:id" component={PracticeTestPage} />
 
+                  <Route path="/choose/test" component={TestsPage} />
+
                 </Switch>
               </Router>
 

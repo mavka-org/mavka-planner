@@ -13,20 +13,20 @@ export class Matching extends QuestionComponent {
 
     formOptions() {
         let options = []
-        this.props.question.options.map( (option, idx) => {
+        this.props.question.data.options.map( (option, idx) => {
             options.push({"name": this.optionNames[idx], "option" : option})
         } )
-        console.log("options", options)
+        // console.log("options", options)
 
         return options
     }
 
     formTasks() {
         let tasks = []
-        this.props.question.tasks.map( (task, idx) => {
+        this.props.question.data.tasks.map( (task, idx) => {
             tasks.push({"name": this.taskNames[idx], "task" : task})
         } )
-        console.log("tasks", tasks)
+        // console.log("tasks", tasks)
 
         return tasks
     }
@@ -35,10 +35,12 @@ export class Matching extends QuestionComponent {
         let toDisplay = []
 
         // TODO front
+        // display options (aka "A: text for option A")
         toDisplay.push(this.options.map((option_data) => {
             return <div> {option_data.name}: {option_data.option}</div>
         }))
 
+        // display tasks (aka "1: text for task 1")
         toDisplay.push(this.tasks.map( (task_data) => {
             return <div>{task_data.name}: {task_data.task}</div>
         }))
@@ -109,7 +111,7 @@ export class Matching extends QuestionComponent {
 
 
     isOptionCorrect(answer_option_data) {
-        return this.props.question.correct_answer.includes(answer_option_data)
+        return this.props.question.data.correct_answer.includes(answer_option_data)
     }
 
     isOptionChosen(answer_option_data) {
