@@ -52,7 +52,7 @@ export class QuestionComponent extends React.Component {
     getNormalSubmittedOption(answer_option_data) { }
 
 
-    getAnswerOption(answer_option_data, value, name) {
+    getAnswerOption(answer_option_data) {
 
         if (this.state.is_submitted) {
 
@@ -69,9 +69,9 @@ export class QuestionComponent extends React.Component {
         }
         else {
             if (this.isOptionChosen(answer_option_data)) {
-                return this.getClickedOption(answer_option_data, value, name)
+                return this.getClickedOption(answer_option_data)
             } else {
-                return this.getNormalOption(answer_option_data, value, name)
+                return this.getNormalOption(answer_option_data)
             }
         }
     }

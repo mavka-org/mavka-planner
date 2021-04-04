@@ -39,7 +39,12 @@ export class MultipleChoice extends QuestionComponent {
     displayOptions() {
         // TODO put buttons in a grid
         return this.answer_options_data.map((answer_option_data) => this.getAnswerOption(answer_option_data))
+    }
 
+    displayComment(answer_option_data) {
+        if (answer_option_data.comment) {
+            return <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography>
+        }
     }
 
     getNormalOption(answer_option_data) {
@@ -55,8 +60,9 @@ export class MultipleChoice extends QuestionComponent {
         return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
             <Typography variant="subtitle1">{answer_option_data.text}</Typography>
-            {answer_option_data.comment ? <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography> : null}
+            {this.displayComment(answer_option_data)}
         </div>
+
     }
 
     getClickedOption(answer_option_data) {
@@ -74,7 +80,7 @@ export class MultipleChoice extends QuestionComponent {
         return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
             <Typography variant="subtitle1">{answer_option_data.text}</Typography>
-            {answer_option_data.comment ? <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography> : null}
+            {this.displayComment(answer_option_data)}
         </div>
 
     }
@@ -85,7 +91,7 @@ export class MultipleChoice extends QuestionComponent {
         return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
             <Typography variant="subtitle1">{answer_option_data.text}</Typography>
-            {answer_option_data.comment ? <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography> : null}
+            {this.displayComment(answer_option_data)}
         </div>
     }
 
