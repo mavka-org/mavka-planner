@@ -3,18 +3,31 @@ import { QuestionComponent } from "./QuestionComponent";
 import s from './Question.module.css'
 import { Typography } from "@material-ui/core";
 import clsx from 'clsx'
+
+
 export class MultipleChoice extends QuestionComponent {
     constructor(props, answer_options) {
         super(props)
         this.answer_options_data = this.formAnswerOptionsData(answer_options)
     }
-    formAnswerOptionsData(answer_options) {
-        let answer_options_data = []
-        this.props.question.data.options.map( (text_option, idx) => {
-            answer_options_data.push({ "answer" : answer_options[idx], "text" : text_option})
 
+    formAnswerOptionsData(answer_options) {
+        // answer_options are ["A", "B", "C"...]
+
+        let answer_options_datas = []
+        this.props.question.data.options.map( (text_option, idx) => {
+            answer_options_datas.push({ "answer" : answer_options[idx], "text" : text_option, "comment" : this.getComment(idx)})
         })
-        return answer_options_data
+
+        return answer_options_datas
+    }
+
+    getComment(idx) {
+        let comment = undefined
+        if (this.props.question.data.comments && this.props.question.data.comments[idx] !== "") {
+            comment = this.props.question.data.comments[idx]
+        }
+        return comment
     }
 
     handleAnswerOptionClick = (answer_option_data) => {
@@ -31,29 +44,49 @@ export class MultipleChoice extends QuestionComponent {
 
     getNormalOption(answer_option_data) {
         // TODO front
-        return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography variant="subtitle1">{answer_option_data.text}</Typography></div>
+        return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
+            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+        </div>
+    }
+
+    getNormalSubmittedOption(answer_option_data) {
+        // TODO front
+        return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
+            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            {answer_option_data.comment ? <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography> : null}
+        </div>
     }
 
     getClickedOption(answer_option_data) {
         // TODO front
         return <div className={clsx(s.Button, s.choosen)}
-            onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography style={{fontWeight:'bold'}} variant="subtitle1">{answer_option_data.text}</Typography></div>
+            onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
+            <Typography style={{fontWeight:'bold'}} variant="subtitle1">{answer_option_data.text}</Typography>
+        </div>
     }
 
     getCorrectOption(answer_option_data) {
         // TODO front
-        // return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
-        //       correct {"\n\n "} </button>
-        return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography variant="subtitle1">{answer_option_data.text}</Typography></div>
+        console.log("getCorrectOption")
+        return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
+            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            {answer_option_data.comment ? <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography> : null}
+        </div>
 
     }
 
     getSubmittedIncorrectOption(answer_option_data) {
         // TODO front
-        // return <button onClick={() => this.handleAnswerOptionClick(answer_option_data)}> {answer_option_data.answer + ": " + answer_option_data.text + " "}
-        //       incorrect </button>
-
-        return <div  className={clsx(s.Button, s.wrong)}  onClick={() => this.handleAnswerOptionClick(answer_option_data)}> <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography><Typography variant="subtitle1">{answer_option_data.text}</Typography></div>
+        console.log("getSubmittedIncorrectOption")
+        return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
+            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            {answer_option_data.comment ? <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography> : null}
+        </div>
     }
 
     isOptionChosen(answer_option_data) {
@@ -114,13 +147,23 @@ export class TrueFalse extends MultipleChoice {
         super(props, ["True", "False"])
     }
 
+
+
     // override
     // TODO check if TrueFalse buttons are displayd the same as ABCD
     // TODO especially to match "answer" string from here with "correct_answer" from strapi
     formAnswerOptionsData(answer_options) {
-        return [{ "answer": "True", "text": "" },
-        { "answer": "False", "text": "" }]
+
+        let answer_options_datas = []
+
+        answer_options.map( (answer_option, idx) => {
+            answer_options_datas.push({ "answer" : answer_option, "text" : "", "comment" : this.getComment(idx)})
+        })
+
+        return answer_options_datas
     }
+
+
 }
 
 

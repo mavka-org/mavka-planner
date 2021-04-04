@@ -86,7 +86,6 @@ export default function PracticeTestPage(props) {
 
         // TODO front
         return questionDatas.map((questionData, idx) => {
-            console.log("idx ", idx, questionData.is_submitted)
             if (questionData.is_submitted) {
                 if (questionData.is_correct) {
                     return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} green </button>
@@ -107,9 +106,9 @@ export default function PracticeTestPage(props) {
     return (
         (currentQuestionIdx !== undefined) ? (
             <Container maxWidth="xs">
-                <Grid container direction="column">
-                    <Grid item><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
-                    <div> NavBar {getNavBar()} </div>
+                <Grid container direction="column" >
+                    <Grid item style={{width:'inherit'}}><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
+                    <div style={{width:'inherit'}}> NavBar {getNavBar()} </div>
                     {/* navbar будет */}
                     {getQuestionComponents(currentQuestionIdx)}
 

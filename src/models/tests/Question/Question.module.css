@@ -1,3 +1,8 @@
+/*Question contents*/
+.question-section img {
+  width: 100% ;
+}
+
 /* question Component */
 .ButtonContainer {
   display: flex;
@@ -74,7 +79,7 @@
   flex-direction: row;
   align-items: center;
   width: 335px;
-  height: 55px;
+  height: 40px;
   color: black;
   background-color: white;
   margin: 12.5px 0;

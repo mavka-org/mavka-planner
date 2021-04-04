@@ -16,20 +16,36 @@ export class Matching extends QuestionComponent {
     formOptions() {
         let options = []
         this.props.question.data.options.map( (option, idx) => {
-            options.push({"name": this.optionNames[idx], "option" : option})
+            options.push({"name": this.optionNames[idx], "option" : option, "comment" : this.getOptionComment(idx)})
         } )
-        // console.log("options", options)
         return options
+    }
+
+    getOptionComment(idx) {
+        let comment = undefined
+        if (this.props.question.data.optionComments && this.props.question.data.optionComments[idx] !== "") {
+            comment = this.props.question.data.optionComments[idx]
+        }
+        return comment
+
     }
 
     formTasks() {
         let tasks = []
         this.props.question.data.tasks.map( (task, idx) => {
-            tasks.push({"name": this.taskNames[idx], "task" : task})
+            tasks.push({"name": this.taskNames[idx], "task" : task, "comment" : this.getTaskComment(idx)})
         } )
-        // console.log("tasks", tasks)
 
         return tasks
+    }
+
+    getTaskComment(idx) {
+        let comment = undefined
+        if (this.props.question.data.taskComments && this.props.question.data.taskComments[idx] !== "") {
+            comment = this.props.question.data.taskComments[idx]
+        }
+        return comment
+
     }
 
     displayOptions() {
@@ -39,7 +55,10 @@ export class Matching extends QuestionComponent {
         // TODO front
         // display options (aka "A: text for option A")
         toDisplay.push(this.options.map((option_data) => {
-            return <div className={s.Button}><Typography style={{ marginRight: '20px' }} variant="h6">{option_data.name}: </Typography>  <Typography variant="subtitle1">{option_data.option}</Typography></div>
+            return <div className={s.Button__MatchingText}>
+                <Typography style={{ marginRight: '20px' }} variant="h6">{option_data.name}: </Typography>
+                <Typography variant="subtitle1">{option_data.option}</Typography>
+            </div>
         }))
 
         // display tasks (aka "1: text for task 1")
@@ -47,7 +66,10 @@ export class Matching extends QuestionComponent {
         //     return <div>{task_data.name}: {task_data.task}</div>
 
         toDisplay.push(this.tasks.map((task_data) => {
-            return <div className={s.Button__MatchingText}><Typography style={{ marginRight: '20px' }} variant="h6">{task_data.name}:</Typography><Typography variant="subtitle1">{task_data.task}</Typography></div>
+            return <div className={s.Button__MatchingText}>
+                <Typography style={{ marginRight: '20px' }} variant="h6">{task_data.name}:</Typography>
+                <Typography variant="subtitle1">{task_data.task}</Typography>
+            </div>
 
         }))
 
@@ -69,8 +91,6 @@ export class Matching extends QuestionComponent {
                                     {this.options.map((option_data) => {
                                         value = task_data.name + option_data.name
                                         name = task_data.name
-                                        console.log(name, 'name')
-                                        console.log(value, 'value')
                                         let answer_option_data = task_data.name + option_data.name + ";"
                                         return <>
                                             <td>
@@ -81,19 +101,18 @@ export class Matching extends QuestionComponent {
                                 </tr>
                             )
 
-
-
                             return tableRow
                         })}
                     </tbody>
                 </table></div>)
 
-
+        console.log("displayOptions", value, name)
         return toDisplay
     }
 
 
     getNormalOption(answer_option_data, value, name) {
+        console.log("getNormalOption", answer_option_data, value, name)
         // TODO front
         return <>
             <label>
@@ -102,6 +121,18 @@ export class Matching extends QuestionComponent {
             </label>
         </>
     }
+
+    getNormalSubmittedOption(answer_option_data, value, name) {
+        // TODO front
+        return <>
+            <label>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data, value, name)} type="radio" value={value} name={name} ></input>
+                <span class={s.marker}></span>
+            </label>
+        </>
+    }
+
+
 
     getClickedOption(answer_option_data, value, name) {
         console.log('CLICKED!')
@@ -135,6 +166,7 @@ export class Matching extends QuestionComponent {
     }
 
     handleAnswerOptionClick = (answer_option_data, value, name) => {
+        console.log("handleAnswerOptionClick", value, name)
         if (!this.state.is_submitted) {
             let newUserAnswer = ""
 

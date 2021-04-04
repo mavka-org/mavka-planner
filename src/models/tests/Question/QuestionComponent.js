@@ -41,13 +41,6 @@ export class QuestionComponent extends React.Component {
 
     isOptionCorrect(answer_option_data) { }
 
-    showInfo() {
-        console.log("\n\n Question ", this.props.question.order_id)
-        console.log("this.state.is_submitted ", this.state.is_submitted)
-        console.log("this.state.user_answer ", this.state.user_answer)
-
-    }
-
     getCorrectOption(answer_option_data) { }
 
     getSubmittedIncorrectOption(answer_option_data) { }
@@ -55,6 +48,8 @@ export class QuestionComponent extends React.Component {
     getClickedOption(answer_option_data) { }
 
     getNormalOption(answer_option_data) { }
+
+    getNormalSubmittedOption(answer_option_data) { }
 
 
     getAnswerOption(answer_option_data, value, name) {
@@ -68,7 +63,7 @@ export class QuestionComponent extends React.Component {
             if (this.isOptionChosen(answer_option_data)) {
                 return this.getSubmittedIncorrectOption(answer_option_data)
             } else {
-                return this.getNormalOption(answer_option_data)
+                return this.getNormalSubmittedOption(answer_option_data)
             }
 
         }
@@ -89,16 +84,15 @@ export class QuestionComponent extends React.Component {
         return (
             (!this.props.hidden) ?
                 <>
-                    <div className='question-section'>
+                    <div className='question-section' style={{width:'inherit'}}>
                         <div className='question-count'>
 
 
                             {/* <span>Question {this.props.question.data.order_id} of type {this.props.question.data.type.slug}</span> */}
                         </div>
-                        {/*TODO show text as html*/}
-                        {/*<div className='question-text' dangerouslySetInnerHTML={{ __html: "<div>{testQuestions[currentQuestion].primary_question}</div>" }} ></div>*/}
-                        {this.props.question.data.primary_question}
-                        <Typography variant="h2">обери одну відповідь:</Typography>
+                        <div>{this.props.question.data.primary_question}</div>
+                        <div dangerouslySetInnerHTML={{ __html: this.props.question.data.primary_question }} />
+                        <Typography style={{width:'inherit'}} variant="h2">обери одну відповідь:</Typography>
                     </div>
                     <div className='answer-section'>
                         {this.displayOptions()}
@@ -107,10 +101,10 @@ export class QuestionComponent extends React.Component {
 
                     {this.props.question.is_submitted ? (
                         <div>
-                            <div>Тема: {this.props.question.data.topic.name}</div>
+                            <div style={{width:'inherit'}}>Тема: {this.props.question.data.topic.name}</div>
 
                             {this.props.question.data.hasOwnProperty("general_comment") ? (
-                                <div>Загальний коментар: {this.props.question.data.general_comment}</div>
+                                <div style={{width:'inherit'}} >Загальний коментар: {this.props.question.data.general_comment}</div>
                             ) : (null)}
 
                         </div>

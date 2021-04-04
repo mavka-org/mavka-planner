@@ -26,7 +26,7 @@
     "general_comment": "поЯсННннЕння дЛяЯ ТУПИХ нУуу іІ ЧьОо ТутТ буЛО нЕе пООонЯтнООгО",
     "comments":[
       "comment for A",
-      "comment for B",
+      "",
       "comment for C",
       "comment for D"
     ]
@@ -198,8 +198,14 @@
     },
     "type": {
       "slug": "Matching"
-    }
+    },
+    "optionComments" : [
+      "comment for A",
+      "comment for B",
+      "comment for C"
+    ]
   },
+
 
   {
     "correct_answer": "1A;2A;3A;",
@@ -226,7 +232,12 @@
     },
     "type": {
       "slug": "Matching"
-    }
+    },
+    "taskComments": [
+      "comment for task 1",
+      "",
+      "comment for task 3"
+    ]
   },
 
   {
