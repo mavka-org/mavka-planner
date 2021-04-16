@@ -5,6 +5,7 @@ import QuestionData from "../../models/tests/QuestionData.js"
 import { ABCD, ABCDE, LangMultipleChoice, OneOutOfSeven, TrueFalse } from "../../models/tests/Question/MultipleChoice";
 import { Matching } from "../../models/tests/Question/Matching";
 import { Open } from "../../models/tests/Question/Open";
+import { Free } from "../../models/tests/Question/Free";
 import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 import Page from "../../components/Page/Page.js";
 import { Container, Grid, Typography } from "@material-ui/core";
@@ -21,6 +22,7 @@ const questionTypes = {
     "Matching" : Matching,
     "MultipleChoice" : MultipleChoice,
     "Open" : Open,
+    "Free" : Free
 }
 
 

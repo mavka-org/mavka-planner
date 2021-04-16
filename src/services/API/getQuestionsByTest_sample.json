@@ -276,7 +276,36 @@
       "text for open 3"
     ],
     "order_id": 8,
+    "primary_question": "FREE <div class=\"question\"><p><img alt=\"\" src=\"https://zno.osvita.ua/doc/images/znotest/189/18980/profil-demo-math-2021-06.png\" style=\"height: auto;\" width=\"600\"/></p></div>",
+    "strapi_id": "5ffcdb8168bb85204cb5cd7c",
+    "test": {
+      "session": "демонстраційний варіант",
+      "strapi_id": "5ffaf251cf51722ed817be8e",
+      "year": "2021"
+    },
+    "topic": {
+      "name": "Тема Психоаналіз Кареніної і Чому Вона Кинулась Під Поїзд"
+    },
+    "type": {
+      "slug": "Free"
+    },
+    "general_comment": "поЯсННннЕння дЛяЯ ТУПИХ нУуу іІ ЧьОо ТутТ буЛО нЕе пООонЯтнООгО",
+    "comments":[
+      "comment for 1",
+      "comment for 2",
+      "comment for 3"
+    ]
+  },
+
+  {
+    "correct_answer": "0;0;0",
+    "order_id": 9,
     "primary_question": "OPEN <div class=\"question\"><p><img alt=\"\" src=\"https://zno.osvita.ua/doc/images/znotest/189/18980/profil-demo-math-2021-06.png\" style=\"height: auto;\" width=\"600\"/></p></div>",
+    "subquestions" : [
+      "TEXT for subquestion 1",
+      "TEXT for subquestion 2",
+      "TEXT for subquestion 3"
+    ],
     "strapi_id": "5ffcdb8168bb85204cb5cd7c",
     "test": {
       "session": "демонстраційний варіант",
@@ -291,9 +320,9 @@
     },
     "general_comment": "поЯсННннЕння дЛяЯ ТУПИХ нУуу іІ ЧьОо ТутТ буЛО нЕе пООонЯтнООгО",
     "comments":[
-      "comment for 1",
-      "comment for 2",
-      "comment for 3"
+      "comment for subquestion 1",
+      "comment for subquestion 2",
+      "comment for subquestion 3"
     ]
   }
 

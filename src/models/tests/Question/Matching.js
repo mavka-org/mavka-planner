@@ -49,7 +49,6 @@ export class Matching extends QuestionComponent {
     }
 
     displayComment(answer_option_data) {
-        console.log("displayComment", this.state.is_submitted, answer_option_data)
         if(this.state.is_submitted) {
             if (answer_option_data.comment) {
                 return <Typography> --- {answer_option_data.comment}</Typography>

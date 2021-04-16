@@ -9,6 +9,8 @@ export class QuestionComponent extends React.Component {
         this.state = { user_answer: undefined, is_submitted: false, test_state: "yo" }
     }
 
+    
+
     getUserAnswerState() {
         return this.state.user_answer
     }
@@ -19,8 +21,8 @@ export class QuestionComponent extends React.Component {
 
     handleAnswerOptionClick = (answer_option_data) => { }
 
+    updateData(user_answer) {
 
-    handleSubmitQuestionClick = () => {
         // record essential data to QuestionData that was passes thru props
         this.props.question.is_submitted = true
         this.props.question.submitted_user_answer = this.state.user_answer
@@ -30,7 +32,12 @@ export class QuestionComponent extends React.Component {
 
         this.setState({is_submitted: true})
         this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
+    }
 
+
+    handleSubmitQuestionClick = () => {
+        // weird work-around, but needed for Open template
+        this.updateData()
     }
 
     score() { }
@@ -79,7 +86,7 @@ export class QuestionComponent extends React.Component {
 
 
     render() {
-        this.user_answer = this.state.is_submitted
+        // this.user_answer = this.state.is_submitted
 
         return (
             (!this.props.hidden) ?
@@ -90,7 +97,7 @@ export class QuestionComponent extends React.Component {
 
                             {/* <span>Question {this.props.question.data.order_id} of type {this.props.question.data.type.slug}</span> */}
                         </div>
-                        <div>{this.props.question.data.primary_question}</div>
+                        {/*<div>{this.props.question.data.primary_question}</div>*/}
                         <div dangerouslySetInnerHTML={{ __html: this.props.question.data.primary_question }} />
                         <Typography style={{width:'inherit'}} variant="h2">обери одну відповідь:</Typography>
                     </div>
