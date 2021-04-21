@@ -69,7 +69,7 @@ export class Open extends QuestionComponent {
             for (let subq_n = 0; subq_n < 3; subq_n++) {
                 let id = "openInput" + subq_n
                 toDisplay.push(this.getSubquestion(subq_n))
-                toDisplay.push(this.getEmptyInputField(id))
+                toDisplay.push(this.getEmptyInputField(subq_n, id))
             }
         }
 
@@ -86,33 +86,50 @@ export class Open extends QuestionComponent {
 
     // isOptionChosen() {return true}
 
-    handleSubmitQuestionClick = () => {
-        let user_answer = ""
+    handleUserAnswerUpdate = () => {
+        if (!this.state.is_submitted) {
+            let user_answer = ""
 
-        for (let i = 0; i < 3; i++) {
-            let id = "openInput" + i
-            user_answer += document.getElementById(id).value + ";"
+            for (let i = 0; i < 3; i++) {
+                let id = "openInput" + i
+                user_answer += document.getElementById(id).value + ";"
+            }
+    
+            if (!this.state.is_submitted) {
+                this.updateUserAnswer(user_answer)
+                // this.setState({ user_answer: answer_option_data.answer }, () => this.updateUserAnswerStarted())
+            }
+            console.log('user answer update', user_answer, this.state.user_answer)
         }
+    }
 
-        this.setState({ user_answer: user_answer }, () => {
-            super.updateData(user_answer);})
+
+    // handleSubmitQuestionClick = () => {
+
+    //     this.setState({ user_answer: user_answer }, () => {
+    //         super.updateData(user_answer);})
+    // }
+
+    getUserInput = (id) => {
+        return this.cutBySemicolumn(this.state.user_answer, id)
     }
 
 
 
     /////// TODO FRONT
 
-    getEmptyInputField(id) {
+    getEmptyInputField(subq_n, id) {
         // TODO front -- звичайний, незаповнений input field
-        return <div><input id={id} type="text" maxLength="512"/></div>
+        return <div><input id={id} type="text" value={this.getUserInput(subq_n)} onChange={this.handleUserAnswerUpdate} maxLength="512"/></div>
     }
 
     getCorrectInputField(subq_n, id, user_answer, correct_answer) {
         // TODO front -- коли питання засабмічене і юзер-відповідь правильна
         return <div>
             <div>ти ж моя умнічка, харош</div>
-            <input id={id} type="text" value={user_answer} maxLength="512"/>
+            <input id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512"/>
             {this.getComment(subq_n)}
+            <p></p>
         </div>
     }
 
@@ -120,7 +137,7 @@ export class Open extends QuestionComponent {
         // TODO front -- коли питання засамбічене, але юзер-відповідь неправильна
         return <div>
             <div>лох непраивльно!!!</div>
-            <input id={id} type="text" value={user_answer} maxLength="512"/>
+            <input id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512"/>
             <div>Правильна відповідь: {correct_answer}</div>
             {this.getComment(subq_n)}
             <p></p>

@@ -97,12 +97,19 @@ export default function PracticeTestPage(props) {
                 }
             }
             else {
-                return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} </button>
+                if (questionData.user_answer_started) {
+                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} touched </button>
+                }
+                else {
+                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} </button>
+                }
             }
         })
 
 
     }
+
+    console.log('rerender')
 
 
     return (

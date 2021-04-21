@@ -32,8 +32,10 @@ export class MultipleChoice extends QuestionComponent {
 
     handleAnswerOptionClick = (answer_option_data) => {
         if (!this.state.is_submitted) {
-            this.setState({ user_answer: answer_option_data.answer })
+            this.updateUserAnswer( answer_option_data.answer)
+            // this.setState({ user_answer: answer_option_data.answer }, () => this.updateUserAnswerStarted())
         }
+        
     }
 
     displayOptions() {

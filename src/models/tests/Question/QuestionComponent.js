@@ -2,14 +2,28 @@ import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import s from './Question.module.css'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+
+
 export class QuestionComponent extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { user_answer: undefined, is_submitted: false, test_state: "yo" }
+        this.state = { user_answer: '', is_submitted: false, test_state: "yo" }
     }
 
-    
+    updateUserAnswerStarted() {
+        console.log(this.state.user_answer)
+        //used for navbar: when user enters some answer but doesn't submit it ye, the question is marked "touched" in navbar
+        if (this.state.user_answer && this.state.user_answer !== "") {
+            this.props.question.user_answer_started = true
+        } else {
+            this.props.question.user_answer_started = false
+        }
+        this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
+    }
+
+
+
 
     getUserAnswerState() {
         return this.state.user_answer
@@ -21,6 +35,11 @@ export class QuestionComponent extends React.Component {
 
     handleAnswerOptionClick = (answer_option_data) => { }
 
+    updateUserAnswer = (new_user_answer) => {
+        this.setState({ user_answer: new_user_answer }, () => this.updateUserAnswerStarted())
+    }
+
+
     updateData(user_answer) {
 
         // record essential data to QuestionData that was passes thru props
@@ -28,6 +47,7 @@ export class QuestionComponent extends React.Component {
         this.props.question.submitted_user_answer = this.state.user_answer
         this.props.question.score = this.score()
         this.props.question.is_correct = this.isQuestionCorrect()
+        
         console.log("handleSubmitQuestionClick", this.props.question)
 
         this.setState({is_submitted: true})
@@ -86,6 +106,7 @@ export class QuestionComponent extends React.Component {
 
 
     render() {
+        // this.IsUserAnswerStarted()
         // this.user_answer = this.state.is_submitted
 
         return (

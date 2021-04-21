@@ -9,6 +9,7 @@ export default class QuestionData {
 
         this.is_submitted = false
         this.submitted_user_answer = undefined
+        this.user_answer_started = false
         this.is_correct = undefined
         this.score = 0
 

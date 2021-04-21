@@ -194,7 +194,7 @@ export class Matching extends QuestionComponent {
             } else {
                 newUserAnswer = answer_option_data
             }
-            this.setState({ user_answer: newUserAnswer })
+            this.updateUserAnswer(newUserAnswer)
         }
     }
 
