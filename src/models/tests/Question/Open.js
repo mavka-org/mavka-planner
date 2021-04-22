@@ -1,6 +1,7 @@
-import {QuestionComponent} from "./QuestionComponent";
+import { QuestionComponent } from "./QuestionComponent";
 import React from "react";
-
+import s from './Open.module.css'
+import { Typography } from "@material-ui/core";
 export class Open extends QuestionComponent {
 
     constructor(props) {
@@ -12,8 +13,8 @@ export class Open extends QuestionComponent {
         // answer_options are ["A", "B", "C"...]
 
         let answer_options_datas = []
-        this.props.question.data.options.map( (text_option, idx) => {
-            answer_options_datas.push({ "answer" : answer_options[idx], "text" : text_option, "comment" : this.getComment(idx)})
+        this.props.question.data.options.map((text_option, idx) => {
+            answer_options_datas.push({ "answer": answer_options[idx], "text": text_option, "comment": this.getComment(idx) })
         })
 
         return answer_options_datas
@@ -25,20 +26,20 @@ export class Open extends QuestionComponent {
 
     getSubquestion(i) {
         if (this.subquestionExists(i)) {
-            return <div dangerouslySetInnerHTML={{ __html: this.props.question.data.subquestions[i] }} />
+            return <Typography variant="subtitle1" dangerouslySetInnerHTML={{ __html: this.props.question.data.subquestions[i] }}></Typography>
         }
-        
+
     }
 
     // slices input string to separate brtween n-1 and n-th semicolumn
     cutBySemicolumn(input, untilOccurance) {
-        for (let i =0; i <= untilOccurance; i++) {
-            if (i===untilOccurance) {
-                if(input.indexOf(";") !== -1) {
-                    input = input.slice(0,input.indexOf(";"))
+        for (let i = 0; i <= untilOccurance; i++) {
+            if (i === untilOccurance) {
+                if (input.indexOf(";") !== -1) {
+                    input = input.slice(0, input.indexOf(";"))
                 }
             } else {
-                input = input.slice(input.indexOf(";")+1)
+                input = input.slice(input.indexOf(";") + 1)
             }
         }
         return input
@@ -49,7 +50,7 @@ export class Open extends QuestionComponent {
         let toDisplay = []
 
         if (this.state.is_submitted) {
-            
+
             for (let subq_n = 0; subq_n < 3; subq_n++) {
 
                 toDisplay.push(this.getSubquestion(subq_n))
@@ -65,7 +66,7 @@ export class Open extends QuestionComponent {
             }
         }
         else {
-            
+
             for (let subq_n = 0; subq_n < 3; subq_n++) {
                 let id = "openInput" + subq_n
                 toDisplay.push(this.getSubquestion(subq_n))
@@ -73,15 +74,15 @@ export class Open extends QuestionComponent {
             }
         }
 
-        
 
-        
+
+
 
 
         return <div>
             {toDisplay}
         </div>
-        
+
     }
 
     // isOptionChosen() {return true}
@@ -94,7 +95,7 @@ export class Open extends QuestionComponent {
                 let id = "openInput" + i
                 user_answer += document.getElementById(id).value + ";"
             }
-    
+
             if (!this.state.is_submitted) {
                 this.updateUserAnswer(user_answer)
                 // this.setState({ user_answer: answer_option_data.answer }, () => this.updateUserAnswerStarted())
@@ -117,17 +118,17 @@ export class Open extends QuestionComponent {
 
 
     /////// TODO FRONT
-// стилизовать тут
+    // стилизовать тут
     getEmptyInputField(subq_n, id) {
         // TODO front -- звичайний, незаповнений input field
-        return <div><input id={id} type="text" value={this.getUserInput(subq_n)} onChange={this.handleUserAnswerUpdate} maxLength="512"/></div>
+        return <><input className={s.normalInput} id={id} type="text" value={this.getUserInput(subq_n)} onChange={this.handleUserAnswerUpdate} maxLength="512" /></>
     }
 
     getCorrectInputField(subq_n, id, user_answer, correct_answer) {
         // TODO front -- коли питання засабмічене і юзер-відповідь правильна
         return <div>
-            <div>ти ж моя умнічка, харош</div>
-            <input id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512"/>
+            <Typography variant="subtitle1">ти ж моя умнічка, харош</Typography>
+            <input className={s.correctInput} id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512" />
             {this.getComment(subq_n)}
             <p></p>
         </div>
@@ -136,9 +137,9 @@ export class Open extends QuestionComponent {
     getIncorrectInputField(subq_n, id, user_answer, correct_answer) {
         // TODO front -- коли питання засамбічене, але юзер-відповідь неправильна
         return <div>
-            <div>лох непраивльно!!!</div>
-            <input id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512"/>
-            <div>Правильна відповідь: {correct_answer}</div>
+            <div><Typography variant="subtitle1">лох непраивльно!!!</Typography>  </div>
+            <input className={s.incorrectInput} id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512" />
+            <Typography variant="subtitle1">Правильна відповідь: <b>  {correct_answer}</b></Typography>
             {this.getComment(subq_n)}
             <p></p>
         </div>
@@ -148,8 +149,8 @@ export class Open extends QuestionComponent {
     getComment(subq_n) {
         // TODO front -- комент до підпитання
         if (this.props.question.data.comments && this.props.question.data.comments[subq_n]) {
-            return <div>Коментар {this.props.question.data.comments[subq_n]}</div>
-        } 
+            return <div><Typography variant="subtitle1">Коментар {this.props.question.data.comments[subq_n]}</Typography> </div>
+        }
     }
 
 }

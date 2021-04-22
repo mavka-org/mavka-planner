@@ -1,0 +1,33 @@
+.normalInput {
+  width: 264px;
+  height: 28px;
+  font-size: 19px;
+  outline:none;
+  border: 1.5px solid black;
+  border-radius: 20px;
+  padding: 5px 0 5px 10px;
+  margin: 10px 0;
+}
+
+.correctInput{
+  width: 264px;
+  height: 28px;
+  font-size: 19px;
+  outline:none;
+  border: 1.5px solid #1AB2A8;
+  border-radius: 20px;
+  padding: 5px 0 5px 10px;
+  margin: 10px 0;
+  filter: drop-shadow(4px 4px 4px rgba(26, 178, 168, 0.5));
+}
+.incorrectInput{
+  width: 264px;
+  height: 28px;
+  font-size: 19px;
+  outline:none;
+  border: 1.5px solid #EB5757;
+  border-radius: 20px;
+  padding: 5px 0 5px 10px;
+  margin: 10px 0;
+  filter: drop-shadow(4px 4px 4px rgba(178, 26, 26, 0.5));
+}
