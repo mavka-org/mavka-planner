@@ -1,4 +1,4 @@
-import React, {useContext, useReducer} from "react";
+import React, { useContext, useReducer } from "react";
 import { getQuestionsByTest } from "../../services/API/httpRequests.js"
 import Loading from "../../components/Loading/Loading";
 import QuestionData from "../../models/tests/QuestionData.js"
@@ -8,21 +8,21 @@ import { Open } from "../../models/tests/Question/Open";
 import { Free } from "../../models/tests/Question/Free";
 import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 import Page from "../../components/Page/Page.js";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from "@material-ui/core";
 
 // TODO dave it somewhere
 let questionDatas = []
 
 const questionTypes = {
-    "ABCD" : ABCD,
-    "ABCDE" : ABCDE,
-    "LangMultipleChoice" : LangMultipleChoice,
-    "OneOutOfSeven" : OneOutOfSeven,
-    "TrueFalse" : TrueFalse,
-    "Matching" : Matching,
-    "MultipleChoice" : MultipleChoice,
-    "Open" : Open,
-    "Free" : Free
+    "ABCD": ABCD,
+    "ABCDE": ABCDE,
+    "LangMultipleChoice": LangMultipleChoice,
+    "OneOutOfSeven": OneOutOfSeven,
+    "TrueFalse": TrueFalse,
+    "Matching": Matching,
+    "MultipleChoice": MultipleChoice,
+    "Open": Open,
+    "Free": Free
 }
 
 
@@ -77,7 +77,7 @@ export default function PracticeTestPage(props) {
                 currentQuestionIdx={currentQuestionIdx}
                 idx={idx}
                 handleChangeQuestion={handleChangeQuestion}
-                forceUpdate = {forceUpdate}
+                forceUpdate={forceUpdate}
             />
 
         })
@@ -88,6 +88,8 @@ export default function PracticeTestPage(props) {
 
         // TODO front
         return questionDatas.map((questionData, idx) => {
+
+            // стилизовать тут
             if (questionData.is_submitted) {
                 if (questionData.is_correct) {
                     return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} green </button>
@@ -110,18 +112,41 @@ export default function PracticeTestPage(props) {
     }
 
     console.log('rerender')
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         (currentQuestionIdx !== undefined) ? (
             <Container maxWidth="xs">
                 <Grid container direction="column" >
-                    <Grid item style={{width:'inherit'}}><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
-                    <div style={{width:'inherit'}}> NavBar {getNavBar()} </div>
-                    {/* navbar будет */}
+                    <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
+                    <div style={{ width: 'inherit' }}> NavBar {getNavBar()} </div>
+                    <Button onClick={handleClickOpen}>click</Button>
                     {getQuestionComponents(currentQuestionIdx)}
 
                 </Grid>
+                {/* navbar будет */}
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Disagree
+                        </Button>
+                        <Button onClick={handleClose} color="primary" autoFocus>
+                            Agree
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </Container>
         )
             : <Loading />

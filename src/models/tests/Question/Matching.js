@@ -1,7 +1,7 @@
 import { QuestionComponent } from "./QuestionComponent";
 import React from "react";
 import s from './Question.module.css'
-import { Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 export class Matching extends QuestionComponent {
 
@@ -15,9 +15,9 @@ export class Matching extends QuestionComponent {
 
     formOptions() {
         let options = []
-        this.props.question.data.options.map( (option, idx) => {
-            options.push({"name": this.optionNames[idx], "option" : option, "comment" : this.getOptionComment(idx)})
-        } )
+        this.props.question.data.options.map((option, idx) => {
+            options.push({ "name": this.optionNames[idx], "option": option, "comment": this.getOptionComment(idx) })
+        })
         return options
     }
 
@@ -32,9 +32,9 @@ export class Matching extends QuestionComponent {
 
     formTasks() {
         let tasks = []
-        this.props.question.data.tasks.map( (task, idx) => {
-            tasks.push({"name": this.taskNames[idx], "task" : task, "comment" : this.getTaskComment(idx)})
-        } )
+        this.props.question.data.tasks.map((task, idx) => {
+            tasks.push({ "name": this.taskNames[idx], "task": task, "comment": this.getTaskComment(idx) })
+        })
 
         return tasks
     }
@@ -49,9 +49,11 @@ export class Matching extends QuestionComponent {
     }
 
     displayComment(answer_option_data) {
-        if(this.state.is_submitted) {
+
+        // стилизовать тут
+        if (this.state.is_submitted) {
             if (answer_option_data.comment) {
-                return <Typography> --- {answer_option_data.comment}</Typography>
+                return <Grid item className="comment"> --- {answer_option_data.comment}</Grid>
             }
         }
     }
@@ -63,11 +65,15 @@ export class Matching extends QuestionComponent {
         // TODO front
         // display options (aka "A: text for option A")
         toDisplay.push(this.options.map((option_data) => {
-            return <div className={s.Button__MatchingText}>
-                <Typography style={{ marginRight: '20px' }} variant="h6">{option_data.name}: </Typography>
-                <Typography variant="subtitle1">{option_data.option}</Typography>
-                {this.displayComment(option_data)}
-            </div>
+            return <Grid container direction="column" className={s.Button__MatchingText}>
+                <Grid item container direction="row">
+                    <Grid item> <Typography style={{ marginRight: '20px' }} variant="h6">{option_data.name}: </Typography></Grid>
+                    <Grid item><Typography variant="subtitle1">{option_data.option}</Typography></Grid>
+                </Grid>
+                <Grid item container direction="column">
+                    {this.displayComment(option_data)}
+                </Grid>
+            </Grid>
         }))
 
         // display tasks (aka "1: text for task 1")
@@ -103,7 +109,7 @@ export class Matching extends QuestionComponent {
                                         let answer_option_data = task_data.name + option_data.name + ";"
                                         return <>
                                             <td>
-                                                {this.getAnswerOption(answer_option_data, value, name)}
+                                                {this.getAnswerOption(answer_option_data, name)}
                                             </td>
                                         </>
                                     })}
@@ -119,21 +125,21 @@ export class Matching extends QuestionComponent {
     }
 
 
-    getNormalOption(answer_option_data) {
+    getNormalOption(answer_option_data, name) {
         // TODO front
         return <>
             <label>
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} type="radio" ></input>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} name={name} type="radio" ></input>
                 <span class={s.marker}></span>
             </label>
         </>
     }
 
-    getNormalSubmittedOption(answer_option_data) {
+    getNormalSubmittedOption(answer_option_data, name) {
         // TODO front
         return <>
             <label>
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} type="radio"></input>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} name={name} type="radio"></input>
                 <span class={s.marker}></span>
             </label>
         </>
@@ -141,33 +147,33 @@ export class Matching extends QuestionComponent {
 
 
 
-    getClickedOption(answer_option_data) {
+    getClickedOption(answer_option_data, name) {
         console.log('CLICKED!')
         // TODO front
         return <>
             <label>
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} type="radio"></input>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} name={name} type="radio"></input>
                 <span class={s.marker}></span>
             </label>
         </>
     }
 
-    getCorrectOption(answer_option_data) {
+    getCorrectOption(answer_option_data, name) {
         // TODO front
         return <>
             <label >
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} type="radio"></input>
-                <span style={{backgroundColor:'#1AB2A8'}} class={s.marker__correct}></span>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)}name={name} type="radio"></input>
+                <span style={{ backgroundColor: '#1AB2A8' }} class={s.marker__correct}></span>
             </label>
         </>
     }
 
-    getSubmittedIncorrectOption(answer_option_data) {
+    getSubmittedIncorrectOption(answer_option_data, name) {
         // TODO front
         return <>
             <label>
-                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} type="radio"></input>
-                <span  style={{backgroundColor:'#EB5757'}} class={s.marker}></span>
+                <input onClick={() => this.handleAnswerOptionClick(answer_option_data)} name={name} type="radio"></input>
+                <span style={{ backgroundColor: '#EB5757' }} class={s.marker}></span>
             </label>
         </>
     }

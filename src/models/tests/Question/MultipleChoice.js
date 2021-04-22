@@ -1,7 +1,7 @@
 import React from "react";
 import { QuestionComponent } from "./QuestionComponent";
 import s from './Question.module.css'
-import { Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import clsx from 'clsx'
 
 
@@ -15,8 +15,8 @@ export class MultipleChoice extends QuestionComponent {
         // answer_options are ["A", "B", "C"...]
 
         let answer_options_datas = []
-        this.props.question.data.options.map( (text_option, idx) => {
-            answer_options_datas.push({ "answer" : answer_options[idx], "text" : text_option, "comment" : this.getComment(idx)})
+        this.props.question.data.options.map((text_option, idx) => {
+            answer_options_datas.push({ "answer": answer_options[idx], "text": text_option, "comment": this.getComment(idx) })
         })
 
         return answer_options_datas
@@ -32,10 +32,10 @@ export class MultipleChoice extends QuestionComponent {
 
     handleAnswerOptionClick = (answer_option_data) => {
         if (!this.state.is_submitted) {
-            this.updateUserAnswer( answer_option_data.answer)
+            this.updateUserAnswer(answer_option_data.answer)
             // this.setState({ user_answer: answer_option_data.answer }, () => this.updateUserAnswerStarted())
         }
-        
+
     }
 
     displayOptions() {
@@ -45,23 +45,27 @@ export class MultipleChoice extends QuestionComponent {
 
     displayComment(answer_option_data) {
         if (answer_option_data.comment) {
-            return <Typography variant="subtitle1">--- {answer_option_data.comment}</Typography>
+            return <Grid item><Typography variant="subtitle1">--- {answer_option_data.comment}</Typography></Grid>
         }
     }
 
     getNormalOption(answer_option_data) {
         // TODO front
         return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
-            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            <Grid container direction="row" alignItems="center">
+                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
+                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography></Grid>
+            </Grid>
         </div>
     }
 
     getNormalSubmittedOption(answer_option_data) {
         // TODO front
         return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
-            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            <Grid container direction="row" alignItems="center">
+                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
+                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>
+            </Grid>
             {this.displayComment(answer_option_data)}
         </div>
 
@@ -71,8 +75,10 @@ export class MultipleChoice extends QuestionComponent {
         // TODO front
         return <div className={clsx(s.Button, s.choosen)}
             onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
-            <Typography style={{fontWeight:'bold'}} variant="subtitle1">{answer_option_data.text}</Typography>
+            <Grid container direction="row" alignItems="center">
+                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
+                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography></Grid>
+            </Grid>
         </div>
     }
 
@@ -80,8 +86,10 @@ export class MultipleChoice extends QuestionComponent {
         // TODO front
         console.log("getCorrectOption")
         return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
-            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            <Grid container direction="row" alignItems="center">
+                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
+                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>
+            </Grid>
             {this.displayComment(answer_option_data)}
         </div>
 
@@ -91,8 +99,10 @@ export class MultipleChoice extends QuestionComponent {
         // TODO front
         console.log("getSubmittedIncorrectOption")
         return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Typography style={{marginRight:'20px'}} variant="h6">{answer_option_data.answer}:</Typography>
-            <Typography variant="subtitle1">{answer_option_data.text}</Typography>
+            <Grid container direction="row" alignItems="center">
+                <Grid item>                      <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
+                <Grid item>                       <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>
+            </Grid>
             {this.displayComment(answer_option_data)}
         </div>
     }
@@ -164,8 +174,8 @@ export class TrueFalse extends MultipleChoice {
 
         let answer_options_datas = []
 
-        answer_options.map( (answer_option, idx) => {
-            answer_options_datas.push({ "answer" : answer_option, "text" : "", "comment" : this.getComment(idx)})
+        answer_options.map((answer_option, idx) => {
+            answer_options_datas.push({ "answer": answer_option, "text": "", "comment": this.getComment(idx) })
         })
 
         return answer_options_datas

@@ -13,6 +13,7 @@
   font-weight: bold;
   color: white;
   font-family: SF Display;
+  margin-top: 20px;
 }
 .CheckButton {
   cursor: pointer;
@@ -25,6 +26,17 @@
   filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.15));
   background-color: #1ab2a8;
   border-radius: 40px;
+  outline: none;
+  border: none;
+}
+.CheckButton:active{
+  outline: none;
+  border: none;
+}
+.CheckButton:focus {
+  border: none;
+  
+  outline: none;
 }
 .RoundedButton {
   display: flex;
@@ -37,6 +49,16 @@
   height: 58px;
   background-color: #1ab2a8;
   border-radius: 50%;
+  outline: none;
+  border: none;
+}
+.RoundedButton:active{
+  outline: none;
+  border: none;
+}
+.RoundedButton:focus {
+  border: none;
+  outline: none;
 }
 .RoundedButton > * {
   width: 64px;
@@ -50,10 +72,11 @@
 .Button {
   cursor: pointer;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   width: 335px;
-  height: 55px;
+  min-height: 55px;
   filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.15));
   color: black;
   background-color: white;
@@ -193,4 +216,13 @@
 
 .select_answer span:hover {
   background: rgba(0, 0, 0, 0.274);
+}
+
+.imgContainer > img{
+  width:100%;
+  height:auto;
+}
+.imgContainer {
+  width:200px;
+  height:auto;
 }

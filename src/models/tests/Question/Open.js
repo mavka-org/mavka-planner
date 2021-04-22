@@ -117,7 +117,7 @@ export class Open extends QuestionComponent {
 
 
     /////// TODO FRONT
-
+// стилизовать тут
     getEmptyInputField(subq_n, id) {
         // TODO front -- звичайний, незаповнений input field
         return <div><input id={id} type="text" value={this.getUserInput(subq_n)} onChange={this.handleUserAnswerUpdate} maxLength="512"/></div>
