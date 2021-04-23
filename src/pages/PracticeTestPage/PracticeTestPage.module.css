@@ -1,0 +1,60 @@
+.normalButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  font-size: 20px;
+  font-family:Gilroy-Bold ;
+  border: 3px solid #c4c4c4;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  margin:5px;
+  outline: none;
+}
+.answeredButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c4c4c4;
+  font-size: 20px;
+  font-family:Gilroy-Bold ;
+  border: 3px solid #c4c4c4;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  margin:5px;
+  outline: none;
+}
+.incorrectButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #EB5757;
+  font-size: 20px;
+  font-family:Gilroy-Bold ;
+  border: 3px solid #EB5757;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  margin:5px;
+  outline: none;
+}
+.correctButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1AB2A8;
+  font-size: 20px;
+  font-family:Gilroy-Bold ;
+  border: 3px solid #1AB2A8;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: center;
+  margin:5px;
+  outline: none;
+}

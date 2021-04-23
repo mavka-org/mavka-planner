@@ -8,8 +8,10 @@ import { Open } from "../../models/tests/Question/Open";
 import { Free } from "../../models/tests/Question/Free";
 import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 import Page from "../../components/Page/Page.js";
-import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Typography } from "@material-ui/core";
-
+import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, Typography } from "@material-ui/core";
+import s from './PracticeTestPage.module.css'
+import { makeStyles } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
 // TODO dave it somewhere
 let questionDatas = []
 
@@ -24,7 +26,12 @@ const questionTypes = {
     "Open": Open,
     "Free": Free
 }
-
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '415px',
+        margin: '0 auto',
+    },
+}));
 
 export default function PracticeTestPage(props) {
 
@@ -85,25 +92,24 @@ export default function PracticeTestPage(props) {
     }
 
     const getNavBar = () => {
-
         // TODO front
         return questionDatas.map((questionData, idx) => {
 
             // стилизовать тут
             if (questionData.is_submitted) {
                 if (questionData.is_correct) {
-                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} green </button>
+                    return <button className={s.correctButton} onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id}</button>
                 }
                 else {
-                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} red </button>
+                    return <button className={s.incorrectButton} onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id}</button>
                 }
             }
             else {
                 if (questionData.user_answer_started) {
-                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} touched </button>
+                    return <button className={s.answeredButton} onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} </button>
                 }
                 else {
-                    return <button onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id} </button>
+                    return <button className={s.normalButton} onClick={() => setCurrentQuestionIdx(idx)}>{questionData.data.order_id}</button>
                 }
             }
         })
@@ -120,32 +126,43 @@ export default function PracticeTestPage(props) {
     const handleClose = () => {
         setOpen(false);
     };
+    const classes = useStyles()
+
     return (
         (currentQuestionIdx !== undefined) ? (
             <Container maxWidth="xs">
                 <Grid container direction="column" >
+                    <Grid item container direction="row" justify="flex-end" style={{ width: 'inherit' }}>
+                        <IconButton onClick={handleClickOpen}>
+                            <MenuIcon></MenuIcon>
+                        </IconButton>
+                    </Grid>
                     <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
-                    <div style={{ width: 'inherit' }}> NavBar {getNavBar()} </div>
-                    <Button onClick={handleClickOpen}>click</Button>
+
                     {getQuestionComponents(currentQuestionIdx)}
 
                 </Grid>
                 {/* navbar будет */}
                 <Dialog
+                    PaperProps={{
+                        style: { borderRadius: '28px' }
+                    }}
+                    maxWidth="xs"
+                    className={classes.root}
+                    paper={classes.paper}
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
+                    <DialogTitle id="alert-dialog-title">{"вибери тест:"}</DialogTitle>
+                    <DialogContent>
 
-                    <DialogActions>
-                        <Button onClick={handleClose} color="primary">
-                            Disagree
-                        </Button>
-                        <Button onClick={handleClose} color="primary" autoFocus>
-                            Agree
-                        </Button>
-                    </DialogActions>
+                        <Grid container direction="row" justify="flex-start" >
+                            {getNavBar()}
+                        </Grid>
+                    </DialogContent>
+
                 </Dialog>
             </Container>
         )
