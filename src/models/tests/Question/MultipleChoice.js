@@ -98,7 +98,7 @@ export class MultipleChoice extends QuestionComponent {
     getSubmittedIncorrectOption(answer_option_data) {
         // TODO front
         console.log("getSubmittedIncorrectOption")
-        return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+        return <div className={clsx(s.Button, s.incorrect)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
                 <Grid item>                      <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
                 <Grid item>                       <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>

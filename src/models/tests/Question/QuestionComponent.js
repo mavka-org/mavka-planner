@@ -115,7 +115,7 @@ export class QuestionComponent extends React.Component {
                     <Grid container direction="column">
                         {/*<div>{this.props.question.data.primary_question}</div>*/}
                         <Grid item container className={s.imgContainer} dangerouslySetInnerHTML={{ __html: this.props.question.data.primary_question }} />
-                        <Grid item><Typography variant="h2">обери одну відповідь:</Typography> </Grid>
+                        <Grid item style={{marginBottom:'10px'}}><Typography variant="h2">обери одну відповідь:</Typography> </Grid>
                     </Grid>
                     <Grid container>
                         {this.displayOptions()}
@@ -124,7 +124,7 @@ export class QuestionComponent extends React.Component {
 
                     {this.props.question.is_submitted ? (
                         <Grid container>
-                            <Grid item><Typography variant='subtitle1'> <b> Тема:</b>  {this.props.question.data.topic.name}</Typography> </Grid>
+                            <Grid item style={{margin:'10px 0'}}><Typography variant='subtitle1'> <b> Тема:</b>  {this.props.question.data.topic.name}</Typography> </Grid>
 
                             {this.props.question.data.hasOwnProperty("general_comment") ? (
                                 <Typography variant='subtitle1'><b>  Загальний коментар:</b> {this.props.question.data.general_comment}</Typography>

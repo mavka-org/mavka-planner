@@ -137,11 +137,10 @@ export class Open extends QuestionComponent {
     getIncorrectInputField(subq_n, id, user_answer, correct_answer) {
         // TODO front -- коли питання засамбічене, але юзер-відповідь неправильна
         return <div>
-            <div><Typography variant="subtitle1">лох непраивльно!!!</Typography>  </div>
+            <div><Typography variant="subtitle1" style={{margin:'10px 0'}}>лох непраивльно!!!</Typography>  </div>
             <input className={s.incorrectInput} id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512" />
-            <Typography variant="subtitle1">Правильна відповідь: <b>  {correct_answer}</b></Typography>
+            <Typography variant="subtitle1" style={{margin:'10px 0'}}>Правильна відповідь: <b>  {correct_answer}</b></Typography>
             {this.getComment(subq_n)}
-            <p></p>
         </div>
 
     }
@@ -149,7 +148,7 @@ export class Open extends QuestionComponent {
     getComment(subq_n) {
         // TODO front -- комент до підпитання
         if (this.props.question.data.comments && this.props.question.data.comments[subq_n]) {
-            return <div><Typography variant="subtitle1">Коментар {this.props.question.data.comments[subq_n]}</Typography> </div>
+            return <div style={{margin:'10px 0'}}><Typography variant="subtitle1">Коментар {this.props.question.data.comments[subq_n]}</Typography> </div>
         }
     }
 

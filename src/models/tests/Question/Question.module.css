@@ -1,6 +1,6 @@
 /*Question contents*/
 .question-section img {
-  width: 100% ;
+  width: 100%;
 }
 
 /* question Component */
@@ -29,13 +29,13 @@
   outline: none;
   border: none;
 }
-.CheckButton:active{
+.CheckButton:active {
   outline: none;
   border: none;
 }
 .CheckButton:focus {
   border: none;
-  
+
   outline: none;
 }
 .RoundedButton {
@@ -52,7 +52,7 @@
   outline: none;
   border: none;
 }
-.RoundedButton:active{
+.RoundedButton:active {
   outline: none;
   border: none;
 }
@@ -218,11 +218,18 @@
   background: rgba(0, 0, 0, 0.274);
 }
 
-.imgContainer > img{
-  width:100%;
-  height:auto;
+.imgContainer > img {
+  width: 100%;
+  height: auto;
 }
 .imgContainer {
-  width:200px;
-  height:auto;
+  width: 200px;
+  height: auto;
+}
+
+.correct {
+  filter: drop-shadow(4px 4px 12px rgba(26, 178, 168, 0.5));
+}
+.incorrect {
+  filter: drop-shadow(4px 4px 12px rgba(178, 26, 26, 0.5));
 }
