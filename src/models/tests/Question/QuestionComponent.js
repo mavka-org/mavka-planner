@@ -3,7 +3,7 @@ import { Container, Grid, Typography } from "@material-ui/core";
 import s from './Question.module.css'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './QuestionComponent.css'
-import  navButton from '../../../assets/img/navButton.svg'
+
 export class QuestionComponent extends React.Component {
 
     constructor(props) {
