@@ -75,10 +75,6 @@ export class Open extends QuestionComponent {
         }
 
 
-
-
-
-
         return <div>
             {toDisplay}
         </div>
@@ -113,6 +109,10 @@ export class Open extends QuestionComponent {
 
     getUserInput = (id) => {
         return this.cutBySemicolumn(this.state.user_answer, id)
+    }
+
+    score() {
+        
     }
 
 

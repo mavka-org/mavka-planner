@@ -23,14 +23,12 @@ export class QuestionComponent extends React.Component {
     }
 
 
-
-
     getUserAnswerState() {
         return this.state.user_answer
     }
 
     getIsSubmittedState() {
-        return this.state.user_answer
+        return this.state.is_submitted
     }
 
     handleAnswerOptionClick = (answer_option_data) => { }
@@ -57,7 +55,17 @@ export class QuestionComponent extends React.Component {
 
     handleSubmitQuestionClick = () => {
         // weird work-around, but needed for Open template
-        this.updateData()
+        // this.updateData()
+                // record essential data to QuestionData that was passes thru props
+        this.props.question.is_submitted = true
+        this.props.question.submitted_user_answer = this.state.user_answer
+        this.props.question.score = this.score()
+        this.props.question.is_correct = this.isQuestionCorrect()
+
+        console.log("handleSubmitQuestionClick", this.props.question)
+
+        this.setState({ is_submitted: true })
+        this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
     }
 
     score() { }

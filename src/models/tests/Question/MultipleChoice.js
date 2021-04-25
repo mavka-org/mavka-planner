@@ -119,9 +119,11 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     score() {
-        //TODO are they always scored 1?
-        if (this.getUserAnswerState() === this.props.question.data.correct_answer) return 1
-        return 0
+        let score = 0
+        let max_score = 1
+
+        if (this.getUserAnswerState() === this.props.question.data.correct_answer) score = 1
+        return [score, max_score]
     }
 
     isQuestionCorrect() {
@@ -183,25 +185,6 @@ export class TrueFalse extends MultipleChoice {
 
 
 }
-
-
-export class Open extends QuestionComponent {
-    displayOptions() {
-        // TODO front
-    }
-}
-export class SingleOpen extends Open { }
-export class DoubleOpen extends Open { }
-
-export class Free extends QuestionComponent { }
-
-export class Sequencing extends QuestionComponent { }
-export class Sequencing4x4 extends Sequencing { }
-
-export class ThreeOutOfSeven extends QuestionComponent { }
-export class TripleMultipleChoice extends QuestionComponent { }
-
-
 
 
 
