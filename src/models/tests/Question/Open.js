@@ -96,7 +96,6 @@ export class Open extends QuestionComponent {
                 this.updateUserAnswer(user_answer)
                 // this.setState({ user_answer: answer_option_data.answer }, () => this.updateUserAnswerStarted())
             }
-            console.log('user answer update', user_answer, this.state.user_answer)
         }
     }
 
@@ -112,7 +111,22 @@ export class Open extends QuestionComponent {
     }
 
     score() {
-        
+        let score = 0
+        let max_score = 2
+
+        let number = 2
+
+        for (let subq_n = 0; subq_n < number; subq_n++) {
+
+            let subq_user_answer = this.cutBySemicolumn(this.state.user_answer, subq_n)
+            let subq_correct_answer = this.cutBySemicolumn(this.props.question.data.correct_answer, subq_n)
+            if (subq_user_answer === subq_correct_answer) {
+                if (number == 1) {score += 2}
+                else score +=1
+            } 
+            
+            return [score, max_score]
+        }   
     }
 
 

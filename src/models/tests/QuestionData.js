@@ -11,7 +11,8 @@ export default class QuestionData {
         this.submitted_user_answer = undefined
         this.user_answer_started = false
         this.is_correct = undefined
-        this.score = 0
+        this.user_score = 0
+        this.max_score = 0
 
     }
 

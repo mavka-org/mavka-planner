@@ -11,7 +11,7 @@ import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 import { makeStyles } from '@material-ui/core/styles';
 import QuestionNavigation from "../../models/tests/QuestionNavigation";
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, Typography } from "@material-ui/core";
-
+// import { score }  from "../../models/scoring/scoring";
 
 
 // TODO save it somewhere
@@ -41,6 +41,8 @@ export default function PracticeTestPage(props) {
     const [isDataLoaded, setDataLoaded] = React.useState(false)
     const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
     const [, forceUpdate] = useReducer(x => x + 1, 0);
+    const [isTestSubmitted, setTestSubmitted] = React.useState(false)
+    const [score, setScore] = React.useState(false)
 
 
     if (!isDataLoaded) {
@@ -68,15 +70,47 @@ export default function PracticeTestPage(props) {
 
 
     const handleChangeQuestion = (new_q_id) => {
-        console.log('handleChangeQuestion', new_q_id)
+        console.log('handleChangeQuestion to', new_q_id)
 
         if (new_q_id >= 0 && new_q_id < questionDatas.length) {
             setCurrentQuestionIdx(new_q_id)
         }
     }
 
-    const getQuestionComponents = (currentQuestionIdx) => {
+    const handleTestFinishClick = () => {
+        // console.log("isTestSubmitted", isTestSubmitted, "doScore", doScore)
 
+        if (!score) {
+            setScore("start")
+        }
+    }
+
+
+
+
+    
+        // if (!isTestSubmitted) {
+
+        //     // idea: score --> render to execute score --> 
+        //     if (!doScore) {
+                
+        //         setDoScore(true)
+        //         console.log("enable scoring")
+
+        //     } else {
+
+        //         setTestSubmitted(true)
+        //         console.log("submitted")
+
+        //     }
+            
+
+            
+        // } 
+        // setCurrentQuestionIdx("display test finish page")
+    // }
+
+    const getQuestionComponents = (currentQuestionIdx) => {
 
         return questionDatas.map((questionData, idx) => {
             let QuestionType = questionTypes[questionData.data.type.slug]
@@ -86,34 +120,73 @@ export default function PracticeTestPage(props) {
                 hidden={currentQuestionIdx != idx}
                 currentQuestionIdx={currentQuestionIdx}
                 idx={idx}
+                isLast={idx==(questionDatas.length-1)}
                 handleChangeQuestion={handleChangeQuestion}
                 forceUpdate={forceUpdate}
+                setScore={setScore}
+                score={score}
             />
 
         })
 
     }
 
+    const shouldDisplayTestFinish = () => {
+        if (score === "done" && currentQuestionIdx !== "display test finish page") {
+            console.log("setting idx to display test finish page")
+            setCurrentQuestionIdx("display test finish page")
+            setScore("finished")
+        }
+    }
 
-    console.log('rerender')
+    
+
+
+    console.log('rerender PracticeTestPage')
 
     return (
+        
         (currentQuestionIdx !== undefined) ? (
 
             <Container maxWidth="xs">
                 <Grid container direction="column" >
+
+                {shouldDisplayTestFinish()}
                     
-                    <QuestionNavigation questionDatas={questionDatas} setCurrentQuestionIdx={setCurrentQuestionIdx}/>
+                   {(currentQuestionIdx === "display test finish page") ? (
+                        <div>
+                            <div>finish test page </div>
+                            <QuestionNavigation 
+                            withButton={false} 
+                            questionDatas={questionDatas} 
+                            setCurrentQuestionIdx={setCurrentQuestionIdx} 
+                            handleTestFinishClick={handleTestFinishClick}
+                            getOnlyIncorrectQs={true}
+                            />
+                            {/* // finish test page*/}
+                        </div>
+                
+                    ) : (
+                        <div>
+                            <QuestionNavigation 
+                            withButton={true} 
+                            questionDatas={questionDatas} 
+                            setCurrentQuestionIdx={setCurrentQuestionIdx} 
+                            handleTestFinishClick={handleTestFinishClick}
+                            getOnlyIncorrectQs={false}
+                            />
 
-                    <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
-
+                            <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx }</Typography></Grid>
+                        </div>
+                    )}
+                    
                     {getQuestionComponents(currentQuestionIdx)}
-
                     
                 </Grid>
             </Container>
-            
 
+
+        
         )
             : <Loading />
     );

@@ -3,8 +3,10 @@ import React from "react";
 
 export class Free extends QuestionComponent {
 
-    displayOptions() {
+    
 
-    }
+    isQuestionCorrect() {return true}
+
+
 
 }

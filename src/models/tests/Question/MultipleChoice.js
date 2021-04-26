@@ -50,7 +50,7 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     getNormalOption(answer_option_data) {
-        // TODO front
+
         return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
                 <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
@@ -60,7 +60,7 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     getNormalSubmittedOption(answer_option_data) {
-        // TODO front
+
         return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
                 <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
@@ -72,7 +72,7 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     getClickedOption(answer_option_data) {
-        // TODO front
+
         return <div className={clsx(s.Button, s.choosen)}
             onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
@@ -83,8 +83,7 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     getCorrectOption(answer_option_data) {
-        // TODO front
-        console.log("getCorrectOption")
+
         return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
                 <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
@@ -96,8 +95,7 @@ export class MultipleChoice extends QuestionComponent {
     }
 
     getSubmittedIncorrectOption(answer_option_data) {
-        // TODO front
-        console.log("getSubmittedIncorrectOption")
+
         return <div className={clsx(s.Button, s.incorrect)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
                 <Grid item>                      <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>

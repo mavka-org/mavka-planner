@@ -38,39 +38,44 @@ export class QuestionComponent extends React.Component {
     }
 
 
-    updateData(user_answer) {
+    updateData() {
 
         // record essential data to QuestionData that was passes thru props
         this.props.question.is_submitted = true
         this.props.question.submitted_user_answer = this.state.user_answer
-        this.props.question.score = this.score()
         this.props.question.is_correct = this.isQuestionCorrect()
-
-        console.log("handleSubmitQuestionClick", this.props.question)
+        
+        let score = this.score()
+        this.props.question.user_score = score[0]
+        this.props.question.max_score = score[1]
 
         this.setState({ is_submitted: true })
-        this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
-    }
 
+        console.log("update question data", this.props.question)
+    }
 
     handleSubmitQuestionClick = () => {
-        // weird work-around, but needed for Open template
-        // this.updateData()
-                // record essential data to QuestionData that was passes thru props
-        this.props.question.is_submitted = true
-        this.props.question.submitted_user_answer = this.state.user_answer
-        this.props.question.score = this.score()
-        this.props.question.is_correct = this.isQuestionCorrect()
+        this.updateData()
 
-        console.log("handleSubmitQuestionClick", this.props.question)
-
-        this.setState({ is_submitted: true })
         this.props.forceUpdate() // ugh not ideal, but needed to update question navigation panel
     }
 
-    score() { }
+    doScore = () => {
+        this.updateData()
+        // TODO ADD THEN
 
-    isQuestionCorrect() { }
+        if(this.props.isLast) {
+            this.props.setScore("done")
+            console.log('setScore to false')
+        }
+
+    }
+
+    score() { return [,] }
+
+    displayOptions() {}
+
+    isQuestionCorrect() { return false }
 
     isOptionChosen(answer_option_data) { }
 
@@ -117,7 +122,13 @@ export class QuestionComponent extends React.Component {
         // this.IsUserAnswerStarted()
         // this.user_answer = this.state.is_submitted
 
-        return (
+
+        if (this.props.score === "start") {
+            this.doScore()
+            return null
+        }
+
+        else return (
             (!this.props.hidden) ?
                 <>
                     <Grid container direction="column">
@@ -144,9 +155,18 @@ export class QuestionComponent extends React.Component {
 
 
                     <div className={s.ButtonContainer}>
-                        <button className={s.RoundedButton} onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id - 1)}><PlayArrowIcon style={{ transform: 'rotate(60deg)' }} /></button>
-                        <button className={s.CheckButton} onClick={() => this.handleSubmitQuestionClick()}><Typography style={{ color: 'white' }} variant="h3">перевірити</Typography> </button>
-                        <button className={s.RoundedButton} onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id + 1)}><PlayArrowIcon /></button>
+                        <button className={s.RoundedButton} 
+                        onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_id - 1)}><PlayArrowIcon style={{ transform: 'rotate(60deg)' }} />
+                        </button>
+                        
+                        <button className={s.CheckButton} 
+                        onClick={() => this.handleSubmitQuestionClick()}><Typography style={{ color: 'white' }} variant="h3">перевірити</Typography> 
+                        </button>
+
+                        <button className={s.RoundedButton} 
+                        onClick={() => {this.props.handleChangeQuestion(this.props.question.data.order_id + 1)
+                        }}><PlayArrowIcon />
+                        </button>
                     </div>
                 </>
                 : null
