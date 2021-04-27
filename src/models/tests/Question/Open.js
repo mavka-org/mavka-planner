@@ -120,13 +120,31 @@ export class Open extends QuestionComponent {
 
             let subq_user_answer = this.cutBySemicolumn(this.state.user_answer, subq_n)
             let subq_correct_answer = this.cutBySemicolumn(this.props.question.data.correct_answer, subq_n)
+            console.log('hhddhdhd', subq_user_answer, subq_correct_answer)
             if (subq_user_answer === subq_correct_answer) {
                 if (number == 1) {score += 2}
                 else score +=1
-            } 
+            }
+            console.log(score)
             
             return [score, max_score]
         }   
+    }
+
+    isQuestionCorrect() {
+
+        let number = 2
+
+        for (let subq_n = 0; subq_n < number; subq_n++) {
+
+            let subq_user_answer = this.cutBySemicolumn(this.state.user_answer, subq_n)
+            let subq_correct_answer = this.cutBySemicolumn(this.props.question.data.correct_answer, subq_n)
+            if (subq_user_answer !== subq_correct_answer) {
+                return false
+            }
+        }
+        return true
+
     }
 
 

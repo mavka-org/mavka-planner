@@ -11,7 +11,8 @@ import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
 import { makeStyles } from '@material-ui/core/styles';
 import QuestionNavigation from "../../models/tests/QuestionNavigation";
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, Typography } from "@material-ui/core";
-// import { score }  from "../../models/scoring/scoring";
+import { getScore }  from '../../models/scoring/scoring'
+
 
 
 // TODO save it somewhere
@@ -41,8 +42,10 @@ export default function PracticeTestPage(props) {
     const [isDataLoaded, setDataLoaded] = React.useState(false)
     const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
     const [, forceUpdate] = useReducer(x => x + 1, 0);
-    const [isTestSubmitted, setTestSubmitted] = React.useState(false)
-    const [score, setScore] = React.useState(false)
+    let [test_score, max_score, zno] = [0,0,0]
+    
+    // score: "not scored", "initialized", "individial questions scored", "ready for first-time display", "ready for display"
+    const [score, setScore] = React.useState("not scored")
 
 
     if (!isDataLoaded) {
@@ -78,42 +81,20 @@ export default function PracticeTestPage(props) {
     }
 
     const handleTestFinishClick = () => {
-        // console.log("isTestSubmitted", isTestSubmitted, "doScore", doScore)
+        console.log('handleTestFinishClick', score)
 
-        if (!score) {
-            setScore("start")
+        if (score === "not scored") {
+            setScore("initialized")
+        } else if (score === "ready for display") {
+            setCurrentQuestionIdx("display test finish page")
         }
     }
 
 
-
-
-    
-        // if (!isTestSubmitted) {
-
-        //     // idea: score --> render to execute score --> 
-        //     if (!doScore) {
-                
-        //         setDoScore(true)
-        //         console.log("enable scoring")
-
-        //     } else {
-
-        //         setTestSubmitted(true)
-        //         console.log("submitted")
-
-        //     }
-            
-
-            
-        // } 
-        // setCurrentQuestionIdx("display test finish page")
-    // }
-
     const getQuestionComponents = (currentQuestionIdx) => {
 
         return questionDatas.map((questionData, idx) => {
-            let QuestionType = questionTypes[questionData.data.type.slug]
+            let QuestionType = questionTypes[questionData.data.question_type]
 
             return <QuestionType
                 question={questionData}
@@ -132,10 +113,24 @@ export default function PracticeTestPage(props) {
     }
 
     const shouldDisplayTestFinish = () => {
-        if (score === "done" && currentQuestionIdx !== "display test finish page") {
-            console.log("setting idx to display test finish page")
+        console.log('shouldDisplayTestFinish score', score)
+        if( score === "individial questions scored" && currentQuestionIdx !== "display test finish page") {
+            // TODO -- add real data to getScore
+            let scores = getScore("математика", '2019', 'основна', questionDatas)
+            test_score = scores[0]
+            max_score = scores[1]
+            zno = scores[2]
+            console.log("HJHJHJHJ", test_score, max_score, zno)
+            setScore('ready for first-time display')
+            // setCurrentQuestionIdx("display test finish page")
+
+        }
+
+        else if (score === "ready for first-time display" && currentQuestionIdx !== "display test finish page") {
+            console.log('hey sanity')
             setCurrentQuestionIdx("display test finish page")
-            setScore("finished")
+            setScore("ready for display")
+            
         }
     }
 
@@ -143,6 +138,8 @@ export default function PracticeTestPage(props) {
 
 
     console.log('rerender PracticeTestPage')
+    console.log('currentQuestionIdx', currentQuestionIdx)
+    console.log('score', score)
 
     return (
         
@@ -174,6 +171,7 @@ export default function PracticeTestPage(props) {
                             setCurrentQuestionIdx={setCurrentQuestionIdx} 
                             handleTestFinishClick={handleTestFinishClick}
                             getOnlyIncorrectQs={false}
+                            isTestScored = {score === "ready for display"}
                             />
 
                             <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx }</Typography></Grid>

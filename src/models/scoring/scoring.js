@@ -11,6 +11,10 @@ const max_scores = {
     "історія" : 94,
 }
 
+function getMaxScore(subj) {
+    return max_scores[subj]
+}
+
 const ZNO_lin_approx = {
     "математика" : [1.87163, 89.1309],
     "українська мова" : [1.24982, 73.73645],
@@ -18,31 +22,37 @@ const ZNO_lin_approx = {
 }
 
 
-export function score(subj, test_year, test_session, questionsData) {
-    var test_score = sum_score(questionsData)
-    var zno, dpa
+export function getScore(subj, test_year, test_session, questionsData) {
+    console.log('questionsData inside score', questionsData)
+    let test_score = sum_score(questionsData, subj)
+    let zno, dpa
 
 
-    if (test_score < passing_scores.subject) {
+    if (test_score < passing_scores[subj]) {
         zno = "Менше прохідного"
     } 
     else {
         zno = getZNO(subj, test_year, test_session, test_score)
     }
 
-    return zno
+    console.log('ZNOOOOO', zno)
+
+    return [test_score, getMaxScore(subj), zno]
 }
 
 export function sum_score(questionsData, subj) {
-    let user_score, user_true_score, total_score = 0
+    let user_score = 0, user_true_score = 0 , total_score = 0
 
-    questionDatas.map( (question) => {
-        if (question.data.type.slug != "Free") {
+    questionsData.map( (question) => {
+        if (question.data.question_type != "Free") {
             user_true_score += question.user_score
+            total_score += question.max_score
         } 
     })
+    console.log('SUM USER SCORE before FREE', user_true_score)
 
     user_score = user_true_score + accountForFree(user_true_score, total_score, subj)
+    console.log('SUM USER SCORE after free', user_true_score)
     return user_score
 
 }
@@ -51,13 +61,11 @@ export function sum_score(questionsData, subj) {
 // deal with Free templates
 export function accountForFree(user_true_score, total_score, subj) {
     let success_ratio = user_true_score/total_score
-    let score_diff = max_scores.subj - total_score
+    let score_diff = getMaxScore(subj) - total_score
     return success_ratio * score_diff
 }
 
 export function getZNO(subj, test_year, test_session, test_score) {
-    lin_coeff = ZNO_lin_approx.subj
+    let lin_coeff = ZNO_lin_approx[subj]
     return Math.ceil(lin_coeff[0]*test_score + lin_coeff[1])
 }
-
-console.log('hu')

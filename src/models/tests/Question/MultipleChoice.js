@@ -112,20 +112,24 @@ export class MultipleChoice extends QuestionComponent {
         else return false
     }
 
+    getCorrectAnswer() {
+        return this.props.question.data.correct_answer.toUpperCase()
+    }
+
     isOptionCorrect(answer_option_data) {
-        return answer_option_data.answer === this.props.question.data.correct_answer
+        return answer_option_data.answer === this.getCorrectAnswer()
     }
 
     score() {
         let score = 0
         let max_score = 1
 
-        if (this.getUserAnswerState() === this.props.question.data.correct_answer) score = 1
+        if (this.getUserAnswerState() === this.getCorrectAnswer()) score = 1
         return [score, max_score]
     }
 
     isQuestionCorrect() {
-        if (this.getUserAnswerState() === this.props.question.data.correct_answer) return true
+        if (this.getUserAnswerState() === this.getCorrectAnswer()) return true
         return false
     }
 
@@ -133,31 +137,52 @@ export class MultipleChoice extends QuestionComponent {
 
 
 
-export class ABCD extends MultipleChoice {
+// export class ABCD extends MultipleChoice {
+//     constructor(props) {
+//         super(props, ["A", "B", "C", "D"])
+//     }
+// }
+
+
+// export class ABCDE extends MultipleChoice {
+//     constructor(props) {
+//         super(props, ["A", "B", "C", "D", "E"])
+//     }
+// }
+
+
+// export class LangMultipleChoice extends MultipleChoice {
+//     constructor(props) {
+//         super(props, ["A", "B", "C", "D", "E", "F", "G", "H", "I"])
+//     }
+// }
+
+export class EnglishLettersMultipleChoice extends MultipleChoice {
     constructor(props) {
-        super(props, ["A", "B", "C", "D"])
+        super(props, ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L"])
     }
 }
 
+export class ABCD extends EnglishLettersMultipleChoice {}
+export class ABCDE extends EnglishLettersMultipleChoice {}
+export class LangMultipleChoice extends EnglishLettersMultipleChoice {}
 
-export class ABCDE extends MultipleChoice {
+
+
+export class NumbersMultipleChoice extends MultipleChoice {
     constructor(props) {
-        super(props, ["A", "B", "C", "D", "E"])
+        super(props, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"])
     }
 }
 
+export class OneOutOfSeven extends NumbersMultipleChoice {}
 
-export class LangMultipleChoice extends MultipleChoice {
-    constructor(props) {
-        super(props, ["A", "B", "C", "D", "E", "F", "G", "H", "I"])
-    }
-}
 
-export class OneOutOfSeven extends MultipleChoice {
-    constructor(props) {
-        super(props, ["1", "2", "3", "4", "5", "6", "7"])
-    }
-}
+// export class OneOutOfSeven extends MultipleChoice {
+//     constructor(props) {
+//         super(props, ["1", "2", "3", "4", "5", "6", "7"])
+//     }
+// }
 
 
 export class TrueFalse extends MultipleChoice {

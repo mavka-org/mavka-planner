@@ -148,7 +148,6 @@ export class Matching extends QuestionComponent {
 
 
     getClickedOption(answer_option_data, name) {
-        console.log('CLICKED!')
         // TODO front
         return <>
             <label>
@@ -250,9 +249,7 @@ export class Matching extends QuestionComponent {
 
         this.getUserAnswerState().split(";").map( (user_option_answer) => {
             if (user_option_answer != "") {
-                console.log(user_option_answer, !this.props.question.data.correct_answer.includes(user_option_answer))
                 if(!this.props.question.data.correct_answer.includes(user_option_answer)) {
-                    console.log('inside')
                     isCorrect = false
                 } 
             }

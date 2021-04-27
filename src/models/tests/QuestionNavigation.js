@@ -34,54 +34,64 @@ export default class QuestionNavigation extends React.Component {
     // classes = useStyles()
 
     getNavBar = () => {
-        console.log("getNavBar", this.props.getOnlyIncorrectQs)
         // TODO front
         return this.props.questionDatas.map((questionData, idx) => {
 
             // стилизовать тут
             if (questionData.is_submitted) {
                 if (questionData.is_correct) {
-                    if(!this.props.getOnlyIncorrectQs) {
+                    
                         return <button 
                         className={s.correctButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_id}
+                        {questionData.data.order_n}
                         </button>
-                    } 
+                    
                 }
                 else {
                     
                         return <button 
                         className={s.incorrectButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_id}
+                        {questionData.data.order_n}
                         </button>
                     
                 }
             }
             else {
                 if (questionData.user_answer_started) {
-                    if(!this.props.getOnlyIncorrectQs) {
+                    
                         return <button 
                         className={s.answeredButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_id}
+                        {questionData.data.order_n}
                         </button>
-                    } 
+                    
 
                 }
                 else {
 
-                    if(!this.props.getOnlyIncorrectQs) {
+                    
                         return <button 
                         className={s.normalButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_id}
+                        {questionData.data.order_n}
                         </button>
-                    } 
+                    
                 }
             }
         })
+    }
+
+    getFinishTestButton = () => {
+        return (
+            <Grid container direction="row" justify="flex-start" >
+            {this.getNavBar()}
+            <button onClick={() => this.setState({open: false}, this.props.handleTestFinishClick())}>
+            {(this.props.isTestScored) ? "Результати тесту" : "Завершити тест"}
+            </button>
+            </Grid>
+        )
     }
 
 
@@ -89,14 +99,7 @@ export default class QuestionNavigation extends React.Component {
     render() {
 
         if (!this.props.withButton) {
-            return (
-                <Grid container direction="row" justify="flex-start" >
-                {this.getNavBar()}
-                <button onClick={() => this.setState({open: false}, this.props.handleTestFinishClick())}>
-                Завершити тест
-                </button>
-                </Grid>
-            )
+            return this.getFinishTestButton()
         }
 
         else {
@@ -126,14 +129,8 @@ export default class QuestionNavigation extends React.Component {
                         >
                         <DialogTitle id="alert-dialog-title">{"вибери тест:"}</DialogTitle>
                         <DialogContent>
-        
-                            <Grid container direction="row" justify="flex-start" >
-                                {this.getNavBar()}
-                                <button onClick={() => this.setState({open: false}, this.props.handleTestFinishClick())}>
-                                Завершити тест
-                                </button>
-                                </Grid>
-                            </DialogContent>
+                            {this.getFinishTestButton()}
+                        </DialogContent>
         
                     </Dialog>
         

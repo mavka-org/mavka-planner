@@ -108,6 +108,8 @@ export const updateUserPlanner = async (user, subject, changes) => {
 
 // Questions
 
+const api_url = 'https://mavka-api-5dvjwdatfq-ey.a.run.app'
+
 export const getTestsLists = async (subject) => {
     //const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/all_tests_topics/${subject}`)
     // sample
@@ -116,9 +118,13 @@ export const getTestsLists = async (subject) => {
     return response
 }
 
-export const getQuestionsByTest = async (subject, test_strapi_id) => {
-  //const response = await axios.get(`https://mvp-api-5dvjwdatfq-ew.a.run.app/questions_by_test/${subject}/${test_strapi_id}`)
-  // sample
+export const getQuestionsByTest = async (test_id) => {
+  // const response = await axios.put(`${api_url}/getQuestions`, { 
+  //   test: test_id, 
+  // })
+
+  // return response 
+
   return require('./getQuestionsByTest_sample.json');
 }
 
