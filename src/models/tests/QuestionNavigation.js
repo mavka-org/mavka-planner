@@ -44,7 +44,7 @@ export default class QuestionNavigation extends React.Component {
                         return <button 
                         className={s.correctButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_n}
+                        {idx}
                         </button>
                     
                 }
@@ -53,7 +53,7 @@ export default class QuestionNavigation extends React.Component {
                         return <button 
                         className={s.incorrectButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_n}
+                        {idx}
                         </button>
                     
                 }
@@ -64,7 +64,7 @@ export default class QuestionNavigation extends React.Component {
                         return <button 
                         className={s.answeredButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_n}
+                        {idx}
                         </button>
                     
 
@@ -75,7 +75,7 @@ export default class QuestionNavigation extends React.Component {
                         return <button 
                         className={s.normalButton} 
                         onClick={() => this.setState({open: false}, this.props.setCurrentQuestionIdx(idx))}>
-                        {questionData.data.order_n}
+                        {idx}
                         </button>
                     
                 }

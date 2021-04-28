@@ -33,12 +33,15 @@ export function getScore(subj, test_year, test_session, questionsData) {
     } 
     else {
         zno = getZNO(subj, test_year, test_session, test_score)
+        if (zno > 200) zno = 200 // needs better solution -- eg, take success_rate*max_score 
     }
 
     console.log('ZNOOOOO', zno)
 
     return [test_score, getMaxScore(subj), zno]
 }
+
+
 
 export function sum_score(questionsData, subj) {
     let user_score = 0, user_true_score = 0 , total_score = 0

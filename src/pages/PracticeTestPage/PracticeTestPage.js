@@ -3,15 +3,13 @@ import { useEffect, useState } from 'react';
 import { getQuestionsByTest } from "../../services/API/httpRequests.js"
 import Loading from "../../components/Loading/Loading";
 import QuestionData from "../../models/tests/QuestionData.js"
-import { ABCD, ABCDE, LangMultipleChoice, OneOutOfSeven, TrueFalse } from "../../models/tests/Question/MultipleChoice";
-import { Matching } from "../../models/tests/Question/Matching";
-import { Open } from "../../models/tests/Question/Open";
-import { Free } from "../../models/tests/Question/Free";
-import { MultipleChoice } from "../../models/tests/Question/MultipleChoice";
+
 import { makeStyles } from '@material-ui/core/styles';
 import QuestionNavigation from "../../models/tests/QuestionNavigation";
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, Typography } from "@material-ui/core";
 import { getScore }  from '../../models/scoring/scoring'
+
+import { questionTypes, getQuestionComponent } from "./questionTypes"
 
 
 
@@ -19,17 +17,8 @@ import { getScore }  from '../../models/scoring/scoring'
 let questionDatas = []
 
 
-const questionTypes = {
-    "ABCD": ABCD,
-    "ABCDE": ABCDE,
-    "LangMultipleChoice": LangMultipleChoice,
-    "OneOutOfSeven": OneOutOfSeven,
-    "TrueFalse": TrueFalse,
-    "Matching": Matching,
-    "MultipleChoice": MultipleChoice,
-    "Open": Open,
-    "Free": Free
-}
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '415px',
@@ -94,7 +83,8 @@ export default function PracticeTestPage(props) {
     const getQuestionComponents = (currentQuestionIdx) => {
 
         return questionDatas.map((questionData, idx) => {
-            let QuestionType = questionTypes[questionData.data.question_type]
+            // let QuestionType = questionTypes[questionData.data.question_type]
+            let QuestionType = getQuestionComponent(questionData.data.question_type)
 
             return <QuestionType
                 question={questionData}
@@ -113,7 +103,6 @@ export default function PracticeTestPage(props) {
     }
 
     const shouldDisplayTestFinish = () => {
-        console.log('shouldDisplayTestFinish score', score)
         if( score === "individial questions scored" && currentQuestionIdx !== "display test finish page") {
             // TODO -- add real data to getScore
             let scores = getScore("математика", '2019', 'основна', questionDatas)
@@ -121,25 +110,19 @@ export default function PracticeTestPage(props) {
             max_score = scores[1]
             zno = scores[2]
             console.log("HJHJHJHJ", test_score, max_score, zno)
-            setScore('ready for first-time display')
-            // setCurrentQuestionIdx("display test finish page")
+            setScore("ready for first-time display")
 
         }
 
         else if (score === "ready for first-time display" && currentQuestionIdx !== "display test finish page") {
-            console.log('hey sanity')
             setCurrentQuestionIdx("display test finish page")
             setScore("ready for display")
             
         }
     }
 
-    
-
 
     console.log('rerender PracticeTestPage')
-    console.log('currentQuestionIdx', currentQuestionIdx)
-    console.log('score', score)
 
     return (
         

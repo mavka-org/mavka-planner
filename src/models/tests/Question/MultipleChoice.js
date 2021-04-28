@@ -18,6 +18,7 @@ export class MultipleChoice extends QuestionComponent {
         this.props.question.data.options.map((text_option, idx) => {
             answer_options_datas.push({ "answer": answer_options[idx], "text": text_option, "comment": this.getComment(idx) })
         })
+        console.log('answer_options_datas', answer_options_datas)
 
         return answer_options_datas
     }

@@ -7,8 +7,8 @@ export class Matching extends QuestionComponent {
 
     constructor(props) {
         super(props)
-        this.optionNames = ["A", "Б", "В", "Г", "Д", "Е"]
-        this.taskNames = ["1", "2", "3", "4", "5", "6"]
+        this.optionNames = ["A", "B", "C", "D", "E", "F", "G"]
+        this.taskNames = ["1", "2", "3", "4", "5", "6", "7"]
         this.options = this.formOptions()
         this.tasks = this.formTasks()
     }
@@ -23,8 +23,9 @@ export class Matching extends QuestionComponent {
 
     getOptionComment(idx) {
         let comment = undefined
-        if (this.props.question.data.optionComments && this.props.question.data.optionComments[idx] !== "") {
-            comment = this.props.question.data.optionComments[idx]
+        if (this.props.question.data.active_explanation && this.props.question.data.active_explanation.option_explanations
+             && this.props.question.data.active_explanation.option_explanations[idx] !== "") {
+            comment = this.props.question.data.active_explanation.option_explanations[idx]
         }
         return comment
 
@@ -41,8 +42,9 @@ export class Matching extends QuestionComponent {
 
     getTaskComment(idx) {
         let comment = undefined
-        if (this.props.question.data.taskComments && this.props.question.data.taskComments[idx] !== "") {
-            comment = this.props.question.data.taskComments[idx]
+        if (this.props.question.data.active_explanation && this.props.question.data.active_explanation.task_explanations
+            && this.props.question.data.active_explanation.task_explanations[idx] !== "") {
+            comment = this.props.question.data.active_explanation.task_explanations[idx]
         }
         return comment
 
@@ -52,8 +54,8 @@ export class Matching extends QuestionComponent {
 
         // стилизовать тут
         if (this.state.is_submitted) {
-            if (answer_option_data.comment) {
-                return <Grid item className="comment"> --- {answer_option_data.comment}</Grid>
+            if (answer_option_data.active_explanation && answer_option_data.active_explanation.comment) {
+                return <Grid item className="comment"> --- {answer_option_data.active_explanation.comment}</Grid>
             }
         }
     }
@@ -203,9 +205,13 @@ export class Matching extends QuestionComponent {
         }
     }
 
+    getCorrectAnswer() {
+        return this.props.question.data.correct_answer.toUpperCase() + ";"
+    }
+
 
     isOptionCorrect(answer_option_data) {
-        return this.props.question.data.correct_answer.includes(answer_option_data)
+        return this.getCorrectAnswer().includes(answer_option_data)
     }
 
     isOptionChosen(answer_option_data) {
@@ -233,7 +239,7 @@ export class Matching extends QuestionComponent {
         let score = 0
         let max_score = 0
 
-        this.props.question.data.correct_answer.split(";").map( (correct_answer) => {
+        this.getCorrectAnswer().split(";").map( (correct_answer) => {
             if (correct_answer != "") {
                 max_score += 1
                 if(this.getUserAnswerState().includes(correct_answer)) score += 1
@@ -249,7 +255,7 @@ export class Matching extends QuestionComponent {
 
         this.getUserAnswerState().split(";").map( (user_option_answer) => {
             if (user_option_answer != "") {
-                if(!this.props.question.data.correct_answer.includes(user_option_answer)) {
+                if(!this.getCorrectAnswer().includes(user_option_answer)) {
                     isCorrect = false
                 } 
             }
@@ -259,3 +265,6 @@ export class Matching extends QuestionComponent {
 
 
 }
+
+
+export class Matching3x5 extends Matching {}

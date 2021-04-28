@@ -64,16 +64,6 @@ export class QuestionComponent extends React.Component {
         this.props.setScore("individial questions scored")
         this.setState({ is_submitted: true })
 
-        // this.setState({ is_submitted: true }, () => {
-        //     if(this.props.isLast) {
-        //         console.log('I SYKA UPDATE STATE TO HUI')
-        //         this.props.setScore("hui")
-        //     }
-        // })
-        // TODO ADD THEN
-
-        
-
     }
 
     score() { return [,] }
@@ -98,6 +88,7 @@ export class QuestionComponent extends React.Component {
 
 
     getAnswerOption(answer_option_data, name) {
+        
 
         if (this.state.is_submitted) {
 
@@ -129,7 +120,6 @@ export class QuestionComponent extends React.Component {
 
 
         if (this.props.score === "initialized") {
-            console.log("in QUestionComponents score", this.props.score)
             this.doScore()
             return null
         }
@@ -167,7 +157,7 @@ export class QuestionComponent extends React.Component {
 
                     <div className={s.ButtonContainer}>
                         <button className={s.RoundedButton} 
-                        onClick={() => this.props.handleChangeQuestion(this.props.question.data.order_n - 1)}><PlayArrowIcon style={{ transform: 'rotate(60deg)' }} />
+                        onClick={() => this.props.handleChangeQuestion(this.props.idx - 1)}><PlayArrowIcon style={{ transform: 'rotate(60deg)' }} />
                         </button>
                         
                         <button className={s.CheckButton} 
@@ -175,7 +165,7 @@ export class QuestionComponent extends React.Component {
                         </button>
 
                         <button className={s.RoundedButton} 
-                        onClick={() => {this.props.handleChangeQuestion(this.props.question.data.order_n + 1)
+                        onClick={() => {this.props.handleChangeQuestion(this.props.idx + 1)
                         }}><PlayArrowIcon />
                         </button>
                     </div>
