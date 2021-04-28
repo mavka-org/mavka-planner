@@ -40,9 +40,10 @@ export default function PracticeTestPage(props) {
     if (!isDataLoaded) {
 
         // TODO load actual test questions
-        getQuestionsByTest("math_TODO", "strapi_id_TODO").then((testQuestionsResponse) => {
+        getQuestionsByTest("608177e96717352a740bde77").then((testQuestionsResponse) => {
+            console.log(testQuestionsResponse)
 
-            testQuestionsResponse.forEach(function (q_data, idx) {
+            testQuestionsResponse.data.forEach(function (q_data, idx) {
 
                 let questionData = new QuestionData(q_data)
                 questionDatas.push(questionData)

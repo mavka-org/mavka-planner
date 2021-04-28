@@ -6,7 +6,7 @@ export class Open extends QuestionComponent {
 
     constructor(props) {
         super(props)
-        // let inputsNumber = props.inputsNumber
+        this.inputsNumber = this.props.question.data.tasks.length
     }
 
     formAnswerOptionsData(answer_options) {
@@ -45,13 +45,27 @@ export class Open extends QuestionComponent {
         return input
     }
 
+    // slices by semicolumn and returns value between n-1 and n-th semicolumns ???????
+    getSubAnswer(input, order) {
+        console.log('input', input)
+        let slice = input.slice(";")[order]
+        if (slice) {
+            return slice
+        } else return ""
+    
+    }
+
+
+
+
+
     displayOptions() {
 
         let toDisplay = []
 
         if (this.state.is_submitted) {
 
-            for (let subq_n = 0; subq_n < 3; subq_n++) {
+            for (let subq_n = 0; subq_n < this.inputsNumber; subq_n++) {
 
                 toDisplay.push(this.getSubquestion(subq_n))
 
@@ -67,7 +81,7 @@ export class Open extends QuestionComponent {
         }
         else {
 
-            for (let subq_n = 0; subq_n < 3; subq_n++) {
+            for (let subq_n = 0; subq_n < this.inputsNumber; subq_n++) {
                 let id = "openInput" + subq_n
                 toDisplay.push(this.getSubquestion(subq_n))
                 toDisplay.push(this.getEmptyInputField(subq_n, id))
@@ -114,14 +128,12 @@ export class Open extends QuestionComponent {
         let score = 0
         let max_score = 2
 
-        let number = 2
-
-        for (let subq_n = 0; subq_n < number; subq_n++) {
+        for (let subq_n = 0; subq_n < this.inputsNumber; subq_n++) {
 
             let subq_user_answer = this.cutBySemicolumn(this.state.user_answer, subq_n)
             let subq_correct_answer = this.cutBySemicolumn(this.props.question.data.correct_answer, subq_n)
             if (subq_user_answer === subq_correct_answer) {
-                if (number == 1) {score += 2}
+                if (this.inputsNumber == 1) {score += 2}
                 else score +=1
             }
             
@@ -131,9 +143,7 @@ export class Open extends QuestionComponent {
 
     isQuestionCorrect() {
 
-        let number = 2
-
-        for (let subq_n = 0; subq_n < number; subq_n++) {
+        for (let subq_n = 0; subq_n < this.inputsNumber; subq_n++) {
 
             let subq_user_answer = this.cutBySemicolumn(this.state.user_answer, subq_n)
             let subq_correct_answer = this.cutBySemicolumn(this.props.question.data.correct_answer, subq_n)
@@ -177,8 +187,13 @@ export class Open extends QuestionComponent {
 
     getComment(subq_n) {
         // TODO front -- комент до підпитання
-        if (this.props.question.data.comments && this.props.question.data.comments[subq_n]) {
-            return <div style={{margin:'10px 0'}}><Typography variant="subtitle1">Коментар {this.props.question.data.comments[subq_n]}</Typography> </div>
+        if (this.props.question.data.active_explanation && this.props.question.data.active_explanation.taskComments
+             && this.props.question.data.active_explanation.taskComments[subq_n]) {
+            return <div style={{margin:'10px 0'}}>
+            <Typography variant="subtitle1">
+            Коментар 
+            {this.props.question.data.active_explanation.taskComments[subq_n]}
+            </Typography> </div>
         }
     }
 

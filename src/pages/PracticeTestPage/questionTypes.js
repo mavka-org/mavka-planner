@@ -18,5 +18,6 @@ export const questionTypes = {
 
 export function getQuestionComponent(question_type) {
     if (question_type.includes("Matching")) return Matching
+    if (question_type.includes("Open")) return Open
     else return questionTypes[question_type]
 }

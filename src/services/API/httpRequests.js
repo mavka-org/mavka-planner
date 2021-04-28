@@ -119,13 +119,13 @@ export const getTestsLists = async (subject) => {
 }
 
 export const getQuestionsByTest = async (test_id) => {
-  // const response = await axios.put(`${api_url}/getQuestions`, { 
-  //   test: test_id, 
-  // })
+  const response = await axios.post(`${api_url}/getQuestions`, { 
+    test: test_id, 
+  })
 
-  // return response 
+  return response 
 
-  return require('./getQuestionsByTest_sample.json');
+  // return require('./getQuestionsByTest_sample.json');
 }
 
 
