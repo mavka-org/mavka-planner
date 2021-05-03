@@ -132,7 +132,6 @@ export default function PracticeTestPage(props) {
     console.log('rerender PracticeTestPage')
 
     return (
-
         (currentQuestionIdx !== undefined) ? (
 
             <Container maxWidth="xs">
