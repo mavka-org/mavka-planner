@@ -1,5 +1,6 @@
 import React, { useContext, useReducer } from "react";
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import { getQuestionsByTest } from "../../services/API/httpRequests.js"
 import Loading from "../../components/Loading/Loading";
 import QuestionData from "../../models/tests/QuestionData.js"
@@ -7,7 +8,7 @@ import QuestionData from "../../models/tests/QuestionData.js"
 import { makeStyles } from '@material-ui/core/styles';
 import QuestionNavigation from "../../models/tests/QuestionNavigation";
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, IconButton, Typography } from "@material-ui/core";
-import { getScore }  from '../../models/scoring/scoring'
+import { getScore } from '../../models/scoring/scoring'
 
 import { questionTypes, getQuestionComponent } from "./questionTypes"
 
@@ -27,13 +28,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PracticeTestPage(props) {
-
+    const testId = useParams().id
+    const questionId = useParams().questionId
     const [isDataLoaded, setDataLoaded] = React.useState(false)
     const [isDataRequested, setDataRequested] = React.useState(false)
-    const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
+    const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(undefined)
     const [, forceUpdate] = useReducer(x => x + 1, 0);
-    let [test_score, max_score, zno] = [0,0,0]
-    
+    let [test_score, max_score, zno] = [0, 0, 0]
+
     // score: "not scored", "initialized", "individial questions scored", "ready for first-time display", "ready for display"
     const [score, setScore] = React.useState("not scored")
 
@@ -61,7 +63,7 @@ export default function PracticeTestPage(props) {
 
     if (currentQuestionIdx === undefined && isDataLoaded) {
         //TODO set current question based on url or NavBar
-        setCurrentQuestionIdx(0)
+        setCurrentQuestionIdx(questionId)
     }
 
 
@@ -69,6 +71,7 @@ export default function PracticeTestPage(props) {
         console.log('handleChangeQuestion to', new_q_id)
 
         if (new_q_id >= 0 && new_q_id < questionDatas.length) {
+            window.history.replaceState({}, 'Question', `${window.location.origin}/practice/test/${testId}/question/${new_q_id}`)
             setCurrentQuestionIdx(new_q_id)
         }
     }
@@ -95,7 +98,7 @@ export default function PracticeTestPage(props) {
                 hidden={currentQuestionIdx != idx}
                 currentQuestionIdx={currentQuestionIdx}
                 idx={idx}
-                isLast={idx==(questionDatas.length-1)}
+                isLast={idx == (questionDatas.length - 1)}
                 handleChangeQuestion={handleChangeQuestion}
                 forceUpdate={forceUpdate}
                 setScore={setScore}
@@ -107,7 +110,7 @@ export default function PracticeTestPage(props) {
     }
 
     const shouldDisplayTestFinish = () => {
-        if( score === "individial questions scored" && currentQuestionIdx !== "display test finish page") {
+        if (score === "individial questions scored" && currentQuestionIdx !== "display test finish page") {
             // TODO -- add real data to getScore
             let scores = getScore("математика", '2019', 'основна', questionDatas)
             test_score = scores[0]
@@ -121,7 +124,7 @@ export default function PracticeTestPage(props) {
         else if (score === "ready for first-time display" && currentQuestionIdx !== "display test finish page") {
             setCurrentQuestionIdx("display test finish page")
             setScore("ready for display")
-            
+
         }
     }
 
@@ -129,49 +132,51 @@ export default function PracticeTestPage(props) {
     console.log('rerender PracticeTestPage')
 
     return (
-        
+
         (currentQuestionIdx !== undefined) ? (
 
             <Container maxWidth="xs">
                 <Grid container direction="column" >
 
-                {shouldDisplayTestFinish()}
-                    
-                   {(currentQuestionIdx === "display test finish page") ? (
+                    {shouldDisplayTestFinish()}
+
+                    {(currentQuestionIdx === "display test finish page") ? (
                         <div>
                             <div>finish test page </div>
-                            <QuestionNavigation 
-                            withButton={false} 
-                            questionDatas={questionDatas} 
-                            setCurrentQuestionIdx={setCurrentQuestionIdx} 
-                            handleTestFinishClick={handleTestFinishClick}
-                            getOnlyIncorrectQs={true}
+                            <QuestionNavigation
+                                testId={testId}
+                                withButton={false}
+                                questionDatas={questionDatas}
+                                setCurrentQuestionIdx={setCurrentQuestionIdx}
+                                handleTestFinishClick={handleTestFinishClick}
+                                getOnlyIncorrectQs={true}
                             />
                             {/* // finish test page*/}
                         </div>
-                
+
                     ) : (
                         <div>
-                            <QuestionNavigation 
-                            withButton={true} 
-                            questionDatas={questionDatas} 
-                            setCurrentQuestionIdx={setCurrentQuestionIdx} 
-                            handleTestFinishClick={handleTestFinishClick}
-                            getOnlyIncorrectQs={false}
-                            isTestScored = {score === "ready for display"}
+                            <QuestionNavigation
+                                testId={testId}
+                                withButton={true}
+                                questionDatas={questionDatas}
+                                setCurrentQuestionIdx={setCurrentQuestionIdx}
+                                handleTestFinishClick={handleTestFinishClick}
+                                getOnlyIncorrectQs={false}
+                                isTestScored={score === "ready for display"}
                             />
 
-                            <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx }</Typography></Grid>
+                            <Grid item style={{ width: 'inherit' }}><Typography variant="h2">завдання {currentQuestionIdx}</Typography></Grid>
                         </div>
                     )}
-                    
+
                     {getQuestionComponents(currentQuestionIdx)}
-                    
+
                 </Grid>
             </Container>
 
 
-        
+
         )
             : <Loading />
     );

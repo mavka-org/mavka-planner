@@ -26,36 +26,36 @@ function App() {
   const [loadingMathQuill1, errorMathQuill1] = useScript({ src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' });
   const [loadingMathQuill2, errorMathQuill2] = useScript({ src: 'https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.min.js' });
 
-    // if (loadingKatex || loadingMathQuill1 || loadingMathQuill2) return <h3>Loading Scripts...</h3>;
-    if (errorKatex || errorMathQuill1 || errorMathQuill2) return <h3>Failed to load scripts</h3>;
+  // if (loadingKatex || loadingMathQuill1 || loadingMathQuill2) return <h3>Loading Scripts...</h3>;
+  if (errorKatex || errorMathQuill1 || errorMathQuill2) return <h3>Failed to load scripts</h3>;
 
-    return (
-        <UserProvider>
-          <ThemeProvider>
-            <SubjectProvider>
+  return (
+    <UserProvider>
+      <ThemeProvider>
+        <SubjectProvider>
 
-              <Router>
-                <Switch>
-                  <Route exact path="/" component={LandingPage} />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
 
-                  <Route path="/planner" component={PlannerPage} />
+              <Route path="/planner" component={PlannerPage} />
 
-                  <Route path="/program" component={ProgramPage} />
+              <Route path="/program" component={ProgramPage} />
 
-                  <Route path="/math/topic/:id" component={TopicPage} />
+              <Route path="/math/topic/:id" component={TopicPage} />
 
-                  <Route path="/tests" component={TestsPage} />
+              <Route path="/tests" component={TestsPage} />
 
-                  <Route path="/practice/test/:id" component={PracticeTestPage} />
+              <Route path="/practice/test/:id/question/:questionId" component={PracticeTestPage} />
 
-                  <Route path="/choose/test" component={TestsPage} />
+              <Route path="/choose/test" component={TestsPage} />
 
-                </Switch>
-              </Router>
+            </Switch>
+          </Router>
 
-            </SubjectProvider>
-          </ThemeProvider>
-        </UserProvider>
-    );
+        </SubjectProvider>
+      </ThemeProvider>
+    </UserProvider>
+  );
 }
 export default App;
