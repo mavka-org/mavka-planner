@@ -2,6 +2,7 @@ import { QuestionComponent } from "./QuestionComponent";
 import React from "react";
 import s from './Question.module.css'
 import { Grid, Typography } from "@material-ui/core";
+import RenderHTML from '../RenderHTML'
 
 export class Matching extends QuestionComponent {
 
@@ -55,7 +56,9 @@ export class Matching extends QuestionComponent {
         // стилизовать тут
         if (this.state.is_submitted) {
             if (answer_option_data.active_explanation && answer_option_data.active_explanation.comment) {
-                return <Grid item className="comment"> --- {answer_option_data.active_explanation.comment}</Grid>
+                return <Grid item className="comment"> 
+                <RenderHTML HTML={answer_option_data.active_explanation.comment} />
+                </Grid>
             }
         }
     }
@@ -64,13 +67,15 @@ export class Matching extends QuestionComponent {
         let toDisplay = []
         let tableRow = []
         let value, name;
-        // TODO front
+
         // display options (aka "A: text for option A")
         toDisplay.push(this.options.map((option_data) => {
             return <Grid container direction="column" className={s.Button__MatchingText}>
                 <Grid item container direction="row">
                     <Grid item> <Typography style={{ marginRight: '20px' }} variant="h6">{option_data.name}: </Typography></Grid>
-                    <Grid item><Typography variant="subtitle1">{option_data.option}</Typography></Grid>
+                    <Grid item><Typography variant="subtitle1">
+                    <RenderHTML HTML={option_data.option} />
+                    </Typography></Grid>
                 </Grid>
                 <Grid item container direction="column">
                     {this.displayComment(option_data)}
@@ -79,13 +84,12 @@ export class Matching extends QuestionComponent {
         }))
 
         // display tasks (aka "1: text for task 1")
-        // toDisplay.push(this.tasks.map( (task_data) => {
-        //     return <div>{task_data.name}: {task_data.task}</div>
-
         toDisplay.push(this.tasks.map((task_data) => {
             return <div className={s.Button__MatchingText}>
                 <Typography style={{ marginRight: '20px' }} variant="h6">{task_data.name}:</Typography>
-                <Typography variant="subtitle1">{task_data.task}</Typography>
+                <Typography variant="subtitle1">
+                <RenderHTML HTML={task_data.task} />
+                </Typography>
                 {this.displayComment(task_data)}
             </div>
         }))
@@ -220,19 +224,6 @@ export class Matching extends QuestionComponent {
         }
         else return false
     }
-
-    // score() {
-    //     let score = 0
-    //     let max_score = 0
-
-    //     this.getUserAnswerState().split(";").map( (user_option_answer) => {
-    //         max_score += 1
-    //         if (user_option_answer != "") {
-    //             if(this.props.question.data.correct_answer.includes(user_option_answer)) score += 1
-    //         }
-    //     } )
-    //     return [score, max_score]
-    // }
 
     
     score() {

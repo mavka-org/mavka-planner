@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PracticeTestPage(props) {
 
     const [isDataLoaded, setDataLoaded] = React.useState(false)
+    const [isDataRequested, setDataRequested] = React.useState(false)
     const [currentQuestionIdx, setCurrentQuestionIdx] = React.useState(0)
     const [, forceUpdate] = useReducer(x => x + 1, 0);
     let [test_score, max_score, zno] = [0,0,0]
@@ -37,7 +38,7 @@ export default function PracticeTestPage(props) {
     const [score, setScore] = React.useState("not scored")
 
 
-    if (!isDataLoaded) {
+    if (!isDataRequested) {
 
         // TODO load actual test questions
         getQuestionsByTest("608177e96717352a740bde77").then((testQuestionsResponse) => {
@@ -50,9 +51,11 @@ export default function PracticeTestPage(props) {
 
             })
             setDataLoaded(true)
+            console.log("DATA LOADED", questionDatas)
 
         })
-
+        setDataRequested(true)
+        console.log("DATA REQUESTED", questionDatas)
 
     }
 

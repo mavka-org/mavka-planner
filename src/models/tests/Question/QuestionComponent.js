@@ -4,6 +4,9 @@ import s from './Question.module.css'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import './QuestionComponent.css'
 import {score} from '../../scoring/scoring'
+import RenderHTML from '../RenderHTML'
+
+
 
 export class QuestionComponent extends React.Component {
 
@@ -115,9 +118,6 @@ export class QuestionComponent extends React.Component {
 
 
     render() {
-        // this.IsUserAnswerStarted()
-        // this.user_answer = this.state.is_submitted
-
 
         if (this.props.score === "initialized") {
             this.doScore()
@@ -128,8 +128,9 @@ export class QuestionComponent extends React.Component {
             (!this.props.hidden) ?
                 <>
                     <Grid container direction="column">
-                        {/* <div>{this.props.question.data.primary_question}</div> */}
-                        <Grid item container className={s.imgContainer} dangerouslySetInnerHTML={{ __html: this.props.question.data.primary_question }} />
+                        <Grid item container className={s.imgContainer}>
+                        <RenderHTML HTML={this.props.question.data.primary_question} />
+                        </Grid>
                         <Grid item style={{marginBottom:'10px'}}><Typography variant="h2">обери одну відповідь:</Typography> </Grid>
                     </Grid>
                     <Grid container>
@@ -137,21 +138,20 @@ export class QuestionComponent extends React.Component {
                     </Grid>
 
 
-                    {this.props.question.is_submitted ? (
-                        <Grid container>
-                            {(this.props.question.data.topic && this.props.question.data.topic.name ) ? (
-                                <Typography variant='subtitle1'><b>  Загальний коментар:</b> {this.props.question.data.topic.name}</Typography>
-                            ) : (null)}
+                {this.props.question.is_submitted ? (
+                    <Grid container>
+                        {(this.props.question.data.topic && this.props.question.data.topic.name ) ? (
+                            <Typography variant='subtitle1'><b>  Тема:</b> {this.props.question.data.topic.name}</Typography>
+                        ) : (null)}
 
-                            {/* <Grid item style={{margin:'10px 0'}}><Typography variant='subtitle1'> <b> Тема:</b>  {this.props.question.data.topic.name}</Typography> </Grid> */}
-
-                            {/* {this.props.question.data.hasOwnProperty("general_comment") ? ( */}
-                            {(this.props.question.data.active_explanation && this.props.question.data.active_explanation.comment ) ? (
-                                <Typography variant='subtitle1'><b>  Загальний коментар:</b> {this.props.question.data.active_explanation.comment}</Typography>
-                            ) : (null)}
-                            {/* стилизовать тут */}
-                        </Grid>
-                    ) : (null)}
+                        {(this.props.question.data.active_explanation && this.props.question.data.active_explanation.comment ) ? (
+                            <Typography variant='subtitle1'><b>  Загальний коментар:</b> 
+                            <RenderHTML id={"huieta"} HTML={this.props.question.data.active_explanation.comment} />
+                            </Typography>
+                        ) : (null)}
+                        {/* стилизовать тут */}
+                    </Grid>
+                ) : (null)}
 
 
 

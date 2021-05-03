@@ -3,6 +3,9 @@ import { QuestionComponent } from "./QuestionComponent";
 import s from './Question.module.css'
 import { Grid, Typography } from "@material-ui/core";
 import clsx from 'clsx'
+import RenderHTML from '../RenderHTML'
+
+
 
 
 export class MultipleChoice extends QuestionComponent {
@@ -18,7 +21,6 @@ export class MultipleChoice extends QuestionComponent {
         this.props.question.data.options.map((text_option, idx) => {
             answer_options_datas.push({ "answer": answer_options[idx], "text": text_option, "comment": this.getComment(idx) })
         })
-        console.log('answer_options_datas', answer_options_datas)
 
         return answer_options_datas
     }
@@ -46,64 +48,47 @@ export class MultipleChoice extends QuestionComponent {
 
     displayComment(answer_option_data) {
         if (answer_option_data.comment) {
-            return <Grid item><Typography variant="subtitle1">--- {answer_option_data.comment}</Typography></Grid>
+            return <Grid item><Typography variant="subtitle1">
+            <RenderHTML HTML={answer_option_data.comment} />
+            </Typography></Grid>
         }
     }
 
-    getNormalOption(answer_option_data) {
-
-        return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
+    getOption(answer_option_data, class_name) {
+        return <div className={class_name} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
             <Grid container direction="row" alignItems="center">
-                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
-                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography></Grid>
+                <Grid item>
+                <Typography style={{ marginRight: '20px' }} variant="h6">
+                {answer_option_data.answer}:</Typography>
+                </Grid>
+
+                <Grid item>            
+                <Typography variant="subtitle1" />
+                <RenderHTML HTML={answer_option_data.text} />
+                </Grid>
             </Grid>
-        </div>
+            {this.displayComment(answer_option_data)}
+        </div> 
+    }
+
+    getNormalOption(answer_option_data) {
+        return this.getOption(answer_option_data, s.Button)
     }
 
     getNormalSubmittedOption(answer_option_data) {
-
-        return <div className={s.Button} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Grid container direction="row" alignItems="center">
-                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
-                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>
-            </Grid>
-            {this.displayComment(answer_option_data)}
-        </div>
-
+        return this.getOption(answer_option_data, s.Button)
     }
 
     getClickedOption(answer_option_data) {
-
-        return <div className={clsx(s.Button, s.choosen)}
-            onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Grid container direction="row" alignItems="center">
-                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
-                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography></Grid>
-            </Grid>
-        </div>
+        return this.getOption(answer_option_data, clsx(s.Button, s.choosen))
     }
 
     getCorrectOption(answer_option_data) {
-
-        return <div className={clsx(s.Button, s.correct)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Grid container direction="row" alignItems="center">
-                <Grid item>            <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
-                <Grid item>            <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>
-            </Grid>
-            {this.displayComment(answer_option_data)}
-        </div>
-
+        return this.getOption(answer_option_data, clsx(s.Button, s.correct))
     }
 
     getSubmittedIncorrectOption(answer_option_data) {
-
-        return <div className={clsx(s.Button, s.incorrect)} onClick={() => this.handleAnswerOptionClick(answer_option_data)}>
-            <Grid container direction="row" alignItems="center">
-                <Grid item>                      <Typography style={{ marginRight: '20px' }} variant="h6">{answer_option_data.answer}:</Typography></Grid>
-                <Grid item>                       <Typography variant="subtitle1">{answer_option_data.text}</Typography>                </Grid>
-            </Grid>
-            {this.displayComment(answer_option_data)}
-        </div>
+        return this.getOption(answer_option_data, clsx(s.Button, s.incorrect))
     }
 
     isOptionChosen(answer_option_data) {
@@ -138,25 +123,8 @@ export class MultipleChoice extends QuestionComponent {
 
 
 
-// export class ABCD extends MultipleChoice {
-//     constructor(props) {
-//         super(props, ["A", "B", "C", "D"])
-//     }
-// }
 
 
-// export class ABCDE extends MultipleChoice {
-//     constructor(props) {
-//         super(props, ["A", "B", "C", "D", "E"])
-//     }
-// }
-
-
-// export class LangMultipleChoice extends MultipleChoice {
-//     constructor(props) {
-//         super(props, ["A", "B", "C", "D", "E", "F", "G", "H", "I"])
-//     }
-// }
 
 export class EnglishLettersMultipleChoice extends MultipleChoice {
     constructor(props) {
@@ -177,13 +145,6 @@ export class NumbersMultipleChoice extends MultipleChoice {
 }
 
 export class OneOutOfSeven extends NumbersMultipleChoice {}
-
-
-// export class OneOutOfSeven extends MultipleChoice {
-//     constructor(props) {
-//         super(props, ["1", "2", "3", "4", "5", "6", "7"])
-//     }
-// }
 
 
 export class TrueFalse extends MultipleChoice {

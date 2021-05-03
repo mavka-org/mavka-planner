@@ -15,7 +15,19 @@ import PracticeTestPage from './pages/PracticeTestPage/PracticeTestPage';
 
 import { analytics } from './services/Firebase/firebase.js'
 
+import useScript from 'react-script-hook';
+
+
+
+
 function App() {
+
+  const [loadingKatex, errorKatex] = useScript({ src: 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js' });
+  const [loadingMathQuill1, errorMathQuill1] = useScript({ src: 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js' });
+  const [loadingMathQuill2, errorMathQuill2] = useScript({ src: 'https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.min.js' });
+
+    // if (loadingKatex || loadingMathQuill1 || loadingMathQuill2) return <h3>Loading Scripts...</h3>;
+    if (errorKatex || errorMathQuill1 || errorMathQuill2) return <h3>Failed to load scripts</h3>;
 
     return (
         <UserProvider>

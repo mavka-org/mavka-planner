@@ -177,7 +177,7 @@ export class Open extends QuestionComponent {
     getIncorrectInputField(subq_n, id, user_answer, correct_answer) {
         // TODO front -- коли питання засамбічене, але юзер-відповідь неправильна
         return <div>
-            <div><Typography variant="subtitle1" style={{margin:'10px 0'}}>лох непраивльно!!!</Typography>  </div>
+            <div><Typography variant="subtitle1" style={{margin:'10px 0'}}></Typography>  </div>
             <input className={s.incorrectInput} id={id} type="text" value={this.getUserInput(subq_n)} maxLength="512" />
             <Typography variant="subtitle1" style={{margin:'10px 0'}}>Правильна відповідь: <b>  {correct_answer}</b></Typography>
             {this.getComment(subq_n)}
